@@ -1,0 +1,10 @@
+PODS:
+  - FXLabel (1.5.8)
+
+DEPENDENCIES:
+  - FXLabel
+
+SPEC CHECKSUMS:
+  FXLabel: d7c2cb1d2903d7a7ac04855d470ecf2079f4881e
+
+COCOAPODS: 0.34.1
