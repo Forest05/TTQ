@@ -28,7 +28,6 @@
         
         dict = [dict dictionaryCheckNull];
         
-//        NSLog(@"coupon dict # %@",dict);
         
         self.id = dict[@"objectId"];
         self.title = dict[@"title"];

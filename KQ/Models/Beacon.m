@@ -10,4 +10,19 @@
 
 @implementation Beacon
 
+- (BOOL)isEqualToCLBeacon:(CLBeacon*)beacon{
+
+    if ([[beacon.proximityUUID UUIDString] isEqualToString:[self.uuid UUIDString]] &&
+        
+        [beacon.major isEqual: @(self.majorValue)] &&
+        
+        [beacon.minor isEqual: @(self.minorValue)]){
+    
+        return YES;
+    }
+    else{
+        return NO;
+    }
+
+}
 @end

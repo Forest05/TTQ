@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CoreLocation/CoreLocation.h>
 
 @interface Beacon : NSObject
+
+@property (nonatomic, strong) NSUUID *uuid;
+@property (nonatomic, assign) int majorValue;
+@property (nonatomic, assign) int minorValue;
+
+- (BOOL)isEqualToCLBeacon:(CLBeacon*)clb;
+
 
 @end

@@ -12,11 +12,12 @@
 
 static NSArray *keys;
 
+
 - (id)initWithDict:(NSDictionary *)dict{
     if (self = [super init]) {
 
         if (!keys) {
-            keys = @[@"id",@"name",@"name_en"];
+            keys = @[@"id",@"name",@"name_en",@"exhibitionId",@"uuid"];
         }
         
         for (NSString *key in keys) {
@@ -31,7 +32,6 @@ static NSArray *keys;
 
 - (void)display{
     
-//    NSArray *keys = @[@"id",@"name",@"name_en"];
     NSLog(@"--------------Begin Display Hall # %@------------\n",self);
     for (NSString *key in keys) {
         NSLog(@"%@ => %@",key, [self valueForKey:key]);

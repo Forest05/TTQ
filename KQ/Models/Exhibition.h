@@ -12,8 +12,13 @@
 @interface Exhibition : NSObject
 
 @property (nonatomic, copy) NSString *id;
+@property (nonatomic, strong) NSString *major;
+
+
 @property (nonatomic, strong) NSArray *arts; //key是art，obj是
-@property (nonatomic, strong) NSDictionary *beacons; //key是art的id， obj是CLBeaconRegion
+//@property (nonatomic, strong) NSArray *arts; //key是art，obj是
+//@property (nonatomic, strong) NSDictionary *beacons; //key是art的id， obj是CLBeaconRegion
+
 
 - (id)initWithDict:(NSDictionary *)dict;
 

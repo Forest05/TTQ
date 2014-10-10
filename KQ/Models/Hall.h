@@ -19,9 +19,13 @@
 @property (nonatomic, strong) NSString *name_en;
 @property (nonatomic, strong) NSString *postUrl;
 @property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *exhibitionId;
+@property (nonatomic, strong) NSString *uuid;
+
 @property (nonatomic, strong) NSMutableDictionary *exhibitions; // key是exhibition的id，如果没有载入的话，value为nsnull，否则为exhibition
 @property (nonatomic, strong) NSMutableArray *imageTexts;  //这个肯定会初始化
-@property (nonatomic, readonly) Exhibition *defaultExhibition;
+@property (nonatomic, strong) Exhibition *defaultExhibition;
+
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -74,9 +74,11 @@
     
     [self test];
     
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"hall"];
-    NSDictionary *hallDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    NSLog(@"hall Dict # %@",hallDict);
+//    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"hall"];
+//    NSDictionary *hallDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    NSLog(@"hall Dict # %@",hallDict);
+
+    NSLog(@"hall # %@,arts # %@",[[AppManager sharedInstance] hall],[[AppManager sharedInstance] arts]);
     
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
     
@@ -102,24 +104,28 @@
     
     // 载入网络数据
     [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
-        NSLog(@"dict # %@",dict);
+//        NSLog(@"dict # %@",dict);
 
-        Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
+//        Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
+//
+//        NSArray *imageTexts = dict[@"imageTexts"];
+//        for (NSDictionary *imageTextDict in imageTexts) {
+//            ImageText *it = [[ImageText alloc] initWithDict:imageTextDict];
+//            
+//            [hall.imageTexts addObject:it];
+//        }
 
-        NSArray *imageTexts = dict[@"imageTexts"];
-        for (NSDictionary *imageTextDict in imageTexts) {
-            ImageText *it = [[ImageText alloc] initWithDict:imageTextDict];
-            
-            [hall.imageTexts addObject:it];
-        }
+        //第一次用
+        [[AppManager sharedInstance] configHallDict:dict];
         
-        //这里是为了第一次载入app用的
-        [[AppManager sharedInstance] setHall:hall];
+//        //这里是为了第一次载入app用的
+//        [[AppManager sharedInstance] setHall:hall];
         
         //保存hall到defaults中
         NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
         [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
         
 
     }];

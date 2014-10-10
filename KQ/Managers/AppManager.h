@@ -15,8 +15,10 @@
 
 @property (nonatomic, strong) Hall *hall;
 @property (nonatomic, strong) Exhibition *exhibition;
-
+@property (nonatomic, readonly) NSArray *arts;
+//@property (nonatomic, strong) NSMutableArray *
 
 + (id)sharedInstance;
 
+- (void)configHallDict:(NSDictionary*)dict;
 @end

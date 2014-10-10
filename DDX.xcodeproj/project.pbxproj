@@ -978,7 +978,7 @@
 		26E3A518192DE02F004F8C8C = {
 			isa = PBXGroup;
 			children = (
-				26E3A52C192DE02F004F8C8C /* KQ */,
+				26E3A52C192DE02F004F8C8C /* TTQ */,
 				26E3A552192DE02F004F8C8C /* KQTests */,
 				26E3A523192DE02F004F8C8C /* Frameworks */,
 				26E3A522192DE02F004F8C8C /* Products */,
@@ -1019,7 +1019,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		26E3A52C192DE02F004F8C8C /* KQ */ = {
+		26E3A52C192DE02F004F8C8C /* TTQ */ = {
 			isa = PBXGroup;
 			children = (
 				26E3A5D4192DE0F0004F8C8C /* TTQAppDelegate.h */,
@@ -1034,6 +1034,7 @@
 				26E3A52D192DE02F004F8C8C /* Supporting Files */,
 				26E3A562192DE042004F8C8C /* 3rdLibraries */,
 			);
+			name = TTQ;
 			path = KQ;
 			sourceTree = "<group>";
 		};
