@@ -57,6 +57,7 @@
     self.chooseLangVC = [[ChooseLangViewController alloc] init];
     self.hallEntranceVC = [[HallEntranceViewController alloc] init];
     self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
+    
 //    _baseVC = [[TTQViewController alloc] init];
 //    
 //    [self.view addSubview:_baseVC.view];

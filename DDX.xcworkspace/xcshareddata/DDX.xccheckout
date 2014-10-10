@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>68BD55A1-795A-43B4-8DB5-1EB9034A0E84</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DDX</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>099494BCDE03335EE9FBCE011E09E74809E62AFE</key>
+		<string>https://github.com/Forest05/TTQ.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DDX.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>099494BCDE03335EE9FBCE011E09E74809E62AFE</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Forest05/TTQ.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>099494BCDE03335EE9FBCE011E09E74809E62AFE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>099494BCDE03335EE9FBCE011E09E74809E62AFE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TTQ</string>
+		</dict>
+	</array>
+</dict>
+</plist>

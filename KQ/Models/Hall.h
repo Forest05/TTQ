@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "ImageText.h"
+#import "Exhibition.h"
+#import "Art.h"
 
 // 展馆
 @interface Hall : NSObject
@@ -19,9 +21,9 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSMutableDictionary *exhibitions; // key是exhibition的id，如果没有载入的话，value为nsnull，否则为exhibition
 @property (nonatomic, strong) NSMutableArray *imageTexts;  //这个肯定会初始化
+@property (nonatomic, readonly) Exhibition *defaultExhibition;
 
 - (id)initWithDict:(NSDictionary *)dict;
-
 
 - (void)display;
 @end

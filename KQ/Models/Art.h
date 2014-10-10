@@ -13,4 +13,8 @@
 
 @property (nonatomic, copy) NSString *id;
 
+- (id)initWithDict:(NSDictionary *)dict;
+
+- (void)display;
+
 @end

@@ -14,6 +14,8 @@
 @interface AppManager : NSObject
 
 @property (nonatomic, strong) Hall *hall;
+@property (nonatomic, strong) Exhibition *exhibition;
+
 
 + (id)sharedInstance;
 
