@@ -10,4 +10,16 @@
 
 @implementation Exhibition
 
+- (id)initWithDict:(NSDictionary *)dict{
+    
+    if (self = [self init]) {
+        
+    }
+    return self;
+}
+
+
+- (void)display{
+    
+}
 @end

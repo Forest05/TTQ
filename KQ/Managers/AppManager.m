@@ -23,12 +23,19 @@
     return sharedInstance;
 }
 
+- (Exhibition*)exhibition{
+
+    return nil;
+}
+
 - (id)init{
     if (self = [super init]) {
 
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:TTQHallKey];
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
+        
+//        Exhibition *
         
         NSArray *imageTexts = dict[@"imageTexts"];
         for (NSDictionary *imageTextDict in imageTexts) {
@@ -37,6 +44,14 @@
             [hall.imageTexts addObject:it];
         }
 
+        NSArray *arts = dict[@"arts"];
+        for (NSDictionary *dict in arts) {
+           
+//            Art *art = [[Art alloc] ini]
+            
+        }
+
+        
         self.hall = hall;
     }
     

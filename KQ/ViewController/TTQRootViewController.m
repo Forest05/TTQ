@@ -57,6 +57,7 @@
     self.chooseLangVC = [[ChooseLangViewController alloc] init];
     self.hallEntranceVC = [[HallEntranceViewController alloc] init];
     self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
+    
 //    _baseVC = [[TTQViewController alloc] init];
 //    
 //    [self.view addSubview:_baseVC.view];
@@ -119,7 +120,7 @@
         NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
         [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        //
+        
 
     }];
 }
@@ -142,11 +143,7 @@
     
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"toLogin"]){
-//    }
-//}
+
 
 - (void)didLogin{
 //    self.selectedIndex = 3;

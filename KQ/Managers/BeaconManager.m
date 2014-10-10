@@ -33,6 +33,7 @@
     return self;
 }
 
+
 //
 - (void)registerBeaconRegionWithUUID:(NSUUID *)proximityUUID andIdentifier:(NSString*)identifier {
     
