@@ -98,9 +98,11 @@
 //    NSLog(@"item beacons # %@",self.itemBeacons);
     
     //判断接近那个beacon，
-//    NSArray *exhibitionBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
+
     for (CLBeacon *beacon in beacons) {
+        
         NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
+    
     }
 }
 

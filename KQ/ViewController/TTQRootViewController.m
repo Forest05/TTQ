@@ -104,7 +104,7 @@
     
     // 载入网络数据
     [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
-        NSLog(@"dict # %@",dict);
+//        NSLog(@"dict # %@",dict);
 
 //        Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
 //
