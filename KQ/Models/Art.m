@@ -29,6 +29,8 @@ static NSArray *keys;
     
     if (self = [self init]) {
         
+        self.dict = dict;
+        
         if (!keys) {
             keys = @[@"id",@"exhibitionId",@"authorId",@"name",@"name_en",@"description_en",@"imgUrl",@"minor"];
         }
@@ -38,17 +40,35 @@ static NSArray *keys;
         }
         self.desc = dict[@"description"];
 
-        
-        if (!ISEMPTY(self.minor)) {
-            NSLog(@"has minor # %@",self.minor);
-        }
-        else{
-            NSLog(@"no minor");
-        }
+//         NSLog(@"has minor # %@",self.minor);
+//        if (!ISEMPTY(self.minor)) {
+//            NSLog(@"has minor # %@",self.minor);
+//        }
+//        else{
+//            NSLog(@"empty minor");
+//        }
         
     }
     return self;
 }
+
+- (id)copyWithZone:(NSZone *)zone{
+    Art *art = [[Art alloc] initWithDict:self.dict];
+    
+    return art;
+}
+
+- (void)configBeaconWithUUID:(NSUUID*)uuid major:(int)major{
+
+    if (!ISEMPTY(self.minor)) {
+        self.beacon = [[TTQBeacon alloc] init];
+        self.beacon.uuid = uuid;
+        self.beacon.majorValue = major;
+        self.beacon.minorValue = [self.minor integerValue];
+        
+    }
+}
+
 
 
 - (void)display{

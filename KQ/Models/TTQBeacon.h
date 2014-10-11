@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface Beacon : NSObject
+@interface TTQBeacon : NSObject<NSCopying>
 
 @property (nonatomic, strong) NSUUID *uuid;
 @property (nonatomic, assign) int majorValue;

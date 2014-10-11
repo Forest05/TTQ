@@ -16,8 +16,7 @@
 
 
 @property (nonatomic, strong) NSArray *arts; //key是art，obj是
-//@property (nonatomic, strong) NSArray *arts; //key是art，obj是
-//@property (nonatomic, strong) NSDictionary *beacons; //key是art的id， obj是CLBeaconRegion
+@property (nonatomic, strong) NSMutableDictionary *artBeacons; //key是beacon， obj是art
 
 
 - (id)initWithDict:(NSDictionary *)dict;

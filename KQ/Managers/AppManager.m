@@ -41,7 +41,9 @@
         if (!ISEMPTY(dict)) {
             [self configHallDict:dict];
         }
-
+        else{
+//            NSLog(@"dict # %@",dict);
+        }
         
     }
     
@@ -49,6 +51,9 @@
 }
 
 - (void)configHallDict:(NSDictionary*)dict{
+    
+    
+    
     Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
     
     
@@ -71,14 +76,20 @@
     for (NSDictionary *dict in arts) {
         
         Art *art = [[Art alloc] initWithDict:dict];
-        [artArr addObject:art];
+        [art configBeaconWithUUID:[[NSUUID alloc] initWithUUIDString:hall.uuid] major:[exhibition.major integerValue]];
         
+        [artArr addObject:art];
+        if (!ISEMPTY(art.beacon)) {
+            [exhibition.artBeacons setObject:art forKey:art.beacon];
+        }
+//        NSLog(@"artBeacons # %@",exhibition.artBeacons);
     }
+    
+    NSLog(@"artBeacons # %@",exhibition.artBeacons);
     
     hall.defaultExhibition.arts = artArr;
     
     //beacons
-    
     
     
     self.hall = hall;

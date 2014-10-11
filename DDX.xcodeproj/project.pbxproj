@@ -234,7 +234,7 @@
 		85DAFA6E19D502E70049B4C4 /* Exhibition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA6D19D502E70049B4C4 /* Exhibition.m */; };
 		85DAFA7119D502F10049B4C4 /* Art.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7019D502F10049B4C4 /* Art.m */; };
 		85DAFA7419D503000049B4C4 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7319D503000049B4C4 /* Author.m */; };
-		85DAFA7719D5030F0049B4C4 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7619D5030F0049B4C4 /* Beacon.m */; };
+		85DAFA7719D5030F0049B4C4 /* TTQBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7619D5030F0049B4C4 /* TTQBeacon.m */; };
 		85EE360619D3D16F0065CE2A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EE360519D3D16F0065CE2A /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -621,8 +621,8 @@
 		85DAFA7019D502F10049B4C4 /* Art.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Art.m; sourceTree = "<group>"; };
 		85DAFA7219D503000049B4C4 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		85DAFA7319D503000049B4C4 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		85DAFA7519D5030F0049B4C4 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
-		85DAFA7619D5030F0049B4C4 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
+		85DAFA7519D5030F0049B4C4 /* TTQBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTQBeacon.h; sourceTree = "<group>"; };
+		85DAFA7619D5030F0049B4C4 /* TTQBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTQBeacon.m; sourceTree = "<group>"; };
 		85EE360519D3D16F0065CE2A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AE34221828C240E6B918B199 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77DC981FBD7460891F5B186 /* libPods-KQTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KQTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1112,8 +1112,8 @@
 				85DAFA7319D503000049B4C4 /* Author.m */,
 				26E290F6193DB24E00B7E0C9 /* Comment.h */,
 				26E290F7193DB24E00B7E0C9 /* Comment.m */,
-				85DAFA7519D5030F0049B4C4 /* Beacon.h */,
-				85DAFA7619D5030F0049B4C4 /* Beacon.m */,
+				85DAFA7519D5030F0049B4C4 /* TTQBeacon.h */,
+				85DAFA7619D5030F0049B4C4 /* TTQBeacon.m */,
 				85A33F5419E41E590083D98B /* ImageText.h */,
 				85A33F5519E41E590083D98B /* ImageText.m */,
 			);
@@ -1796,7 +1796,7 @@
 				26E2910B193DE15C00B7E0C9 /* ShopBranchListViewController.m in Sources */,
 				26E3A5C0192DE042004F8C8C /* NSMutableArray+Extras.m in Sources */,
 				8578E84019D2977E00F36838 /* ChangePasswordViewController.m in Sources */,
-				85DAFA7719D5030F0049B4C4 /* Beacon.m in Sources */,
+				85DAFA7719D5030F0049B4C4 /* TTQBeacon.m in Sources */,
 				26DD9D7B1962DA5500521317 /* MBProgressHUD.m in Sources */,
 				26E14BAB193C8199007A7081 /* ConfigViewController.m in Sources */,
 				26DD9D7A1962DA5500521317 /* Dialog.m in Sources */,

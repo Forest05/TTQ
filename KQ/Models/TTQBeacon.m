@@ -6,9 +6,19 @@
 //  Copyright (c) 2014年 Xappsoft. All rights reserved.
 //
 
-#import "Beacon.h"
+#import "TTQBeacon.h"
 
-@implementation Beacon
+@implementation TTQBeacon
+
+- (id)copyWithZone:(NSZone *)zone{
+    TTQBeacon *beacon = [[TTQBeacon alloc] init];
+    
+    beacon.uuid = self.uuid;
+    beacon.majorValue = self.majorValue;
+    beacon.minorValue = self.minorValue;
+    
+    return beacon;
+}
 
 - (BOOL)isEqualToCLBeacon:(CLBeacon*)beacon{
 

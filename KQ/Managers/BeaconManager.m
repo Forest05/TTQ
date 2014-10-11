@@ -23,12 +23,24 @@
     return sharedInstance;
 }
 
+- (NSArray*)itemBeacons{
 
+    if (!_itemBeacons) {
+       _itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
+
+    }
+    return _itemBeacons;
+}
+
+// AppManager 要在BeaconManager之前定义！
 - (id)init{
     
     if (self = [super init]) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+        
+//        self.itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
+//        NSLog(@"itemBeacons # %@",self.itemBeacons);
         
         [self startRanging];
     }
@@ -66,6 +78,7 @@
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000028"];
     
 //    NSString *uuid = [App]
+    
     AppManager *appManager = [AppManager sharedInstance];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
 
@@ -82,9 +95,13 @@
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
 
     NSLog(@"did range beacons # %@",beacons);
+//    NSLog(@"item beacons # %@",self.itemBeacons);
     
     //判断接近那个beacon，
-    
+//    NSArray *exhibitionBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
+    for (CLBeacon *beacon in beacons) {
+        NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
+    }
 }
 
 - (void)test{

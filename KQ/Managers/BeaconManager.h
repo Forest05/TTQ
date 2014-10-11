@@ -13,7 +13,7 @@
 
 }
 
-//@property (nonatomic, strong) NSMutableArray *beacons;
+@property (nonatomic, strong) NSArray *itemBeacons;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 + (id)sharedInstance;

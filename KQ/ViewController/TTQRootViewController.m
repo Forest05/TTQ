@@ -78,7 +78,7 @@
 //    NSDictionary *hallDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 //    NSLog(@"hall Dict # %@",hallDict);
 
-    NSLog(@"hall # %@,arts # %@",[[AppManager sharedInstance] hall],[[AppManager sharedInstance] arts]);
+//    NSLog(@"hall # %@,arts # %@",[[AppManager sharedInstance] hall],[[AppManager sharedInstance] arts]);
     
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
     
@@ -104,7 +104,7 @@
     
     // 载入网络数据
     [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
-//        NSLog(@"dict # %@",dict);
+        NSLog(@"dict # %@",dict);
 
 //        Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
 //

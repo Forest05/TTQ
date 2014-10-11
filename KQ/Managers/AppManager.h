@@ -16,7 +16,7 @@
 @property (nonatomic, strong) Hall *hall;
 @property (nonatomic, strong) Exhibition *exhibition;
 @property (nonatomic, readonly) NSArray *arts;
-//@property (nonatomic, strong) NSMutableArray *
+@property (nonatomic, strong) NSMutableArray *ttqBeacons;
 
 + (id)sharedInstance;
 

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Beacon.h"
+#import "TTQBeacon.h"
 
 //艺术品
-@interface Art : NSObject
+@interface Art : NSObject<NSCopying>
 
 
 /**
@@ -24,6 +24,7 @@
  "imgUrl": "http://www.1933shanghai.com/uploads/yanhui/20140415/1397542691.JPG",
  "minor": "1"
  */
+@property (nonatomic, copy) NSDictionary *dict;
 
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *exhibitionId;
@@ -35,11 +36,12 @@
 @property (nonatomic, strong) NSString *imgUrl;
 @property (nonatomic, strong) NSString *minor;
 
-@property (nonatomic, strong) Beacon *beacon;
+@property (nonatomic, strong) TTQBeacon *beacon;
 
 - (id)initWithDict:(NSDictionary *)dict;
 
 - (void)display;
 
-//- (void)configBeacon
+// 如果有minor，就生成beacon
+- (void)configBeaconWithUUID:(NSUUID*)uuid major:(int)major;
 @end

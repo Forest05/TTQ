@@ -18,6 +18,12 @@
     return self;
 }
 
+- (id)init{
+    if (self = [super init]) {
+      self.artBeacons = [NSMutableDictionary dictionary];   
+    }
+    return self;
+}
 
 - (void)display{
     
