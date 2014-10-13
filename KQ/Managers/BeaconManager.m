@@ -103,6 +103,7 @@
         
         NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
     
+        
     }
 }
 
