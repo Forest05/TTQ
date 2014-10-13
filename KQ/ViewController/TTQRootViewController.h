@@ -12,6 +12,8 @@
 @class ChooseLangViewController;
 @class HallEntranceViewController;
 @class HallViewController;
+@class KQLoginViewController;
+
 
 @interface TTQRootViewController : RootViewController<UITabBarControllerDelegate>{
 
@@ -22,11 +24,13 @@
 @property (nonatomic, strong) ChooseLangViewController *chooseLangVC;
 @property (nonatomic, strong) HallEntranceViewController *hallEntranceVC;
 @property (nonatomic, strong) UINavigationController *hallEntranceNav;
+@property (nonatomic, strong) UINavigationController *loginNav;
 
 - (void)toChooseLang;
 - (void)toHallEntrance;
 - (void)toHall;
 
+- (void)toLogin;
 
 - (void)didLogin;
 - (void)didLogout;

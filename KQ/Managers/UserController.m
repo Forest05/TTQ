@@ -32,15 +32,6 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
 }
 
-- (void)setAvatar:(UIImage *)avatar{
-    //
-//    [[AVOSEngine sharedInstance] saveImageForUser:avatar key:@"avatar" block:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            [self loadUser];
-//        }
-//    }];
-}
-
 #pragma mark - Init
 
 + (id)sharedInstance {
@@ -73,7 +64,7 @@
         
         self.checkinLocation = [[CLLocation alloc] initWithLatitude:31.02 longitude:121.02];
         
-        [self setupLocationManager];
+//        [self setupLocationManager];
         
 //        NSLog(@"avos user # %@",[[AVOSEngine sharedInstance] currentUser]);
         
@@ -86,6 +77,7 @@
 #pragma mark - Location
 
 - (void) setupLocationManager {
+   
     _locationManager = [[CLLocationManager alloc] init] ;
     if ([CLLocationManager locationServicesEnabled]) {
         //        NSLog( @"Starting CLLocationManager" );

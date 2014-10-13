@@ -77,7 +77,6 @@
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000028"];
     
-//    NSString *uuid = [App]
     
     AppManager *appManager = [AppManager sharedInstance];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
@@ -102,7 +101,7 @@
     for (CLBeacon *beacon in beacons) {
         
         NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
-    
+        
         
     }
 }

@@ -79,10 +79,20 @@
         [art configBeaconWithUUID:[[NSUUID alloc] initWithUUIDString:hall.uuid] major:[exhibition.major integerValue]];
         
         [artArr addObject:art];
+        
+        // 如果art有beacon，那么就加入到map中
         if (!ISEMPTY(art.beacon)) {
-            [exhibition.artBeacons setObject:art forKey:art.beacon];
+            
+//            NSLog(@"art # %@, beacon # %@",art,art.beacon);
+            
+//            [exhibition.artBeacons setObject:art forKey:art.beacon];
+            
+            /// 为什么用beacon做key的时候
+               [exhibition.artBeacons setObject:art forKey:[NSString stringWithInt:art.beacon.minorValue]];
+            
+//            NSLog(@"artBeacons # %@",exhibition.artBeacons);
         }
-//        NSLog(@"artBeacons # %@",exhibition.artBeacons);
+
     }
     
     NSLog(@"artBeacons # %@",exhibition.artBeacons);

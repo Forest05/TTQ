@@ -33,7 +33,7 @@
     _userTextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 0, 250, kCellHeight)];
     _userTextField.keyboardType = UIKeyboardTypeNumberPad;
     _userTextField.returnKeyType = UIReturnKeyNext;
-    _userTextField.placeholder = @"手机号";
+    _userTextField.placeholder = @"用户名";
     _userTextField.delegate = self;
     _userTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
 //    _userTextField.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
@@ -50,7 +50,7 @@
     _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     _tfs = @[_userTextField,_passwordTextField];
-    _tableImageNames = @[@"icon-user.png",@"icon-password01.png"];
+    _tableImageNames = @[@"icon_user.png",@"icon_password.png"];
     
     
 
@@ -153,20 +153,17 @@
     }
     
     cell.imageView.image = [UIImage imageNamed:_tableImageNames[indexPath.row]];
-    
+
+//    cell.imageView.image = [UIImage imageNamed:@"icon_password.png"];
+  
 
     
     return cell;
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-   
 
-}
-
-#pragma mark - 
+#pragma mark -
 - (void)back{
     
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
@@ -181,11 +178,12 @@
     [[UserController sharedInstance] loginWithEmail:email pw:password block:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
         
-            [self back];
+//            [self back];
             
             //TODO: 这里发一个消息更好！
-            [[TTQRootViewController sharedInstance] didLogin];
+//            [[TTQRootViewController sharedInstance] didLogin];
         
+            NSLog(@"did login");
         }
     }];
 }

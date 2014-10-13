@@ -35,4 +35,13 @@
     }
 
 }
+
+- (NSString*)description{
+
+    NSMutableString *str = [NSMutableString stringWithString:[super description]];
+    [str appendFormat:@" %@, %d, %d",self.uuid.UUIDString,self.majorValue,self.minorValue];
+    
+    return [str copy];
+    
+}
 @end

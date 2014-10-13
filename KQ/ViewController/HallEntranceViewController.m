@@ -8,6 +8,8 @@
 
 #import "HallEntranceViewController.h"
 #import "UIImageView+WebCache.h"
+#import "UserController.h"
+#import "TTQRootViewController.h"
 
 @interface HallEntranceViewController ()
 
@@ -34,7 +36,7 @@
     self.title = @"1933画廊";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIBarButtonItem *bb = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_tabuser.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toUser)];
+    UIBarButtonItem *bb = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_tabuser.png"] style:UIBarButtonItemStylePlain target:self action:@selector(userBBClicked:)];
     self.navigationItem.rightBarButtonItem = bb;
     
    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
@@ -126,13 +128,27 @@
     }
 }
 
+- (IBAction)userBBClicked:(id)sender{
+    
+    if ([[UserController sharedInstance] isLogin]) {
+        [self toUser];
+    }
+    else{
+
+        [[TTQRootViewController sharedInstance] toLogin];
+        
+    }
+
+}
+
 #pragma mark - Fcns
 - (void)back{
     [self.navigationController.view removeFromSuperview];
 }
 - (void)toUser{
     L();
-}
+    
+  }
 - (void)toNavigation{
     L();
 }

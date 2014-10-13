@@ -1153,22 +1153,22 @@
 		26E3A573192DE042004F8C8C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				8578E83D19D2977E00F36838 /* SignViewController.h */,
+				8578E83E19D2977E00F36838 /* SignViewController.m */,
+				8578E83919D2977E00F36838 /* LoginViewController.h */,
+				8578E83A19D2977E00F36838 /* LoginViewController.m */,
+				8578E83B19D2977E00F36838 /* RegisterViewController.h */,
+				8578E83C19D2977E00F36838 /* RegisterViewController.m */,
+				8578E83519D2977E00F36838 /* KQLoginViewController.h */,
+				8578E83619D2977E00F36838 /* KQLoginViewController.m */,
+				8578E83719D2977E00F36838 /* KQRegisterViewController.h */,
+				8578E83819D2977E00F36838 /* KQRegisterViewController.m */,
 				8578E82F19D2977E00F36838 /* AgreementViewController.h */,
 				8578E83019D2977E00F36838 /* AgreementViewController.m */,
 				8578E83119D2977E00F36838 /* ChangePasswordViewController.h */,
 				8578E83219D2977E00F36838 /* ChangePasswordViewController.m */,
 				8578E83319D2977E00F36838 /* ForgetPasswordViewController.h */,
 				8578E83419D2977E00F36838 /* ForgetPasswordViewController.m */,
-				8578E83519D2977E00F36838 /* KQLoginViewController.h */,
-				8578E83619D2977E00F36838 /* KQLoginViewController.m */,
-				8578E83719D2977E00F36838 /* KQRegisterViewController.h */,
-				8578E83819D2977E00F36838 /* KQRegisterViewController.m */,
-				8578E83919D2977E00F36838 /* LoginViewController.h */,
-				8578E83A19D2977E00F36838 /* LoginViewController.m */,
-				8578E83B19D2977E00F36838 /* RegisterViewController.h */,
-				8578E83C19D2977E00F36838 /* RegisterViewController.m */,
-				8578E83D19D2977E00F36838 /* SignViewController.h */,
-				8578E83E19D2977E00F36838 /* SignViewController.m */,
 			);
 			path = User;
 			sourceTree = "<group>";

@@ -18,6 +18,7 @@
 #import "HallEntranceViewController.h"
 #import "ImageText.h"
 #import "AppManager.h"
+#import "KQLoginViewController.h"
 
 @interface TTQRootViewController (){
 
@@ -126,7 +127,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        
+
 
     }];
 }
@@ -149,6 +150,18 @@
     
 }
 
+- (void)toLogin{
+    L();
+    
+    KQLoginViewController *vc = [[KQLoginViewController alloc] init];
+    self.loginNav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self presentViewController:self.loginNav animated:YES completion:^{
+        
+        
+    }];
+    
+}
 
 
 - (void)didLogin{
