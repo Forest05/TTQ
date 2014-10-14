@@ -9,6 +9,12 @@
 #import "BeaconManager.h"
 #import "AppManager.h"
 
+@interface BeaconManager()
+
+- (CLBeacon*)closestBeacon:(NSArray*)beacons;
+
+@end
+
 @implementation BeaconManager
 
 + (id)sharedInstance{
@@ -41,13 +47,45 @@
         
 //        self.itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
 //        NSLog(@"itemBeacons # %@",self.itemBeacons);
+//        
+//        [self startRanging];
         
-        [self startRanging];
+        
+        AppManager *appManager = [AppManager sharedInstance];
+        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
+        
+        self.beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:[appManager.hall.defaultExhibition.major intValue] identifier:uuid.UUIDString];
+        
     }
     
     return self;
 }
 
+#pragma mark - locationDelegate
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
+    
+    NSLog(@"did range beacons # %@",beacons);
+    //    NSLog(@"item beacons # %@",self.itemBeacons);
+    
+    //判断接近那个beacon，
+    
+    // 这里的beacon是否是按照最近的？
+//    for (CLBeacon *beacon in beacons) {
+//        
+//        NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
+//        
+//        
+//    }
+    
+    CLBeacon *closestBeacon = [self closestBeacon:beacons];
+    
+    if (closestBeacon.accuracy < 1.0) {
+        self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
+    }
+    
+}
+
+#pragma mark - Fcns
 
 //
 - (void)registerBeaconRegionWithUUID:(NSUUID *)proximityUUID andIdentifier:(NSString*)identifier {
@@ -77,33 +115,26 @@
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000028"];
     
-    
-    AppManager *appManager = [AppManager sharedInstance];
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
-
-    
-//    CLBeaconRegion * br = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:uuid.UUIDString];
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:[appManager.hall.defaultExhibition.major intValue] identifier:uuid.UUIDString];
-    
-    NSLog(@"beaconRegion # %@",beaconRegion);
-    
-    [self.locationManager startRangingBeaconsInRegion:beaconRegion];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 
 }
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
+- (void)stopRanging{
 
-    NSLog(@"did range beacons # %@",beacons);
-//    NSLog(@"item beacons # %@",self.itemBeacons);
+    L();
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     
-    //判断接近那个beacon，
+}
 
-    for (CLBeacon *beacon in beacons) {
-        
-        NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
-        
-        
-    }
+
+- (void)openBeacon:(TTQBeacon*)beacon{
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openBeacon" object:beacon];
+}
+
+- (void)closeBeacon:(TTQBeacon*)beacon{
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeBeacon" object:beacon];
 }
 
 - (void)test{

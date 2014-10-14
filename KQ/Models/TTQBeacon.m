@@ -36,6 +36,16 @@
 
 }
 
+- (id)initWithCLBeacon:(CLBeacon*)clb{
+    
+    TTQBeacon *beacon = [[TTQBeacon alloc] init];
+    beacon.uuid = clb.proximityUUID;
+    beacon.majorValue = [clb.major integerValue];
+    beacon.minorValue = [clb.minor intValue];
+    
+    return beacon;
+}
+
 - (NSString*)description{
 
     NSMutableString *str = [NSMutableString stringWithString:[super description]];

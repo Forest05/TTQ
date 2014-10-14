@@ -36,6 +36,8 @@
     
     rootLoadViewFlag = YES;
     
+    testObjs = [NSMutableArray array];
+    
     [self registerNotification];
     
 }
@@ -46,9 +48,9 @@
     
     
     //TODO: delete
-    if (DEBUG) {
-        [self handleAppFirstTimeOpen];
-    }
+//    if (DEBUG) {
+//        [self handleAppFirstTimeOpen];
+//    }
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:TTQAPPBeforeOpenedKey]) {
        
@@ -125,6 +127,7 @@
     //    nav.view.frame = self.view.bounds;
     
     [testObjs addObject:nav];
+//    [testObjs addObject:vc];
     
     [self.view addSubview:nav.view];
 }

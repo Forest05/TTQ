@@ -219,6 +219,9 @@
 		850479C619E16F5B00459004 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C519E16F5B00459004 /* NavigationViewController.m */; };
 		850479CC19E17C5B00459004 /* t1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850479CB19E17C5B00459004 /* t1.jpg */; };
 		850479D019E17DC400459004 /* DKLiveBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479CF19E17DC400459004 /* DKLiveBlurView.m */; };
+		8576CDCB19ECEBB3003142BE /* ArtNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCA19ECEBB3003142BE /* ArtNavView.m */; };
+		8576CDCE19ECEE5B003142BE /* AuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCD19ECEE5B003142BE /* AuthorView.m */; };
+		8576CDD119ED3523003142BE /* ArtListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDD019ED3523003142BE /* ArtListView.m */; };
 		8578E83F19D2977E00F36838 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83019D2977E00F36838 /* AgreementViewController.m */; };
 		8578E84019D2977E00F36838 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83219D2977E00F36838 /* ChangePasswordViewController.m */; };
 		8578E84119D2977E00F36838 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83419D2977E00F36838 /* ForgetPasswordViewController.m */; };
@@ -480,7 +483,7 @@
 		26E36B8C195132ED0008707A /* LoadMoreTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTableFooterView.m; sourceTree = "<group>"; };
 		26E36BD21951AC6B0008707A /* userCenter_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userCenter_bg.png; sourceTree = "<group>"; };
 		26E36BD41951BA470008707A /* UserCouponsConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserCouponsConfig.plist; sourceTree = "<group>"; };
-		26E3A521192DE02F004F8C8C /* 点点星.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "点点星.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E3A521192DE02F004F8C8C /* 生活甜甜圈.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "生活甜甜圈.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E3A524192DE02F004F8C8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26E3A526192DE02F004F8C8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26E3A528192DE02F004F8C8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -591,6 +594,12 @@
 		850479CB19E17C5B00459004 /* t1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = t1.jpg; sourceTree = "<group>"; };
 		850479CE19E17DC400459004 /* DKLiveBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKLiveBlurView.h; sourceTree = "<group>"; };
 		850479CF19E17DC400459004 /* DKLiveBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKLiveBlurView.m; sourceTree = "<group>"; };
+		8576CDC919ECEBB3003142BE /* ArtNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtNavView.h; sourceTree = "<group>"; };
+		8576CDCA19ECEBB3003142BE /* ArtNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtNavView.m; sourceTree = "<group>"; };
+		8576CDCC19ECEE5B003142BE /* AuthorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorView.h; sourceTree = "<group>"; };
+		8576CDCD19ECEE5B003142BE /* AuthorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorView.m; sourceTree = "<group>"; };
+		8576CDCF19ED3523003142BE /* ArtListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtListView.h; sourceTree = "<group>"; };
+		8576CDD019ED3523003142BE /* ArtListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtListView.m; sourceTree = "<group>"; };
 		8578E82F19D2977E00F36838 /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
 		8578E83019D2977E00F36838 /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		8578E83119D2977E00F36838 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
@@ -989,7 +998,7 @@
 		26E3A522192DE02F004F8C8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26E3A521192DE02F004F8C8C /* 点点星.app */,
+				26E3A521192DE02F004F8C8C /* 生活甜甜圈.app */,
 				26E3A54A192DE02F004F8C8C /* DDXTests.xctest */,
 			);
 			name = Products;
@@ -1269,6 +1278,12 @@
 				26E3A5AB192DE042004F8C8C /* Cells */,
 				26E3A5AC192DE042004F8C8C /* Labels */,
 				26E3A5AF192DE042004F8C8C /* TextFields */,
+				8576CDC919ECEBB3003142BE /* ArtNavView.h */,
+				8576CDCA19ECEBB3003142BE /* ArtNavView.m */,
+				8576CDCC19ECEE5B003142BE /* AuthorView.h */,
+				8576CDCD19ECEE5B003142BE /* AuthorView.m */,
+				8576CDCF19ED3523003142BE /* ArtListView.h */,
+				8576CDD019ED3523003142BE /* ArtListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1462,7 +1477,7 @@
 			);
 			name = DDX;
 			productName = KQ;
-			productReference = 26E3A521192DE02F004F8C8C /* 点点星.app */;
+			productReference = 26E3A521192DE02F004F8C8C /* 生活甜甜圈.app */;
 			productType = "com.apple.product-type.application";
 		};
 		26E3A549192DE02F004F8C8C /* DDXTests */ = {
@@ -1702,9 +1717,11 @@
 				8578E84219D2977E00F36838 /* KQLoginViewController.m in Sources */,
 				26D393EA194E8F18000ED175 /* UIImageView+WebCache.m in Sources */,
 				850479BD19E16E2B00459004 /* ChooseLangViewController.m in Sources */,
+				8576CDCB19ECEBB3003142BE /* ArtNavView.m in Sources */,
 				26E3A5C3192DE042004F8C8C /* NSURL+Extras.m in Sources */,
 				26E166291939EF6B0041CDD6 /* CityViewController.m in Sources */,
 				26E14BAF193C81C3007A7081 /* NetTableViewController.m in Sources */,
+				8576CDD119ED3523003142BE /* ArtListView.m in Sources */,
 				26E3A5C8192DE042004F8C8C /* UIDevice+Extras.m in Sources */,
 				26E3A5CD192DE042004F8C8C /* UIView+Extras.m in Sources */,
 				26E14B8B193C65FD007A7081 /* ButtonCell.m in Sources */,
@@ -1743,6 +1760,7 @@
 				26E3A5C5192DE042004F8C8C /* UIBezierPath+Extras.m in Sources */,
 				26E36B8D195132ED0008707A /* LoadMoreTableFooterView.m in Sources */,
 				26E29120193DE92D00B7E0C9 /* CouponCell.m in Sources */,
+				8576CDCE19ECEE5B003142BE /* AuthorView.m in Sources */,
 				26E14B5C193C6508007A7081 /* UserCenterViewController.m in Sources */,
 				85A33F5319E41CAB0083D98B /* AppManager.m in Sources */,
 				85DAFA7119D502F10049B4C4 /* Art.m in Sources */,
@@ -1910,7 +1928,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "点点星";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "609FEA0D-E70D-4F2D-8E8B-0ADE353B1A05";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -2060,7 +2078,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "点点星";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "6b026250-4c77-45eb-bfeb-eda5d1808fe9";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -2113,7 +2131,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "点点星";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "904ae80d-5bc8-4247-a1c8-911d35830989";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;

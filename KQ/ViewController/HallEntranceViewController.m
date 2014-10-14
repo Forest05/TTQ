@@ -10,6 +10,10 @@
 #import "UIImageView+WebCache.h"
 #import "UserController.h"
 #import "TTQRootViewController.h"
+#import "NavigationViewController.h"
+#import "HallViewController.h"
+
+
 
 @interface HallEntranceViewController ()
 
@@ -100,6 +104,8 @@
     [_scrollView addSubview:_toNavigationBtn];
     [_scrollView addSubview:_toHallBtn];
     
+    [_scrollView setContentSize:CGSizeMake(0, 500)];
+    
     [self.view addSubview:_scrollView];
 }
 
@@ -151,8 +157,21 @@
   }
 - (void)toNavigation{
     L();
+    
+    if (!_navigationVC) {
+        _navigationVC = [[NavigationViewController alloc] init];
+    }
+    
+    [self.navigationController pushViewController:_navigationVC animated:YES];
 }
 - (void)toHall{
     L();
+    
+    if (!_hallVC) {
+        _hallVC = [[HallViewController alloc] init];
+    }
+    
+    [self.navigationController pushViewController:_hallVC animated:YES];
+    
 }
 @end

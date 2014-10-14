@@ -10,6 +10,9 @@
 
 #import "AppManager.h"
 
+@class NavigationViewController;
+@class HallViewController;
+
 @interface HallEntranceViewController : UIViewController{
 
     AppManager *_manager;
@@ -17,6 +20,10 @@
     UIScrollView *_scrollView;
     UIScrollView *_introduceScrollView;
     UIButton *_toNavigationBtn, *_toHallBtn;
+    
+    
+    NavigationViewController *_navigationVC;
+    HallViewController *_hallVC;
     
 }
 

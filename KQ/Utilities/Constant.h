@@ -18,7 +18,7 @@
 
 
 #pragma mark - Key
-#define kUmengAppKey @"538860f456240ba9610181b2" // 在share的时候要用到
+#define kUmengAppKey @"543d11adfd98c50794038877" // 在share的时候要用到
 
 
 #pragma mark - Notification

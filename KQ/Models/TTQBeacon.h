@@ -16,6 +16,6 @@
 @property (nonatomic, assign) int minorValue;
 
 - (BOOL)isEqualToCLBeacon:(CLBeacon*)clb;
-
+- (id)initWithCLBeacon:(CLBeacon*)clb;
 
 @end

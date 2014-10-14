@@ -40,13 +40,7 @@ static NSArray *keys;
         }
         self.desc = dict[@"description"];
 
-//         NSLog(@"has minor # %@",self.minor);
-//        if (!ISEMPTY(self.minor)) {
-//            NSLog(@"has minor # %@",self.minor);
-//        }
-//        else{
-//            NSLog(@"empty minor");
-//        }
+        self.index = self.id;
         
     }
     return self;

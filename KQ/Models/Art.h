@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TTQBeacon.h"
+#import "Author.h"
 
 //艺术品
 @interface Art : NSObject<NSCopying>
@@ -35,6 +36,7 @@
 @property (nonatomic, strong) NSString *description_en;
 @property (nonatomic, strong) NSString *imgUrl;
 @property (nonatomic, strong) NSString *minor;
+@property (nonatomic, strong) NSString *index; //展览中的编号
 
 @property (nonatomic, strong) TTQBeacon *beacon;
 

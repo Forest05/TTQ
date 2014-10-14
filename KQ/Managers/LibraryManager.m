@@ -51,7 +51,7 @@
                                      shareImage:image
                                 shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToEmail,UMShareToSms]
                                        delegate:nil];
-    
+ 
 }
 
 

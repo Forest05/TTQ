@@ -21,7 +21,6 @@
 #import "KQLoginViewController.h"
 
 @interface TTQRootViewController (){
-
     
 }
 
@@ -29,6 +28,7 @@
 @end
 
 @implementation TTQRootViewController
+
 
 + (id)sharedInstance{
     
@@ -59,10 +59,7 @@
     self.hallEntranceVC = [[HallEntranceViewController alloc] init];
     self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
     
-//    _baseVC = [[TTQViewController alloc] init];
-//    
-//    [self.view addSubview:_baseVC.view];
-//    
+
 
     [self toChooseLang];
 
@@ -105,28 +102,16 @@
     
     // 载入网络数据
     [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
-//        NSLog(@"dict # %@",dict);
 
-//        Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
-//
-//        NSArray *imageTexts = dict[@"imageTexts"];
-//        for (NSDictionary *imageTextDict in imageTexts) {
-//            ImageText *it = [[ImageText alloc] initWithDict:imageTextDict];
-//            
-//            [hall.imageTexts addObject:it];
-//        }
 
-        //第一次用
+        //第一次载入app用
         [[AppManager sharedInstance] configHallDict:dict];
-        
-//        //这里是为了第一次载入app用的
-//        [[AppManager sharedInstance] setHall:hall];
+   
         
         //保存hall到defaults中
         NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
         [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
 
 
     }];
@@ -181,7 +166,9 @@
     [[UserController sharedInstance] test];
     [[BeaconManager sharedInstance] test];
  
+    
 //    NSLog(@"lang # %@",TTQLangEn);
+//    [self testNav:@"NavigationViewController"];
 
 }
 

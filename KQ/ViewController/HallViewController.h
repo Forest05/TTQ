@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HallViewController : UIViewController
+@interface HallViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+
+    UITableView *_tableView;
+    
+}
+
+@property (nonatomic, strong) NSArray *arts;
 
 @end

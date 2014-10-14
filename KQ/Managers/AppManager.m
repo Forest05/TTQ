@@ -32,6 +32,7 @@
     return self.hall.defaultExhibition.arts;
 }
 
+
 - (id)init{
     if (self = [super init]) {
 
@@ -84,8 +85,6 @@
         if (!ISEMPTY(art.beacon)) {
             
 //            NSLog(@"art # %@, beacon # %@",art,art.beacon);
-            
-//            [exhibition.artBeacons setObject:art forKey:art.beacon];
             
             /// 为什么用beacon做key的时候
                [exhibition.artBeacons setObject:art forKey:[NSString stringWithInt:art.beacon.minorValue]];

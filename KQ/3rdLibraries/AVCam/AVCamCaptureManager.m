@@ -161,6 +161,8 @@
 
 - (BOOL) setupSession
 {
+   
+    L();
     BOOL success = NO;
     
 	// Set torch and flash mode to auto
@@ -183,7 +185,7 @@
 	
     // Init the device inputs
     AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self backFacingCamera] error:nil];
-    AVCaptureDeviceInput *newAudioInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice] error:nil];
+//    AVCaptureDeviceInput *newAudioInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice] error:nil];
     
 	
     // Setup the still image file output
@@ -202,16 +204,16 @@
     if ([newCaptureSession canAddInput:newVideoInput]) {
         [newCaptureSession addInput:newVideoInput];
     }
-    if ([newCaptureSession canAddInput:newAudioInput]) {
-        [newCaptureSession addInput:newAudioInput];
-    }
+//    if ([newCaptureSession canAddInput:newAudioInput]) {
+//        [newCaptureSession addInput:newAudioInput];
+//    }
     if ([newCaptureSession canAddOutput:newStillImageOutput]) {
         [newCaptureSession addOutput:newStillImageOutput];
     }
     
     [self setStillImageOutput:newStillImageOutput];
     [self setVideoInput:newVideoInput];
-    [self setAudioInput:newAudioInput];
+//    [self setAudioInput:newAudioInput];
     [self setSession:newCaptureSession];
     
 //    [newStillImageOutput release];

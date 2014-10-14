@@ -14,7 +14,7 @@
 
 //#import <AVOSCloud/AVOSCloud.h>
 
-#define kWeixinAppId @"wxb5fa63851976db24"
+#define kWeixinAppId @"wxcbdb435367bde789"
 
 @implementation TTQAppDelegate
 
@@ -39,9 +39,9 @@
 {
     // 友盟
     [UMSocialData setAppKey:kUmengAppKey];
-    [UMSocialWechatHandler setWXAppId:kWeixinAppId url:@"http://www.makers.co"];
     
-}
+    [UMSocialWechatHandler setWXAppId:kWeixinAppId url:@"http://www.51ttq.com"];
+    }
 
 - (void)initAvosCloud{
     

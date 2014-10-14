@@ -98,27 +98,20 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"captureManager.videoInput.device.focusMode"];
-//	[captureManager release];
-//    [videoPreviewView release];
-//	[captureVideoPreviewLayer release];
-//    [cameraToggleButton release];
-//    [recordButton release];
-//    [stillButton release];	
-//	[focusModeLabel release];
-//	
-//    [super dealloc];
+
 }
 
 - (void)viewDidLoad
 {
 	L();
-    [[self cameraToggleButton] setTitle:NSLocalizedString(@"Camera", @"Toggle camera button title")];
-    [[self recordButton] setTitle:NSLocalizedString(@"Record", @"Toggle recording button record title")];
-    [[self stillButton] setTitle:NSLocalizedString(@"Photo", @"Capture still image button title")];
+//    [[self cameraToggleButton] setTitle:NSLocalizedString(@"Camera", @"Toggle camera button title")];
+//    [[self recordButton] setTitle:NSLocalizedString(@"Record", @"Toggle recording button record title")];
+//    [[self stillButton] setTitle:NSLocalizedString(@"Photo", @"Capture still image button title")];
     
 	if ([self captureManager] == nil) {
 		AVCamCaptureManager *manager = [[AVCamCaptureManager alloc] init];
-		[self setCaptureManager:manager];
+	
+        [self setCaptureManager:manager];
 	
 		
 		[[self captureManager] setDelegate:self];
@@ -126,8 +119,6 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
 		if ([[self captureManager] setupSession]) {
             // Create video preview layer and add it to the UI
 			AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:[[self captureManager] session]];
-			
-			
 			
 			UIView *view = [self videoPreviewView];
 			CALayer *viewLayer = [view layer];
@@ -152,32 +143,6 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
 				[[[self captureManager] session] startRunning];
 			});
 			
-//            [self updateButtonStates];
-			
-            // Create the focus mode UI overlay
-//			UILabel *newFocusModeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, viewLayer.bounds.size.width - 20, 20)];
-//			[newFocusModeLabel setBackgroundColor:[UIColor clearColor]];
-//			[newFocusModeLabel setTextColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.50]];
-//			AVCaptureFocusMode initialFocusMode = [[[captureManager videoInput] device] focusMode];
-//			[newFocusModeLabel setText:[NSString stringWithFormat:@"focus: %@", [self stringForFocusMode:initialFocusMode]]];
-//			[view addSubview:newFocusModeLabel];
-//			[self addObserver:self forKeyPath:@"captureManager.videoInput.device.focusMode" options:NSKeyValueObservingOptionNew context:AVCamFocusModeObserverContext];
-//			[self setFocusModeLabel:newFocusModeLabel];
-          
-            
-            // Add a single tap gesture to focus on the point tapped, then lock focus
-			UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToAutoFocus:)];
-			[singleTap setDelegate:self];
-			[singleTap setNumberOfTapsRequired:1];
-			[view addGestureRecognizer:singleTap];
-			
-            // Add a double tap gesture to reset the focus mode to continuous auto focus
-			UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToContinouslyAutoFocus:)];
-			[doubleTap setDelegate:self];
-			[doubleTap setNumberOfTapsRequired:2];
-			[singleTap requireGestureRecognizerToFail:doubleTap];
-			[view addGestureRecognizer:doubleTap];
-			
 
 		}		
 	}
@@ -185,15 +150,7 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
     [super viewDidLoad];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == AVCamFocusModeObserverContext) {
-        // Update the focus UI overlay string when the focus mode changes
-		[focusModeLabel setText:[NSString stringWithFormat:@"focus: %@", [self stringForFocusMode:(AVCaptureFocusMode)[[change objectForKey:NSKeyValueChangeNewKey] integerValue]]]];
-	} else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
+
 
 #pragma mark Toolbar Actions
 - (IBAction)toggleCamera:(id)sender
@@ -205,15 +162,6 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
     [[self captureManager] continuousFocusAtPoint:CGPointMake(.5f, .5f)];
 }
 
-- (IBAction)toggleRecording:(id)sender
-{
-    // Start recording if there isn't a recording running. Stop recording if there is.
-//    [[self recordButton] setEnabled:NO];
-//    if (![[[self captureManager] recorder] isRecording])
-//        [[self captureManager] startRecording];
-//    else
-//        [[self captureManager] stopRecording];
-}
 
 - (IBAction)captureStillImage:(id)sender
 {
@@ -221,20 +169,7 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
     [[self stillButton] setEnabled:NO];
     [[self captureManager] captureStillImage];
     
-    // Flash the screen white and fade it out to give UI feedback that a still image was taken
-//    UIView *flashView = [[UIView alloc] initWithFrame:[[self videoPreviewView] frame]];
-//    [flashView setBackgroundColor:[UIColor whiteColor]];
-//    [[[self view] window] addSubview:flashView];
-//    
-//    [UIView animateWithDuration:.4f
-//                     animations:^{
-//                         [flashView setAlpha:0.f];
-//                     }
-//                     completion:^(BOOL finished){
-//                         [flashView removeFromSuperview];
-////                         [flashView release];
-//                     }
-//     ];
+
 }
 
 - (void)stopSesseion{
@@ -244,103 +179,12 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
 
 
 - (void)startSesseion{
+    L();
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		[[[self captureManager] session] startRunning];
 	});
 
 }
-// Convert from view coordinates to camera coordinates, where {0,0} represents the top left of the picture area, and {1,1} represents
-// the bottom right in landscape mode with the home button on the right.
-- (CGPoint)convertToPointOfInterestFromViewCoordinates:(CGPoint)viewCoordinates
-{
-    CGPoint pointOfInterest = CGPointMake(.5f, .5f);
-    CGSize frameSize = [[self videoPreviewView] frame].size;
-    
-//    if ([captureVideoPreviewLayer isMirrored]) {
-//        viewCoordinates.x = frameSize.width - viewCoordinates.x;
-//    }
-	
-    if ( [[captureVideoPreviewLayer videoGravity] isEqualToString:AVLayerVideoGravityResize] ) {
-		// Scale, switch x and y, and reverse x
-        pointOfInterest = CGPointMake(viewCoordinates.y / frameSize.height, 1.f - (viewCoordinates.x / frameSize.width));
-    } else {
-        CGRect cleanAperture;
-        for (AVCaptureInputPort *port in [[[self captureManager] videoInput] ports]) {
-            if ([port mediaType] == AVMediaTypeVideo) {
-                cleanAperture = CMVideoFormatDescriptionGetCleanAperture([port formatDescription], YES);
-                CGSize apertureSize = cleanAperture.size;
-                CGPoint point = viewCoordinates;
-				
-                CGFloat apertureRatio = apertureSize.height / apertureSize.width;
-                CGFloat viewRatio = frameSize.width / frameSize.height;
-                CGFloat xc = .5f;
-                CGFloat yc = .5f;
-                
-                if ( [[captureVideoPreviewLayer videoGravity] isEqualToString:AVLayerVideoGravityResizeAspect] ) {
-                    if (viewRatio > apertureRatio) {
-                        CGFloat y2 = frameSize.height;
-                        CGFloat x2 = frameSize.height * apertureRatio;
-                        CGFloat x1 = frameSize.width;
-                        CGFloat blackBar = (x1 - x2) / 2;
-						// If point is inside letterboxed area, do coordinate conversion; otherwise, don't change the default value returned (.5,.5)
-                        if (point.x >= blackBar && point.x <= blackBar + x2) {
-							// Scale (accounting for the letterboxing on the left and right of the video preview), switch x and y, and reverse x
-                            xc = point.y / y2;
-                            yc = 1.f - ((point.x - blackBar) / x2);
-                        }
-                    } else {
-                        CGFloat y2 = frameSize.width / apertureRatio;
-                        CGFloat y1 = frameSize.height;
-                        CGFloat x2 = frameSize.width;
-                        CGFloat blackBar = (y1 - y2) / 2;
-						// If point is inside letterboxed area, do coordinate conversion. Otherwise, don't change the default value returned (.5,.5)
-                        if (point.y >= blackBar && point.y <= blackBar + y2) {
-							// Scale (accounting for the letterboxing on the top and bottom of the video preview), switch x and y, and reverse x
-                            xc = ((point.y - blackBar) / y2);
-                            yc = 1.f - (point.x / x2);
-                        }
-                    }
-                } else if ([[captureVideoPreviewLayer videoGravity] isEqualToString:AVLayerVideoGravityResizeAspectFill]) {
-					// Scale, switch x and y, and reverse x
-                    if (viewRatio > apertureRatio) {
-                        CGFloat y2 = apertureSize.width * (frameSize.width / apertureSize.height);
-                        xc = (point.y + ((y2 - frameSize.height) / 2.f)) / y2; // Account for cropped height
-                        yc = (frameSize.width - point.x) / frameSize.width;
-                    } else {
-                        CGFloat x2 = apertureSize.height * (frameSize.height / apertureSize.width);
-                        yc = 1.f - ((point.x + ((x2 - frameSize.width) / 2)) / x2); // Account for cropped width
-                        xc = point.y / frameSize.height;
-                    }
-                }
-                
-                pointOfInterest = CGPointMake(xc, yc);
-                break;
-            }
-        }
-    }
-    
-    return pointOfInterest;
-}
-
-
-// Auto focus at a particular point. The focus mode will change to locked once the auto focus happens.
-- (void)tapToAutoFocus:(UIGestureRecognizer *)gestureRecognizer
-{
-	// ipod 不支持？
-    if ([[[captureManager videoInput] device] isFocusPointOfInterestSupported]) {
-        CGPoint tapPoint = [gestureRecognizer locationInView:[self videoPreviewView]];
-        CGPoint convertedFocusPoint = [self convertToPointOfInterestFromViewCoordinates:tapPoint];
-        [captureManager autoFocusAtPoint:convertedFocusPoint];
-    }
-}
-
-// Change to continuous auto focus. The camera will constantly focus at the point choosen.
-- (void)tapToContinouslyAutoFocus:(UIGestureRecognizer *)gestureRecognizer
-{
-    if ([[[captureManager videoInput] device] isFocusPointOfInterestSupported])
-        [captureManager continuousFocusAtPoint:CGPointMake(.5f, .5f)];
-}
-
 @end
 
 @implementation AVCamViewController (AVCamCaptureManagerDelegate)

@@ -9,15 +9,25 @@
 #import <Foundation/Foundation.h>
 
 #import <CoreLocation/CoreLocation.h>
+
+#import "TTQBeacon.h"
+
 @interface BeaconManager : NSObject<CLLocationManagerDelegate>{
+
 
 }
 
 @property (nonatomic, strong) NSArray *itemBeacons;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong)  CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) TTQBeacon *activatedBeacon;
 
 + (id)sharedInstance;
 
+- (void)startRanging;
+- (void)stopRanging;
 
-//- (void)
+- (void)openBeacon:(TTQBeacon*)beacon;
+- (void)closeBeacon:(TTQBeacon*)beacon;
+
 @end
