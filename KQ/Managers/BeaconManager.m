@@ -29,14 +29,14 @@
     return sharedInstance;
 }
 
-- (NSArray*)itemBeacons{
-
-    if (!_itemBeacons) {
-       _itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
-
-    }
-    return _itemBeacons;
-}
+//- (NSArray*)itemBeacons{
+//
+//    if (!_itemBeacons) {
+//       _itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
+//
+//    }
+//    return _itemBeacons;
+//}
 
 // AppManager 要在BeaconManager之前定义！
 - (id)init{
@@ -45,10 +45,6 @@
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         
-//        self.itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
-//        NSLog(@"itemBeacons # %@",self.itemBeacons);
-//        
-//        [self startRanging];
         
         
         AppManager *appManager = [AppManager sharedInstance];
@@ -136,6 +132,12 @@
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeBeacon" object:beacon];
 }
+
+- (CLBeacon*)closestBeacon:(NSArray*)beacons{
+    
+    return nil;
+}
+
 
 - (void)test{
     L();

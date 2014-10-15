@@ -17,7 +17,7 @@
 
 }
 
-@property (nonatomic, strong) NSArray *itemBeacons;
+//@property (nonatomic, strong) NSArray *itemBeacons;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong)  CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) TTQBeacon *activatedBeacon;
