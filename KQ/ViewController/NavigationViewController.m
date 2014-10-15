@@ -121,7 +121,10 @@
 - (void)registerNotification {
     
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> FETCH_HEAD
     [[NSNotificationCenter defaultCenter] addObserverForName:@"openBeacon" object:nil queue:nil usingBlock:^(NSNotification *note){
         
     }];
