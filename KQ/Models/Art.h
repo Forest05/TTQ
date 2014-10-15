@@ -36,7 +36,11 @@
 @property (nonatomic, strong) NSString *description_en;
 @property (nonatomic, strong) NSString *imgUrl;
 @property (nonatomic, strong) NSString *minor;
-@property (nonatomic, strong) NSString *index; //展览中的编号
+@property (nonatomic, strong) NSString *like;
+@property (nonatomic, strong) NSString *serialNumber; //展览中的编号
+
+
+@property (nonatomic, strong) Author *author;
 
 @property (nonatomic, strong) TTQBeacon *beacon;
 

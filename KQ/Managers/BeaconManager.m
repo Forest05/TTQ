@@ -14,7 +14,8 @@
 
 @interface BeaconManager()
 
-- (CLBeacon*)closestBeacon:(NSArray*)beacons;
+- (CLBeacon*)closestBeaconFromArray:(NSArray*)beacons;
+- (CLBeacon*)activatedCLBeaconFromArray:(NSArray*)beacons;
 
 @end
 
@@ -32,14 +33,6 @@
     return sharedInstance;
 }
 
-//- (NSArray*)itemBeacons{
-//
-//    if (!_itemBeacons) {
-//       _itemBeacons = [[[[AppManager sharedInstance] exhibition] artBeacons] allKeys];
-//
-//    }
-//    return _itemBeacons;
-//}
 
 // AppManager 要在BeaconManager之前定义！
 - (id)init{
@@ -76,14 +69,28 @@
 //        
 //    }
     
-    CLBeacon *closestBeacon = [self closestBeacon:beacons];
     
-    NSLog(@"closest Beacon # %@",closestBeacon);
-    
-    
-    if (closestBeacon.accuracy < MinDistance) {
-//        self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
+    if (self.activatedBeacon) {
+    /// 如果存在激活的beacon，那么就监听这个beacon的距离, 超过就close
+        
+        CLBeacon *aBeacon = [self activatedCLBeaconFromArray:beacons];
+        if (!aBeacon || aBeacon.accuracy > MaxDistance) {
+            [self closeBeacon:self.activatedBeacon];
+        }
     }
+    else{
+    /// 如果不存在激活的beacon，就设定激活的beacon
+        CLBeacon *closestBeacon = [self closestBeaconFromArray:beacons];
+        
+        NSLog(@"closest Beacon # %@",closestBeacon);
+        
+        if (closestBeacon.accuracy < MinDistance) {
+            self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
+            [self openBeacon:self.activatedBeacon];
+        }
+
+    }
+    
     
 }
 
@@ -117,6 +124,8 @@
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
 //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000028"];
     
+    self.activatedBeacon = nil;
+    
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 
 }
@@ -124,23 +133,25 @@
 - (void)stopRanging{
 
     L();
+    
+    self.activatedBeacon = nil;
+    
     [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     
 }
-
+//
 
 - (void)openBeacon:(TTQBeacon*)beacon{
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"openBeacon" object:beacon];
+    L();
+    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenBeaconNotificationKey object:beacon];
 }
 
 - (void)closeBeacon:(TTQBeacon*)beacon{
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeBeacon" object:beacon];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCloseBeaconNotificationKey object:beacon];
 }
 
-- (CLBeacon*)closestBeacon:(NSArray*)beacons{
-
+- (CLBeacon*)closestBeaconFromArray:(NSArray*)beacons{
 
     NSLog(@"beacons # %@",beacons);
 
@@ -153,6 +164,18 @@
     }
     
     return closestBeacon;
+}
+
+- (CLBeacon*)activatedCLBeaconFromArray:(NSArray*)beacons{
+
+//    CLBeacon *aBeacon;
+    for (CLBeacon *beacon in beacons) {
+        if ([self.activatedBeacon isEqualToCLBeacon:beacon]) {
+            return beacon;
+        }
+    }
+    
+    return nil;
 }
 
 - (void)test{

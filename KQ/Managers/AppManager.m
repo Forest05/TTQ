@@ -7,6 +7,7 @@
 //
 
 #import "AppManager.h"
+#import "NetworkClient.h"
 
 @implementation AppManager
 
@@ -40,15 +41,40 @@
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
        
         if (!ISEMPTY(dict)) {
+            NSLog(@"if has json dict, config hall");
+            
             [self configHallDict:dict];
         }
         else{
-//            NSLog(@"dict # %@",dict);
+            NSLog(@"if hasn't json dict, request from server");
+            
+            [self requestHall];
         }
         
     }
     
     return self;
+}
+
+- (void)requestHall{
+   
+    L();
+    
+    [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
+        
+        
+        //第一次载入app用
+        [self configHallDict:dict];
+        
+        
+        //保存hall到defaults中
+        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
+        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }];
+
+    
 }
 
 - (void)configHallDict:(NSDictionary*)dict{

@@ -69,7 +69,7 @@
     
     // Title文字
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
-                                                           NSFontAttributeName:[UIFont fontWithName:kFontBoldName size:22]}];
+                                                           NSFontAttributeName:[UIFont fontWithName:kFontBoldName size:16]}];
     
     
     [[UISegmentedControl appearance] setTitleTextAttributes:@{

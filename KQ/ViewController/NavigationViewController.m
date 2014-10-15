@@ -8,6 +8,7 @@
 
 #import "NavigationViewController.h"
 #import "BeaconManager.h"
+#import "TextManager.h"
 
 @interface NavigationViewController ()
 
@@ -26,9 +27,14 @@
     // Do any additional setup after loading the view.
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.isCameraOn = NO;
+
+    self.title = lang(@"智能导览");
     
-    self.title = @"智能导览";
     _appManager = [AppManager sharedInstance];
+    
+    [self registerNotification];
+    
     
      _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
     
@@ -43,16 +49,22 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
-    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, _w - 20, 50)];
-    titleL.text = @"打开蓝牙开关，作品相关信息会自动推送到手机屏幕。也可手动输入作品号查看";
+    
+    UIImageView *mapV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, _w-20, 177)];
+    mapV.image = [UIImage imageNamed:@"4picker2.png"];
+    
+    
+    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(mapV.frame)+ 10, _w - 20, 50)];
+    titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕\n也可手动选择作品查看。");
+    titleL.font = [UIFont fontWithName:kFontName size:14];
+    titleL.textColor = kColorLightGreen;
     titleL.numberOfLines = 0;
     
-    UIImageView *mapV = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(titleL.frame), _w-20, 250)];
-    mapV.image = [UIImage imageNamed:@"室内地图.png"];
-    
-    CGFloat y = CGRectGetMaxY(mapV.frame);
-    UILabel *hintL = [[UILabel alloc] initWithFrame:CGRectMake(10, y, 150, 40)];
-    hintL.text = @"请输入作品编号";
+    CGFloat y = CGRectGetMaxY(titleL.frame);
+    UILabel *hintL = [[UILabel alloc] initWithFrame:CGRectMake(10, y , 80, 40)];
+    hintL.font = [UIFont fontWithName:kFontName size:14];
+    hintL.textColor = kColorGray;
+    hintL.text = lang(@"请输入作品编号");
     
     UITextField *artTf = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(hintL.frame), y, 150, 50)];
     _tf = artTf;
@@ -75,6 +87,7 @@
     UIBarButtonItem *doneButton =
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self action:@selector(inputAccessoryViewDidFinish)];
+    
     //using default text field delegate method here, here you could call
     //myTextField.resignFirstResponder to dismiss the views
     
@@ -96,7 +109,6 @@
     
     _scrollView = scrollView;
     
-    self.isCameraOn = NO;
     
 }
 
@@ -106,6 +118,14 @@
     [super viewWillAppear:animated];
     
     [[BeaconManager sharedInstance] startRanging];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+
+    L();
+    [super viewDidAppear:animated];
+    
+//    [self openCamera];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -121,17 +141,16 @@
 - (void)registerNotification {
     
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> FETCH_HEAD
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"openBeacon" object:nil queue:nil usingBlock:^(NSNotification *note){
+    [[NSNotificationCenter defaultCenter] addObserverForName:kOpenBeaconNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note){
+        NSLog(@"open Beacon # %@",note.object);
+        //需要判别是否是art的beacon还是展厅的beacon
         
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"closeBeacon" object:nil queue:nil usingBlock:^(NSNotification *note){
-        
+    [[NSNotificationCenter defaultCenter] addObserverForName:kCloseBeaconNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note){
+        NSLog(@"close Beacon # %@",note.object);
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -160,7 +179,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 
     L();
-//    Art *art = _appManager.arts[row];
     
     self.selectedArt = _appManager.arts[row];
 }

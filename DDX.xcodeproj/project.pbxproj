@@ -213,6 +213,7 @@
 		26F02A4619B2173A0086A8F5 /* TTQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F02A4519B2173A0086A8F5 /* TTQViewController.m */; };
 		6EB0E79B2DF0497980209FAA /* libPods-KQTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77DC981FBD7460891F5B186 /* libPods-KQTests.a */; };
 		82746BA17C3B4D42AE8196DB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE34221828C240E6B918B199 /* libPods.a */; };
+		85003DA319EE92F1003DD1CC /* 4picker2.png in Resources */ = {isa = PBXBuildFile; fileRef = 85003DA219EE92F1003DD1CC /* 4picker2.png */; };
 		850479BD19E16E2B00459004 /* ChooseLangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479BC19E16E2B00459004 /* ChooseLangViewController.m */; };
 		850479C019E16F0600459004 /* HallEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479BF19E16F0600459004 /* HallEntranceViewController.m */; };
 		850479C319E16F1100459004 /* HallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C219E16F1100459004 /* HallViewController.m */; };
@@ -233,6 +234,8 @@
 		8578E84919D29A4E00F36838 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E84819D29A4E00F36838 /* BeaconManager.m */; };
 		85A33F5319E41CAB0083D98B /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A33F5219E41CAB0083D98B /* AppManager.m */; };
 		85A33F5619E41E590083D98B /* ImageText.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A33F5519E41E590083D98B /* ImageText.m */; };
+		85BA518C19EE147900C18716 /* TextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BA518B19EE147900C18716 /* TextManager.m */; };
+		85BA518E19EE14B400C18716 /* text.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85BA518D19EE14B400C18716 /* text.plist */; };
 		85DAFA6B19D502CF0049B4C4 /* Hall.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA6A19D502CF0049B4C4 /* Hall.m */; };
 		85DAFA6E19D502E70049B4C4 /* Exhibition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA6D19D502E70049B4C4 /* Exhibition.m */; };
 		85DAFA7119D502F10049B4C4 /* Art.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7019D502F10049B4C4 /* Art.m */; };
@@ -583,6 +586,7 @@
 		26F02A4419B2173A0086A8F5 /* TTQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTQViewController.h; sourceTree = "<group>"; };
 		26F02A4519B2173A0086A8F5 /* TTQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTQViewController.m; sourceTree = "<group>"; };
 		4F1611095126B3260EF08665 /* Pods.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.adhoc.xcconfig; path = "Pods/Target Support Files/Pods/Pods.adhoc.xcconfig"; sourceTree = "<group>"; };
+		85003DA219EE92F1003DD1CC /* 4picker2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4picker2.png; sourceTree = "<group>"; };
 		850479BB19E16E2B00459004 /* ChooseLangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLangViewController.h; sourceTree = "<group>"; };
 		850479BC19E16E2B00459004 /* ChooseLangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLangViewController.m; sourceTree = "<group>"; };
 		850479BE19E16F0600459004 /* HallEntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallEntranceViewController.h; sourceTree = "<group>"; };
@@ -622,6 +626,9 @@
 		85A33F5219E41CAB0083D98B /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
 		85A33F5419E41E590083D98B /* ImageText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageText.h; sourceTree = "<group>"; };
 		85A33F5519E41E590083D98B /* ImageText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageText.m; sourceTree = "<group>"; };
+		85BA518A19EE147900C18716 /* TextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextManager.h; sourceTree = "<group>"; };
+		85BA518B19EE147900C18716 /* TextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextManager.m; sourceTree = "<group>"; };
+		85BA518D19EE14B400C18716 /* text.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = text.plist; sourceTree = "<group>"; };
 		85DAFA6919D502CF0049B4C4 /* Hall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hall.h; sourceTree = "<group>"; };
 		85DAFA6A19D502CF0049B4C4 /* Hall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hall.m; sourceTree = "<group>"; };
 		85DAFA6C19D502E70049B4C4 /* Exhibition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exhibition.h; sourceTree = "<group>"; };
@@ -806,6 +813,7 @@
 		26E0BDBD194B9C5400FECD2A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				85003DA219EE92F1003DD1CC /* 4picker2.png */,
 				850479CB19E17C5B00459004 /* t1.jpg */,
 				266B2AC319B3527B0074CC07 /* 2_1.png */,
 				266B2AC419B3527B0074CC07 /* 2_2.png */,
@@ -1101,6 +1109,8 @@
 				8578E84819D29A4E00F36838 /* BeaconManager.m */,
 				85A33F5119E41CAB0083D98B /* AppManager.h */,
 				85A33F5219E41CAB0083D98B /* AppManager.m */,
+				85BA518A19EE147900C18716 /* TextManager.h */,
+				85BA518B19EE147900C18716 /* TextManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1191,6 +1201,7 @@
 				26E3A544192DE02F004F8C8C /* Images.xcassets */,
 				26E3A53B192DE02F004F8C8C /* KQ.xcdatamodeld */,
 				26EE1F9A1945971A007C98AA /* db.plist */,
+				85BA518D19EE14B400C18716 /* text.plist */,
 				26E50C60195863F500CBFEE8 /* Xib */,
 				26821B5019532DB6005549D3 /* Root.storyboard */,
 				26F02A4219B20CC40086A8F5 /* DDX.storyboard */,
@@ -1578,6 +1589,7 @@
 				850479CC19E17C5B00459004 /* t1.jpg in Resources */,
 				266B2AC819B3527B0074CC07 /* 3_2.png in Resources */,
 				26E08B201954308000E55A96 /* ShopBranchesCell.xib in Resources */,
+				85BA518E19EE14B400C18716 /* text.plist in Resources */,
 				26DE643D195EBA78008835D6 /* bg_虚线@2x.png in Resources */,
 				26E14BB2193C82FD007A7081 /* UserCenterConfig.plist in Resources */,
 				26E16BBA194F1E1200036039 /* bg_favoriteB@2x.jpg in Resources */,
@@ -1595,6 +1607,7 @@
 				262CF1451958B44800A4FA26 /* icon_telefon@2x.png in Resources */,
 				26E50C671958687D00CBFEE8 /* card_add@2x.png in Resources */,
 				26E16616193976780041CDD6 /* UMSCommentInputControlleriPad.xib in Resources */,
+				85003DA319EE92F1003DD1CC /* 4picker2.png in Resources */,
 				26DE6445195EEBB0008835D6 /* ShopListCell.xib in Resources */,
 				26E50C5919584E7300CBFEE8 /* icon_location@2x.png in Resources */,
 				26E16617193976780041CDD6 /* UMShareEditViewController.xib in Resources */,
@@ -1813,6 +1826,7 @@
 				26E3A5EC192E21AA004F8C8C /* User.m in Sources */,
 				26E2910B193DE15C00B7E0C9 /* ShopBranchListViewController.m in Sources */,
 				26E3A5C0192DE042004F8C8C /* NSMutableArray+Extras.m in Sources */,
+				85BA518C19EE147900C18716 /* TextManager.m in Sources */,
 				8578E84019D2977E00F36838 /* ChangePasswordViewController.m in Sources */,
 				85DAFA7719D5030F0049B4C4 /* TTQBeacon.m in Sources */,
 				26DD9D7B1962DA5500521317 /* MBProgressHUD.m in Sources */,

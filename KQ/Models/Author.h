@@ -13,6 +13,12 @@
 
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *name_en;
+@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, copy) NSString *description_en;
 @property (nonatomic, copy) NSString *avatarUrl;
+
+
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end

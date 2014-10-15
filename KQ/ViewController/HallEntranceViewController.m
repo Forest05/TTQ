@@ -12,7 +12,7 @@
 #import "TTQRootViewController.h"
 #import "NavigationViewController.h"
 #import "HallViewController.h"
-
+#import "TextManager.h"
 
 
 @interface HallEntranceViewController ()
@@ -37,7 +37,8 @@
     
 //     NSLog(@"hall # %@",_manager.hall);
     
-    self.title = @"1933画廊";
+    self.title = lang(@"1933当代艺术空间");
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIBarButtonItem *bb = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_tabuser.png"] style:UIBarButtonItemStylePlain target:self action:@selector(userBBClicked:)];
@@ -49,11 +50,10 @@
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     
-    
-    
-    _introduceScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, _w, 400)];
-    _introduceScrollView.backgroundColor = [UIColor redColor];
+    _introduceScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, _w, 300)];
+    _introduceScrollView.backgroundColor = kColorGreen;
     _introduceScrollView.pagingEnabled = YES;
+    _introduceScrollView.delegate = self;
     
     
     for (int i = 0; i<self.hall.imageTexts.count; i++) {
@@ -65,15 +65,18 @@
         [imgV setImageWithURL:[NSURL URLWithString:it.imageUrl] placeholderImage:[UIImage imageNamed:@"t1.jpg"]];
        
         UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(x, 200-40, _w, 40)];
-        l.backgroundColor = [UIColor clearColor];
+        l.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         l.textAlignment = NSTextAlignmentCenter;
         l.textColor = [UIColor whiteColor];
         
         
         
-        UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(_w*i, CGRectGetMaxY(imgV.frame), _w, 200)];
-        tv.backgroundColor = kColorGreen;
+        UITextView *tv = [[UITextView alloc] initWithFrame:CGRectMake(_w*i + 10, CGRectGetMaxY(imgV.frame), _w - 20, 90)];
+//        tv.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+
+        tv.backgroundColor = [UIColor clearColor];
         tv.textColor = [UIColor whiteColor];
+        tv.font = [UIFont fontWithName:kFontName size:13];
         
         if ([kLang isEqualToString:TTQLangZh]) {
             tv.text = it.text;
@@ -90,21 +93,39 @@
         _introduceScrollView.contentSize = CGSizeMake(CGRectGetMaxX(imgV.frame), 0);
     }
     
-    _toNavigationBtn = [UIButton buttonWithFrame:CGRectMake(30 , 420, 100, 40) title:@"智能导览" bgImageName:nil target:self action:@selector(buttonClicked:)];
+    CGFloat y = CGRectGetMaxY(_introduceScrollView.frame) ;
+    
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, y, _w, 25)];
+    _pageControl.numberOfPages = self.hall.imageTexts.count;
+    _pageControl.currentPageIndicatorTintColor = kColorGreen;
+    _pageControl.pageIndicatorTintColor = kColorLightGreen;
+    
+    y = CGRectGetMaxY(_pageControl.frame) ;
+    
+    _toNavigationBtn = [UIButton buttonWithFrame:CGRectMake(30 , y, 100, 40) title:lang(@"智能导览") bgImageName:nil target:self action:@selector(buttonClicked:)];
     _toNavigationBtn.tag = 1;
     _toNavigationBtn.backgroundColor = kColorGreen;
     
-    _toHallBtn = [UIButton buttonWithFrame:CGRectMake(200 , 420, 100, 40) title:@"作品简介" bgImageName:nil target:self action:@selector(buttonClicked:)];
+    
+    _toHallBtn = [UIButton buttonWithFrame:CGRectMake(200 , y, 100, 40) title:lang(@"作品简介") bgImageName:nil target:self action:@selector(buttonClicked:)];
     _toHallBtn.tag = 2;
     [_toHallBtn setBackgroundColor:kColorGreen];
     
-    
+    UILabel *hintL = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_toHallBtn.frame), _w, 45)];
+    hintL.text = @"在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~";
+    hintL.numberOfLines = 0;
+    hintL.font = [UIFont fontWithName:kFontName size:9];
+    hintL.textAlignment = NSTextAlignmentCenter;
+    hintL.textColor = [UIColor colorWithRed:148.0/255 green:148.0/255 blue:148.0/255 alpha:1];
     
     [_scrollView addSubview:_introduceScrollView];
+    [_scrollView addSubview:_pageControl];
     [_scrollView addSubview:_toNavigationBtn];
     [_scrollView addSubview:_toHallBtn];
+    [_scrollView addSubview:hintL];
     
-    [_scrollView setContentSize:CGSizeMake(0, 500)];
+    [_scrollView setBackgroundColor:[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1]];
+//    [_scrollView setContentSize:CGSizeMake(0, 500)];
     
     [self.view addSubview:_scrollView];
 }
@@ -120,6 +141,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - ScrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGFloat offset = scrollView.contentOffset.x;
+    int page = offset/_w;
+//    NSLog(@"page # %d",page);
+    
+    _pageControl.currentPage = page;
 }
 
 #pragma mark - IBAction

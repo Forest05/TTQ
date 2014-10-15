@@ -14,7 +14,7 @@
     _author = author;
     
 //    _nameL.text = _author.name;
-    _nameL.text = @"author";
+    _nameL.text = _author.name;
     _avatarV.image = [UIImage imageNamed:@"avatar.jpg"];
 }
 

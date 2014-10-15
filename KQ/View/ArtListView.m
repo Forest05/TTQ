@@ -17,13 +17,14 @@
     
     
     _art = art;
-    _artImgV.image = [UIImage imageNamed:@"avatar.jpg"];
+
+    [_artImgV setImageWithURL:[NSURL URLWithString:art.imgUrl]];
     _artL.text = art.name;
-    _authorImgV.image = [UIImage imageNamed:@"avatar.jpg"];
+
     
 }
 
-// 150x230
+// 150x150
 
 - (id)initWithFrame:(CGRect)frame{
     
@@ -31,22 +32,32 @@
 
         CGFloat width = frame.size.width;
         
-        _artImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, width)];
+        _artImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 0.6*width)];
         
-        _artL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(_artImgV.frame), width, 50)];
+        _artL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(_artImgV.frame), width - 20, 50)];
+        _artL.backgroundColor = [UIColor whiteColor];
+        _artL.textColor = [UIColor colorWithRed:130.0/255 green:130.0/255 blue:130.0/255 alpha:1];
+        _artL.font = [UIFont fontWithName:kFontName size:12];
+        _artL.textAlignment = NSTextAlignmentCenter;
+        _artL.numberOfLines = 0;
         
-        _authorImgV = [[UIImageView alloc] initWithFrame:CGRectMake(width/2 - 30, CGRectGetMaxY(_artImgV.frame)-30, 60, 60)];
+        
+//        _authorImgV = [[UIImageView alloc] initWithFrame:CGRectMake(width/2 - 30, CGRectGetMaxY(_artImgV.frame)-30, 60, 60)];
         
         [self addSubview:_artImgV];
         [self addSubview:_artL];
-        [self addSubview:_authorImgV];
-        
-        self.backgroundColor = [UIColor redColor];
-        
-        
+
+        UIButton *likeB = [UIButton buttonWithFrame:CGRectMake(10, 120, 30, 30) title:@"like" bgImageName:nil target:self action:@selector(buttonClicked:)];
+        likeB.backgroundColor = [UIColor redColor];
+        [self addSubview:likeB];
     }
     
     return self;
+}
+
+#pragma mark - IBAction
+- (IBAction)buttonClicked:(id)sender{
+    L();
 }
 
 

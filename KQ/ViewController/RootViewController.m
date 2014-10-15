@@ -48,9 +48,9 @@
     
     
     //TODO: delete
-//    if (DEBUG) {
-//        [self handleAppFirstTimeOpen];
-//    }
+    if (DEBUG) {
+        [self handleAppFirstTimeOpen];
+    }
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:TTQAPPBeforeOpenedKey]) {
        
@@ -81,10 +81,10 @@
 }
 
 
-//- (UIStatusBarStyle)preferredStatusBarStyle
-//{
-//    return UIStatusBarStyleLightContent;
-//}
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

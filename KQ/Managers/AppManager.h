@@ -17,7 +17,6 @@
 @property (nonatomic, strong) Exhibition *exhibition;
 @property (nonatomic, readonly) NSArray *arts;
 @property (nonatomic, strong) NSMutableArray *ttqBeacons;
-//@property (nonatomic, strong) NSArray *artIndexes;
 
 + (id)sharedInstance;
 

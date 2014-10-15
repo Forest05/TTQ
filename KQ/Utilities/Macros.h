@@ -13,7 +13,7 @@
 
 #define kLang [[NSUserDefaults standardUserDefaults] stringForKey:TTQLangKey]
 
-
+#define lang(x)  [[TextManager sharedInstance] textWithKey:(x)]
 
 // -----------------------------------
 
@@ -40,6 +40,8 @@
 #define isIOS8 (kVersion >= 8.0)
 #define isIOS7 (kVersion >= 7.0)
 #define isIOS6 (kVersion >= 6.0)
+
+#define isSmallPhone ([UIScreen mainScreen].bounds.size.height < 500)
 
 #define kIsPad2 (isPad?2.0:1.0)
 #define kRetinaScale [[UIScreen mainScreen]scale]

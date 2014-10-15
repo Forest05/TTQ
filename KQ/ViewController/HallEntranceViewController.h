@@ -13,14 +13,14 @@
 @class NavigationViewController;
 @class HallViewController;
 
-@interface HallEntranceViewController : UIViewController{
+@interface HallEntranceViewController : UIViewController<UIScrollViewDelegate>{
 
     AppManager *_manager;
     
     UIScrollView *_scrollView;
     UIScrollView *_introduceScrollView;
     UIButton *_toNavigationBtn, *_toHallBtn;
-    
+    UIPageControl *_pageControl;
     
     NavigationViewController *_navigationVC;
     HallViewController *_hallVC;

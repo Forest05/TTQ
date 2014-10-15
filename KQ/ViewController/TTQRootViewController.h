@@ -35,7 +35,7 @@
 - (void)didLogin;
 - (void)didLogout;
 
-
+- (void)didChangeLanguage;
 
 
 @end

@@ -10,4 +10,25 @@
 
 @implementation Author
 
+static NSArray *keys;
+- (id)initWithDict:(NSDictionary *)dict{
+    
+    if (self = [self init]) {
+        
+            
+        if (!keys) {
+            keys = @[@"id",@"name",@"name_en",@"description_en",@"avatarUrl"];
+        }
+        
+        for (NSString *key in keys) {
+            [self setValue:dict[key] forKey:key];
+        }
+        self.desc = dict[@"description"];
+        
+        
+        
+    }
+    return self;
+}
+
 @end

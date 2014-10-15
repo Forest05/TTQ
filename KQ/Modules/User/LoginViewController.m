@@ -30,15 +30,16 @@
     self.title = @"用户登录";
 
     
+    UIImageView *logoV = [[UIImageView alloc] initWithFrame:CGRectMake(115, 10, 90, 90)];
+    logoV.image = [UIImage imageNamed:@"avatar.jpg"];
+    
     _userTextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 0, 250, kCellHeight)];
     _userTextField.keyboardType = UIKeyboardTypeNumberPad;
     _userTextField.returnKeyType = UIReturnKeyNext;
     _userTextField.placeholder = @"用户名";
     _userTextField.delegate = self;
     _userTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    _userTextField.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
-//    _userTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_user.png"]];
-//    _userTextField.leftViewMode = UITextFieldViewModeAlways;
+
     
     
     _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 0, 250, kCellHeight)];//f
@@ -54,10 +55,11 @@
     
     
 
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, _w, 88 + 50) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoV.frame) - 20, _w, 88 + 50) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.scrollEnabled = NO;
+    _tableView.backgroundColor = [UIColor clearColor];
     
     
     _loginB = [UIButton buttonWithFrame:CGRectMake(10, CGRectGetMaxY(_tableView.frame) , 300, 40) title:LString(@"登录") bgImageName:nil target:self action:@selector(loginPressed:)];
@@ -69,12 +71,14 @@
     _registerB = [UIButton buttonWithFrame:CGRectMake(10, y, 100, 30) title:@"注册" bgImageName:nil target:self action:@selector(toRegister)];
     _registerB.titleLabel.font = [UIFont fontWithName:kFontName size:18];
     _registerB.contentHorizontalAlignment =UIControlContentHorizontalAlignmentLeft;
+    
 
     
     _forgetB = [UIButton buttonWithFrame:CGRectMake(210, y, 100, 30) title:@"忘记密码?" bgImageName:nil target:self action:@selector(toForget)];
     _forgetB.contentHorizontalAlignment =UIControlContentHorizontalAlignmentRight;
     _forgetB.titleLabel.font = [UIFont fontWithName:kFontName size:18];
     
+    [_scrollView addSubview:logoV];
     [_scrollView addSubview:_tableView];
     [_scrollView addSubview:_loginB];
     [_scrollView addSubview:_registerB];

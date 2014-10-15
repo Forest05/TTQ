@@ -28,6 +28,7 @@
 
 
 #define kColorGreen  [UIColor colorWithRed:112.0/255 green:196.0/255 blue:189.0/255 alpha:1]  //主色调
+#define kColorLightGreen [UIColor colorWithRed:181.0/255 green:219.0/255 blue:214.0/255 alpha:1]
 #define kColorYellow  [UIColor colorWithRed:255.0/255 green:142.0/255 blue:0.0/255 alpha:1]
 #define kColorDarkYellow  [UIColor colorWithRed:255.0/255 green:134.0/255 blue:36.0/255 alpha:1]
 #define kColorLightYellow  [UIColor colorWithRed:255.0/255 green:164.0/255 blue:0.0/255 alpha:1]
@@ -42,6 +43,13 @@
 
 #define kHNavigationbar (isPad?44.0:32.0)
 #define kHPopNavigationbar (isPad?44.0:32.0)
+
+
+#define kOpenBeaconNotificationKey @"openBeacon"
+#define kCloseBeaconNotificationKey @"closeBeacon"
+
+
+
 
 typedef void (^VoidBlock)();
 typedef void (^BooleanResultBlock)(BOOL succeeded, NSError *error);

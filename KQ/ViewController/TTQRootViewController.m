@@ -19,11 +19,12 @@
 #import "ImageText.h"
 #import "AppManager.h"
 #import "KQLoginViewController.h"
+#import "TextManager.h"
 
 @interface TTQRootViewController (){
     
 }
-
+- (void)deleteFirstTimeLoadedInformation;
 
 @end
 
@@ -54,6 +55,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     L();
+
+    //TODO: Delete
+    [self deleteFirstTimeLoadedInformation];
     
     self.chooseLangVC = [[ChooseLangViewController alloc] init];
     self.hallEntranceVC = [[HallEntranceViewController alloc] init];
@@ -61,7 +65,12 @@
     
 
 
+
+
     [self toChooseLang];
+    
+    
+//        [UIScreen mainScreen].bounds.size.height
 
 }
 
@@ -78,10 +87,14 @@
 
 //    NSLog(@"hall # %@,arts # %@",[[AppManager sharedInstance] hall],[[AppManager sharedInstance] arts]);
     
+    NSLog(@"isSmallPhone # %d",  isSmallPhone);
+  
+    
+    
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
     
-//    [NSUserDefault ]
-}
+
+   }
 
 
 
@@ -101,20 +114,21 @@
     
     
     // 载入网络数据
-    [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
+//    [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
+//
+//
+//        //第一次载入app用
+//        [[AppManager sharedInstance] configHallDict:dict];
+//   
+//        
+//        //保存hall到defaults中
+//        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
+//        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//
+//    }];
 
-
-        //第一次载入app用
-        [[AppManager sharedInstance] configHallDict:dict];
-   
-        
-        //保存hall到defaults中
-        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
-        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
-
-    }];
+    [AppManager sharedInstance];
 }
 
 #pragma mark - Fcns
@@ -148,6 +162,14 @@
     
 }
 
+/// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
+- (void)didChangeLanguage{
+    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
+    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
+    
+
+}
+
 
 - (void)didLogin{
 //    self.selectedIndex = 3;
@@ -158,6 +180,14 @@
 //    self.selectedIndex = 0;
 }
 
+- (void)deleteFirstTimeLoadedInformation{
+
+    
+//    TTQHallKey
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:TTQHallKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (void)test{
     L();
@@ -165,7 +195,7 @@
     [[NetworkClient sharedInstance] test];
     [[UserController sharedInstance] test];
     [[BeaconManager sharedInstance] test];
- 
+    [TextManager sharedInstance];
     
 //    NSLog(@"lang # %@",TTQLangEn);
 //    [self testNav:@"NavigationViewController"];

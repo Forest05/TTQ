@@ -15,6 +15,7 @@
 
     UIImageView *_imgV;
     UITextView * _artDescTV;
+    UILabel *_artTitleL;
     
     AuthorView *_authorV;
     UITextView * _authorDescTV;
