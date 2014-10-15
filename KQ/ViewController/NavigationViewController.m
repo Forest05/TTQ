@@ -121,8 +121,6 @@
 - (void)registerNotification {
     
     
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleWillResignActive) name:UIApplicationWillResignActiveNotification object:[UIApplication sharedApplication]];
-    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"openBeacon" object:nil queue:nil usingBlock:^(NSNotification *note){
         
     }];

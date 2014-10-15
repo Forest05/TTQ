@@ -9,6 +9,9 @@
 #import "BeaconManager.h"
 #import "AppManager.h"
 
+#define MinDistance 1.0
+#define MaxDistance 1.5
+
 @interface BeaconManager()
 
 - (CLBeacon*)closestBeacon:(NSArray*)beacons;
@@ -79,8 +82,11 @@
     
     CLBeacon *closestBeacon = [self closestBeacon:beacons];
     
-    if (closestBeacon.accuracy < 1.0) {
-        self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
+    NSLog(@"closest Beacon # %@",closestBeacon);
+    
+    
+    if (closestBeacon.accuracy < MinDistance) {
+//        self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
     }
     
 }
@@ -135,6 +141,21 @@
 - (void)closeBeacon:(TTQBeacon*)beacon{
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeBeacon" object:beacon];
+}
+
+- (CLBeacon*)closestBeacon:(NSArray*)beacons{
+
+    NSLog(@"beacons # %@",beacons);
+
+    CLBeacon *closestBeacon = [beacons firstObject];
+    for (CLBeacon *beacon in beacons) {
+        float accuracy = beacon.accuracy;
+        if (accuracy > 0 && accuracy < closestBeacon.accuracy) {
+            closestBeacon = beacon;
+        }
+    }
+    
+    return closestBeacon;
 }
 
 - (void)test{
