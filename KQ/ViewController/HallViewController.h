@@ -17,6 +17,8 @@
     ArtNavView *_artView;
     
     AppManager *_appManager;
+    
+    NSArray *_arts;
 
 }
 

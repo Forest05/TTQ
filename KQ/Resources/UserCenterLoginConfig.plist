@@ -30,61 +30,30 @@
 					<key>key</key>
 					<string></string>
 					<key>label</key>
-					<string>我的快券</string>
+					<string>我收藏的作品</string>
 					<key>class</key>
 					<string></string>
 					<key>selector</key>
-					<string>toCoupons</string>
+					<string>toFavoritedArts</string>
 					<key>image</key>
 					<string>icon_mycoupons.png</string>
 				</dict>
-				<dict>
-					<key>key</key>
-					<string>aboutus</string>
-					<key>label</key>
-					<string>我的银行卡</string>
-					<key>class</key>
-					<string></string>
-					<key>selector</key>
-					<string>toCards</string>
-					<key>image</key>
-					<string>icon_mycards.png</string>
-				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>rows</key>
+			<array>
 				<dict>
 					<key>key</key>
 					<string></string>
 					<key>label</key>
-					<string>我收藏的快券</string>
+					<string>联系我们</string>
 					<key>class</key>
 					<string></string>
 					<key>selector</key>
-					<string>toFavoritedCoupons</string>
+					<string>contactUs</string>
 					<key>image</key>
-					<string>icon_myfavoritedcoupons.png</string>
-				</dict>
-				<dict>
-					<key>key</key>
-					<string>aboutus</string>
-					<key>label</key>
-					<string>我收藏的商家</string>
-					<key>class</key>
-					<string></string>
-					<key>selector</key>
-					<string>toShops</string>
-					<key>image</key>
-					<string>icon_myfavoritedshops.png</string>
-				</dict>
-				<dict>
-					<key>key</key>
-					<string>aboutus</string>
-					<key>label</key>
-					<string>设置</string>
-					<key>class</key>
-					<string></string>
-					<key>selector</key>
-					<string>toSettings</string>
-					<key>image</key>
-					<string>icon_mysettings.png</string>
+					<string>icon_mycoupons.png</string>
 				</dict>
 			</array>
 		</dict>

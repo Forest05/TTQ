@@ -58,5 +58,104 @@
 		<key>en</key>
 		<string>Just a little</string>
 	</dict>
+	<key>用户登录</key>
+	<dict>
+		<key>zh</key>
+		<string>用户登录</string>
+		<key>en</key>
+		<string>Just a little</string>
+	</dict>
+	<key>登录</key>
+	<dict>
+		<key>zh</key>
+		<string>登录</string>
+		<key>en</key>
+		<string>Just a little</string>
+	</dict>
+	<key>注册</key>
+	<dict>
+		<key>zh</key>
+		<string>注册</string>
+		<key>en</key>
+		<string>Just a little</string>
+	</dict>
+    <key>用户名</key>
+    <dict>
+        <key>zh</key>
+        <string>用户名</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>密码</key>
+    <dict>
+        <key>zh</key>
+        <string>密码</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>请输入所有信息</key>
+    <dict>
+        <key>zh</key>
+        <string>请输入所有信息</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>注册成功</key>
+    <dict>
+        <key>zh</key>
+        <string>注册成功</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>欢迎你回来</key>
+    <dict>
+        <key>zh</key>
+        <string>欢迎你回来</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~</key>
+    <dict>
+        <key>zh</key>
+        <string>在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>我的</key>
+    <dict>
+        <key>zh</key>
+        <string>我的</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>取消</key>
+    <dict>
+        <key>zh</key>
+        <string>取消</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>退出</key>
+    <dict>
+        <key>zh</key>
+        <string>退出</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>确定要退出当前账号吗？</key>
+    <dict>
+        <key>zh</key>
+        <string>确定要退出当前账号吗？</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+    <key>联系我们</key>
+    <dict>
+        <key>zh</key>
+        <string>联系我们</string>
+        <key>en</key>
+        <string>Just a little</string>
+    </dict>
+
 </dict>
 </plist>

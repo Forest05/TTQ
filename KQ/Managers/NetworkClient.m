@@ -14,6 +14,17 @@
 
 #define api_firstTimeOpened  [RESTHOST stringByAppendingFormat:@"/firstTimeOpened"]
 
+#define api_updatedTime      [RESTHOST stringByAppendingFormat:@"/updatedTime"]
+
+//用户登录
+#define api_login               [RESTHOST stringByAppendingString:@"/login"]
+
+//获取用户，用户注册
+#define api_user                [RESTHOST stringByAppendingFormat:@"/user"]
+
+
+#define api_updateAvatar         [RESTHOST stringByAppendingFormat:@"/updateAvatar"]
+
 // deprecated...
 //获取最新的优惠券
 #define api_newestCoupons       [RESTHOST stringByAppendingFormat:@"/newestCoupons"]
@@ -34,11 +45,6 @@
 //获取一级类型
 #define api_headCouponTypes       [RESTHOST stringByAppendingFormat:@"/headCouponTypes"]
 
-//用户登录
-#define api_login               [RESTHOST stringByAppendingString:@"/login"]
-
-//获取用户，用户注册
-#define api_user                [RESTHOST stringByAppendingFormat:@"/user"]
 
 //用户绑定的银行卡
 #define api_my_card             [RESTHOST stringByAppendingFormat:@"/mycard"]
@@ -117,15 +123,30 @@
 
 - (void)queryUser:(NSString*)uid block:(IdResultBlock)block{
     
-    [self getWithUrl:api_user parameters:@{@"uid":uid} block:block];
+    [self getWithUrl:api_user parameters:@{@"id":uid} block:block];
 }
+
+- (void)queryUpdateAvatar:(NSString*)uid image:(UIImage*)image block:(IdResultBlock)block{
+
+    NSData *data = UIImageJPEGRepresentation(image, .8);
+    NSString *base64Str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    
+    
+    [self postWithUrl:api_updateAvatar parameters:@{@"uid":uid,@"avatar":base64Str} block:block];
+}
+
+- (void)queryFirstUpdatedTimeWithBlock:(IdResultBlock)block{
+
+    
+    [self getWithUrl:api_updatedTime parameters:nil block:block];
+    
+}
+
 
 - (void)queryCoupon:(NSString*)couponId block:(IdResultBlock)block{
 
 //
-//    NSString *url = [RESTHOST stringByAppendingFormat:@"/Coupon/id/%@",couponId];
-//
-//    [self getWithUrl:url parameters:nil block:block];
 
     [self getWithUrl:api_coupon parameters:@{@"id":couponId} block:block];
 }
@@ -299,7 +320,7 @@
     
     AFHTTPRequestOperation *operation = [_clientManager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"post url # %@, params # %@,response :%@ %@ ", url,parameters,operation.responseString, responseObject);
+//        NSLog(@"post url # %@, params # %@,response :%@ %@ ", url,parameters,operation.responseString, responseObject);
         
         
         NSDictionary *dict = responseObject;
@@ -477,6 +498,10 @@
     
 //    [self getWithUrl:@"http://115.29.148.47/kq/index.php/kqapi3/newestCoupons" parameters:nil block:^(id object, NSError *error) {
 //          NSLog(@"obj # %@",object); 
+//    }];
+    
+//    [self queryUpdateAvatar:@"1" image:[UIImage imageNamed:@"ibeacon_museum.jpg"] block:^(NSDictionary *object, NSError *error) {
+//        NSLog(@"obj # %@",object);
 //    }];
 }
 

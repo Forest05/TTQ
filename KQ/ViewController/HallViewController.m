@@ -26,7 +26,6 @@
     
     _appManager = [AppManager sharedInstance];
     
-    self.arts = [_appManager arts];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

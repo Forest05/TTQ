@@ -11,7 +11,8 @@
 #import "UserController.h"
 #import "TTQRootViewController.h"
 #import "ForgetPasswordViewController.h"
-
+#import "TextManager.h"
+#import "LibraryManager.h"
 
 @interface LoginViewController ()
 
@@ -27,19 +28,21 @@
     [super viewDidLoad];
     
     
-    self.title = @"用户登录";
+    self.title = lang(@"用户登录");
+
+    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgV.image = [UIImage imageNamed:@"login_调整后BG.jpg"];
 
     
-    UIImageView *logoV = [[UIImageView alloc] initWithFrame:CGRectMake(115, 10, 90, 90)];
-    logoV.image = [UIImage imageNamed:@"avatar.jpg"];
+    UIImageView *logoV = [[UIImageView alloc] initWithFrame:CGRectMake(115, 30, 90, 90)];
+    logoV.image = [UIImage imageNamed:@"icon.png"];
     
     _userTextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 0, 250, kCellHeight)];
-    _userTextField.keyboardType = UIKeyboardTypeNumberPad;
+    _userTextField.keyboardType = UIKeyboardTypeDefault;
     _userTextField.returnKeyType = UIReturnKeyNext;
     _userTextField.placeholder = @"用户名";
     _userTextField.delegate = self;
     _userTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-
     
     
     _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 0, 250, kCellHeight)];//f
@@ -55,26 +58,28 @@
     
     
 
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoV.frame) - 20, _w, 88 + 50) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoV.frame) , _w, 88 + 50) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.scrollEnabled = NO;
     _tableView.backgroundColor = [UIColor clearColor];
     
     
-    _loginB = [UIButton buttonWithFrame:CGRectMake(10, CGRectGetMaxY(_tableView.frame) , 300, 40) title:LString(@"登录") bgImageName:nil target:self action:@selector(loginPressed:)];
-    _loginB.backgroundColor = kColorYellow;
+    _loginB = [UIButton buttonWithFrame:CGRectMake(10, CGRectGetMaxY(_tableView.frame) +20, 300, 40) title:lang(@"登录") bgImageName:nil target:self action:@selector(loginPressed:)];
+    _loginB.backgroundColor = kColorGreen;
     _loginB.titleLabel.font = [UIFont fontWithName:kFontBoldName size:18];
     _loginB.layer.cornerRadius = 3;
     
     CGFloat y = CGRectGetMaxY(_loginB.frame) + 10;
-    _registerB = [UIButton buttonWithFrame:CGRectMake(10, y, 100, 30) title:@"注册" bgImageName:nil target:self action:@selector(toRegister)];
+    _registerB = [UIButton buttonWithFrame:CGRectMake(10, CGRectGetMaxY(_loginB.frame) + 10, 300, 40) title:lang(@"注册") bgImageName:nil target:self action:@selector(toRegister)];
     _registerB.titleLabel.font = [UIFont fontWithName:kFontName size:18];
-    _registerB.contentHorizontalAlignment =UIControlContentHorizontalAlignmentLeft;
+    _registerB.contentHorizontalAlignment =UIControlContentHorizontalAlignmentCenter;
+    _registerB.layer.cornerRadius = 3;
+    _registerB.backgroundColor = kColorLightGreen;
     
 
     
-    _forgetB = [UIButton buttonWithFrame:CGRectMake(210, y, 100, 30) title:@"忘记密码?" bgImageName:nil target:self action:@selector(toForget)];
+    _forgetB = [UIButton buttonWithFrame:CGRectMake(10, y, 100, 30) title:@"忘记密码?" bgImageName:nil target:self action:@selector(toForget)];
     _forgetB.contentHorizontalAlignment =UIControlContentHorizontalAlignmentRight;
     _forgetB.titleLabel.font = [UIFont fontWithName:kFontName size:18];
     
@@ -82,13 +87,14 @@
     [_scrollView addSubview:_tableView];
     [_scrollView addSubview:_loginB];
     [_scrollView addSubview:_registerB];
-    [_scrollView addSubview:_forgetB];
+//    [_scrollView addSubview:_forgetB];
 
    
 
      _scrollView.contentSize = CGSizeMake(0, 600);
 
-    
+
+    [self.view insertSubview:bgV belowSubview:_scrollView];
 }
 
 
@@ -117,7 +123,20 @@
     
     [self toForget];
 }
+#pragma mark - Textfield
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
 
+    if (textField == _userTextField) {
+
+        [_passwordTextField becomeFirstResponder];
+    }
+   else if (textField == _passwordTextField) {
+//        NSLog(@"go to login");
+       [self loginPressed:nil];
+    }
+    
+    return YES;
+}
 
 #pragma mark - Table view data source
 
@@ -179,15 +198,20 @@
 
 - (void)loginWithEmail:(NSString*)email password:(NSString *)password{
     
+    [[LibraryManager sharedInstance] startProgress];
+    
     [[UserController sharedInstance] loginWithEmail:email pw:password block:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-        
-//            [self back];
-            
-            //TODO: 这里发一个消息更好！
-//            [[TTQRootViewController sharedInstance] didLogin];
-        
             NSLog(@"did login");
+
+            [[LibraryManager sharedInstance] dismissProgress];
+            NSString *str = @"欢迎你回来";
+            [[LibraryManager sharedInstance] startHint:[NSString stringWithFormat:@"%@, %@",str,email]];
+            
+            [self back];
+
+            
+            
         }
     }];
 }

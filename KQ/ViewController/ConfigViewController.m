@@ -34,6 +34,8 @@
 
     self.navigationController.navigationBar.translucent = NO;
     
+//    self.tableView.backgroundColor = ;
+    
 }
 
 - (void)didReceiveMemoryWarning

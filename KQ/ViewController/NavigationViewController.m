@@ -18,8 +18,11 @@
 
 - (void)setSelectedArt:(Art *)selectedArt{
     _selectedArt = selectedArt;
-    _tf.text = [NSString stringWithFormat:@"%@ %@",selectedArt.id, selectedArt.name];
+//    _tf.text = [NSString stringWithFormat:@"%@ %@",selectedArt.id, selectedArt.name];
 
+    NSString *name = isZH?selectedArt.name:selectedArt.name_en;
+
+    _tf.text = [NSString stringWithFormat:@"%@", name];
 }
 
 - (void)viewDidLoad {
@@ -43,9 +46,9 @@
     UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.navigationItem.leftBarButtonItem = backBB;
     
-    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleCameraClicked:)];
+    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera_active.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleCameraClicked:)];
     self.navigationItem.rightBarButtonItem = cameraBB;
-
+    _cameraBB = cameraBB;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
@@ -55,7 +58,9 @@
     
     
     UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(mapV.frame)+ 10, _w - 20, 50)];
-    titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕\n也可手动选择作品查看。");
+    titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕也可手动选择作品查看。");
+    
+//    titleL.text =@"打开蓝牙，作品相关\n信息会自动推送到手机\n屏幕也可手动选择作品查看。";
     titleL.font = [UIFont fontWithName:kFontName size:14];
     titleL.textColor = kColorLightGreen;
     titleL.numberOfLines = 0;
@@ -66,7 +71,10 @@
     hintL.textColor = kColorGray;
     hintL.text = lang(@"请输入作品编号");
     
-    UITextField *artTf = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(hintL.frame), y, 150, 50)];
+    UITextField *artTf = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(hintL.frame), y, _w-10 - CGRectGetMaxX(hintL.frame), 40)];
+    artTf.font = [UIFont fontWithName:kFontBoldName size:14];
+    artTf.textColor = kColorGreen;
+    
     _tf = artTf;
     
     
@@ -88,15 +96,15 @@
     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self action:@selector(inputAccessoryViewDidFinish)];
     
+    
     //using default text field delegate method here, here you could call
     //myTextField.resignFirstResponder to dismiss the views
     
     UIBarButtonItem *fBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
     [myToolbar setItems:[NSArray arrayWithObjects: fBB,doneButton,nil] animated:NO];
     _tf.inputAccessoryView = myToolbar;
     
-    UIButton *navBtn = [UIButton buttonWithFrame:CGRectMake(50, CGRectGetMaxY(artTf.frame) + 10, _w - 100, 40) title:@"确定" bgImageName:nil target:self action:@selector(navButtonClicked:)];
+    UIButton *navBtn = [UIButton buttonWithFrame:CGRectMake(50, CGRectGetMaxY(artTf.frame) + 10, _w - 100, 40) title:lang(@"展示") bgImageName:nil target:self action:@selector(navButtonClicked:)];
     navBtn.backgroundColor = kColorGreen;
     
     [scrollView addSubview:titleL];
@@ -172,8 +180,10 @@
 
     Art *art = _appManager.arts[row];
   
-    return [NSString stringWithFormat:@"%@ %@",art.id,art.name];
-    
+//    return [NSString stringWithFormat:@"%@ %@",art.id,art.name];
+
+    NSString *name = isZH?art.name:art.name_en;
+    return [NSString stringWithFormat:@"%@", art.name_en];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -181,6 +191,8 @@
     L();
     
     self.selectedArt = _appManager.arts[row];
+    
+    [self showArt:self.selectedArt];
 }
 
 #pragma mark - IBAction
@@ -253,6 +265,7 @@
     [_scrollView insertSubview:_camVC.view atIndex:0];
     
     self.isCameraOn = YES;
+//    [_cameraBB setImage:[UIImage imageNamed:@"camera_active.png"]];
 }
 - (void)closeCamera{
     
@@ -260,6 +273,8 @@
     [_camVC.view removeFromSuperview];
     [_camVC stopSesseion];
     self.isCameraOn = NO;
+    
+//    [_cameraBB setImage:[UIImage imageNamed:@"camera_unactive.png"]];
 }
 
 

@@ -44,6 +44,10 @@
  */
 - (void)queryUser:(NSString*)uid block:(IdResultBlock)block;
 
+- (void)queryUpdateAvatar:(NSString*)uid image:(UIImage*)image block:(IdResultBlock)block;
+
+- (void)queryFirstUpdatedTimeWithBlock:(IdResultBlock)block;
+
 /**
  *	@brief 获取优惠券信息
  */

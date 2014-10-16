@@ -32,6 +32,14 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
 }
 
+- (void)setAvatar:(UIImage *)avatar{
+
+    _avatar = avatar;
+    
+//    [_networkClient queryUpdateAvatar:self.uid image:avatar block:]
+    L();
+}
+
 #pragma mark - Init
 
 + (id)sharedInstance {
@@ -62,11 +70,9 @@
             [self loadUser];
         }
         
-        self.checkinLocation = [[CLLocation alloc] initWithLatitude:31.02 longitude:121.02];
+//        self.checkinLocation = [[CLLocation alloc] initWithLatitude:31.02 longitude:121.02];
         
-//        [self setupLocationManager];
-        
-//        NSLog(@"avos user # %@",[[AVOSEngine sharedInstance] currentUser]);
+
         
     }
     return self;
@@ -112,20 +118,17 @@
 
 - (void)loadUser{
     
-    self.uid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-    self.sessionToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    L();
     
-//    [_networkClient queryUserList:@[self.uid] block:^(NSArray* array, NSError *error) {
-//        if (!ISEMPTY(array)) {
-//            People *people = [People peopleWithDict:array[0]];
-//            self.people = people;
-//            NSLog(@"uid # %@,token # %@,people # %@",self.uid,people.sessionToken,people.phone);
-//            
-//        }
-//    }];
+    self.uid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
 
+//    self.uid = @"2";
+
+    /// 需要载入user
     [_networkClient queryUser:self.uid block:^(NSDictionary *dict, NSError *error) {
      
+//        NSLog(@"dict # %@",dict);
+        
         if (!ISEMPTY(dict)) {
             self.people = [People peopleWithDict:dict];
         }
@@ -152,11 +155,13 @@
         
         if (!ISEMPTY(dict)) {
             
-            [self didLoginWithUid:dict[@"objectId"] token:dict[@"sessionToken"]];
+//            [self didLoginWithUid:dict[@"objectId"] token:dict[@"sessionToken"]];
+            self.uid = dict[@"id"];
+            [[NSUserDefaults standardUserDefaults]setObject:self.uid forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
-//            [[AVOSEngine sharedInstance] loginWithUsername:userInfo[@"username"] password:userInfo[@"password"] block:^(id object, NSError *error) {
-//                
-//            }];
+            [self loadUser];
+
             
             block(YES,nil);
             
@@ -175,17 +180,20 @@
     
 //    NSLog(@"pw # %@",pw);
     
+    
     [[NetworkClient sharedInstance] loginWithUsername:email password:pw block:^(NSDictionary *dict, NSError *error) {
         
         if (!ISEMPTY(dict)) {
             
             NSLog(@"login user # %@",dict);
             
-            [self didLoginWithUid:dict[@"objectId"] token:dict[@"sessionToken"]];
+//            [self didLoginWithUid:dict[@"objectId"] token:dict[@"sessionToken"]];
+          
+            self.uid = dict[@"id"];
+            [[NSUserDefaults standardUserDefaults]setObject:self.uid forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
-//            [[AVOSEngine sharedInstance] loginWithUsername:email password:pw block:^(id object, NSError *error) {
-//                
-//            }];
+            [self loadUser];
             
             block(YES,nil);
         }
@@ -201,7 +209,7 @@
     self.sessionToken = token;
     
     [[NSUserDefaults standardUserDefaults]setObject:self.uid forKey:@"uid"];
-    [[NSUserDefaults standardUserDefaults]setObject:self.sessionToken forKey:@"token"];
+//    [[NSUserDefaults standardUserDefaults]setObject:self.sessionToken forKey:@"token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self loadUser];
@@ -216,10 +224,10 @@
 - (void)logout{
     
     self.uid = nil;
-    self.sessionToken = nil;
+//    self.sessionToken = nil;
     
     [[NSUserDefaults standardUserDefaults]setObject:nil forKey:@"uid"];
-    [[NSUserDefaults standardUserDefaults]setObject:nil forKey:@"token"];
+//    [[NSUserDefaults standardUserDefaults]setObject:nil forKey:@"token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
   
@@ -232,7 +240,7 @@
 - (void)test{
     L();
 
-    
+//    [self loadUser];
     
 //    
 //    MKDistanceFormatter *formatter = [[MKDistanceFormatter alloc] init];

@@ -21,4 +21,6 @@
 + (id)sharedInstance;
 
 - (void)configHallDict:(NSDictionary*)dict;
+
+- (NSArray*)selectedArts:(NSArray*)artIds;
 @end

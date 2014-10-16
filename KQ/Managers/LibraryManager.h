@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *hudCache;
 
-+ (id)sharedInstance;
++ (LibraryManager*)sharedInstance;
 
 - (void)shareWithText:(NSString*)text image:(UIImage*)image delegate:(id)delegate;
 

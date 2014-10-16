@@ -9,8 +9,9 @@
 #import "KQRegisterViewController.h"
 #import "UserController.h"
 #import "AgreementViewController.h"
-
+#import "LibraryManager.h"
 #import "NetworkClient.h"
+#import "TextManager.h"
 
 @interface KQRegisterViewController ()
 
@@ -23,11 +24,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _userTextField.placeholder = @"手机号";
+//    _userTextField.placeholder = @"手机号";
+//
+//     _userTextField.keyboardType = UIKeyboardTypeNumberPad;
 
-     _userTextField.keyboardType = UIKeyboardTypeNumberPad;
-
-    _verifyTextField.userInteractionEnabled = NO;
+//    _verifyTextField.userInteractionEnabled = NO;
      self.navigationController.navigationBar.translucent = NO;
 }
 
@@ -61,13 +62,10 @@
     ///  先进行validate， 通过后再注册
     [self validateWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-//            NSDictionary *info = @{@"username":self.userTextField.text,@"password":_passwordTextField.text,@"phone":_userTextField.text,
-//                                   @"nickname":_usernameTextField.text};
 
             
             // 这里
-            NSDictionary *info = @{@"username":self.userTextField.text,@"password":_passwordTextField.text,@"phone":_userTextField.text,
-                                  @"nickname":@"KQ84567033"};
+            NSDictionary *info = @{@"username":self.userTextField.text,@"password":self.passwordTextField.text};
             
             //    NSLog(@"info # %@",info);
             
@@ -80,7 +78,9 @@
 
 - (void)validateWithBlock:(BooleanResultBlock)block{
 
-      NSString *msg = @"请输入所有信息";
+    
+    NSString *msg = @"请输入所有信息";
+    
     if (ISEMPTY(_userTextField.text) || ISEMPTY(_passwordTextField.text)) {
         [UIAlertView showAlert:msg msg:nil cancel:@"OK"];
         block(NO,nil);
@@ -95,13 +95,21 @@
 
 - (void)registerUser:(NSDictionary *)userInfo{
 
+        [[LibraryManager sharedInstance] startProgress];
     
     [[UserController sharedInstance] registerWithUserInfo:userInfo block:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
 
-            /// 注册成功后显示提示窗
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注册成功" message:@"已获免费摩提快券，请前往绑定银行卡" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
-            [alert show];
+            
+            [[LibraryManager sharedInstance] dismissProgress];
+            
+            NSString *str = lang(@"注册成功");
+            [[LibraryManager sharedInstance] startHint:[NSString stringWithFormat:@"%@, %@",str,userInfo[@"username"]]];
+            
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+
         }
     }];
 

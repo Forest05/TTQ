@@ -23,7 +23,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-      _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     [self.view addSubview:_scrollView];
 
@@ -56,7 +56,6 @@
     
     static NSString *CellIdentifier1 = @"Cell1";
     
-    //
     
     //!!!: 可以根据Setting的不同进行不同的工作
     

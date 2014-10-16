@@ -19,7 +19,7 @@
 
     UIScrollView *_scrollView;
     UITextField *_tf;
-
+    UIBarButtonItem *_cameraBB;
     
     
     AppManager *_appManager;

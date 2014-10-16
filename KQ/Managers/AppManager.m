@@ -36,20 +36,43 @@
 
 - (id)init{
     if (self = [super init]) {
-
+//
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:TTQHallKey];
         NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
        
         if (!ISEMPTY(dict)) {
-            NSLog(@"if has json dict, config hall");
+            NSLog(@"if memory has json dict, config hall");
             
             [self configHallDict:dict];
+            
+            //抓一下
+            
         }
-        else{
+        else {
             NSLog(@"if hasn't json dict, request from server");
             
-            [self requestHall];
+            
+//            [self requestHall];
         }
+        
+        
+        [[NetworkClient sharedInstance] queryFirstUpdatedTimeWithBlock:^(NSDictionary *dict, NSError *error) {
+            
+//            NSLog(@"update # %@",dict);
+            
+            int remoteVersion = [dict[@"version"] intValue];
+      
+            int localVersion = [[NSUserDefaults standardUserDefaults]integerForKey:@"firstUpdate"];
+
+             NSLog(@"local # %d, remoteVersion # %d",localVersion,remoteVersion);
+            
+            if (localVersion < remoteVersion) {
+                
+                [self requstHallWithVersion:remoteVersion];
+            }
+            
+        }];
+
         
     }
     
@@ -72,9 +95,56 @@
         [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
+        // 把dict存到resource中去
+        
+       
+//        NSData *jsonData = [NSJSONSerialization
+//                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+//        
+//        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+//
+//        NSLog(@"json # %@",str);
+        
+        
+        
+        
     }];
-
     
+}
+
+- (void)requstHallWithVersion:(int)version{
+
+    L();
+    
+    [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
+        
+        
+        //第一次载入app用
+        [self configHallDict:dict];
+      
+        //保存hall到defaults中
+        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
+        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
+        [[NSUserDefaults standardUserDefaults] setInteger:version forKey:@"firstUpdate"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
+        
+        // 把dict存到resource中去
+        
+        
+        //        NSData *jsonData = [NSJSONSerialization
+        //                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+        //
+        //        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+        //
+        //        NSLog(@"json # %@",str);
+        
+        
+        
+        
+    }];
 }
 
 - (void)configHallDict:(NSDictionary*)dict{
@@ -126,8 +196,12 @@
     
     //beacons
     
-    
     self.hall = hall;
 
+}
+
+- (NSArray*)selectedArts:(NSArray*)artIds{
+
+    return nil;
 }
 @end

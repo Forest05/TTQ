@@ -81,20 +81,34 @@
     
     [self test];
     
-//    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"hall"];
-//    NSDictionary *hallDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-//    NSLog(@"hall Dict # %@",hallDict);
-
-//    NSLog(@"hall # %@,arts # %@",[[AppManager sharedInstance] hall],[[AppManager sharedInstance] arts]);
     
     NSLog(@"isSmallPhone # %d",  isSmallPhone);
   
-    
-    
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
     
+    
+    
+//    NSString *filePath = [NSString filePathForResource:@"2.txt"];
+//    
+//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+//    
+//    
+//    NSLog(@"dict # %@",dict);
 
-   }
+    
+//    
+//    NSString *updatedDate = @"2014-10-15 00:00:00";
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSDate *date = [formatter dateFromString:updatedDate];
+//
+//    NSLog(@"date # %@",date);
+//    NSLog(@"compare # %d",[date compare:[NSDate date]]);// -1 标识 date比现在早， 1 标识 date比现在晚
+//
+//    
+    
+
+}
 
 
 
@@ -127,8 +141,13 @@
 //        [[NSUserDefaults standardUserDefaults] synchronize];
 //
 //    }];
-
-    [AppManager sharedInstance];
+    
+    
+    NSString *filePath = [NSString filePathForResource:@"2.txt"];
+    
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+    
+    [[AppManager sharedInstance] configHallDict:dict];
 }
 
 #pragma mark - Fcns
@@ -199,6 +218,7 @@
     
 //    NSLog(@"lang # %@",TTQLangEn);
 //    [self testNav:@"NavigationViewController"];
+    
 
 }
 

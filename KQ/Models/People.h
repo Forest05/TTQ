@@ -11,12 +11,16 @@
 @interface People : NSObject
 
 @property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *avatarUrl;
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *sessionToken;
+@property (nonatomic, copy) NSString *avatarStr;
+@property (nonatomic, strong) NSMutableArray *favArtIds;
 
+@property (nonatomic, strong) UIImage *avatar;
 @property (nonatomic, strong) NSMutableSet *favoritedCouponIds;
 @property (nonatomic, strong) NSMutableSet *favoritedShopIds;
 @property (nonatomic, strong) NSMutableSet *cardIds; //set

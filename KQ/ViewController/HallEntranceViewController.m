@@ -13,7 +13,8 @@
 #import "NavigationViewController.h"
 #import "HallViewController.h"
 #import "TextManager.h"
-
+#import "UserCenterViewController.h"
+#import "NetworkClient.h"
 
 @interface HallEntranceViewController ()
 
@@ -112,7 +113,7 @@
     [_toHallBtn setBackgroundColor:kColorGreen];
     
     UILabel *hintL = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_toHallBtn.frame), _w, 45)];
-    hintL.text = @"在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~";
+    hintL.text = lang(@"在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~");
     hintL.numberOfLines = 0;
     hintL.font = [UIFont fontWithName:kFontName size:9];
     hintL.textAlignment = NSTextAlignmentCenter;
@@ -135,6 +136,19 @@
     [super viewDidAppear:animated];
     
    
+//    [[NetworkClient sharedInstance] queryUpdateAvatar:@"1" image:[UIImage imageNamed:@"ibeacon_museum.jpg"] block:^(NSString *str, NSError *error) {
+//        NSLog(@"obj # %@",object);
+        
+//        NSData *data =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+//        
+//        UIImage *img = [[UIImage alloc] initWithData:data];
+//
+//        NSLog(@"img # %@",img);
+//        
+//        UIImageView *imgV = [[UIImageView alloc] initWithImage:img];
+//        [self.view addSubview:imgV];
+//        imgV.backgroundColor = [UIColor redColor];
+//    }];
     
 }
 
@@ -185,6 +199,10 @@
 - (void)toUser{
     L();
     
+    _userCenterVC = [[UserCenterViewController alloc] init];
+    
+    [self.navigationController pushViewController:_userCenterVC animated:YES];
+    
   }
 - (void)toNavigation{
     L();
@@ -202,6 +220,7 @@
         _hallVC = [[HallViewController alloc] init];
     }
     
+    _hallVC.arts = [[AppManager sharedInstance]arts];
     [self.navigationController pushViewController:_hallVC animated:YES];
     
 }

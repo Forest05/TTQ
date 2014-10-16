@@ -24,7 +24,7 @@
 
 - (id)init{
     if (self = [super init]) {
-        _dict = [NSDictionary dictionaryWithContentsOfFile:[NSString filePathForResource:@"text.plist"]];
+        _dict = [NSDictionary dictionaryWithContentsOfFile:[NSString filePathForResource:@"text2.plist"]];
         
 //        NSLog(@"dict # %@",_dict);
     }
@@ -36,7 +36,7 @@
 
     NSDictionary *valueDict = _dict[key];
     
-    NSLog(@"text value # %@",valueDict);
+    NSLog(@"key # %@ => # %@",key,valueDict);
     
     if (ISEMPTY(valueDict)) {
         return key;

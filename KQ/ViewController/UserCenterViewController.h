@@ -7,12 +7,13 @@
 //
 
 #import "ConfigViewController.h"
+#import <MessageUI/MessageUI.h>
 
-
-
-@interface UserCenterViewController : ConfigViewController<UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+@class  HallViewController;
+@interface UserCenterViewController : ConfigViewController<UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, MFMailComposeViewControllerDelegate>{
     People *_people;
 
+    HallViewController *_hallVC;
 }
 
 - (IBAction)logout;
@@ -22,6 +23,7 @@
 - (void)toCards;
 - (void)toFavoritedCoupons;
 - (void)toSettings;
+- (void)toFavoritedArts;
 
 - (void)willLogout;
 

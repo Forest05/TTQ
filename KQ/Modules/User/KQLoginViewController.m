@@ -21,15 +21,15 @@
     // Do any additional setup after loading the view.
     
     
-    _userTextField.placeholder = @"手机号";
-
-    
-    [_loginB setBackgroundColor:kColorRed];
-    
-    [_registerB setTitleColor:kColorBlue forState:UIControlStateNormal];
-    [_forgetB setTitleColor:kColorBlue forState:UIControlStateNormal];
-    
-    self.title = @"登录";
+//    _userTextField.placeholder = @"手号";
+//
+//    
+//    [_loginB setBackgroundColor:kColorRed];
+//    
+//    [_registerB setTitleColor:kColorBlue forState:UIControlStateNormal];
+//    [_forgetB setTitleColor:kColorBlue forState:UIControlStateNormal];
+//    
+//    self.title = @"登录";
   
     self.navigationController.navigationBar.translucent = NO;
     

@@ -89,6 +89,15 @@
     
     [[TTQRootViewController sharedInstance] didChangeLanguage];
     
+    
+    if ([kLang isEqualToString:@"zh"]) {
+        NSLog(@"zh");
+    }
+    else{
+        NSLog(@"en");
+    }
+    
+    
 }
 
 - (void)toHallEntrance{

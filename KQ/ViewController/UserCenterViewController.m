@@ -13,148 +13,9 @@
 #import "UserCardsViewController.h"
 #import "UserSettingsViewController.h"
 #import "UIImageView+WebCache.h"
+#import "TextManager.h"
+#import "MyHallViewController.h"
 
-
-@interface UserAvatarCell : PeopleCell<UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-
-@end
-
-@implementation UserAvatarCell
-
-
-- (void)setPeople:(People *)people{
-    L();
-    [super setPeople:people];
-    
-    if (ISEMPTY(people.avatarUrl)) {
-
-        self.avatarV.image = DefaultImg;
-    }
-
-    else{
-         [self.avatarV setImageWithURL:[NSURL URLWithString:people.avatarUrl] placeholderImage:DefaultImg];
-    }
-
-
-    self.firstLabel.text = people.nickname;
-
-
-   
-}
-
-//height: 190
-
-
-- (void)awakeFromNib{
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.avatarV.layer.cornerRadius = 60;
-    self.avatarV.layer.masksToBounds = YES;
-    self.avatarV.layer.borderWidth = 8;
-    self.avatarV.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.avatarV.userInteractionEnabled = YES;
-    [self.avatarV addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarVPressed:)]];
-    
-//    NSLog(@"avatar # %@, userinteract # %d",self.avatarV,self.avatarV.userInteractionEnabled);
-//    self.firstLabel.opaque = YES;
-    
-    
-    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarVPressed:)]];
-    self.backgroundColor = kColorBG;
-    self.separatorInset = UIEdgeInsetsMake(0, 160, 0, 160);
-
-
-}
-
-- (IBAction)avatarVPressed:(id)sender{
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:LString(@"取消") destructiveButtonTitle:LString(@"照相机") otherButtonTitles:LString(@"图片库"), nil];//f
-    
-    [sheet showInView:self];
-}
-
-- (void)layoutSubviews{
-    
-    
-}
-#pragma mark - Actionsheet
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    
-//    NSLog(@"button # %d",buttonIndex);
-    
-    if (buttonIndex == 0) { // destructive: 照相机
-        [self openCamera];
-    }
-    else if(buttonIndex == 1){ //other： 图片库
-        [self openImageLibrary];
-    }
-}
-
-#pragma mark - ImagePicker
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    L();
-    
-    /// 存储所有的图片，保存入photoalbum，然后把图片加到album中，一页 3张图
-    //    UIImage *editedImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
-	UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    //    NSURL *url = info[UIImagePickerControllerMediaURL];
-    //    [importImages addObject:originalImage];
-    
-    
-    //avatar 图片的size是200x200 （retina）
-    UIImage *img200 = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(100, 100)];
-
-    
-    
-    // save image to currentuser.avatar
-  
-    [[UserController sharedInstance] setAvatar:img200];
-
-    //???: 为什么不能直接变设avatar？
-    
-    [self performSelector:@selector(imagePickerControllerDidCancel:) withObject:picker afterDelay:1];
-//    [self imagePickerControllerDidCancel:picker];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    L();
-    
-    [picker dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-
-
-#pragma mark - Fcns
-
-
-- (void)openImageLibrary{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [[TTQRootViewController sharedInstance] presentViewController:picker animated:YES completion:^{
-        
-    }];
-    
-//    [RootInstance presentModalViewController:picker animated:YES];
-    
-}
-
-
-- (void)openCamera{
-    L();
-    
-    /// 显示 camera
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType =  UIImagePickerControllerSourceTypeCamera;
-    
-    [[TTQRootViewController sharedInstance] presentViewController:picker animated:YES completion:^{
-        
-    }];
-    
-}
-
-@end
 
 #pragma mark - UserCenterViewController
 
@@ -172,9 +33,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"我的";
+    self.title = lang(@"我的");
+
+    NSString *configName = isZH?@"UserCenterLoginConfig":@"UserCenterLoginConfig_en";
+   
+    _config = [[TableConfiguration alloc] initWithResource:configName];
     
-    _config = [[TableConfiguration alloc] initWithResource:@"UserCenterLoginConfig"];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
 
 }
@@ -213,7 +78,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section !=0) {
+    if (section >1) {
         return 20;
     }
     return 1;
@@ -237,11 +102,19 @@
     }
 }
 
+#pragma mark - Mail
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+
+    [controller dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 #pragma mark - IBAction
 
 - (IBAction)logout{
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定要退出当前账号吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:lang(@"确定要退出当前账号吗？") message:nil delegate:self cancelButtonTitle:lang(@"取消") otherButtonTitles:lang(@"退出"), nil];
     
     [alert show];
     
@@ -251,8 +124,43 @@
 
 #pragma mark - Fcns
 
+- (void)toFavoritedArts{
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    _hallVC = [[MyHallViewController alloc] init];
+    
+    _hallVC.arts = [[AppManager sharedInstance] arts];
+    
+    [self.navigationController pushViewController:_hallVC animated:YES];
+    
+}
+
+- (void)contactUs{
+
+    L();
+    
+    MFMailComposeViewController* mailPicker = [[MFMailComposeViewController alloc] init];
+    mailPicker.mailComposeDelegate = self;
+    
+//    NSString *emailBody = [info objectForKey:@"emailBody"];
+//    NSString *subject = [info objectForKey:@"subject"];
+//    NSArray *toRecipients = [info objectForKey:@"toRecipients"];
+//    NSArray *ccRecipients = [info objectForKey:@"ccRecipients"];
+//    NSArray *bccRecipients = [info objectForKey:@"bccRecipients"];
+//    NSArray *attachment = [info objectForKey:@"attachment"]; //0: nsdata, 1: mimetype, 2: filename
+    
+//    [mailPicker setMessageBody:emailBody isHTML:YES];
+    [mailPicker setSubject:@"联系我们"];
+    [mailPicker setToRecipients:@[@"contact@51ttq.com"]];
+    
+    
+    //	[_root presentModalViewController:mailPicker animated:YES];
+    [[TTQRootViewController sharedInstance] presentViewController:mailPicker animated:YES completion:nil];
+
+}
+
+
+- (void)sendEmail{
 
 }
 
@@ -283,7 +191,13 @@
     
     [_userController logout];
 
-    [_root didLogout];
+//    [_root didLogout];
+    
+//    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didLogin{
@@ -292,3 +206,169 @@
     [self.tableView reloadData];
 }
 @end
+
+
+#pragma mark - UserAvatarCell
+@interface UserAvatarCell : PeopleCell<UIActionSheetDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
+@end
+
+@implementation UserAvatarCell
+
+
+- (void)setPeople:(People *)people{
+    L();
+    [super setPeople:people];
+    
+    //    if (ISEMPTY(people.avatarUrl)) {
+    //
+    //        self.avatarV.image = DefaultImg;
+    //    }
+    //
+    //    else{
+    //         [self.avatarV setImageWithURL:[NSURL URLWithString:people.avatarUrl] placeholderImage:DefaultImg];
+    //    }
+    //
+    
+    self.firstLabel.text = people.username;
+    
+    if (!ISEMPTY(people.avatarStr)) {
+        
+        self.avatarV.image = people.avatar;
+    }
+    
+    
+}
+
+//height: 190
+
+
+- (void)awakeFromNib{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.avatarV.layer.cornerRadius = 60;
+    self.avatarV.layer.masksToBounds = YES;
+    self.avatarV.layer.borderWidth = 8;
+    self.avatarV.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.avatarV.userInteractionEnabled = YES;
+    [self.avatarV addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarVPressed:)]];
+    
+    //    NSLog(@"avatar # %@, userinteract # %d",self.avatarV,self.avatarV.userInteractionEnabled);
+    //    self.firstLabel.opaque = YES;
+    
+    
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarVPressed:)]];
+    self.backgroundColor = kColorBG;
+    self.separatorInset = UIEdgeInsetsMake(0, 160, 0, 160);
+    
+    
+    
+}
+
+- (IBAction)avatarVPressed:(id)sender{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:LString(@"取消") destructiveButtonTitle:LString(@"照相机") otherButtonTitles:LString(@"图片库"), nil];//f
+    
+    [sheet showInView:self];
+}
+
+- (void)layoutSubviews{
+    
+    
+}
+#pragma mark - Actionsheet
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+    //    NSLog(@"button # %d",buttonIndex);
+    
+    if (buttonIndex == 0) { // destructive: 照相机
+        [self openCamera];
+    }
+    else if(buttonIndex == 1){ //other： 图片库
+        [self openImageLibrary];
+    }
+}
+
+#pragma mark - ImagePicker
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    L();
+    
+    /// 存储所有的图片，保存入photoalbum，然后把图片加到album中，一页 3张图
+    //    UIImage *editedImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    //    NSURL *url = info[UIImagePickerControllerMediaURL];
+    //    [importImages addObject:originalImage];
+    
+    
+    //avatar 图片的size是200x200 （retina）
+    UIImage *img200 = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(100, 100)];
+    
+    
+    
+    // save image to currentuser.avatar
+    
+    //    [[UserController sharedInstance] setAvatar:img200];
+    
+    //???: 为什么不能直接变设avatar？
+    
+    [[NetworkClient sharedInstance] queryUpdateAvatar:self.people.id image:img200 block:^(NSDictionary *dict, NSError *error) {
+        
+        //        [self imagePickerControllerDidCancel:picker];
+        // 更新people
+        //        NSLog(@"finish dict # %@",dict);
+        
+        
+        NSData *data = UIImageJPEGRepresentation(img200, .8);
+        NSString *base64Str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        self.people.avatarStr = base64Str;
+        self.people.avatar = img200;
+        
+    }];
+    
+    [self performSelector:@selector(imagePickerControllerDidCancel:) withObject:picker afterDelay:1];
+    //    [self imagePickerControllerDidCancel:picker];
+    
+    self.avatarV.image = img200;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    L();
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+
+#pragma mark - Fcns
+
+
+- (void)openImageLibrary{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.editing = YES;
+    
+    [[TTQRootViewController sharedInstance] presentViewController:picker animated:YES completion:^{
+        
+    }];
+    
+    //    [RootInstance presentModalViewController:picker animated:YES];
+    
+}
+
+
+- (void)openCamera{
+    L();
+    
+    /// 显示 camera
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+    
+    [[TTQRootViewController sharedInstance] presentViewController:picker animated:YES completion:^{
+        
+    }];
+    
+}
+
+@end
+

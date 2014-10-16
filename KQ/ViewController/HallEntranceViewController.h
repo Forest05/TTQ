@@ -12,6 +12,7 @@
 
 @class NavigationViewController;
 @class HallViewController;
+@class UserCenterViewController;
 
 @interface HallEntranceViewController : UIViewController<UIScrollViewDelegate>{
 
@@ -24,7 +25,7 @@
     
     NavigationViewController *_navigationVC;
     HallViewController *_hallVC;
-    
+    UserCenterViewController *_userCenterVC;
 }
 
 @property (nonatomic, strong) Hall *hall;
