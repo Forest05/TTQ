@@ -154,6 +154,9 @@
 #pragma mark - IBAction
 - (IBAction)handleTap:(UITapGestureRecognizer*)sender{
     L();
+    ArtListView *v = (ArtListView *)sender.view;
+    Art *art = v.art;
+    [self showArt:art];
 }
 
 
@@ -161,9 +164,27 @@
 
 - (void)showArt:(Art*)art{
     
+    if (!_artView) {
+        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
+        
+    }
+    
+    _artView.art = art;
+    
+    
+    __weak id vc = self;
+    _artView.closeBlock = ^{
+        
+        [vc closeArt];
+        
+    };
+    
+    [self.view addSubview:_artView];
 }
 
 - (void)closeArt{
+    
+    [_artView removeFromSuperview];
     
 }
 

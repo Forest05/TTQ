@@ -220,6 +220,16 @@
 		850479C619E16F5B00459004 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C519E16F5B00459004 /* NavigationViewController.m */; };
 		850479CC19E17C5B00459004 /* t1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850479CB19E17C5B00459004 /* t1.jpg */; };
 		850479D019E17DC400459004 /* DKLiveBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479CF19E17DC400459004 /* DKLiveBlurView.m */; };
+		852FD07719EEB6EA006BA3CA /* 分享icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06D19EEB6EA006BA3CA /* 分享icon.png */; };
+		852FD07819EEB6EA006BA3CA /* 进入场馆icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06E19EEB6EA006BA3CA /* 进入场馆icon.png */; };
+		852FD07919EEB6EA006BA3CA /* 评论icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06F19EEB6EA006BA3CA /* 评论icon.png */; };
+		852FD07A19EEB6EA006BA3CA /* 收藏icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07019EEB6EA006BA3CA /* 收藏icon.png */; };
+		852FD07B19EEB6EA006BA3CA /* 作品介绍icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07119EEB6EA006BA3CA /* 作品介绍icon.png */; };
+		852FD07C19EEB6EA006BA3CA /* camera_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07219EEB6EA006BA3CA /* camera_active.png */; };
+		852FD07D19EEB6EA006BA3CA /* camera_unactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07319EEB6EA006BA3CA /* camera_unactive.png */; };
+		852FD07E19EEB6EA006BA3CA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07419EEB6EA006BA3CA /* icon.png */; };
+		852FD07F19EEB6EA006BA3CA /* like_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07519EEB6EA006BA3CA /* like_active.png */; };
+		852FD08019EEB6EA006BA3CA /* like_unactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07619EEB6EA006BA3CA /* like_unactive.png */; };
 		8576CDCB19ECEBB3003142BE /* ArtNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCA19ECEBB3003142BE /* ArtNavView.m */; };
 		8576CDCE19ECEE5B003142BE /* AuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCD19ECEE5B003142BE /* AuthorView.m */; };
 		8576CDD119ED3523003142BE /* ArtListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDD019ED3523003142BE /* ArtListView.m */; };
@@ -598,6 +608,16 @@
 		850479CB19E17C5B00459004 /* t1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = t1.jpg; sourceTree = "<group>"; };
 		850479CE19E17DC400459004 /* DKLiveBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKLiveBlurView.h; sourceTree = "<group>"; };
 		850479CF19E17DC400459004 /* DKLiveBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKLiveBlurView.m; sourceTree = "<group>"; };
+		852FD06D19EEB6EA006BA3CA /* 分享icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享icon.png"; sourceTree = "<group>"; };
+		852FD06E19EEB6EA006BA3CA /* 进入场馆icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进入场馆icon.png"; sourceTree = "<group>"; };
+		852FD06F19EEB6EA006BA3CA /* 评论icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "评论icon.png"; sourceTree = "<group>"; };
+		852FD07019EEB6EA006BA3CA /* 收藏icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "收藏icon.png"; sourceTree = "<group>"; };
+		852FD07119EEB6EA006BA3CA /* 作品介绍icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "作品介绍icon.png"; sourceTree = "<group>"; };
+		852FD07219EEB6EA006BA3CA /* camera_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_active.png; sourceTree = "<group>"; };
+		852FD07319EEB6EA006BA3CA /* camera_unactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_unactive.png; sourceTree = "<group>"; };
+		852FD07419EEB6EA006BA3CA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		852FD07519EEB6EA006BA3CA /* like_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_active.png; sourceTree = "<group>"; };
+		852FD07619EEB6EA006BA3CA /* like_unactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_unactive.png; sourceTree = "<group>"; };
 		8576CDC919ECEBB3003142BE /* ArtNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtNavView.h; sourceTree = "<group>"; };
 		8576CDCA19ECEBB3003142BE /* ArtNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtNavView.m; sourceTree = "<group>"; };
 		8576CDCC19ECEE5B003142BE /* AuthorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorView.h; sourceTree = "<group>"; };
@@ -784,6 +804,16 @@
 		26DEB4B11941942B0063AADC /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				852FD06D19EEB6EA006BA3CA /* 分享icon.png */,
+				852FD06E19EEB6EA006BA3CA /* 进入场馆icon.png */,
+				852FD06F19EEB6EA006BA3CA /* 评论icon.png */,
+				852FD07019EEB6EA006BA3CA /* 收藏icon.png */,
+				852FD07119EEB6EA006BA3CA /* 作品介绍icon.png */,
+				852FD07219EEB6EA006BA3CA /* camera_active.png */,
+				852FD07319EEB6EA006BA3CA /* camera_unactive.png */,
+				852FD07419EEB6EA006BA3CA /* icon.png */,
+				852FD07519EEB6EA006BA3CA /* like_active.png */,
+				852FD07619EEB6EA006BA3CA /* like_unactive.png */,
 				268D4A4819B2EFED004899D7 /* white_dot.png */,
 				26B26C6F194D8A3B007C1DE6 /* icon_mycards@2x.png */,
 				26B26C70194D8A3B007C1DE6 /* icon_mycoupons@2x.png */,
@@ -1550,6 +1580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852FD07719EEB6EA006BA3CA /* 分享icon.png in Resources */,
 				26DE6439195EB423008835D6 /* bg_unfavoriteB@2x.jpg in Resources */,
 				26EE1F9D1945EF76007C98AA /* UserCenterLoginConfig.plist in Resources */,
 				26E16BB6194F1CD500036039 /* couponHeaderBGPattern@2x.jpg in Resources */,
@@ -1557,19 +1588,24 @@
 				26E16618193976780041CDD6 /* UMShareEditViewControlleriPad.xib in Resources */,
 				269DF39C19B2BCC500011B59 /* 室内地图.png in Resources */,
 				26B26C76194D8A3B007C1DE6 /* icon_myfavoritedcoupons@2x.png in Resources */,
+				852FD07C19EEB6EA006BA3CA /* camera_active.png in Resources */,
 				26B26C6D194D7166007C1DE6 /* icon_password@2x.png in Resources */,
 				262CF14B1958C69E00A4FA26 /* ShopHeaderCell.xib in Resources */,
 				26DE2D82195015D100F9C46E /* CityCell.xib in Resources */,
 				26E08B2219545A7B00E55A96 /* ShopBranchListConfig.plist in Resources */,
 				26821B5119532DB6005549D3 /* Root.storyboard in Resources */,
+				852FD07B19EEB6EA006BA3CA /* 作品介绍icon.png in Resources */,
 				26E3203519526785000A14EF /* UserCardsConfig.plist in Resources */,
+				852FD07F19EEB6EA006BA3CA /* like_active.png in Resources */,
 				26E1661A193976780041CDD6 /* UMSnsAccountViewController.xib in Resources */,
 				26DE2D8419501DE900F9C46E /* UserAvatarCell.xib in Resources */,
 				26E16615193976780041CDD6 /* UMSCommentInputController.xib in Resources */,
 				269DF39B19B2BCC500011B59 /* ibeacon_museum.jpg in Resources */,
 				26DE6443195ECA15008835D6 /* icon_fullStar@2x.png in Resources */,
 				26E08B2419545B7300E55A96 /* ShopBranchListCell.xib in Resources */,
+				852FD07919EEB6EA006BA3CA /* 评论icon.png in Resources */,
 				26E0BDBA194B95CA00FECD2A /* icon_main2@2x.png in Resources */,
+				852FD07D19EEB6EA006BA3CA /* camera_unactive.png in Resources */,
 				26DE643F195EBBFA008835D6 /* bg_ranking_4@2x.png in Resources */,
 				26DEB4BC1941942B0063AADC /* icon_play@2x.png in Resources */,
 				26EE1F9B1945971A007C98AA /* db.plist in Resources */,
@@ -1589,6 +1625,7 @@
 				850479CC19E17C5B00459004 /* t1.jpg in Resources */,
 				266B2AC819B3527B0074CC07 /* 3_2.png in Resources */,
 				26E08B201954308000E55A96 /* ShopBranchesCell.xib in Resources */,
+				852FD07819EEB6EA006BA3CA /* 进入场馆icon.png in Resources */,
 				85BA518E19EE14B400C18716 /* text.plist in Resources */,
 				26DE643D195EBA78008835D6 /* bg_虚线@2x.png in Resources */,
 				26E14BB2193C82FD007A7081 /* UserCenterConfig.plist in Resources */,
@@ -1598,8 +1635,10 @@
 				26DEB4C11941A9670063AADC /* SearchConfig.plist in Resources */,
 				269DF39A19B2BCC500011B59 /* foot.png in Resources */,
 				26E3A545192DE02F004F8C8C /* Images.xcassets in Resources */,
+				852FD08019EEB6EA006BA3CA /* like_unactive.png in Resources */,
 				26E0BDB8194B946400FECD2A /* icon_main@2x.png in Resources */,
 				266B2AE119B35C700074CC07 /* AVCamViewController.xib in Resources */,
+				852FD07E19EEB6EA006BA3CA /* icon.png in Resources */,
 				26E36BD31951AC6B0008707A /* userCenter_bg.png in Resources */,
 				262CF1431958AFB600A4FA26 /* coupon_header_bg@2x.png in Resources */,
 				266B2AC719B3527B0074CC07 /* 2_2.png in Resources */,
@@ -1624,6 +1663,7 @@
 				26B26C78194D8A3B007C1DE6 /* icon_mysettings@2x.png in Resources */,
 				266B2AC619B3527B0074CC07 /* 2_1.png in Resources */,
 				26B26C6E194D7166007C1DE6 /* icon_user@2x.png in Resources */,
+				852FD07A19EEB6EA006BA3CA /* 收藏icon.png in Resources */,
 				26E36BD51951BA470008707A /* UserCouponsConfig.plist in Resources */,
 				269DF39919B2BCC500011B59 /* 2and3_BG.jpg in Resources */,
 				26DD9D7C1962DA5500521317 /* SVProgressHUD.bundle in Resources */,
