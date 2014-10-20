@@ -12,6 +12,8 @@
 
 @interface HallViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
 
+    
+    
     UITableView *_tableView;
 
     ArtNavView *_artView;
@@ -26,5 +28,7 @@
 
 - (void)showArt:(Art*)art;
 - (void)closeArt;
+
+
 
 @end

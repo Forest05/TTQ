@@ -37,22 +37,37 @@
 - (id)init{
     if (self = [super init]) {
 //
-        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:TTQHallKey];
-        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-       
+//        NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:TTQHallKey];
+//        
+//        NSLog(@"data # %@",data);
+//        
+//        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+
+//        NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:TTQHallKey];
+        
+//        NSLog(@"str # %@",str);
+        
+//        NSData *data = [NSData datawith]
+        
+        NSDictionary *dict = loadArchived(@"hall");
+//        NSLog(@"dict # %@",dict);
+        
+//        NSDictionary *dict;
         if (!ISEMPTY(dict)) {
             NSLog(@"if memory has json dict, config hall");
             
             [self configHallDict:dict];
             
-            //抓一下
-            
         }
-        else {
-            NSLog(@"if hasn't json dict, request from server");
+        else{
+            NSLog(@"first time, load data from txt");
+            NSString *filePath = [NSString filePathForResource:@"3.txt"];
             
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
             
-//            [self requestHall];
+//            NSLog(@"filePath # %@, dict # %@",filePath,dict);
+            
+            [self configHallDict:dict];
         }
         
         
@@ -79,38 +94,6 @@
     return self;
 }
 
-- (void)requestHall{
-   
-    L();
-    
-    [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
-        
-        
-        //第一次载入app用
-        [self configHallDict:dict];
-        
-        
-        //保存hall到defaults中
-        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
-        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        // 把dict存到resource中去
-        
-       
-//        NSData *jsonData = [NSJSONSerialization
-//                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
-//        
-//        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-//
-//        NSLog(@"json # %@",str);
-        
-        
-        
-        
-    }];
-    
-}
 
 - (void)requstHallWithVersion:(int)version{
 
@@ -123,24 +106,34 @@
         [self configHallDict:dict];
       
         //保存hall到defaults中
-        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
-        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
-        [[NSUserDefaults standardUserDefaults] setInteger:version forKey:@"firstUpdate"];
+//        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
         
+//        NSLog(@"dataSave # %@",dataSave);
+        
+//        NSData *jsonData = [NSJSONSerialization
+//                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+//        
+//        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        
+//        [[NSUserDefaults standardUserDefaults] setObject:str forKey:TTQHallKey];
+
+        saveArchived(dict, @"hall");
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:version forKey:@"firstUpdate"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
         
         
         
         // 把dict存到resource中去
         
         
-        //        NSData *jsonData = [NSJSONSerialization
-        //                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
-        //
-        //        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-        //
-        //        NSLog(@"json # %@",str);
-        
+//        NSData *jsonData = [NSJSONSerialization
+//                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+//
+//        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+//
+//        NSLog(@"json # %@",str);
         
         
         
@@ -149,7 +142,25 @@
 
 - (void)configHallDict:(NSDictionary*)dict{
     
+    L();
     
+    //param
+    
+    NSDictionary *params = dict[@"params"];
+    
+    NSLog(@"params # %@",params);
+    
+    float minDistance = [params[@"minDistance"] floatValue];
+    float maxDistance = [params[@"maxDistance"] floatValue];
+    NSLog(@"min # %f, max # %f",minDistance,maxDistance);
+    
+    if (minDistance * maxDistance >0) {
+        
+        [[NSUserDefaults standardUserDefaults] setFloat:minDistance forKey:@"minDistance"];
+        [[NSUserDefaults standardUserDefaults] setFloat:maxDistance forKey:@"maxDistance"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
     
     Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
     
@@ -161,20 +172,25 @@
         [hall.imageTexts addObject:it];
     }
     
-    Exhibition *exhibition = [[Exhibition alloc] init];
-    exhibition.id = hall.exhibitionId;
-    exhibition.major = @"1";
+//    Exhibition *exhibition = [[Exhibition alloc] init];
+//    exhibition.id = hall.exhibitionId;
+//    exhibition.major = @"1";
+
+//    NSLog(@"dict # %@",dict);
+//    NSLog(@"exhibition # %@",dict[@"exhibition"]);
+    
+    Exhibition *exhibition = [[Exhibition alloc] initWithDict:dict[@"exhibition"]];
     hall.defaultExhibition = exhibition;
     
     //arts
     NSArray *arts = dict[@"arts"];
     NSMutableArray *artArr = [NSMutableArray array];
+//    NSLog(@"artArr # %@",artArr);
     
     for (NSDictionary *dict in arts) {
         
         Art *art = [[Art alloc] initWithDict:dict];
         [art configBeaconWithUUID:[[NSUUID alloc] initWithUUIDString:hall.uuid] major:[exhibition.major integerValue]];
-        
         [artArr addObject:art];
         
         // 如果art有beacon，那么就加入到map中
@@ -184,13 +200,12 @@
             
             /// 为什么用beacon做key的时候
                [exhibition.artBeacons setObject:art forKey:[NSString stringWithInt:art.beacon.minorValue]];
-            
 //            NSLog(@"artBeacons # %@",exhibition.artBeacons);
         }
 
     }
     
-    NSLog(@"artBeacons # %@",exhibition.artBeacons);
+//    NSLog(@"artBeacons # %@",exhibition.artBeacons);
     
     hall.defaultExhibition.arts = artArr;
     
@@ -203,5 +218,15 @@
 - (NSArray*)selectedArts:(NSArray*)artIds{
 
     return nil;
+}
+
+- (Art*)artWithTTQBeacon:(TTQBeacon*)beacon{
+    
+    NSDictionary *beaconArts = self.exhibition.artBeacons;
+    
+    NSString *beaconMinor = [NSString stringWithInt:beacon.minorValue];
+    Art *art = beaconArts[beaconMinor];
+    
+    return art;
 }
 @end

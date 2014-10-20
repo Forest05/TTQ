@@ -45,13 +45,24 @@
     
     L();
     
+//    [UMSocialSnsService presentSnsIconSheetView:delegate
+//                                         appKey:kUmengAppKey
+//                                      shareText:text
+//                                     shareImage:image
+//                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToEmail,UMShareToSms]
+//                                       delegate:nil];
+
+    
     [UMSocialSnsService presentSnsIconSheetView:delegate
                                          appKey:kUmengAppKey
                                       shareText:text
                                      shareImage:image
-                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToEmail,UMShareToSms]
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToEmail,UMShareToSms]
                                        delegate:nil];
- 
+    
+
+//    [UMSocialSnsService presentSnsController:delegate appKey:kUmengAppKey shareText:text shareImage:image shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToEmail,UMShareToSms] delegate:nil];
+
 }
 
 

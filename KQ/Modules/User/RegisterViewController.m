@@ -119,7 +119,7 @@
     _userTextField = [[UITextField alloc] initWithFrame:CGRectMake(60, 0, 250, kCellHeight)];
     _userTextField.keyboardType = UIKeyboardTypeDefault;
     _userTextField.returnKeyType = UIReturnKeyNext;
-    _userTextField.placeholder = @"用户名";
+    _userTextField.placeholder = lang(@"用户名");
     _userTextField.delegate = self;
     _userTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
@@ -129,7 +129,7 @@
     _passwordTextField.secureTextEntry = YES;
     _passwordTextField.delegate = self;
     _passwordTextField.returnKeyType = UIReturnKeyGo;
-    _passwordTextField.placeholder = @"密码";
+    _passwordTextField.placeholder = lang(@"密码");
     _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     _tfs = @[_userTextField,_passwordTextField];

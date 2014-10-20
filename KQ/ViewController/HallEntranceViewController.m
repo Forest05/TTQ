@@ -94,14 +94,16 @@
         _introduceScrollView.contentSize = CGSizeMake(CGRectGetMaxX(imgV.frame), 0);
     }
     
-    CGFloat y = CGRectGetMaxY(_introduceScrollView.frame) ;
+    
+    
+    CGFloat y = CGRectGetMaxY(_introduceScrollView.frame) + (isSmallPhone?0:10);
     
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, y, _w, 25)];
     _pageControl.numberOfPages = self.hall.imageTexts.count;
     _pageControl.currentPageIndicatorTintColor = kColorGreen;
     _pageControl.pageIndicatorTintColor = kColorLightGreen;
     
-    y = CGRectGetMaxY(_pageControl.frame) ;
+    y = CGRectGetMaxY(_pageControl.frame) + (isSmallPhone?0:10);
     
     _toNavigationBtn = [UIButton buttonWithFrame:CGRectMake(30 , y, 100, 40) title:lang(@"智能导览") bgImageName:nil target:self action:@selector(buttonClicked:)];
     _toNavigationBtn.tag = 1;
@@ -112,10 +114,10 @@
     _toHallBtn.tag = 2;
     [_toHallBtn setBackgroundColor:kColorGreen];
     
-    UILabel *hintL = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_toHallBtn.frame), _w, 45)];
-    hintL.text = lang(@"在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~");
+    UILabel *hintL = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(_toHallBtn.frame)+ (isSmallPhone?0:10), _w - 40, 45)];
+    hintL.text = lang(@"在场馆内，可点击进入场馆，自动导览 不在场馆内，可点击作品介绍，精华抢先看哦~");
     hintL.numberOfLines = 0;
-    hintL.font = [UIFont fontWithName:kFontName size:9];
+    hintL.font = [UIFont fontWithName:kFontName size:11];
     hintL.textAlignment = NSTextAlignmentCenter;
     hintL.textColor = [UIColor colorWithRed:148.0/255 green:148.0/255 blue:148.0/255 alpha:1];
     
@@ -194,7 +196,10 @@
 
 #pragma mark - Fcns
 - (void)back{
-    [self.navigationController.view removeFromSuperview];
+//    [self.navigationController.view removeFromSuperview];
+    
+    [[TTQRootViewController sharedInstance] toChooseLang];
+    
 }
 - (void)toUser{
     L();

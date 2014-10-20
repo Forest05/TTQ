@@ -76,6 +76,9 @@
 
 }
 
+#pragma mark - Table
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section >1) {
@@ -84,6 +87,17 @@
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    
+//    NSInteger rowCount = [_config numberOfRowsInSection:section];
+    
+    
+    return 1;
+}
+
+#pragma mark -
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     L();
     
@@ -127,11 +141,11 @@
 - (void)toFavoritedArts{
 
 
-    _hallVC = [[MyHallViewController alloc] init];
-    
-    _hallVC.arts = [[AppManager sharedInstance] arts];
-    
-    [self.navigationController pushViewController:_hallVC animated:YES];
+//    _hallVC = [[MyHallViewController alloc] init];
+//    
+//    _hallVC.arts = [[AppManager sharedInstance] arts];
+//    
+//    [self.navigationController pushViewController:_hallVC animated:YES];
     
 }
 
@@ -149,8 +163,8 @@
 //    NSArray *bccRecipients = [info objectForKey:@"bccRecipients"];
 //    NSArray *attachment = [info objectForKey:@"attachment"]; //0: nsdata, 1: mimetype, 2: filename
     
-//    [mailPicker setMessageBody:emailBody isHTML:YES];
-    [mailPicker setSubject:@"联系我们"];
+//    [mailPicker setMessageBody:@"hello world" isHTML:YES];
+    [mailPicker setSubject:lang(@"联系我们")];
     [mailPicker setToRecipients:@[@"contact@51ttq.com"]];
     
     
@@ -251,7 +265,7 @@
     self.avatarV.layer.borderColor = [UIColor whiteColor].CGColor;
     self.avatarV.userInteractionEnabled = YES;
     [self.avatarV addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarVPressed:)]];
-    
+    self.avatarV.image = [UIImage imageNamed:@"t1.jpg"];
     //    NSLog(@"avatar # %@, userinteract # %d",self.avatarV,self.avatarV.userInteractionEnabled);
     //    self.firstLabel.opaque = YES;
     
@@ -265,7 +279,7 @@
 }
 
 - (IBAction)avatarVPressed:(id)sender{
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:LString(@"取消") destructiveButtonTitle:LString(@"照相机") otherButtonTitles:LString(@"图片库"), nil];//f
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:lang(@"取消") destructiveButtonTitle:lang(@"照相机") otherButtonTitles:lang(@"图片库"), nil];//f
     
     [sheet showInView:self];
 }
@@ -323,8 +337,8 @@
         
     }];
     
-    [self performSelector:@selector(imagePickerControllerDidCancel:) withObject:picker afterDelay:1];
-    //    [self imagePickerControllerDidCancel:picker];
+    [self performSelector:@selector(imagePickerControllerDidCancel:) withObject:picker afterDelay:.5];
+
     
     self.avatarV.image = img200;
 }

@@ -28,7 +28,7 @@
 
 - (void)toChooseLang;
 - (void)toHallEntrance;
-- (void)toHall;
+//- (void)toHall;
 
 - (void)toLogin;
 

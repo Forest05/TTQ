@@ -11,7 +11,11 @@
 #import "ArtListView.h"
 #import "TextManager.h"
 
-@interface HallViewController ()
+@interface HallViewController (){
+
+    CATransition *animation;
+    UIButton *closeBtn;
+}
 
 @end
 
@@ -26,7 +30,6 @@
     
     _appManager = [AppManager sharedInstance];
     
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
@@ -34,18 +37,26 @@
     
     self.navigationItem.leftBarButtonItem = backBB;
     
-    self.view.backgroundColor = [UIColor blueColor];
+    animation = [CATransition animation];
+    animation.duration = 0.5;
+    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+    animation.type = @"rippleEffect";
+    animation.subtype = kCATransitionFromRight;
+    
+    closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 50, 20 ,30, 30) title:nil bgImageName:@"icon_close.png" target:self action:@selector(closeBtnClicked:)];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:_tableView];
     
+    self.view.backgroundColor = kColorBG;
     
-    
+    _arts = [_appManager arts];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +65,8 @@
 }
 
 - (void)back{
+    [self closeArt];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -75,11 +88,13 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
     view.backgroundColor = [UIColor whiteColor];
     
-    UILabel *l = [[UILabel alloc] initWithFrame:view.bounds];
+    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, view.width- 20, 50)];
     l.text = lang(@"部分展示，现场观看体验更佳");
+//    l.text = @"Part of the exhibits.\ncome and experience more...";
     l.textAlignment = NSTextAlignmentCenter;
     l.textColor = kColorGreen;
     l.font = [UIFont fontWithName:kFontName size:14];
+    l.numberOfLines = 0;
     [view addSubview:l];
     
     return view;
@@ -96,7 +111,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return self.arts.count/2;
+    return self.arts.count/2 + self.arts.count%2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -119,11 +134,14 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        ArtListView *listV1 = [[ArtListView alloc] initWithFrame:CGRectMake(6, 0, 150, 150)];
+        
+        cell.backgroundColor = [UIColor clearColor];
+        
+        ArtListView *listV1 = [[ArtListView alloc] initWithFrame:CGRectMake(10, 0, 145, 145)];
         [listV1 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
         listV1.tag = 1;
         
-        ArtListView *listV2 = [[ArtListView alloc] initWithFrame:CGRectMake(162, 0, 150, 150)];
+        ArtListView *listV2 = [[ArtListView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(listV1.frame) + 10, 0, 145, 145)];
         [listV2 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
         listV2.tag = 2;
         
@@ -133,10 +151,20 @@
     }
     
     ArtListView *v1 = (ArtListView*)[cell.contentView viewWithTag:1];
-    v1.art = self.arts[2*row];
     
-    ArtListView *v2 = (ArtListView*)[cell.contentView viewWithTag:2];
-    v2.art = self.arts[2*row + 1];
+    v1.art = self.arts[2*row];
+//
+    
+     ArtListView *v2 = (ArtListView*)[cell.contentView viewWithTag:2];
+    if (2 * row + 1 <[self.arts count]) {
+       
+        
+        v2.art = self.arts[2*row + 1 ];
+        v2.hidden = NO;
+    }
+    else{
+        v2.hidden = YES;
+    }
     
     
     
@@ -158,32 +186,41 @@
     [self showArt:art];
 }
 
+- (IBAction)closeBtnClicked:(id)sender{
+    
+    [closeBtn removeFromSuperview];
+    [self closeArt];
+//    [self closee]
+}
 
 #pragma mark - Fcns
 
 - (void)showArt:(Art*)art{
     
     if (!_artView) {
-        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
+        
+        CGFloat height = _h - 64 - 20;
+        
+        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, height)];
         
     }
     
     _artView.art = art;
+
     
-    
-    __weak id vc = self;
-    _artView.closeBlock = ^{
-        
-        [vc closeArt];
-        
-    };
-    
+
     [self.view addSubview:_artView];
+    [self.view addSubview:closeBtn];
+    
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
+    
 }
 
 - (void)closeArt{
     
-    [_artView removeFromSuperview];
+    
+     [_artView removeFromSuperview];
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
 

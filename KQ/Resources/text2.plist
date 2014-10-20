@@ -14,14 +14,14 @@
             <key>zh</key>
             <string>智能导览</string>
             <key>en</key>
-            <string>Guiding</string>
+            <string>Tour</string>
         </dict>
         <key>作品简介</key>
         <dict>
             <key>zh</key>
             <string>作品简介</string>
             <key>en</key>
-            <string>Exhibitions</string>
+            <string>Exhibits</string>
         </dict>
         <key>1933当代艺术空间</key>
         <dict>
@@ -35,28 +35,28 @@
             <key>zh</key>
             <string>作品库</string>
             <key>en</key>
-            <string>ZuoPinKu</string>
+            <string>Art Exhibits</string>
         </dict>
         <key>部分展示，现场观看体验更佳</key>
         <dict>
             <key>zh</key>
             <string>部分展示，现场观看体验更佳</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Part of the exhibits. Coming and experience more...</string>
         </dict>
         <key>打开蓝牙，作品相关信息会自动推送到手机屏幕也可手动选择作品查看。</key>
         <dict>
             <key>zh</key>
-            <string>打开蓝牙，作品相关信息会自动推送到手机屏幕\n也可手动选择作品查看。</string>
+            <string>打开蓝牙，作品相关信息会自动推送到手机屏幕,也可手动选择作品查看。</string>
             <key>en</key>
-            <string>Turn on Bluetooth, the exhibition will be pushed on the screen. You can also select it yourself.</string>
+            <string>The ONLY thing to do is, turn on Bluetooth, and the guide will come to you automatically.</string>
         </dict>
         <key>请输入作品编号</key>
         <dict>
             <key>zh</key>
             <string>请选择作品</string>
             <key>en</key>
-            <string>Exhibition:</string>
+            <string>Exhibits:</string>
         </dict>
         <key>展示</key>
         <dict>
@@ -70,70 +70,70 @@
             <key>zh</key>
             <string>用户登录</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Login</string>
         </dict>
         <key>登录</key>
         <dict>
             <key>zh</key>
             <string>登录</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Login</string>
         </dict>
         <key>注册</key>
         <dict>
             <key>zh</key>
             <string>注册</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Register</string>
         </dict>
         <key>用户名</key>
         <dict>
             <key>zh</key>
             <string>用户名</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Username</string>
         </dict>
         <key>密码</key>
         <dict>
             <key>zh</key>
             <string>密码</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Password</string>
         </dict>
         <key>请输入所有信息</key>
         <dict>
             <key>zh</key>
             <string>请输入所有信息</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Please enter all the information.</string>
         </dict>
         <key>注册成功</key>
         <dict>
             <key>zh</key>
             <string>注册成功</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Registered successfully</string>
         </dict>
         <key>欢迎你回来</key>
         <dict>
             <key>zh</key>
             <string>欢迎你回来</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Welcome</string>
         </dict>
-        <key>在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~</key>
+        <key>在场馆内，可点击进入场馆，自动导览 不在场馆内，可点击作品介绍，精华抢先看哦~</key>
         <dict>
             <key>zh</key>
-            <string>在场馆内，可点击进入场馆，自动导览\n不在场馆内，可点击作品介绍，精华抢先看哦~</string>
+            <string>在场馆内，可点击进入场馆，自动导览; 不在场馆内，可点击作品介绍，精华抢先看哦~</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Tour with an intelligent guiding on the spot or watch the art exhibits</string>
         </dict>
         <key>我的</key>
         <dict>
             <key>zh</key>
             <string>我的</string>
             <key>en</key>
-            <string>My</string>
+            <string>My Place</string>
         </dict>
         <key>取消</key>
         <dict>
@@ -154,7 +154,7 @@
             <key>zh</key>
             <string>确定要退出当前账号吗？</string>
             <key>en</key>
-            <string>Just a little</string>
+            <string>Are you sure to logout?</string>
         </dict>
         <key>联系我们</key>
         <dict>
@@ -163,6 +163,41 @@
             <key>en</key>
             <string>Contact us</string>
         </dict>
-        
+        <key>照相机</key>
+        <dict>
+            <key>zh</key>
+            <string>照相机</string>
+            <key>en</key>
+            <string>Camera</string>
+        </dict>
+        <key>图片库</key>
+        <dict>
+            <key>zh</key>
+            <string>图片库</string>
+            <key>en</key>
+            <string>Photo Library</string>
+        </dict>
+        <key>作者</key>
+        <dict>
+            <key>zh</key>
+            <string>作者</string>
+            <key>en</key>
+            <string>Author</string>
+        </dict>
+        <key>策展人</key>
+        <dict>
+            <key>zh</key>
+            <string>策展人</string>
+            <key>en</key>
+            <string>Curator</string>
+        </dict>
+        <key>喜欢这次的展出《石头、木头和天堂症候群》@1933当代艺术空间</key>
+        <dict>
+            <key>zh</key>
+            <string>喜欢这次的展出《石头、木头和天堂症候群》@1933当代艺术空间</string>
+            <key>en</key>
+            <string>I really love "Stone, Wood and Paradise Syndrome" @1933 Comtemporary</string>
+        </dict>
+
     </dict>
 </plist>

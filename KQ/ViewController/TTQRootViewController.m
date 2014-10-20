@@ -56,8 +56,6 @@
     // Do any additional setup after loading the view.
     L();
 
-    //TODO: Delete
-    [self deleteFirstTimeLoadedInformation];
     
     self.chooseLangVC = [[ChooseLangViewController alloc] init];
     self.hallEntranceVC = [[HallEntranceViewController alloc] init];
@@ -87,6 +85,10 @@
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
     
     
+//    TTQBeacon *b = [[TTQBeacon alloc] init];
+//    b.minorValue = 5;
+//    Art *art = [[AppManager sharedInstance] artWithTTQBeacon:b];
+//    NSLog(@"art # %@",art.name);
     
 //    NSString *filePath = [NSString filePathForResource:@"2.txt"];
 //    
@@ -107,6 +109,10 @@
 //
 //    
     
+//    NSString *filePath = [NSString filePathForResource:@"3.txt"];
+//    
+//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+//    NSLog(@"dict # %@",dict);
 
 }
 
@@ -125,29 +131,17 @@
     
     //设定默认语言
     [[NSUserDefaults standardUserDefaults] setObject:TTQLangZh forKey:TTQLangKey];
-    
+    [[NSUserDefaults standardUserDefaults] setFloat:2.5 forKey:@"minDistance"];
+    [[NSUserDefaults standardUserDefaults] setFloat:3.0 forKey:@"maxDistance"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     // 载入网络数据
-//    [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
-//
-//
-//        //第一次载入app用
-//        [[AppManager sharedInstance] configHallDict:dict];
-//   
-//        
-//        //保存hall到defaults中
-//        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:dict];
-//        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:TTQHallKey];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//
-//    }];
     
-    
-    NSString *filePath = [NSString filePathForResource:@"2.txt"];
-    
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
-    
-    [[AppManager sharedInstance] configHallDict:dict];
+//    NSString *filePath = [NSString filePathForResource:@"3.txt"];
+//    
+//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+//    
+//    [[AppManager sharedInstance] configHallDict:dict];
 }
 
 #pragma mark - Fcns
@@ -155,18 +149,38 @@
 
 
 - (void)toChooseLang{
+//    [self.view addSubview:self.chooseLangVC.view];
+    
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.5;
+    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+    animation.type = kCATransitionFade;
+    animation.subtype = kCATransitionFromRight;
+    
     [self.view addSubview:self.chooseLangVC.view];
+    
+
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
+
 }
 
 
 - (void)toHallEntrance{
     
-    [self.view addSubview:self.hallEntranceNav.view];
-}
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.5;
+    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+    animation.type = kCATransitionFade;
+    animation.subtype = kCATransitionFromRight;
 
-- (void)toHall{
+    [self.view addSubview:self.hallEntranceNav.view];
+   [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
+
+//- (void)toHall{
+//    
+//}
 
 - (void)toLogin{
     L();
@@ -217,7 +231,7 @@
     [TextManager sharedInstance];
     
 //    NSLog(@"lang # %@",TTQLangEn);
-//    [self testNav:@"NavigationViewController"];
+//    [self testNav:@"HallViewController"];
     
 
 }

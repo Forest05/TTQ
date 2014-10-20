@@ -48,9 +48,9 @@
     
     
     //TODO: delete
-    if (DEBUG) {
-        [self handleAppFirstTimeOpen];
-    }
+//    if (DEBUG) {
+//        [self handleAppFirstTimeOpen];
+//    }
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:TTQAPPBeforeOpenedKey]) {
        

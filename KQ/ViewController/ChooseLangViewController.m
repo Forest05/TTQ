@@ -21,12 +21,17 @@
     // Do any additional setup after loading the view.
     
     
-    _blurView = [[DKLiveBlurView alloc]initWithFrame:self.view.bounds];
-     _blurView.isGlassEffectOn = YES;
-    [_blurView setInitialBlurLevel:1];
-//    [_blurView setInitialGlassLevel:.8];
-     _blurView.originalImage = [UIImage imageNamed:@"t1.jpg"];
+//    _blurView = [[DKLiveBlurView alloc]initWithFrame:self.view.bounds];
+//     _blurView.isGlassEffectOn = YES;
+//    [_blurView setInitialBlurLevel:1];
+////    [_blurView setInitialGlassLevel:.8];
+//     _blurView.originalImage = [UIImage imageNamed:@"t1.jpg"];
 
+    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgV.image = [UIImage imageNamed:@"login_调整后BG.jpg"];
+    bgV.contentMode = UIViewContentModeScaleAspectFill;
+    
+    
     
     CGFloat y = isSmallPhone?150:200;
     CGFloat width = 120;
@@ -45,7 +50,9 @@
     
     NSArray *titles = @[@"日语",@"韩语",@"法语"];
     
-    [self.view addSubview:_blurView];
+//    [self.view addSubview:_blurView];
+    
+    [self.view addSubview:bgV];
     [self.view addSubview:_zhBtn];
     [self.view addSubview:_enBtn];
     

@@ -9,7 +9,7 @@
 #import "BeaconManager.h"
 #import "AppManager.h"
 
-#define MinDistance 1.0
+#define MinDistance 1
 #define MaxDistance 1.5
 
 @interface BeaconManager()
@@ -44,9 +44,16 @@
         
         
         AppManager *appManager = [AppManager sharedInstance];
+
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
-        
+//        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000029"];
         self.beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:[appManager.hall.defaultExhibition.major intValue] identifier:uuid.UUIDString];
+        
+        _minDistance = [[NSUserDefaults standardUserDefaults] floatForKey:@"minDistance"];
+        _maxDistance = [[NSUserDefaults standardUserDefaults] floatForKey:@"maxDistance"];
+        
+         NSLog(@"min # %f, max # %f",_minDistance,_maxDistance);
+        
         
     }
     
@@ -57,7 +64,9 @@
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
     
     NSLog(@"did range beacons # %@",beacons);
-    //    NSLog(@"item beacons # %@",self.itemBeacons);
+    
+    
+//    NSLog(@"");
     
     //判断接近那个beacon，
     
@@ -74,8 +83,9 @@
     /// 如果存在激活的beacon，那么就监听这个beacon的距离, 超过就close
         
         CLBeacon *aBeacon = [self activatedCLBeaconFromArray:beacons];
-        if (!aBeacon || aBeacon.accuracy > MaxDistance) {
+        if (!aBeacon || aBeacon.accuracy > _maxDistance) {
             [self closeBeacon:self.activatedBeacon];
+            self.activatedBeacon = nil;
         }
     }
     else{
@@ -84,8 +94,12 @@
         
         NSLog(@"closest Beacon # %@",closestBeacon);
         
-        if (closestBeacon.accuracy < MinDistance) {
+        if (closestBeacon && closestBeacon.accuracy < _minDistance) {
+           
             self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
+            NSLog(@"activeBeacon # %@",closestBeacon);
+            
+            
             [self openBeacon:self.activatedBeacon];
         }
 
@@ -142,25 +156,64 @@
 }
 //
 
+
 - (void)openBeacon:(TTQBeacon*)beacon{
-    L();
+//    
+//    if (beacon.minorValue == 1) {
+//        [self openExhibitionBeacon:beacon];
+//    }
+//    else{
+//        [self openArtBeacon:beacon];
+//    }
+
+     [self openArtBeacon:beacon];
+}
+- (void)closeBeacon:(TTQBeacon*)beacon{
+//    if (beacon.minorValue == 1) {
+//        [self closeExhibitionBeacon:beacon];
+//    }
+//    else{
+//        [self closeArtBeacon:beacon];
+//    }
+
+    [self closeArtBeacon:beacon];
+}
+
+- (void)openArtBeacon:(TTQBeacon*)beacon{
+//    L();
     [[NSNotificationCenter defaultCenter] postNotificationName:kOpenBeaconNotificationKey object:beacon];
 }
 
-- (void)closeBeacon:(TTQBeacon*)beacon{
-
+- (void)closeArtBeacon:(TTQBeacon*)beacon{
+    L();
     [[NSNotificationCenter defaultCenter] postNotificationName:kCloseBeaconNotificationKey object:beacon];
 }
 
+
+//- (void)openExhibitionBeacon:(TTQBeacon*)beacon{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenExhiBeaconNotificationKey object:beacon];
+//
+//}
+//- (void)closeExhibitionBeacon:(TTQBeacon*)beacon{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kCloseExhiBeaconNotificationKey object:beacon];
+//}
+
 - (CLBeacon*)closestBeaconFromArray:(NSArray*)beacons{
 
-    NSLog(@"beacons # %@",beacons);
+//    NSLog(@"beacons # %@",beacons);
 
-    CLBeacon *closestBeacon = [beacons firstObject];
+//    CLBeacon *closestBeacon = [beacons firstObject];
+    CLBeacon *closestBeacon;
+    float minAccuracy = 999;
     for (CLBeacon *beacon in beacons) {
         float accuracy = beacon.accuracy;
-        if (accuracy > 0 && accuracy < closestBeacon.accuracy) {
+        if (accuracy < 0) {
+            break;
+        }
+       
+        if ( accuracy < minAccuracy) {
             closestBeacon = beacon;
+            minAccuracy = accuracy;
         }
     }
     

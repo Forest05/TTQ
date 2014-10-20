@@ -14,6 +14,8 @@
 
 @interface BeaconManager : NSObject<CLLocationManagerDelegate>{
 
+    float _minDistance;
+    float _maxDistance;
 
 }
 
@@ -30,4 +32,10 @@
 - (void)openBeacon:(TTQBeacon*)beacon;
 - (void)closeBeacon:(TTQBeacon*)beacon;
 
+
+- (void)openArtBeacon:(TTQBeacon*)beacon;
+- (void)closeArtBeacon:(TTQBeacon*)beacon;
+
+//- (void)openExhibitionBeacon:(TTQBeacon*)beacon;
+//- (void)closeExhibitionBeacon:(TTQBeacon*)beacon;
 @end

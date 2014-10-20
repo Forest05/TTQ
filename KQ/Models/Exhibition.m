@@ -29,6 +29,7 @@
  "curatorDescription_en": "Maja Ciric is ...",
  "curatorImgUrl": "http://115.29.148.47/ttq/public/images/curator_maja.jpg"
  **/
+
 static NSArray *keys;
 
 - (id)initWithDict:(NSDictionary *)dict{
@@ -43,6 +44,8 @@ static NSArray *keys;
         }
         self.desc = dict[@"description"];
         
+//        NSLog(@"dict # %@",dict);
+        
         NSDictionary *authorDict = @{@"id":@"999",@"name":dict[@"curatorName"],@"name_en":dict[@"curatorName_en"],@"description":dict[@"curatorDescription"],@"description_en":dict[@"curatorDescription_en"],@"avatarUrl":dict[@"curatorImgUrl"]};
         
         self.curator = [[Author alloc] initWithDict:authorDict];
@@ -53,7 +56,10 @@ static NSArray *keys;
 
 - (id)init{
     if (self = [super init]) {
-      self.artBeacons = [NSMutableDictionary dictionary];   
+      self.artBeacons = [NSMutableDictionary dictionary];
+        
+        
+        
     }
     return self;
 }

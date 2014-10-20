@@ -107,7 +107,6 @@
 }
 
 - (void)registerWithDict:(NSDictionary*)info block:(IdResultBlock)block{
-    //
     
     [self postWithUrl:api_user parameters:info block:block];
     
