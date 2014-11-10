@@ -31,7 +31,7 @@
 - (IBAction)signUpUserPressed:(id)sender;
 - (IBAction)identifyClicked:(id)sender;
 
-- (void)toAgreement;
+//- (void)toAgreement;
 
 - (void)registerUser:(NSDictionary*)userInfo;
 - (void)validateWithBlock:(BooleanResultBlock)block;

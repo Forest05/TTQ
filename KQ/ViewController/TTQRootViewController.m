@@ -7,12 +7,12 @@
 //
 
 #import "TTQRootViewController.h"
-#import "SearchViewController.h"
+
 
 #import "NetworkClient.h"
 #import "KQLoginViewController.h"
 #import "UserCenterViewController.h"
-#import "MainViewController.h"
+
 #import "BeaconManager.h"
 #import "ChooseLangViewController.h"
 #import "HallEntranceViewController.h"

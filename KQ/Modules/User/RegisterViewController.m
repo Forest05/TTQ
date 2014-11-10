@@ -286,7 +286,7 @@
 
 - (IBAction)agreementClicked:(id)sender{
 //    L();
-    [self toAgreement];
+//    [self toAgreement];
 }
 
 

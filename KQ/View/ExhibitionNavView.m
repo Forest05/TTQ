@@ -69,7 +69,7 @@
         //        UIButton *closeBtn = [UIButton buttonWithFrame:CGRectMake(width - 40, 10, 30, 30) title:nil bgImageName:@"icon_mysettings.png" target:self action:@selector(closeClicked:)];
         
         
-        UIButton *shareBtn = [UIButton buttonWithFrame:CGRectMake(10, CGRectGetMaxY(_imgV.frame) - 40, 30, 30) title:nil bgImageName:@"分享icon.png" target:self action:@selector(shareClicked:)];
+//        UIButton *shareBtn = [UIButton buttonWithFrame:CGRectMake(10, CGRectGetMaxY(_imgV.frame) - 40, 30, 30) title:nil bgImageName:@"分享icon.png" target:self action:@selector(shareClicked:)];
         //        shareBtn.backgroundColor = [UIColor redColor];
         
         [self addSubview:_imgV];

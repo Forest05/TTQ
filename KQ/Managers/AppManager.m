@@ -148,11 +148,11 @@
     
     NSDictionary *params = dict[@"params"];
     
-    NSLog(@"params # %@",params);
+//    NSLog(@"params # %@",params);
     
     float minDistance = [params[@"minDistance"] floatValue];
     float maxDistance = [params[@"maxDistance"] floatValue];
-    NSLog(@"min # %f, max # %f",minDistance,maxDistance);
+//    NSLog(@"min # %f, max # %f",minDistance,maxDistance);
     
     if (minDistance * maxDistance >0) {
         
