@@ -46,6 +46,7 @@
         AppManager *appManager = [AppManager sharedInstance];
 
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
+        
 //        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000029"];
         self.beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:[appManager.hall.defaultExhibition.major intValue] identifier:uuid.UUIDString];
         
@@ -66,17 +67,8 @@
     NSLog(@"did range beacons # %@",beacons);
     
     
-//    NSLog(@"");
-    
     //判断接近那个beacon，
     
-    // 这里的beacon是否是按照最近的？
-//    for (CLBeacon *beacon in beacons) {
-//        
-//        NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
-//        
-//        
-//    }
     
     
     if (self.activatedBeacon) {
@@ -98,7 +90,6 @@
            
             self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
             NSLog(@"activeBeacon # %@",closestBeacon);
-            
             
             [self openBeacon:self.activatedBeacon];
         }
@@ -136,8 +127,6 @@
     
     //B9407F30F5F8466EAFF925556B57FE6D
 
-    //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
-//    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000028"];
     
     self.activatedBeacon = nil;
     
@@ -169,12 +158,7 @@
      [self openArtBeacon:beacon];
 }
 - (void)closeBeacon:(TTQBeacon*)beacon{
-//    if (beacon.minorValue == 1) {
-//        [self closeExhibitionBeacon:beacon];
-//    }
-//    else{
-//        [self closeArtBeacon:beacon];
-//    }
+
 
     [self closeArtBeacon:beacon];
 }
@@ -189,14 +173,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kCloseBeaconNotificationKey object:beacon];
 }
 
-
-//- (void)openExhibitionBeacon:(TTQBeacon*)beacon{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenExhiBeaconNotificationKey object:beacon];
-//
-//}
-//- (void)closeExhibitionBeacon:(TTQBeacon*)beacon{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kCloseExhiBeaconNotificationKey object:beacon];
-//}
 
 - (CLBeacon*)closestBeaconFromArray:(NSArray*)beacons{
 
