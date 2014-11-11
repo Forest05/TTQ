@@ -47,6 +47,7 @@
 
 #define kOpenBeaconNotificationKey @"openBeacon"
 #define kCloseBeaconNotificationKey @"closeBeacon"
+#define kListBeaconsNotificationKey @"listBeacons"
 
 #define kOpenExhiBeaconNotificationKey @"openExhiBeacon"
 #define kCloseExhiBeaconNotificationKey @"closeExhiBeacon"

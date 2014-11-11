@@ -24,7 +24,8 @@
     UIBarButtonItem *_cameraBB;
     
     UILabel *_label;
-    
+
+
     AppManager *_appManager;
     
     
@@ -42,8 +43,6 @@
 
 - (void)showArt:(Art*)art;
 - (void)closeArt;
-//- (void)showExhibition:(Exhibition*)exhi;
-//- (void)closeExhibition;
 
 
 

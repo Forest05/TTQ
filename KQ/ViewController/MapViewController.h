@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "Shop.h"
+
 
 @interface MapViewController : UIViewController<MKMapViewDelegate>{
 
@@ -17,7 +17,7 @@
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
 
-@property (nonatomic, strong) Shop *shop;
+//@property (nonatomic, strong) Shop *shop;
 
 @end
 
