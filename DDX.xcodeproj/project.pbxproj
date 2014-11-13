@@ -186,6 +186,220 @@
 		852FD07E19EEB6EA006BA3CA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07419EEB6EA006BA3CA /* icon.png */; };
 		852FD07F19EEB6EA006BA3CA /* like_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07519EEB6EA006BA3CA /* like_active.png */; };
 		852FD08019EEB6EA006BA3CA /* like_unactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07619EEB6EA006BA3CA /* like_unactive.png */; };
+		8557FC6E1A120E3D00B50830 /* ExhibitionNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 859FFBA519F1199A0076843D /* ExhibitionNavView.m */; };
+		8557FC6F1A120E3D00B50830 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D2194E8F18000ED175 /* SDImageCache.m */; };
+		8557FC701A120E3D00B50830 /* ImageText.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A33F5519E41E590083D98B /* ImageText.m */; };
+		8557FC711A120E3D00B50830 /* UIWebView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5A0192DE042004F8C8C /* UIWebView+Extras.m */; };
+		8557FC721A120E3D00B50830 /* KQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83819D2977E00F36838 /* KQRegisterViewController.m */; };
+		8557FC731A120E3D00B50830 /* HallEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479BF19E16F0600459004 /* HallEntranceViewController.m */; };
+		8557FC741A120E3D00B50830 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A586192DE042004F8C8C /* NSString+Extras.m */; };
+		8557FC751A120E3D00B50830 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B82193C65FD007A7081 /* SearchCell.m */; };
+		8557FC761A120E3D00B50830 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A56F192DE042004F8C8C /* SettingController.m */; };
+		8557FC771A120E3D00B50830 /* InsetsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5AE192DE042004F8C8C /* InsetsLabel.m */; };
+		8557FC781A120E3D00B50830 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14BC1193CC20C007A7081 /* People.m */; };
+		8557FC791A120E3D00B50830 /* KQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83619D2977E00F36838 /* KQLoginViewController.m */; };
+		8557FC7A1A120E3D00B50830 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393E2194E8F18000ED175 /* UIImageView+WebCache.m */; };
+		8557FC7B1A120E3D00B50830 /* ChooseLangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479BC19E16E2B00459004 /* ChooseLangViewController.m */; };
+		8557FC7C1A120E3D00B50830 /* ArtNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCA19ECEBB3003142BE /* ArtNavView.m */; };
+		8557FC7D1A120E3D00B50830 /* NSURL+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A58A192DE042004F8C8C /* NSURL+Extras.m */; };
+		8557FC7E1A120E3D00B50830 /* NetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14BAE193C81C3007A7081 /* NetTableViewController.m */; };
+		8557FC7F1A120E3D00B50830 /* ArtListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDD019ED3523003142BE /* ArtListView.m */; };
+		8557FC801A120E3D00B50830 /* UIDevice+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A594192DE042004F8C8C /* UIDevice+Extras.m */; };
+		8557FC811A120E3D00B50830 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A59E192DE042004F8C8C /* UIView+Extras.m */; };
+		8557FC821A120E3D00B50830 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B62193C65FD007A7081 /* ButtonCell.m */; };
+		8557FC831A120E3D00B50830 /* NSString+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A588192DE042004F8C8C /* NSString+TKCategory.m */; };
+		8557FC841A120E3D00B50830 /* ErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A565192DE042004F8C8C /* ErrorManager.m */; };
+		8557FC851A120E3D00B50830 /* TableConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A572192DE042004F8C8C /* TableConfiguration.m */; };
+		8557FC861A120E3D00B50830 /* LibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26821B4719527CF3005549D3 /* LibraryManager.m */; };
+		8557FC871A120E3D00B50830 /* DKLiveBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479CF19E17DC400459004 /* DKLiveBlurView.m */; };
+		8557FC881A120E3D00B50830 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A536192DE02F004F8C8C /* AppDelegate.m */; };
+		8557FC891A120E3D00B50830 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393DE194E8F18000ED175 /* SDWebImagePrefetcher.m */; };
+		8557FC8A1A120E3D00B50830 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E290F7193DB24E00B7E0C9 /* Comment.m */; };
+		8557FC8B1A120E3D00B50830 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D8194E8F18000ED175 /* SDWebImageDownloader.m */; };
+		8557FC8C1A120E3D00B50830 /* Exhibition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA6D19D502E70049B4C4 /* Exhibition.m */; };
+		8557FC8D1A120E3D00B50830 /* Hall.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA6A19D502CF0049B4C4 /* Hall.m */; };
+		8557FC8E1A120E3D00B50830 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B2ADC19B35C700074CC07 /* AVCamViewController.m */; };
+		8557FC8F1A120E3D00B50830 /* SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83E19D2977E00F36838 /* SignViewController.m */; };
+		8557FC901A120E3D00B50830 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B66193C65FD007A7081 /* ImageCell.m */; };
+		8557FC911A120E3D00B50830 /* UINavigationBar+CustomBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A59C192DE042004F8C8C /* UINavigationBar+CustomBG.m */; };
+		8557FC921A120E3D00B50830 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83C19D2977E00F36838 /* RegisterViewController.m */; };
+		8557FC931A120E3D00B50830 /* TTQAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5D5192DE0F0004F8C8C /* TTQAppDelegate.m */; };
+		8557FC941A120E3D00B50830 /* UIImageView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A59A192DE042004F8C8C /* UIImageView+Extras.m */; };
+		8557FC951A120E3D00B50830 /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D4B6F5195C189000C1B727 /* DropDownListView.m */; };
+		8557FC961A120E3D00B50830 /* CustomBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A57E192DE042004F8C8C /* CustomBarButtonItem.m */; };
+		8557FC971A120E3D00B50830 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A596192DE042004F8C8C /* UIImage+Alpha.m */; };
+		8557FC981A120E3D00B50830 /* ImageButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E50C6919587AEA00CBFEE8 /* ImageButtonCell.m */; };
+		8557FC991A120E3D00B50830 /* NetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE1F8F19457511007C98AA /* NetworkClient.m */; };
+		8557FC9A1A120E3D00B50830 /* TTQRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5D8192DE121004F8C8C /* TTQRootViewController.m */; };
+		8557FC9B1A120E3D00B50830 /* NavigationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B6C193C65FD007A7081 /* NavigationCell.m */; };
+		8557FC9C1A120E3D00B50830 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26821B4E19530EE2005549D3 /* MapViewController.m */; };
+		8557FC9D1A120E3D00B50830 /* UIBezierPath+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A58E192DE042004F8C8C /* UIBezierPath+Extras.m */; };
+		8557FC9E1A120E3D00B50830 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E36B8C195132ED0008707A /* LoadMoreTableFooterView.m */; };
+		8557FC9F1A120E3D00B50830 /* AuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCD19ECEE5B003142BE /* AuthorView.m */; };
+		8557FCA01A120E3D00B50830 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B5B193C6508007A7081 /* UserCenterViewController.m */; };
+		8557FCA11A120E3D00B50830 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A33F5219E41CAB0083D98B /* AppManager.m */; };
+		8557FCA21A120E3D00B50830 /* Art.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7019D502F10049B4C4 /* Art.m */; };
+		8557FCA31A120E3D00B50830 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E84819D29A4E00F36838 /* BeaconManager.m */; };
+		8557FCA41A120E3D00B50830 /* InsetsTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5B1192DE042004F8C8C /* InsetsTextField.m */; };
+		8557FCA51A120E3D00B50830 /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B2AD819B35C700074CC07 /* AVCamCaptureManager.m */; };
+		8557FCA61A120E3D00B50830 /* ConfigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B64193C65FD007A7081 /* ConfigCell.m */; };
+		8557FCA71A120E3D00B50830 /* ExternVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5A4192DE042004F8C8C /* ExternVariables.m */; };
+		8557FCA81A120E3D00B50830 /* LoadMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B68193C65FD007A7081 /* LoadMoreCell.m */; };
+		8557FCA91A120E3D00B50830 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83419D2977E00F36838 /* ForgetPasswordViewController.m */; };
+		8557FCAA1A120E3D00B50830 /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B84193C65FD007A7081 /* TextViewCell.m */; };
+		8557FCAB1A120E3D00B50830 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83019D2977E00F36838 /* AgreementViewController.m */; };
+		8557FCAC1A120E3D00B50830 /* NSArray+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A580192DE042004F8C8C /* NSArray+Extras.m */; };
+		8557FCAD1A120E3D00B50830 /* UIButton+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A590192DE042004F8C8C /* UIButton+Extras.m */; };
+		8557FCAE1A120E3D00B50830 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DD9D791962DA5500521317 /* SVProgressHUD.m */; };
+		8557FCAF1A120E3D00B50830 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393DB194E8F18000ED175 /* SDWebImageManager.m */; };
+		8557FCB01A120E3D00B50830 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83A19D2977E00F36838 /* LoginViewController.m */; };
+		8557FCB11A120E3D00B50830 /* PeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14B6E193C65FD007A7081 /* PeopleCell.m */; };
+		8557FCB21A120E3D00B50830 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26919EE5195D7E3200974010 /* SwitchCell.m */; };
+		8557FCB31A120E3D00B50830 /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B2ADA19B35C700074CC07 /* AVCamUtilities.m */; };
+		8557FCB41A120E3D00B50830 /* NSDate+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A582192DE042004F8C8C /* NSDate+TKCategory.m */; };
+		8557FCB51A120E3D00B50830 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7319D503000049B4C4 /* Author.m */; };
+		8557FCB61A120E3D00B50830 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D6194E8F18000ED175 /* SDWebImageDecoder.m */; };
+		8557FCB71A120E3D00B50830 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D0194E8F18000ED175 /* MKAnnotationView+WebCache.m */; };
+		8557FCB81A120E3D00B50830 /* UIAlertView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A58C192DE042004F8C8C /* UIAlertView+Extras.m */; };
+		8557FCB91A120E3D00B50830 /* MyHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DEB37919EFAD4B00F2F7EA /* MyHallViewController.m */; };
+		8557FCBA1A120E3D00B50830 /* KQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A53B192DE02F004F8C8C /* KQ.xcdatamodeld */; };
+		8557FCBB1A120E3D00B50830 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C519E16F5B00459004 /* NavigationViewController.m */; };
+		8557FCBC1A120E3D00B50830 /* UIColor+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A592192DE042004F8C8C /* UIColor+Extras.m */; };
+		8557FCBD1A120E3D00B50830 /* UserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5EE192E221A004F8C8C /* UserController.m */; };
+		8557FCBE1A120E3D00B50830 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A5B4192DE042004F8C8C /* RootViewController.m */; };
+		8557FCBF1A120E3D00B50830 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A56D192DE042004F8C8C /* SettingCell.m */; };
+		8557FCC01A120E3D00B50830 /* NSDictionary+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 263527E11946FD98003A30DD /* NSDictionary+Extras.m */; };
+		8557FCC11A120E3D00B50830 /* HallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C219E16F1100459004 /* HallViewController.m */; };
+		8557FCC21A120E3D00B50830 /* UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A598192DE042004F8C8C /* UIImage+Extras.m */; };
+		8557FCC31A120E3D00B50830 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261D34C01946C1ED009F75CF /* UserSettingsViewController.m */; };
+		8557FCC41A120E3D00B50830 /* KQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14BA1193C6754007A7081 /* KQLabel.m */; };
+		8557FCC51A120E3D00B50830 /* NSMutableArray+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A584192DE042004F8C8C /* NSMutableArray+Extras.m */; };
+		8557FCC61A120E3D00B50830 /* TextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BA518B19EE147900C18716 /* TextManager.m */; };
+		8557FCC71A120E3D00B50830 /* Base64AndImageHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DEB37619EF8E2100F2F7EA /* Base64AndImageHelp.m */; };
+		8557FCC81A120E3D00B50830 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83219D2977E00F36838 /* ChangePasswordViewController.m */; };
+		8557FCC91A120E3D00B50830 /* TTQBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7619D5030F0049B4C4 /* TTQBeacon.m */; };
+		8557FCCA1A120E3D00B50830 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DD9D751962DA5500521317 /* MBProgressHUD.m */; };
+		8557FCCB1A120E3D00B50830 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E14BAA193C8199007A7081 /* ConfigViewController.m */; };
+		8557FCCC1A120E3D00B50830 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DD9D731962DA5500521317 /* Dialog.m */; };
+		8557FCCD1A120E3D00B50830 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393E0194E8F18000ED175 /* UIButton+WebCache.m */; };
+		8557FCCE1A120E3D00B50830 /* TTQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F02A4519B2173A0086A8F5 /* TTQViewController.m */; };
+		8557FCCF1A120E3D00B50830 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DE6436195E8FC5008835D6 /* NSObject+Extras.m */; };
+		8557FCD01A120E3D00B50830 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A532192DE02F004F8C8C /* main.m */; };
+		8557FCD21A120E3D00B50830 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DEB37C19EFAF3E00F2F7EA /* MessageUI.framework */; };
+		8557FCD31A120E3D00B50830 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EE360519D3D16F0065CE2A /* CoreLocation.framework */; };
+		8557FCD41A120E3D00B50830 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE2D7F194FE9D800F9C46E /* MapKit.framework */; };
+		8557FCD51A120E3D00B50830 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE2D7D194FE3C900F9C46E /* AVFoundation.framework */; };
+		8557FCD61A120E3D00B50830 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E14BBE193CB3AF007A7081 /* libz.dylib */; };
+		8557FCD71A120E3D00B50830 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E14BBC193CB3A8007A7081 /* libstdc++.dylib */; };
+		8557FCD81A120E3D00B50830 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E14BBA193CB39E007A7081 /* CoreTelephony.framework */; };
+		8557FCD91A120E3D00B50830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E3A526192DE02F004F8C8C /* CoreGraphics.framework */; };
+		8557FCDA1A120E3D00B50830 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E14BB8193CB37D007A7081 /* libsqlite3.dylib */; };
+		8557FCDB1A120E3D00B50830 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E14BB6193CB35E007A7081 /* libiconv.dylib */; };
+		8557FCDC1A120E3D00B50830 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E14BB4193CB355007A7081 /* Security.framework */; };
+		8557FCDD1A120E3D00B50830 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E16608193976780041CDD6 /* libSocialQQ.a */; };
+		8557FCDE1A120E3D00B50830 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E16622193976A10041CDD6 /* AFNetworking.framework */; };
+		8557FCDF1A120E3D00B50830 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E1660E193976780041CDD6 /* libWeChatSDK.a */; };
+		8557FCE01A120E3D00B50830 /* libUMSocial_Sdk_3.3.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E165FA193976780041CDD6 /* libUMSocial_Sdk_3.3.7.a */; };
+		8557FCE11A120E3D00B50830 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E3A52A192DE02F004F8C8C /* CoreData.framework */; };
+		8557FCE21A120E3D00B50830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E3A528192DE02F004F8C8C /* UIKit.framework */; };
+		8557FCE31A120E3D00B50830 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E16609193976780041CDD6 /* TencentOpenAPI.framework */; };
+		8557FCE41A120E3D00B50830 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E1660D193976780041CDD6 /* libSocialWechat.a */; };
+		8557FCE51A120E3D00B50830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E3A524192DE02F004F8C8C /* Foundation.framework */; };
+		8557FCE61A120E3D00B50830 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE34221828C240E6B918B199 /* libPods.a */; };
+		8557FCE81A120E3D00B50830 /* 分享icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06D19EEB6EA006BA3CA /* 分享icon.png */; };
+		8557FCE91A120E3D00B50830 /* UserCenterLoginConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26EE1F9C1945EF76007C98AA /* UserCenterLoginConfig.plist */; };
+		8557FCEA1A120E3D00B50830 /* couponHeaderBGPattern@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26E16BB5194F1CD500036039 /* couponHeaderBGPattern@2x.jpg */; };
+		8557FCEB1A120E3D00B50830 /* icon_myfavoritedshops@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C72194D8A3B007C1DE6 /* icon_myfavoritedshops@2x.png */; };
+		8557FCEC1A120E3D00B50830 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E16600193976780041CDD6 /* UMShareEditViewControlleriPad.xib */; };
+		8557FCED1A120E3D00B50830 /* icon_myfavoritedcoupons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C71194D8A3B007C1DE6 /* icon_myfavoritedcoupons@2x.png */; };
+		8557FCEE1A120E3D00B50830 /* camera_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07219EEB6EA006BA3CA /* camera_active@2x.png */; };
+		8557FCEF1A120E3D00B50830 /* icon_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C6B194D7166007C1DE6 /* icon_password@2x.png */; };
+		8557FCF01A120E3D00B50830 /* ShopHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262CF14A1958C69E00A4FA26 /* ShopHeaderCell.xib */; };
+		8557FCF11A120E3D00B50830 /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DE2D81195015D100F9C46E /* CityCell.xib */; };
+		8557FCF21A120E3D00B50830 /* t1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 857E592B19F022AC005B1B3B /* t1.jpg */; };
+		8557FCF31A120E3D00B50830 /* ShopBranchListConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E08B2119545A7B00E55A96 /* ShopBranchListConfig.plist */; };
+		8557FCF41A120E3D00B50830 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26821B5019532DB6005549D3 /* Root.storyboard */; };
+		8557FCF51A120E3D00B50830 /* 作品介绍icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07119EEB6EA006BA3CA /* 作品介绍icon.png */; };
+		8557FCF61A120E3D00B50830 /* UserCardsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E3203419526785000A14EF /* UserCardsConfig.plist */; };
+		8557FCF71A120E3D00B50830 /* like_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07519EEB6EA006BA3CA /* like_active.png */; };
+		8557FCF81A120E3D00B50830 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E16602193976780041CDD6 /* UMSnsAccountViewController.xib */; };
+		8557FCF91A120E3D00B50830 /* art_16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9619F1E4250043B315 /* art_16.jpg */; };
+		8557FCFA1A120E3D00B50830 /* UserAvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DE2D8319501DE900F9C46E /* UserAvatarCell.xib */; };
+		8557FCFB1A120E3D00B50830 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E165FD193976780041CDD6 /* UMSCommentInputController.xib */; };
+		8557FCFC1A120E3D00B50830 /* icon_fullStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DE6441195ECA15008835D6 /* icon_fullStar@2x.png */; };
+		8557FCFD1A120E3D00B50830 /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 857E592719F020F4005B1B3B /* 3.txt */; };
+		8557FCFE1A120E3D00B50830 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 857E592819F020F4005B1B3B /* TemplateIcon2x.png */; };
+		8557FCFF1A120E3D00B50830 /* ShopBranchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E08B2319545B7300E55A96 /* ShopBranchListCell.xib */; };
+		8557FD001A120E3D00B50830 /* 评论icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06F19EEB6EA006BA3CA /* 评论icon.png */; };
+		8557FD011A120E3D00B50830 /* icon_main2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E0BDB9194B95CA00FECD2A /* icon_main2@2x.png */; };
+		8557FD021A120E3D00B50830 /* UserCenterLoginConfig_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DEB37E19EFB06900F2F7EA /* UserCenterLoginConfig_en.plist */; };
+		8557FD031A120E3D00B50830 /* camera_unactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07319EEB6EA006BA3CA /* camera_unactive@2x.png */; };
+		8557FD041A120E3D00B50830 /* icon_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEB4B61941942B0063AADC /* icon_play@2x.png */; };
+		8557FD051A120E3D00B50830 /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26EE1F9A1945971A007C98AA /* db.plist */; };
+		8557FD061A120E3D00B50830 /* art_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AEA219F1E6160043B315 /* art_0.jpg */; };
+		8557FD071A120E3D00B50830 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26E1660A193976780041CDD6 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		8557FD081A120E3D00B50830 /* ShopConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 262CF1481958C3D000A4FA26 /* ShopConfig.plist */; };
+		8557FD091A120E3D00B50830 /* icon_emptyStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DE6440195ECA15008835D6 /* icon_emptyStar@2x.png */; };
+		8557FD0A1A120E3D00B50830 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E165FC193976780041CDD6 /* UMSCommentDetailController.xib */; };
+		8557FD0B1A120E3D00B50830 /* DDX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F02A4219B20CC40086A8F5 /* DDX.storyboard */; };
+		8557FD0C1A120E3D00B50830 /* UserShopsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DE6446195EECF9008835D6 /* UserShopsConfig.plist */; };
+		8557FD0D1A120E3D00B50830 /* icon_mycoupons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C70194D8A3B007C1DE6 /* icon_mycoupons@2x.png */; };
+		8557FD0E1A120E3D00B50830 /* white_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 268D4A4819B2EFED004899D7 /* white_dot.png */; };
+		8557FD0F1A120E3D00B50830 /* icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEB4B51941942B0063AADC /* icon_menu@2x.png */; };
+		8557FD101A120E3D00B50830 /* UserSettingsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26919EE2195D7DC000974010 /* UserSettingsConfig.plist */; };
+		8557FD111A120E3D00B50830 /* mainConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E290FC193DB41600B7E0C9 /* mainConfig.plist */; };
+		8557FD121A120E3D00B50830 /* ShopBranchesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E08B1F1954308000E55A96 /* ShopBranchesCell.xib */; };
+		8557FD131A120E3D00B50830 /* 进入场馆icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06E19EEB6EA006BA3CA /* 进入场馆icon.png */; };
+		8557FD141A120E3D00B50830 /* text.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85BA518D19EE14B400C18716 /* text.plist */; };
+		8557FD151A120E3D00B50830 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 859FFBA219F10D2D0076843D /* icon_close@2x.png */; };
+		8557FD161A120E3D00B50830 /* bg_虚线@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DE643C195EBA78008835D6 /* bg_虚线@2x.png */; };
+		8557FD171A120E3D00B50830 /* UserCenterConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E14BB0193C82FD007A7081 /* UserCenterConfig.plist */; };
+		8557FD181A120E3D00B50830 /* icon_tabuser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E50C5819584E7300CBFEE8 /* icon_tabuser@2x.png */; };
+		8557FD191A120E3D00B50830 /* icon_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 262CF1461958B88100A4FA26 /* icon_arrow@2x.png */; };
+		8557FD1A1A120E3D00B50830 /* login_调整后BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85E0283E19EF7133001722F7 /* login_调整后BG.jpg */; };
+		8557FD1B1A120E3D00B50830 /* text2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DEB38019EFB60600F2F7EA /* text2.plist */; };
+		8557FD1C1A120E3D00B50830 /* art_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9019F1E4250043B315 /* art_10.jpg */; };
+		8557FD1D1A120E3D00B50830 /* SearchConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DEB4C01941A9670063AADC /* SearchConfig.plist */; };
+		8557FD1E1A120E3D00B50830 /* foot.png in Resources */ = {isa = PBXBuildFile; fileRef = 269DF39619B2BCC500011B59 /* foot.png */; };
+		8557FD1F1A120E3D00B50830 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E3A544192DE02F004F8C8C /* Images.xcassets */; };
+		8557FD201A120E3D00B50830 /* like_unactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07619EEB6EA006BA3CA /* like_unactive.png */; };
+		8557FD211A120E3D00B50830 /* art_15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9519F1E4250043B315 /* art_15.jpg */; };
+		8557FD221A120E3D00B50830 /* art_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9719F1E4250043B315 /* art_7.jpg */; };
+		8557FD231A120E3D00B50830 /* icon_main@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E0BDB7194B946400FECD2A /* icon_main@2x.png */; };
+		8557FD241A120E3D00B50830 /* art_14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9419F1E4250043B315 /* art_14.jpg */; };
+		8557FD251A120E3D00B50830 /* AVCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266B2ADD19B35C700074CC07 /* AVCamViewController.xib */; };
+		8557FD261A120E3D00B50830 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07419EEB6EA006BA3CA /* icon.png */; };
+		8557FD271A120E3D00B50830 /* userCenter_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E36BD21951AC6B0008707A /* userCenter_bg.png */; };
+		8557FD281A120E3D00B50830 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26E16604193976780041CDD6 /* UMSocialSDKResourcesNew.bundle */; };
+		8557FD291A120E3D00B50830 /* art_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9819F1E4250043B315 /* art_9.jpg */; };
+		8557FD2A1A120E3D00B50830 /* icon_telefon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 262CF1441958B44800A4FA26 /* icon_telefon@2x.png */; };
+		8557FD2B1A120E3D00B50830 /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E165FE193976780041CDD6 /* UMSCommentInputControlleriPad.xib */; };
+		8557FD2C1A120E3D00B50830 /* 4picker2.png in Resources */ = {isa = PBXBuildFile; fileRef = 85003DA219EE92F1003DD1CC /* 4picker2.png */; };
+		8557FD2D1A120E3D00B50830 /* ShopListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DE6444195EEBB0008835D6 /* ShopListCell.xib */; };
+		8557FD2E1A120E3D00B50830 /* art_12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9219F1E4250043B315 /* art_12.jpg */; };
+		8557FD2F1A120E3D00B50830 /* icon_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E50C5719584E7300CBFEE8 /* icon_location@2x.png */; };
+		8557FD301A120E3D00B50830 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E165FF193976780041CDD6 /* UMShareEditViewController.xib */; };
+		8557FD311A120E3D00B50830 /* art_13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9319F1E4250043B315 /* art_13.jpg */; };
+		8557FD321A120E3D00B50830 /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEB4B31941942B0063AADC /* icon_back@2x.png */; };
+		8557FD331A120E3D00B50830 /* art_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85A1AE9119F1E4250043B315 /* art_11.jpg */; };
+		8557FD341A120E3D00B50830 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E16603193976780041CDD6 /* UMSShareListController.xib */; };
+		8557FD351A120E3D00B50830 /* navibarBGPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E0BDBF194B9C5400FECD2A /* navibarBGPattern@2x.png */; };
+		8557FD361A120E3D00B50830 /* icon_userCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEB4B71941942B0063AADC /* icon_userCenter@2x.png */; };
+		8557FD371A120E3D00B50830 /* down_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D4B6F2195C189000C1B727 /* down_dark.png */; };
+		8557FD381A120E3D00B50830 /* CouponHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26821B4B19528CC1005549D3 /* CouponHeaderCell.xib */; };
+		8557FD391A120E3D00B50830 /* ShopListConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E570AE193E9B7F009AB7F8 /* ShopListConfig.plist */; };
+		8557FD3A1A120E3D00B50830 /* CouponModelConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E2911C193DE41C00B7E0C9 /* CouponModelConfig.plist */; };
+		8557FD3B1A120E3D00B50830 /* icon_离您最近@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DE643A195EB955008835D6 /* icon_离您最近@2x.jpg */; };
+		8557FD3C1A120E3D00B50830 /* icon_mysettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C73194D8A3B007C1DE6 /* icon_mysettings@2x.png */; };
+		8557FD3D1A120E3D00B50830 /* icon_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C6C194D7166007C1DE6 /* icon_user@2x.png */; };
+		8557FD3E1A120E3D00B50830 /* 收藏icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07019EEB6EA006BA3CA /* 收藏icon.png */; };
+		8557FD3F1A120E3D00B50830 /* UserCouponsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26E36BD41951BA470008707A /* UserCouponsConfig.plist */; };
+		8557FD401A120E3D00B50830 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26DD9D771962DA5500521317 /* SVProgressHUD.bundle */; };
+		8557FD411A120E3D00B50830 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E16601193976780041CDD6 /* UMSLoginViewController.xib */; };
+		8557FD421A120E3D00B50830 /* bg_nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DE73AE1963A37C008B2E52 /* bg_nav@2x.png */; };
+		8557FD431A120E3D00B50830 /* icon_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26E0BDBB194B993700FECD2A /* icon_search@2x.png */; };
+		8557FD441A120E3D00B50830 /* icon_mycards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B26C6F194D8A3B007C1DE6 /* icon_mycards@2x.png */; };
+		8557FD451A120E3D00B50830 /* AroundConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26D4B6EF195C0F1700C1B727 /* AroundConfig.plist */; };
 		8576CDCB19ECEBB3003142BE /* ArtNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCA19ECEBB3003142BE /* ArtNavView.m */; };
 		8576CDCE19ECEE5B003142BE /* AuthorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDCD19ECEE5B003142BE /* AuthorView.m */; };
 		8576CDD119ED3523003142BE /* ArtListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8576CDD019ED3523003142BE /* ArtListView.m */; };
@@ -409,7 +623,7 @@
 		26E36B8C195132ED0008707A /* LoadMoreTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTableFooterView.m; sourceTree = "<group>"; };
 		26E36BD21951AC6B0008707A /* userCenter_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userCenter_bg.png; sourceTree = "<group>"; };
 		26E36BD41951BA470008707A /* UserCouponsConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserCouponsConfig.plist; sourceTree = "<group>"; };
-		26E3A521192DE02F004F8C8C /* 51甜甜圈.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "51甜甜圈.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E3A521192DE02F004F8C8C /* 生活甜甜圈.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "生活甜甜圈.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E3A524192DE02F004F8C8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26E3A526192DE02F004F8C8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26E3A528192DE02F004F8C8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -521,6 +735,8 @@
 		852FD07419EEB6EA006BA3CA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		852FD07519EEB6EA006BA3CA /* like_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_active.png; sourceTree = "<group>"; };
 		852FD07619EEB6EA006BA3CA /* like_unactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_unactive.png; sourceTree = "<group>"; };
+		8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "甜甜圈工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8557FD4C1A120E3D00B50830 /* DDXTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DDXTool-Info.plist"; path = "/Users/Forest/Documents/TTQ/项目源代码/iOS/DDX/DDXTool-Info.plist"; sourceTree = "<absolute>"; };
 		8576CDC919ECEBB3003142BE /* ArtNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtNavView.h; sourceTree = "<group>"; };
 		8576CDCA19ECEBB3003142BE /* ArtNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtNavView.m; sourceTree = "<group>"; };
 		8576CDCC19ECEE5B003142BE /* AuthorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorView.h; sourceTree = "<group>"; };
@@ -630,6 +846,34 @@
 				26E3A54E192DE02F004F8C8C /* UIKit.framework in Frameworks */,
 				26E3A54D192DE02F004F8C8C /* Foundation.framework in Frameworks */,
 				6EB0E79B2DF0497980209FAA /* libPods-KQTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8557FCD11A120E3D00B50830 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8557FCD21A120E3D00B50830 /* MessageUI.framework in Frameworks */,
+				8557FCD31A120E3D00B50830 /* CoreLocation.framework in Frameworks */,
+				8557FCD41A120E3D00B50830 /* MapKit.framework in Frameworks */,
+				8557FCD51A120E3D00B50830 /* AVFoundation.framework in Frameworks */,
+				8557FCD61A120E3D00B50830 /* libz.dylib in Frameworks */,
+				8557FCD71A120E3D00B50830 /* libstdc++.dylib in Frameworks */,
+				8557FCD81A120E3D00B50830 /* CoreTelephony.framework in Frameworks */,
+				8557FCD91A120E3D00B50830 /* CoreGraphics.framework in Frameworks */,
+				8557FCDA1A120E3D00B50830 /* libsqlite3.dylib in Frameworks */,
+				8557FCDB1A120E3D00B50830 /* libiconv.dylib in Frameworks */,
+				8557FCDC1A120E3D00B50830 /* Security.framework in Frameworks */,
+				8557FCDD1A120E3D00B50830 /* libSocialQQ.a in Frameworks */,
+				8557FCDE1A120E3D00B50830 /* AFNetworking.framework in Frameworks */,
+				8557FCDF1A120E3D00B50830 /* libWeChatSDK.a in Frameworks */,
+				8557FCE01A120E3D00B50830 /* libUMSocial_Sdk_3.3.7.a in Frameworks */,
+				8557FCE11A120E3D00B50830 /* CoreData.framework in Frameworks */,
+				8557FCE21A120E3D00B50830 /* UIKit.framework in Frameworks */,
+				8557FCE31A120E3D00B50830 /* TencentOpenAPI.framework in Frameworks */,
+				8557FCE41A120E3D00B50830 /* libSocialWechat.a in Frameworks */,
+				8557FCE51A120E3D00B50830 /* Foundation.framework in Frameworks */,
+				8557FCE61A120E3D00B50830 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,14 +1132,16 @@
 				26E3A523192DE02F004F8C8C /* Frameworks */,
 				26E3A522192DE02F004F8C8C /* Products */,
 				CD4F707AF7C109B54F99AB8D /* Pods */,
+				8557FD4C1A120E3D00B50830 /* DDXTool-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		26E3A522192DE02F004F8C8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26E3A521192DE02F004F8C8C /* 51甜甜圈.app */,
+				26E3A521192DE02F004F8C8C /* 生活甜甜圈.app */,
 				26E3A54A192DE02F004F8C8C /* DDXTests.xctest */,
+				8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1356,7 +1602,7 @@
 			);
 			name = DDX;
 			productName = KQ;
-			productReference = 26E3A521192DE02F004F8C8C /* 51甜甜圈.app */;
+			productReference = 26E3A521192DE02F004F8C8C /* 生活甜甜圈.app */;
 			productType = "com.apple.product-type.application";
 		};
 		26E3A549192DE02F004F8C8C /* DDXTests */ = {
@@ -1378,6 +1624,25 @@
 			productName = KQTests;
 			productReference = 26E3A54A192DE02F004F8C8C /* DDXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8557FC6B1A120E3D00B50830 /* DDXTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8557FD471A120E3D00B50830 /* Build configuration list for PBXNativeTarget "DDXTool" */;
+			buildPhases = (
+				8557FC6C1A120E3D00B50830 /* Check Pods Manifest.lock */,
+				8557FC6D1A120E3D00B50830 /* Sources */,
+				8557FCD11A120E3D00B50830 /* Frameworks */,
+				8557FCE71A120E3D00B50830 /* Resources */,
+				8557FD461A120E3D00B50830 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDXTool;
+			productName = KQ;
+			productReference = 8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -1408,6 +1673,7 @@
 			projectRoot = "";
 			targets = (
 				26E3A520192DE02F004F8C8C /* DDX */,
+				8557FC6B1A120E3D00B50830 /* DDXTool */,
 				26E3A549192DE02F004F8C8C /* DDXTests */,
 			);
 		};
@@ -1522,6 +1788,107 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8557FCE71A120E3D00B50830 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8557FCE81A120E3D00B50830 /* 分享icon.png in Resources */,
+				8557FCE91A120E3D00B50830 /* UserCenterLoginConfig.plist in Resources */,
+				8557FCEA1A120E3D00B50830 /* couponHeaderBGPattern@2x.jpg in Resources */,
+				8557FCEB1A120E3D00B50830 /* icon_myfavoritedshops@2x.png in Resources */,
+				8557FCEC1A120E3D00B50830 /* UMShareEditViewControlleriPad.xib in Resources */,
+				8557FCED1A120E3D00B50830 /* icon_myfavoritedcoupons@2x.png in Resources */,
+				8557FCEE1A120E3D00B50830 /* camera_active@2x.png in Resources */,
+				8557FCEF1A120E3D00B50830 /* icon_password@2x.png in Resources */,
+				8557FCF01A120E3D00B50830 /* ShopHeaderCell.xib in Resources */,
+				8557FCF11A120E3D00B50830 /* CityCell.xib in Resources */,
+				8557FCF21A120E3D00B50830 /* t1.jpg in Resources */,
+				8557FCF31A120E3D00B50830 /* ShopBranchListConfig.plist in Resources */,
+				8557FCF41A120E3D00B50830 /* Root.storyboard in Resources */,
+				8557FCF51A120E3D00B50830 /* 作品介绍icon.png in Resources */,
+				8557FCF61A120E3D00B50830 /* UserCardsConfig.plist in Resources */,
+				8557FCF71A120E3D00B50830 /* like_active.png in Resources */,
+				8557FCF81A120E3D00B50830 /* UMSnsAccountViewController.xib in Resources */,
+				8557FCF91A120E3D00B50830 /* art_16.jpg in Resources */,
+				8557FCFA1A120E3D00B50830 /* UserAvatarCell.xib in Resources */,
+				8557FCFB1A120E3D00B50830 /* UMSCommentInputController.xib in Resources */,
+				8557FCFC1A120E3D00B50830 /* icon_fullStar@2x.png in Resources */,
+				8557FCFD1A120E3D00B50830 /* 3.txt in Resources */,
+				8557FCFE1A120E3D00B50830 /* TemplateIcon2x.png in Resources */,
+				8557FCFF1A120E3D00B50830 /* ShopBranchListCell.xib in Resources */,
+				8557FD001A120E3D00B50830 /* 评论icon.png in Resources */,
+				8557FD011A120E3D00B50830 /* icon_main2@2x.png in Resources */,
+				8557FD021A120E3D00B50830 /* UserCenterLoginConfig_en.plist in Resources */,
+				8557FD031A120E3D00B50830 /* camera_unactive@2x.png in Resources */,
+				8557FD041A120E3D00B50830 /* icon_play@2x.png in Resources */,
+				8557FD051A120E3D00B50830 /* db.plist in Resources */,
+				8557FD061A120E3D00B50830 /* art_0.jpg in Resources */,
+				8557FD071A120E3D00B50830 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				8557FD081A120E3D00B50830 /* ShopConfig.plist in Resources */,
+				8557FD091A120E3D00B50830 /* icon_emptyStar@2x.png in Resources */,
+				8557FD0A1A120E3D00B50830 /* UMSCommentDetailController.xib in Resources */,
+				8557FD0B1A120E3D00B50830 /* DDX.storyboard in Resources */,
+				8557FD0C1A120E3D00B50830 /* UserShopsConfig.plist in Resources */,
+				8557FD0D1A120E3D00B50830 /* icon_mycoupons@2x.png in Resources */,
+				8557FD0E1A120E3D00B50830 /* white_dot.png in Resources */,
+				8557FD0F1A120E3D00B50830 /* icon_menu@2x.png in Resources */,
+				8557FD101A120E3D00B50830 /* UserSettingsConfig.plist in Resources */,
+				8557FD111A120E3D00B50830 /* mainConfig.plist in Resources */,
+				8557FD121A120E3D00B50830 /* ShopBranchesCell.xib in Resources */,
+				8557FD131A120E3D00B50830 /* 进入场馆icon.png in Resources */,
+				8557FD141A120E3D00B50830 /* text.plist in Resources */,
+				8557FD151A120E3D00B50830 /* icon_close@2x.png in Resources */,
+				8557FD161A120E3D00B50830 /* bg_虚线@2x.png in Resources */,
+				8557FD171A120E3D00B50830 /* UserCenterConfig.plist in Resources */,
+				8557FD181A120E3D00B50830 /* icon_tabuser@2x.png in Resources */,
+				8557FD191A120E3D00B50830 /* icon_arrow@2x.png in Resources */,
+				8557FD1A1A120E3D00B50830 /* login_调整后BG.jpg in Resources */,
+				8557FD1B1A120E3D00B50830 /* text2.plist in Resources */,
+				8557FD1C1A120E3D00B50830 /* art_10.jpg in Resources */,
+				8557FD1D1A120E3D00B50830 /* SearchConfig.plist in Resources */,
+				8557FD1E1A120E3D00B50830 /* foot.png in Resources */,
+				8557FD1F1A120E3D00B50830 /* Images.xcassets in Resources */,
+				8557FD201A120E3D00B50830 /* like_unactive.png in Resources */,
+				8557FD211A120E3D00B50830 /* art_15.jpg in Resources */,
+				8557FD221A120E3D00B50830 /* art_7.jpg in Resources */,
+				8557FD231A120E3D00B50830 /* icon_main@2x.png in Resources */,
+				8557FD241A120E3D00B50830 /* art_14.jpg in Resources */,
+				8557FD251A120E3D00B50830 /* AVCamViewController.xib in Resources */,
+				8557FD261A120E3D00B50830 /* icon.png in Resources */,
+				8557FD271A120E3D00B50830 /* userCenter_bg.png in Resources */,
+				8557FD281A120E3D00B50830 /* UMSocialSDKResourcesNew.bundle in Resources */,
+				8557FD291A120E3D00B50830 /* art_9.jpg in Resources */,
+				8557FD2A1A120E3D00B50830 /* icon_telefon@2x.png in Resources */,
+				8557FD2B1A120E3D00B50830 /* UMSCommentInputControlleriPad.xib in Resources */,
+				8557FD2C1A120E3D00B50830 /* 4picker2.png in Resources */,
+				8557FD2D1A120E3D00B50830 /* ShopListCell.xib in Resources */,
+				8557FD2E1A120E3D00B50830 /* art_12.jpg in Resources */,
+				8557FD2F1A120E3D00B50830 /* icon_location@2x.png in Resources */,
+				8557FD301A120E3D00B50830 /* UMShareEditViewController.xib in Resources */,
+				8557FD311A120E3D00B50830 /* art_13.jpg in Resources */,
+				8557FD321A120E3D00B50830 /* icon_back@2x.png in Resources */,
+				8557FD331A120E3D00B50830 /* art_11.jpg in Resources */,
+				8557FD341A120E3D00B50830 /* UMSShareListController.xib in Resources */,
+				8557FD351A120E3D00B50830 /* navibarBGPattern@2x.png in Resources */,
+				8557FD361A120E3D00B50830 /* icon_userCenter@2x.png in Resources */,
+				8557FD371A120E3D00B50830 /* down_dark.png in Resources */,
+				8557FD381A120E3D00B50830 /* CouponHeaderCell.xib in Resources */,
+				8557FD391A120E3D00B50830 /* ShopListConfig.plist in Resources */,
+				8557FD3A1A120E3D00B50830 /* CouponModelConfig.plist in Resources */,
+				8557FD3B1A120E3D00B50830 /* icon_离您最近@2x.jpg in Resources */,
+				8557FD3C1A120E3D00B50830 /* icon_mysettings@2x.png in Resources */,
+				8557FD3D1A120E3D00B50830 /* icon_user@2x.png in Resources */,
+				8557FD3E1A120E3D00B50830 /* 收藏icon.png in Resources */,
+				8557FD3F1A120E3D00B50830 /* UserCouponsConfig.plist in Resources */,
+				8557FD401A120E3D00B50830 /* SVProgressHUD.bundle in Resources */,
+				8557FD411A120E3D00B50830 /* UMSLoginViewController.xib in Resources */,
+				8557FD421A120E3D00B50830 /* bg_nav@2x.png in Resources */,
+				8557FD431A120E3D00B50830 /* icon_search@2x.png in Resources */,
+				8557FD441A120E3D00B50830 /* icon_mycards@2x.png in Resources */,
+				8557FD451A120E3D00B50830 /* AroundConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1568,6 +1935,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8557FC6C1A120E3D00B50830 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8557FD461A120E3D00B50830 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B4DECD049C534857A932529F /* Check Pods Manifest.lock */ = {
@@ -1703,6 +2100,112 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8557FC6D1A120E3D00B50830 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8557FC6E1A120E3D00B50830 /* ExhibitionNavView.m in Sources */,
+				8557FC6F1A120E3D00B50830 /* SDImageCache.m in Sources */,
+				8557FC701A120E3D00B50830 /* ImageText.m in Sources */,
+				8557FC711A120E3D00B50830 /* UIWebView+Extras.m in Sources */,
+				8557FC721A120E3D00B50830 /* KQRegisterViewController.m in Sources */,
+				8557FC731A120E3D00B50830 /* HallEntranceViewController.m in Sources */,
+				8557FC741A120E3D00B50830 /* NSString+Extras.m in Sources */,
+				8557FC751A120E3D00B50830 /* SearchCell.m in Sources */,
+				8557FC761A120E3D00B50830 /* SettingController.m in Sources */,
+				8557FC771A120E3D00B50830 /* InsetsLabel.m in Sources */,
+				8557FC781A120E3D00B50830 /* People.m in Sources */,
+				8557FC791A120E3D00B50830 /* KQLoginViewController.m in Sources */,
+				8557FC7A1A120E3D00B50830 /* UIImageView+WebCache.m in Sources */,
+				8557FC7B1A120E3D00B50830 /* ChooseLangViewController.m in Sources */,
+				8557FC7C1A120E3D00B50830 /* ArtNavView.m in Sources */,
+				8557FC7D1A120E3D00B50830 /* NSURL+Extras.m in Sources */,
+				8557FC7E1A120E3D00B50830 /* NetTableViewController.m in Sources */,
+				8557FC7F1A120E3D00B50830 /* ArtListView.m in Sources */,
+				8557FC801A120E3D00B50830 /* UIDevice+Extras.m in Sources */,
+				8557FC811A120E3D00B50830 /* UIView+Extras.m in Sources */,
+				8557FC821A120E3D00B50830 /* ButtonCell.m in Sources */,
+				8557FC831A120E3D00B50830 /* NSString+TKCategory.m in Sources */,
+				8557FC841A120E3D00B50830 /* ErrorManager.m in Sources */,
+				8557FC851A120E3D00B50830 /* TableConfiguration.m in Sources */,
+				8557FC861A120E3D00B50830 /* LibraryManager.m in Sources */,
+				8557FC871A120E3D00B50830 /* DKLiveBlurView.m in Sources */,
+				8557FC881A120E3D00B50830 /* AppDelegate.m in Sources */,
+				8557FC891A120E3D00B50830 /* SDWebImagePrefetcher.m in Sources */,
+				8557FC8A1A120E3D00B50830 /* Comment.m in Sources */,
+				8557FC8B1A120E3D00B50830 /* SDWebImageDownloader.m in Sources */,
+				8557FC8C1A120E3D00B50830 /* Exhibition.m in Sources */,
+				8557FC8D1A120E3D00B50830 /* Hall.m in Sources */,
+				8557FC8E1A120E3D00B50830 /* AVCamViewController.m in Sources */,
+				8557FC8F1A120E3D00B50830 /* SignViewController.m in Sources */,
+				8557FC901A120E3D00B50830 /* ImageCell.m in Sources */,
+				8557FC911A120E3D00B50830 /* UINavigationBar+CustomBG.m in Sources */,
+				8557FC921A120E3D00B50830 /* RegisterViewController.m in Sources */,
+				8557FC931A120E3D00B50830 /* TTQAppDelegate.m in Sources */,
+				8557FC941A120E3D00B50830 /* UIImageView+Extras.m in Sources */,
+				8557FC951A120E3D00B50830 /* DropDownListView.m in Sources */,
+				8557FC961A120E3D00B50830 /* CustomBarButtonItem.m in Sources */,
+				8557FC971A120E3D00B50830 /* UIImage+Alpha.m in Sources */,
+				8557FC981A120E3D00B50830 /* ImageButtonCell.m in Sources */,
+				8557FC991A120E3D00B50830 /* NetworkClient.m in Sources */,
+				8557FC9A1A120E3D00B50830 /* TTQRootViewController.m in Sources */,
+				8557FC9B1A120E3D00B50830 /* NavigationCell.m in Sources */,
+				8557FC9C1A120E3D00B50830 /* MapViewController.m in Sources */,
+				8557FC9D1A120E3D00B50830 /* UIBezierPath+Extras.m in Sources */,
+				8557FC9E1A120E3D00B50830 /* LoadMoreTableFooterView.m in Sources */,
+				8557FC9F1A120E3D00B50830 /* AuthorView.m in Sources */,
+				8557FCA01A120E3D00B50830 /* UserCenterViewController.m in Sources */,
+				8557FCA11A120E3D00B50830 /* AppManager.m in Sources */,
+				8557FCA21A120E3D00B50830 /* Art.m in Sources */,
+				8557FCA31A120E3D00B50830 /* BeaconManager.m in Sources */,
+				8557FCA41A120E3D00B50830 /* InsetsTextField.m in Sources */,
+				8557FCA51A120E3D00B50830 /* AVCamCaptureManager.m in Sources */,
+				8557FCA61A120E3D00B50830 /* ConfigCell.m in Sources */,
+				8557FCA71A120E3D00B50830 /* ExternVariables.m in Sources */,
+				8557FCA81A120E3D00B50830 /* LoadMoreCell.m in Sources */,
+				8557FCA91A120E3D00B50830 /* ForgetPasswordViewController.m in Sources */,
+				8557FCAA1A120E3D00B50830 /* TextViewCell.m in Sources */,
+				8557FCAB1A120E3D00B50830 /* AgreementViewController.m in Sources */,
+				8557FCAC1A120E3D00B50830 /* NSArray+Extras.m in Sources */,
+				8557FCAD1A120E3D00B50830 /* UIButton+Extras.m in Sources */,
+				8557FCAE1A120E3D00B50830 /* SVProgressHUD.m in Sources */,
+				8557FCAF1A120E3D00B50830 /* SDWebImageManager.m in Sources */,
+				8557FCB01A120E3D00B50830 /* LoginViewController.m in Sources */,
+				8557FCB11A120E3D00B50830 /* PeopleCell.m in Sources */,
+				8557FCB21A120E3D00B50830 /* SwitchCell.m in Sources */,
+				8557FCB31A120E3D00B50830 /* AVCamUtilities.m in Sources */,
+				8557FCB41A120E3D00B50830 /* NSDate+TKCategory.m in Sources */,
+				8557FCB51A120E3D00B50830 /* Author.m in Sources */,
+				8557FCB61A120E3D00B50830 /* SDWebImageDecoder.m in Sources */,
+				8557FCB71A120E3D00B50830 /* MKAnnotationView+WebCache.m in Sources */,
+				8557FCB81A120E3D00B50830 /* UIAlertView+Extras.m in Sources */,
+				8557FCB91A120E3D00B50830 /* MyHallViewController.m in Sources */,
+				8557FCBA1A120E3D00B50830 /* KQ.xcdatamodeld in Sources */,
+				8557FCBB1A120E3D00B50830 /* NavigationViewController.m in Sources */,
+				8557FCBC1A120E3D00B50830 /* UIColor+Extras.m in Sources */,
+				8557FCBD1A120E3D00B50830 /* UserController.m in Sources */,
+				8557FCBE1A120E3D00B50830 /* RootViewController.m in Sources */,
+				8557FCBF1A120E3D00B50830 /* SettingCell.m in Sources */,
+				8557FCC01A120E3D00B50830 /* NSDictionary+Extras.m in Sources */,
+				8557FCC11A120E3D00B50830 /* HallViewController.m in Sources */,
+				8557FCC21A120E3D00B50830 /* UIImage+Extras.m in Sources */,
+				8557FCC31A120E3D00B50830 /* UserSettingsViewController.m in Sources */,
+				8557FCC41A120E3D00B50830 /* KQLabel.m in Sources */,
+				8557FCC51A120E3D00B50830 /* NSMutableArray+Extras.m in Sources */,
+				8557FCC61A120E3D00B50830 /* TextManager.m in Sources */,
+				8557FCC71A120E3D00B50830 /* Base64AndImageHelp.m in Sources */,
+				8557FCC81A120E3D00B50830 /* ChangePasswordViewController.m in Sources */,
+				8557FCC91A120E3D00B50830 /* TTQBeacon.m in Sources */,
+				8557FCCA1A120E3D00B50830 /* MBProgressHUD.m in Sources */,
+				8557FCCB1A120E3D00B50830 /* ConfigViewController.m in Sources */,
+				8557FCCC1A120E3D00B50830 /* Dialog.m in Sources */,
+				8557FCCD1A120E3D00B50830 /* UIButton+WebCache.m in Sources */,
+				8557FCCE1A120E3D00B50830 /* TTQViewController.m in Sources */,
+				8557FCCF1A120E3D00B50830 /* NSObject+Extras.m in Sources */,
+				8557FCD01A120E3D00B50830 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1796,7 +2299,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "51甜甜圈";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "e938a6e5-a277-41ef-9d14-ba7508f8f446";
 				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -1947,7 +2450,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "51甜甜圈";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "4EB69DDD-1BBD-49D7-86FF-45FE69872990";
 				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -2001,7 +2504,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "51甜甜圈";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "609FEA0D-E70D-4F2D-8E8B-0ADE353B1A05";
 				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -2051,6 +2554,183 @@
 			};
 			name = Release;
 		};
+		8557FD481A120E3D00B50830 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B69AF1BD3A8A94F73193A79 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KQ/DDX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TOOL=1",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "DDXTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_3.3.7",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					CoreTelephony,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+				);
+				PRODUCT_NAME = "甜甜圈工具";
+				PROVISIONING_PROFILE = "4EB69DDD-1BBD-49D7-86FF-45FE69872990";
+				VALID_ARCHS = "armv7 armv7s";
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8557FD491A120E3D00B50830 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D53512939713538DF1F52E9 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KQ/DDX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TOOL=1",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "DDXTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_3.3.7",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					CoreTelephony,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+				);
+				PRODUCT_NAME = "甜甜圈工具";
+				PROVISIONING_PROFILE = "609FEA0D-E70D-4F2D-8E8B-0ADE353B1A05";
+				VALID_ARCHS = "armv7 armv7s";
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8557FD4A1A120E3D00B50830 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F1611095126B3260EF08665 /* Pods.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KQ/DDX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TOOL=1",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "DDXTool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_3.3.7",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					CoreTelephony,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+				);
+				PRODUCT_NAME = "甜甜圈工具";
+				PROVISIONING_PROFILE = "e938a6e5-a277-41ef-9d14-ba7508f8f446";
+				VALID_ARCHS = "armv7 armv7s";
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Adhoc;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2080,6 +2760,16 @@
 				26E3A560192DE02F004F8C8C /* Debug */,
 				26E3A561192DE02F004F8C8C /* Release */,
 				26DEB4AC19416CB70063AADC /* Adhoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8557FD471A120E3D00B50830 /* Build configuration list for PBXNativeTarget "DDXTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8557FD481A120E3D00B50830 /* Debug */,
+				8557FD491A120E3D00B50830 /* Release */,
+				8557FD4A1A120E3D00B50830 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

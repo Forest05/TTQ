@@ -139,8 +139,12 @@
     _label.textColor = [UIColor blackColor];
     _label.font = [UIFont fontWithName:kFontName size:10];
     _label.numberOfLines = 0;
+    _label.alpha = 0;
     [self.view addSubview:_label];
-    
+
+    if(isToolVersion()){
+        _label.alpha = 1;
+    }
 
 
 }
