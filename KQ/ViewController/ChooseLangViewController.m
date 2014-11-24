@@ -9,6 +9,7 @@
 #import "ChooseLangViewController.h"
 #import "TTQRootViewController.h"
 #import "FXLabel.h"
+#import "LibraryManager.h"
 
 @interface ChooseLangViewController ()
 
@@ -50,7 +51,6 @@
     
     NSArray *titles = @[@"日语",@"韩语",@"法语"];
     
-//    [self.view addSubview:_blurView];
     
     [self.view addSubview:bgV];
     [self.view addSubview:_zhBtn];
@@ -104,10 +104,13 @@
         NSLog(@"en");
     }
     
-    
 }
 
 - (void)toHallEntrance{
-    [[TTQRootViewController sharedInstance] toHallEntrance];
+//    [[TTQRootViewController sharedInstance] toHallEntrance];
+    
+    [[LibraryManager sharedInstance] shareWithText:@"txt" image:[UIImage imageNamed:@"t1.jpg"] delegate:self];
+    
+    
 }
 @end
