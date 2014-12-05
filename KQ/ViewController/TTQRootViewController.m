@@ -230,6 +230,9 @@
     [[BeaconManager sharedInstance] test];
     [TextManager sharedInstance];
     
+    NSLog(@"is tool version %d",isToolVersion());
+    
+    
 //    NSLog(@"lang # %@",TTQLangEn);
 //    [self testNav:@"HallViewController"];
     

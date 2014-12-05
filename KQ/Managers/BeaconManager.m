@@ -34,6 +34,7 @@
 }
 
 
+
 // AppManager 要在BeaconManager之前定义！
 - (id)init{
     
@@ -46,6 +47,7 @@
         AppManager *appManager = [AppManager sharedInstance];
 
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:appManager.hall.uuid];
+        
 //        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000029"];
         self.beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:[appManager.hall.defaultExhibition.major intValue] identifier:uuid.UUIDString];
         
@@ -65,27 +67,24 @@
     
     NSLog(@"did range beacons # %@",beacons);
     
-    
-//    NSLog(@"");
+    if (!ISEMPTY(beacons)) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kListBeaconsNotificationKey object:beacons];
+    }
     
     //判断接近那个beacon，
-    
-    // 这里的beacon是否是按照最近的？
-//    for (CLBeacon *beacon in beacons) {
-//        
-//        NSLog(@"minor # %d, accuricy # %f",[beacon.minor intValue],beacon.accuracy);
-//        
-//        
-//    }
     
     
     if (self.activatedBeacon) {
     /// 如果存在激活的beacon，那么就监听这个beacon的距离, 超过就close
         
+        //取得beacon
         CLBeacon *aBeacon = [self activatedCLBeaconFromArray:beacons];
-        if (!aBeacon || aBeacon.accuracy > _maxDistance) {
+        
+        //如果beacon不存在列表中（出错了，或一下子beacon关掉了）或是beacon的距离大于最大距离，都把激活的beacon关掉
+        if (!aBeacon || aBeacon.accuracy > _maxDistance || aBeacon.accuracy == -1.0) {
             [self closeBeacon:self.activatedBeacon];
             self.activatedBeacon = nil;
+//            [UIAlertView showAlert:@"beacon manager unset activeBeacon" msg:nil];
         }
     }
     else{
@@ -94,12 +93,16 @@
         
         NSLog(@"closest Beacon # %@",closestBeacon);
         
-        if (closestBeacon && closestBeacon.accuracy < _minDistance) {
+        if (!closestBeacon) {
+            return;
+        }
+        
+        // 如果最近的beacon的距离小于最小距离就激活
+        if (closestBeacon.accuracy < _minDistance) {
            
             self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
             NSLog(@"activeBeacon # %@",closestBeacon);
-            
-            
+//            [UIAlertView showAlert:@"beacon manager set activeBeacon" msg:[NSString stringWithInt:self.activatedBeacon.minorValue]];
             [self openBeacon:self.activatedBeacon];
         }
 
@@ -111,33 +114,31 @@
 #pragma mark - Fcns
 
 //
-- (void)registerBeaconRegionWithUUID:(NSUUID *)proximityUUID andIdentifier:(NSString*)identifier {
-    
-    
-    
-    // Create the beacon region to be monitored.
-    
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc]
-                                    
-                                    initWithProximityUUID:proximityUUID
-                                    
-                                    identifier:identifier]; //
-    
-    
-    
-    // Register the beacon region with the location manager.
-    
-    [self.locationManager startMonitoringForRegion:beaconRegion];
-    
-}
+//- (void)registerBeaconRegionWithUUID:(NSUUID *)proximityUUID andIdentifier:(NSString*)identifier {
+//    
+//    
+//    
+//    // Create the beacon region to be monitored.
+//    
+//    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc]
+//                                    
+//                                    initWithProximityUUID:proximityUUID
+//                                    
+//                                    identifier:identifier]; //
+//    
+//    
+//    
+//    // Register the beacon region with the location manager.
+//    
+//    [self.locationManager startMonitoringForRegion:beaconRegion];
+//    
+//}
 
 - (void)startRanging{
     L();
     
     //B9407F30F5F8466EAFF925556B57FE6D
 
-    //    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
-//    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000028"];
     
     self.activatedBeacon = nil;
     
@@ -158,23 +159,11 @@
 
 
 - (void)openBeacon:(TTQBeacon*)beacon{
-//    
-//    if (beacon.minorValue == 1) {
-//        [self openExhibitionBeacon:beacon];
-//    }
-//    else{
-//        [self openArtBeacon:beacon];
-//    }
 
      [self openArtBeacon:beacon];
 }
 - (void)closeBeacon:(TTQBeacon*)beacon{
-//    if (beacon.minorValue == 1) {
-//        [self closeExhibitionBeacon:beacon];
-//    }
-//    else{
-//        [self closeArtBeacon:beacon];
-//    }
+
 
     [self closeArtBeacon:beacon];
 }
@@ -190,25 +179,16 @@
 }
 
 
-//- (void)openExhibitionBeacon:(TTQBeacon*)beacon{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenExhiBeaconNotificationKey object:beacon];
-//
-//}
-//- (void)closeExhibitionBeacon:(TTQBeacon*)beacon{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kCloseExhiBeaconNotificationKey object:beacon];
-//}
-
 - (CLBeacon*)closestBeaconFromArray:(NSArray*)beacons{
 
 //    NSLog(@"beacons # %@",beacons);
 
-//    CLBeacon *closestBeacon = [beacons firstObject];
     CLBeacon *closestBeacon;
     float minAccuracy = 999;
     for (CLBeacon *beacon in beacons) {
         float accuracy = beacon.accuracy;
         if (accuracy < 0) {
-            break;
+            continue;
         }
        
         if ( accuracy < minAccuracy) {
@@ -222,7 +202,6 @@
 
 - (CLBeacon*)activatedCLBeaconFromArray:(NSArray*)beacons{
 
-//    CLBeacon *aBeacon;
     for (CLBeacon *beacon in beacons) {
         if ([self.activatedBeacon isEqualToCLBeacon:beacon]) {
             return beacon;

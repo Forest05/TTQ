@@ -57,9 +57,7 @@ static NSArray *keys;
 - (id)init{
     if (self = [super init]) {
       self.artBeacons = [NSMutableDictionary dictionary];
-        
-        
-        
+      
     }
     return self;
 }

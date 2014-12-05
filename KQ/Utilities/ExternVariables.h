@@ -32,7 +32,7 @@ extern NSString *FONTNAME;
 void saveArchived(id, NSString*);
 id loadArchived(NSString*);
 void report_memory();
-
+bool isToolVersion();
 
 @interface ExternVariables : NSObject
 

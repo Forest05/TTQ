@@ -12,7 +12,7 @@
 @interface ShopAnnotation : NSObject<MKAnnotation>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, strong) Shop *shop;
+
 
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord;
@@ -21,10 +21,6 @@
 
 
 @implementation ShopAnnotation
-
-- (NSString*)title{
-    return self.shop.title;
-}
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord{
 
@@ -51,24 +47,6 @@
 
 @implementation MapViewController
 
-
-
-- (void)setShop:(Shop *)shop{
-    _shop = shop;
-    
-    CLLocationCoordinate2D coord;
-    
-
-    if (ISEMPTY(shop.location)) {
-        coord = CLLocationCoordinate2DMake(31.1, 121.1);
-    }else{
-        coord = shop.location.coordinate;
-    }
-    
-    _shopAnnotation = [[ShopAnnotation alloc] initWithLocation:coord];
-    _shopAnnotation.shop = shop;
-
-}
 
 - (void)viewDidLoad
 {

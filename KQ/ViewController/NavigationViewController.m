@@ -77,7 +77,6 @@
     UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(mapV.frame)+ 10, _w - 20, 50)];
     titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕也可手动选择作品查看。");
     
-//    titleL.text =@"打开蓝牙，作品相关\n信息会自动推送到手机\n屏幕也可手动选择作品查看。";
     titleL.font = [UIFont fontWithName:kFontName size:14];
     titleL.textColor = kColorLightGreen;
     titleL.numberOfLines = 0;
@@ -135,11 +134,18 @@
     _scrollView = scrollView;
     
     
-//    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-//    _label.backgroundColor = [UIColor redColor];
-//    [scrollView addSubview:_label];
-    
-//    UIButton *b = [UIButton buttonWithFrame:CGRectMake(10, _h - 30, 50, 30) title:@"Min" bgImageName:nil target:self action:<#(SEL)#>]
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
+    _label.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
+    _label.textColor = [UIColor blackColor];
+    _label.font = [UIFont fontWithName:kFontName size:10];
+    _label.numberOfLines = 0;
+    _label.alpha = 0;
+    [self.view addSubview:_label];
+
+    if(isToolVersion()){
+        _label.alpha = 1;
+    }
+
 
 }
 
@@ -158,8 +164,6 @@
     
     [self openCamera];
     
-    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenExhiBeaconNotificationKey object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -181,11 +185,21 @@
         //需要判别是否是art的beacon还是展厅的beacon
         
         TTQBeacon *beacon = note.object;
+        
+        
         Art *art = [_appManager artWithTTQBeacon:beacon];
         
+        if (!art) {
+//            [UIAlertView showAlert:@"open beacon empty" msg:[NSString stringWithInt:beacon.minorValue]];
+            return ;
+        }
+        
         //如果没有打开的展品，打开
-        if (art && !self.showedArt) {
+        if (!self.showedArt) {
             [self showArt:art];
+        }
+        else{
+            NSLog(@"showedArt is already opened # %@",self.showedArt);
         }
 //        _label.text = [NSString stringWithFormat:@"Open Beacon # %d",beacon.minorValue];
         
@@ -199,33 +213,23 @@
         Art *art = [_appManager artWithTTQBeacon:beacon];
         
         // 如果离开当前打开的展品，关闭
-//        if (art && [art.name isEqualToString:self.showedArt.name]) {
-//            [self closeArt];
-//        }
 
         if (art) {
             [self closeArt];
         }
     }];
-    
-//    [[NSNotificationCenter defaultCenter] addObserverForName:kOpenExhiBeaconNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note){
-////        NSLog(@"open Exhi Beacon # %@",note.object);
-//        //需要判别是否是art的beacon还是展厅的beacon
-//    
-//        
-//        [self showExhibition:_appManager.exhibition];
-//        
-//        
-//    }];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserverForName:kCloseExhiBeaconNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note){
-////        NSLog(@"close Exhi Beacon # %@",note.object);
-//        
-//    
-//        [self closeExhibition];
-//        
-//    }];
-//
+
+    [[NSNotificationCenter defaultCenter] addObserverForName:kListBeaconsNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note) {
+       
+        NSArray *beacons = note.object;
+        NSMutableString *str = [NSMutableString stringWithString:@"Beacon List\n"];
+        for (CLBeacon *beacon in beacons) {
+            [str appendFormat:@"minor # %d, distance: %f\n",[beacon.minor intValue],[beacon accuracy]];
+        }
+        
+        _label.text = str;
+        
+    }];
     
 }
 
@@ -308,12 +312,12 @@
     }
     
     _artView.art = art;
- 
     self.showedArt = art;
-    [self.view addSubview:_artView];
-      [self.view addSubview:closeBtn];
     
-     [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    [self.view addSubview:_artView];
+    [self.view insertSubview:_artView belowSubview:_label];
+    [self.view addSubview:closeBtn];
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
 
 - (void)closeArt{
@@ -324,30 +328,7 @@
      [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
-//
-//- (void)showExhibition:(Exhibition*)exhi{
-//    if (!_exhibitionView) {
-//        _exhibitionView = [[ExhibitionNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
-//        
-//    }
-//    
-//    _exhibitionView.exhibition = exhi;
-//    
-////    self.showedArt = art;
-//    [self.view addSubview:_exhibitionView];
-//    [self.view addSubview:closeBtn];
-//    
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
-//}
-//
-//- (void)closeExhibition{
-//    
-//    
-//    [_exhibitionView removeFromSuperview];
-//    
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
-//
-//}
+
 
 - (void)openCamera{
 
