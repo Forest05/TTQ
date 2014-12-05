@@ -12,9 +12,8 @@
 #import "TTQRootViewController.h"
 #import "TTQRootViewController.h"
 
-//#import <AVOSCloud/AVOSCloud.h>
-
-#define kWeixinAppId @"wxcbdb435367bde789"
+#define kWeixinAppId @"wxb5fa63851976db24"
+#define kWeixinAppSecret @"6a4c1967026aa2ec977d3d9eee5017e9"
 
 @implementation TTQAppDelegate
 
@@ -40,8 +39,9 @@
     // 友盟
     [UMSocialData setAppKey:kUmengAppKey];
     
-    [UMSocialWechatHandler setWXAppId:kWeixinAppId url:@"http://www.51ttq.com"];
-    }
+//    [UMSocialWechatHandler setWXAppId:kWeixinAppId url:@"http://www.51ttq.com"];
+    [UMSocialWechatHandler setWXAppId:kWeixinAppId appSecret:kWeixinAppSecret url:@"http://www.quickquan.com"];
+}
 
 - (void)initAvosCloud{
     
@@ -84,6 +84,18 @@
     [[UISegmentedControl appearance] setTintColor:kColorLightYellow];
     
 
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url];
 }
 
 
