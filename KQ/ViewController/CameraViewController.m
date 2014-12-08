@@ -1,22 +1,25 @@
 //
-//  MyHallViewController.m
+//  CameraViewController.m
 //  DDX
 //
-//  Created by Forest on 14-10-16.
+//  Created by Forest on 14-12-8.
 //  Copyright (c) 2014年 Xappsoft. All rights reserved.
 //
 
-#import "MyHallViewController.h"
+#import "CameraViewController.h"
+#import "TextManager.h"
 
-@interface MyHallViewController ()
+@interface CameraViewController ()
 
 @end
 
-@implementation MyHallViewController
+@implementation CameraViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = lang(@"拍摄照片");
 }
 
 - (void)didReceiveMemoryWarning {

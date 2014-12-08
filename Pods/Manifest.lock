@@ -1,10 +1,13 @@
 PODS:
   - FXLabel (1.5.8)
+  - MSDynamicsDrawerViewController (1.5.1)
 
 DEPENDENCIES:
   - FXLabel
+  - MSDynamicsDrawerViewController
 
 SPEC CHECKSUMS:
   FXLabel: d7c2cb1d2903d7a7ac04855d470ecf2079f4881e
+  MSDynamicsDrawerViewController: 0002059480a4b5ddde7eafbafb958a79a9b0ffaf
 
-COCOAPODS: 0.34.1
+COCOAPODS: 0.34.4

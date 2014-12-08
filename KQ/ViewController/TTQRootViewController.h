@@ -7,33 +7,40 @@
 //
 
 #import "RootViewController.h"
-#import "TTQViewController.h"
+#import "MSDynamicsDrawerViewController.h"
 
-@class ChooseLangViewController;
-@class HallEntranceViewController;
-@class HallViewController;
 @class KQLoginViewController;
 
+@class ContainerViewController;
 
+
+
+// 作为TTQ的容器
 @interface TTQRootViewController : RootViewController<UITabBarControllerDelegate>{
 
-    TTQViewController *_baseVC;
 
+    ContainerViewController *_containerVC;
+    UINavigationController *_nav;
+
+    MSDynamicsDrawerViewController *dynamicsDrawerViewController;
 }
 
-@property (nonatomic, strong) ChooseLangViewController *chooseLangVC;
-@property (nonatomic, strong) HallEntranceViewController *hallEntranceVC;
-@property (nonatomic, strong) UINavigationController *hallEntranceNav;
+//@property (nonatomic, strong) ChooseLangViewController *chooseLangVC;
+//@property (nonatomic, strong) HallEntranceViewController *hallEntranceVC;
+//@property (nonatomic, strong) UINavigationController *hallEntranceNav;
 @property (nonatomic, strong) UINavigationController *loginNav;
 
-- (void)toChooseLang;
-- (void)toHallEntrance;
-//- (void)toHall;
 
-- (void)toLogin;
+//- (void)toChooseLang;
+//- (void)toHallEntrance;
+//
+//
+//- (void)toLogin;
+//
+//- (void)didLogin;
+//- (void)didLogout;
 
-- (void)didLogin;
-- (void)didLogout;
+
 
 - (void)didChangeLanguage;
 

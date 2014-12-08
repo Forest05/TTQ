@@ -107,9 +107,9 @@
 }
 
 - (void)toHallEntrance{
-//    [[TTQRootViewController sharedInstance] toHallEntrance];
+    [[TTQRootViewController sharedInstance] toHallEntrance];
     
-    [[LibraryManager sharedInstance] shareWithText:@"txt" image:[UIImage imageNamed:@"t1.jpg"] delegate:self];
+//    [[LibraryManager sharedInstance] shareWithText:@"txt" image:[UIImage imageNamed:@"t1.jpg"] delegate:self];
     
     
 }

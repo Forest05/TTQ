@@ -2,7 +2,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 #platform :ios, "6.0"
 #
-#pod "AVOSCloud"
 
-pod "FXLabel"
+
+pod 'FXLabel'
+pod 'MSDynamicsDrawerViewController'
 

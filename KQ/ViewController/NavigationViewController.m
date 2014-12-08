@@ -336,9 +336,6 @@
         _camVC = [[AVCamViewController alloc] initWithNibName:@"AVCamViewController" bundle:nil];
     }
     
-//    hintL.hidden = YES;
-//    _tf.hidden = YES;
-//    navBtn.hidden = YES;
     
     [_camVC startSesseion];
     
@@ -346,7 +343,6 @@
     
     self.isCameraOn = YES;
     
-//    [_cameraBB setImage:[UIImage imageNamed:@"camera_active.png"]];
 }
 - (void)closeCamera{
     
