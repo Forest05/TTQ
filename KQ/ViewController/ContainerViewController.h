@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SINavigationMenuView.h"
+#import "MSDynamicsDrawerViewController.h"
+
 @class HallViewController;
 @class NavigationViewController;
 @class CameraViewController;
 
-@interface ContainerViewController : UIViewController<SINavigationMenuDelegate>{
+@interface ContainerViewController : MSDynamicsDrawerViewController<SINavigationMenuDelegate>{
     
     NavigationViewController *_navigationVC;    // 智能导览
     HallViewController *_hallVC;                // 手动浏览

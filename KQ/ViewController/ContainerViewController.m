@@ -39,12 +39,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if (isIOS7) {
-        
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
+    self.navigationController.navigationBar.alpha = 0.1;
     
     _navigationVC = [[NavigationViewController alloc] init];
     
@@ -59,6 +56,8 @@
     UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
     self.navigationItem.rightBarButtonItem = cameraBB;
 
+
+
     
 }
 
@@ -68,6 +67,9 @@
     
     self.navigationItem.titleView = self.naviMenu;  // 不能在viewDidLoad中初始化是因为， 那个时候self.navigationController.view 是nil， 但是否可以设成window
     
+    
+    [self setPaneViewController:[NavigationViewController new]];
+    [self setDrawerViewController:[CameraViewController new] forDirection:MSDynamicsDrawerDirectionLeft];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,6 +102,7 @@
 
 - (IBAction)settingPressed:(id)sender{
     
+    [self toggleSetting];
 }
 
 #pragma mark - Fcns
@@ -131,11 +134,25 @@
 
 - (void)toggleSetting{
     
+    
+    if (self.paneState == MSDynamicsDrawerPaneStateOpen) {
+        [self closeSetting];
+    }
+    else{
+        [self openSetting];
+    }
+    
+  
+    
 }
 - (void)openSetting{
-    
+    [self setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:NO completion:^{
+        
+    }];
 }
 - (void)closeSetting{
-    
+    [self setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
+        
+    }];
 }
 @end

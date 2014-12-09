@@ -55,7 +55,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    L();
+//    L();
 
     
 //    self.chooseLangVC = [[ChooseLangViewController alloc] init];
@@ -68,26 +68,24 @@
 //
 //    [self toChooseLang];
     
-    if (isIOS7) {
-        
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    if (isIOS7) {
+//        
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    
+//    }
     
-    }
+    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgV.image = [UIImage imageNamed:@"bg.jpg"];
+    bgV.contentMode = UIViewContentModeScaleAspectFill;
+    
+    [self.view addSubview:bgV];
    
     _containerVC = [[ContainerViewController alloc]init];
     _containerVC.view.alpha = 1;
-    [_containerVC showNavigation];
     _nav = [[UINavigationController alloc] initWithRootViewController:_containerVC];
     
     [self.view addSubview:_nav.view];
     
-    
-    dynamicsDrawerViewController = [MSDynamicsDrawerViewController new];
-    dynamicsDrawerViewController.paneViewController = [NavigationViewController new];
-    [dynamicsDrawerViewController setDrawerViewController:[HallViewController new] forDirection:MSDynamicsDrawerDirectionLeft];
-    _nav = [[UINavigationController alloc] initWithRootViewController:dynamicsDrawerViewController];
-    dynamicsDrawerViewController.title = @"智能导览";
-    [self.view addSubview:_nav.view];
 }
 
 - (void)viewDidAppear:(BOOL)animated{

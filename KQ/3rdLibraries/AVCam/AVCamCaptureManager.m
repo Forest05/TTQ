@@ -252,14 +252,13 @@
 {
     AVCaptureConnection *stillImageConnection = [AVCamUtilities connectionWithMediaType:AVMediaTypeVideo fromConnections:[[self stillImageOutput] connections]];
     if ([stillImageConnection isVideoOrientationSupported]){
-		NSLog(@"orientation supported, orientattoin # %d",orientation);
+//		NSLog(@"orientation supported, orientattoin # %d",orientation);
 		
 		[stillImageConnection setVideoOrientation:orientation];
 	}
 	
     
-    [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:stillImageConnection
-                                                         completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+    [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:stillImageConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
 															 
 															 ALAssetsLibraryWriteImageCompletionBlock completionBlock = ^(NSURL *assetURL, NSError *error) {
 																 if (error) {
@@ -274,14 +273,17 @@
 //																 ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
 																 
                                                                  UIImage *image = [[UIImage alloc] initWithData:imageData];
+                                                             
+                                                                 
+                                                                 
 //																 [library writeImageToSavedPhotosAlbum:[image CGImage]
 //																						   orientation:(ALAssetOrientation)[image imageOrientation]
 //																					   completionBlock:completionBlock];
 //
 																 NSLog(@" take image # %@, scale # %f",NSStringFromCGSize(image.size),image.scale);
 
-																 
-//																 [[self session] stopRunning];
+                                                                [[NSNotificationCenter defaultCenter] postNotificationName:@"takePhoto" object:image];
+																 [[self session] stopRunning];
 															 }
 															 else
 																 completionBlock(nil, error);

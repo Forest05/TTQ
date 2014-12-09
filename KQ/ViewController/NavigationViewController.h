@@ -13,7 +13,7 @@
 #import "ArtNavView.h"
 #import "ExhibitionNavView.h"
 
-@interface NavigationViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
+@interface NavigationViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource,UITableViewDelegate>{
 
     AVCamViewController *_camVC;
     ArtNavView *_artView;
@@ -24,8 +24,10 @@
     UIBarButtonItem *_cameraBB;
     
     UILabel *_label;
+    UITableView *_tv;
 
-
+    NSArray *_tableKeys;
+    
     AppManager *_appManager;
     
     
@@ -37,8 +39,8 @@
 @property (nonatomic, strong) Art *showedArt;
 
 
-- (void)openCamera;
-- (void)closeCamera;
+//- (void)openCamera;
+//- (void)closeCamera;
 
 
 - (void)showArt:(Art*)art;

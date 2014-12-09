@@ -11,6 +11,7 @@
 #import "UMSocialWechatHandler.h"
 #import "TTQRootViewController.h"
 #import "TTQRootViewController.h"
+#import "UIImage+Alpha.h"
 
 #define kWeixinAppId @"wxb5fa63851976db24"
 #define kWeixinAppSecret @"6a4c1967026aa2ec977d3d9eee5017e9"
@@ -24,8 +25,6 @@
     
     [self initUmeng];
     
-//    [self initAvosCloud];
-
     
 //	self.window.rootViewController = [TTQRootViewController sharedInstance];
     
@@ -43,13 +42,6 @@
     [UMSocialWechatHandler setWXAppId:kWeixinAppId appSecret:kWeixinAppSecret url:@"http://www.quickquan.com"];
 }
 
-- (void)initAvosCloud{
-    
-//    static NSString *AVOSApplicationId = @"ezxvldwk94k38d6fki1ks4yq55jkl2t15tttu5ezdqbk8mio";
-//    static NSString *AVOSClientKey = @"mtbrztjctplgnho2qf49cs70gd4lfggiayww7u6h4mv5s60t";
-//    [AVOSCloud setApplicationId:AVOSApplicationId clientKey:AVOSClientKey];
-
-}
 
 - (void)customizeAppearance{
 
@@ -61,11 +53,22 @@
 //                                         barMetrics:UIBarMetricsDefault];
     
     
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];  //
+//    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];  //
 
-    [[UINavigationBar appearance] setBarTintColor:kColorGreen];  //背景色
+//    [[UINavigationBar appearance] setBarTintColor:kColorGreen];  //背景色
     
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; //title文字颜色
+
+//    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; //title文字颜色
+
+    
+    UIImage *gradientImage44 = [UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.4]]; //replace "nil" with your method to programmatically create a UIImage object with transparent colors for portrait orientation
+    
+    UIImage *gradientImage32 = [UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.4]]; //replace "nil" with your method to programmatically create a UIImage object with transparent colors for landscape orientation
+    
+    //customize the appearance of UINavigationBar
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage44 forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsLandscapePhone];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
     
     // Title文字
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
