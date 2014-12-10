@@ -77,7 +77,6 @@
     UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
     bgV.image = [UIImage imageNamed:@"bg.jpg"];
     bgV.contentMode = UIViewContentModeScaleAspectFill;
-    
     [self.view addSubview:bgV];
    
     _containerVC = [[ContainerViewController alloc]init];

@@ -87,6 +87,8 @@
     [[UISegmentedControl appearance] setTintColor:kColorLightYellow];
     
 
+    
+
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url

@@ -45,7 +45,7 @@
     
     closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 50, 20 ,30, 30) title:nil bgImageName:@"icon_close.png" target:self action:@selector(closeBtnClicked:)];
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -54,7 +54,7 @@
     
     [self.view addSubview:_tableView];
     
-    self.view.backgroundColor = kColorBG;
+//    self.view.backgroundColor = kColorBG;
     
     _arts = [_appManager arts];
 }
@@ -75,30 +75,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
-    return 50;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 50;
+    return 20;
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
-    view.backgroundColor = [UIColor whiteColor];
-    
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, view.width- 20, 50)];
-    l.text = lang(@"部分展示，现场观看体验更佳");
-//    l.text = @"Part of the exhibits.\ncome and experience more...";
-    l.textAlignment = NSTextAlignmentCenter;
-    l.textColor = kColorGreen;
-    l.font = [UIFont fontWithName:kFontName size:14];
-    l.numberOfLines = 0;
-    [view addSubview:l];
-    
-    return view;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

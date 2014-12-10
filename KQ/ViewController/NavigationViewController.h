@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class NavigationArtViewController;
+
 #import "AVCamViewController.h"
 #import "AppManager.h"
 #import "ArtNavView.h"
 #import "ExhibitionNavView.h"
 
-@interface NavigationViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource,UITableViewDelegate>{
+@interface NavigationViewController : UIViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>{
 
     AVCamViewController *_camVC;
     ArtNavView *_artView;
-    ExhibitionNavView *_exhibitionView;
+//    ExhibitionNavView *_exhibitionView;
+    NavigationArtViewController *_artVC;
     
     UIScrollView *_scrollView;
     UITextField *_tf;

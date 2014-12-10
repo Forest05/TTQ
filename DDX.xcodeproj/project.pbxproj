@@ -169,6 +169,8 @@
 		852FD07E19EEB6EA006BA3CA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07419EEB6EA006BA3CA /* icon.png */; };
 		852FD07F19EEB6EA006BA3CA /* like_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07519EEB6EA006BA3CA /* like_active.png */; };
 		852FD08019EEB6EA006BA3CA /* like_unactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07619EEB6EA006BA3CA /* like_unactive.png */; };
+		853837C41A3845E2005BD1F0 /* NavigationArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */; };
+		853837C51A3845E2005BD1F0 /* NavigationArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */; };
 		8557FC6E1A120E3D00B50830 /* ExhibitionNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 859FFBA519F1199A0076843D /* ExhibitionNavView.m */; };
 		8557FC6F1A120E3D00B50830 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D2194E8F18000ED175 /* SDImageCache.m */; };
 		8557FC701A120E3D00B50830 /* ImageText.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A33F5519E41E590083D98B /* ImageText.m */; };
@@ -727,6 +729,8 @@
 		852FD07419EEB6EA006BA3CA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		852FD07519EEB6EA006BA3CA /* like_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_active.png; sourceTree = "<group>"; };
 		852FD07619EEB6EA006BA3CA /* like_unactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_unactive.png; sourceTree = "<group>"; };
+		853837C21A3845E2005BD1F0 /* NavigationArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationArtViewController.h; sourceTree = "<group>"; };
+		853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationArtViewController.m; sourceTree = "<group>"; };
 		8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "甜甜圈工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8557FD4C1A120E3D00B50830 /* DDXTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DDXTool-Info.plist"; path = "/Users/Forest/Documents/TTQ/项目源代码/iOS/DDX/DDXTool-Info.plist"; sourceTree = "<absolute>"; };
 		8576CDC919ECEBB3003142BE /* ArtNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtNavView.h; sourceTree = "<group>"; };
@@ -1471,6 +1475,8 @@
 				858021761A35A55A00DFC959 /* ContainerViewController.m */,
 				850479C419E16F5B00459004 /* NavigationViewController.h */,
 				850479C519E16F5B00459004 /* NavigationViewController.m */,
+				853837C21A3845E2005BD1F0 /* NavigationArtViewController.h */,
+				853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */,
 				850479C119E16F1100459004 /* HallViewController.h */,
 				850479C219E16F1100459004 /* HallViewController.m */,
 				85DEB37819EFAD4B00F2F7EA /* MyHallViewController.h */,
@@ -2130,6 +2136,7 @@
 				26E3A5B5192DE042004F8C8C /* ErrorManager.m in Sources */,
 				26E3A5B9192DE042004F8C8C /* TableConfiguration.m in Sources */,
 				26821B4819527CF3005549D3 /* LibraryManager.m in Sources */,
+				853837C41A3845E2005BD1F0 /* NavigationArtViewController.m in Sources */,
 				850479D019E17DC400459004 /* DKLiveBlurView.m in Sources */,
 				26E3A537192DE02F004F8C8C /* AppDelegate.m in Sources */,
 				26D393E8194E8F18000ED175 /* SDWebImagePrefetcher.m in Sources */,
@@ -2253,6 +2260,7 @@
 				8557FC841A120E3D00B50830 /* ErrorManager.m in Sources */,
 				8557FC851A120E3D00B50830 /* TableConfiguration.m in Sources */,
 				8557FC861A120E3D00B50830 /* LibraryManager.m in Sources */,
+				853837C51A3845E2005BD1F0 /* NavigationArtViewController.m in Sources */,
 				8557FC871A120E3D00B50830 /* DKLiveBlurView.m in Sources */,
 				8557FC881A120E3D00B50830 /* AppDelegate.m in Sources */,
 				8557FC891A120E3D00B50830 /* SDWebImagePrefetcher.m in Sources */,

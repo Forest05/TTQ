@@ -10,6 +10,7 @@
 #import "BeaconManager.h"
 #import "TextManager.h"
 #import "TTQBeacon.h"
+#import "NavigationArtViewController.h"
 
 @interface NavigationViewController (){
     CATransition *animation;
@@ -39,7 +40,7 @@
     // Do any additional setup after loading the view.
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-//    self.isCameraOn = NO;
+
 
     self.title = lang(@"智能导览");
     
@@ -173,6 +174,8 @@
     [super viewDidAppear:animated];
     
 //    [self openCamera];
+    Art *art = [[AppManager sharedInstance] arts][0];
+    [self showArt:art] ;
     
 }
 
@@ -353,15 +356,37 @@
 
 - (void)showArt:(Art*)art{
 
-    if (!_artView) {
-        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
 
-    }
+    NavigationArtViewController *artVC = [NavigationArtViewController new];
     
-    _artView.art = art;
+    _artVC = artVC;
+    artVC.view.alpha = 1;
+    artVC.art = art;
+    
     self.showedArt = art;
     
-//    [self.view addSubview:_artView];
+    if (_label.superview) {
+        [self.view insertSubview:artVC.view belowSubview:_label];
+    }
+    else{
+        [self.view addSubview:artVC.view];
+    }
+    [self.view addSubview:closeBtn];
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
+}
+
+- (void)showArt2:(Art*)art{
+    
+        if (!_artView) {
+            _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
+    
+        }
+    
+        _artView.art = art;
+   
+    
+    self.showedArt = art;
+    
     [self.view insertSubview:_artView belowSubview:_label];
     [self.view addSubview:closeBtn];
     [[self.view layer] addAnimation:animation forKey:@"animation"];

@@ -41,8 +41,6 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.navigationController.navigationBar.alpha = 0.1;
-    
     _navigationVC = [[NavigationViewController alloc] init];
     
     _hallVC = [[HallViewController alloc] init];
@@ -57,7 +55,6 @@
     self.navigationItem.rightBarButtonItem = cameraBB;
 
 
-
     
 }
 
@@ -68,7 +65,7 @@
     self.navigationItem.titleView = self.naviMenu;  // 不能在viewDidLoad中初始化是因为， 那个时候self.navigationController.view 是nil， 但是否可以设成window
     
     
-    [self setPaneViewController:[NavigationViewController new]];
+    [self setPaneViewController:_navigationVC];
     [self setDrawerViewController:[CameraViewController new] forDirection:MSDynamicsDrawerDirectionLeft];
 }
 
@@ -81,7 +78,8 @@
 
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
-    NSLog(@"did selected item at index %d", index);
+    
+//    NSLog(@"did selected item at index %d", index);
     _naviMenu.title = _menuArray[index];
     
     if (index == 0) {
@@ -108,17 +106,18 @@
 #pragma mark - Fcns
 - (void)showNavigation{ // 显示智能导览
     
-    self.title = lang(@"智能导览");
+//    self.title = lang(@"智能导览");
 
     
     [self.view addSubview:_navigationVC.view];
-    
+    [_hallVC.view removeFromSuperview];
     
 }
 - (void)showHall{      // 显示手动浏览
     
-    [self.view addSubview:_hallVC.view];
     
+    [self.view addSubview:_hallVC.view];
+    [_navigationVC.view removeFromSuperview];
 }
 
 
