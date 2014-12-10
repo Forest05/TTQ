@@ -8,9 +8,6 @@
 
 #import "UserCenterViewController.h"
 #import "PeopleCell.h"
-#import "UserCouponsViewController.h"
-
-#import "UserCardsViewController.h"
 #import "UserSettingsViewController.h"
 #import "UIImageView+WebCache.h"
 #import "TextManager.h"

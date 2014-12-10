@@ -61,7 +61,7 @@
 @property (nonatomic,strong) IBOutlet UILabel *focusModeLabel;
 
 #pragma mark Toolbar Actions
-//- (IBAction)toggleRecording:(id)sender;
+
 - (IBAction)captureStillImage:(id)sender;
 - (IBAction)toggleCamera:(id)sender;
 - (void)stopSesseion;

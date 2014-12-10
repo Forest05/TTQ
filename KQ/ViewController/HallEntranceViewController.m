@@ -188,7 +188,7 @@
     }
     else{
 
-        [[TTQRootViewController sharedInstance] toLogin];
+//        [[TTQRootViewController sharedInstance] toLogin];
         
     }
 
@@ -198,7 +198,7 @@
 - (void)back{
 //    [self.navigationController.view removeFromSuperview];
     
-    [[TTQRootViewController sharedInstance] toChooseLang];
+//    [[TTQRootViewController sharedInstance] toChooseLang];
     
 }
 - (void)toUser{

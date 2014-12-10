@@ -12,10 +12,11 @@
 #import "NetworkClient.h"
 #import "KQLoginViewController.h"
 #import "UserCenterViewController.h"
-
+#import "ContainerViewController.h"
 #import "BeaconManager.h"
-#import "ChooseLangViewController.h"
-#import "HallEntranceViewController.h"
+#import "NavigationViewController.h"
+#import "HallViewController.h"
+
 #import "ImageText.h"
 #import "AppManager.h"
 #import "KQLoginViewController.h"
@@ -54,22 +55,36 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    L();
+//    L();
 
     
-    self.chooseLangVC = [[ChooseLangViewController alloc] init];
-    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
-    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
+//    self.chooseLangVC = [[ChooseLangViewController alloc] init];
+//    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
+//    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
+//    
+//
+//
+//
+//
+//    [self toChooseLang];
     
-
-
-
-
-    [self toChooseLang];
+//    if (isIOS7) {
+//        
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    
+//    }
     
+    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgV.image = [UIImage imageNamed:@"bg.jpg"];
+    bgV.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:bgV];
+   
+    _containerVC = [[ContainerViewController alloc]init];
+    _containerVC.view.alpha = 1;
+    _nav = [[UINavigationController alloc] initWithRootViewController:_containerVC];
     
-//        [UIScreen mainScreen].bounds.size.height
-
+    [self.view addSubview:_nav.view];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -146,41 +161,44 @@
 
 #pragma mark - Fcns
 
-
-
-- (void)toChooseLang{
+//
+//
+//- (void)toChooseLang{
+////    [self.view addSubview:self.chooseLangVC.view];
+//    
+//    CATransition *animation = [CATransition animation];
+//    animation.duration = 0.5;
+//    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+//    animation.type = kCATransitionFade;
+//    animation.subtype = kCATransitionFromRight;
+//    
 //    [self.view addSubview:self.chooseLangVC.view];
-    
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = kCATransitionFade;
-    animation.subtype = kCATransitionFromRight;
-    
-    [self.view addSubview:self.chooseLangVC.view];
-    
-
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
-
-}
-
-
-- (void)toHallEntrance{
-    
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = kCATransitionFade;
-    animation.subtype = kCATransitionFromRight;
-
-    [self.view addSubview:self.hallEntranceNav.view];
-   [[self.view layer] addAnimation:animation forKey:@"animation"];
-    
-}
+//    
+//
+//    [[self.view layer] addAnimation:animation forKey:@"animation"];
+//
+//}
+//
+//
+//- (void)toHallEntrance{
+//    
+//    CATransition *animation = [CATransition animation];
+//    animation.duration = 0.5;
+//    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+//    animation.type = kCATransitionFade;
+//    animation.subtype = kCATransitionFromRight;
+//
+//    [self.view addSubview:self.hallEntranceNav.view];
+//   [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    
+//}
 
 //- (void)toHall{
 //    
 //}
+
+
+
 
 - (void)toLogin{
     L();
@@ -195,23 +213,23 @@
     
 }
 
-/// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
-- (void)didChangeLanguage{
-    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
-    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
-    
-
-}
-
-
-- (void)didLogin{
-//    self.selectedIndex = 3;
-    
-}
-- (void)didLogout{
-
-//    self.selectedIndex = 0;
-}
+///// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
+//- (void)didChangeLanguage{
+//    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
+//    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
+//    
+//
+//}
+//
+//
+//- (void)didLogin{
+////    self.selectedIndex = 3;
+//    
+//}
+//- (void)didLogout{
+//
+////    self.selectedIndex = 0;
+//}
 
 - (void)deleteFirstTimeLoadedInformation{
 
@@ -229,6 +247,9 @@
     [[UserController sharedInstance] test];
     [[BeaconManager sharedInstance] test];
     [TextManager sharedInstance];
+    
+    NSLog(@"is tool version %d",isToolVersion());
+    
     
 //    NSLog(@"lang # %@",TTQLangEn);
 //    [self testNav:@"HallViewController"];

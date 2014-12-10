@@ -82,6 +82,16 @@ void report_memory() {
 	
 }
 
+bool isToolVersion(){
+
+#ifdef TOOL
+    return YES;
+#else
+    return NO;
+#endif
+    
+}
+
 //NSDictionary* avosPoint(NSString* field,NSString* className, NSString* objectId){
 //
 //   return @{field:@{@"__type":@"Pointer",@"className":className,@"objectId":objectId}};

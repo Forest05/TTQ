@@ -19,7 +19,6 @@
 
 }
 
-//@property (nonatomic, strong) NSArray *itemBeacons;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong)  CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) TTQBeacon *activatedBeacon;
@@ -36,6 +35,4 @@
 - (void)openArtBeacon:(TTQBeacon*)beacon;
 - (void)closeArtBeacon:(TTQBeacon*)beacon;
 
-//- (void)openExhibitionBeacon:(TTQBeacon*)beacon;
-//- (void)closeExhibitionBeacon:(TTQBeacon*)beacon;
 @end

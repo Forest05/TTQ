@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MSDynamicsDrawerViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C0FA9327DD27D74B81B3280</key>
+		<key>34B001371CBF4A4F82C517D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFBA4F25FDA5CF8F01BB6087</key>
+		<key>D6FC1F89AB839234CA2DB03D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC321599150903AA2E570CF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

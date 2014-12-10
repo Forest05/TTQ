@@ -10,6 +10,7 @@
 #import "BeaconManager.h"
 #import "TextManager.h"
 #import "TTQBeacon.h"
+#import "NavigationArtViewController.h"
 
 @interface NavigationViewController (){
     CATransition *animation;
@@ -39,7 +40,7 @@
     // Do any additional setup after loading the view.
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-//    self.isCameraOn = NO;
+
 
     self.title = lang(@"智能导览");
     
@@ -58,94 +59,110 @@
     
      _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
     
-    self.view.backgroundColor = [UIColor whiteColor];
     
-    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    self.navigationItem.leftBarButtonItem = backBB;
+//    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+//    self.navigationItem.leftBarButtonItem = backBB;
+//    
+//    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera_active.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleCameraClicked:)];
+//    self.navigationItem.rightBarButtonItem = cameraBB;
+//    _cameraBB = cameraBB;
     
-    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera_active.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleCameraClicked:)];
-    self.navigationItem.rightBarButtonItem = cameraBB;
-    _cameraBB = cameraBB;
+//    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+//    
+//    
+//    UIImageView *mapV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, _w-20, 177)];
+//    mapV.image = [UIImage imageNamed:@"4picker2.png"];
+//    
+//    
+//    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(mapV.frame)+ 10, _w - 20, 50)];
+//    titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕也可手动选择作品查看。");
+//    
+//    titleL.font = [UIFont fontWithName:kFontName size:14];
+//    titleL.textColor = kColorLightGreen;
+//    titleL.numberOfLines = 0;
+//    
+//    CGFloat y = CGRectGetMaxY(titleL.frame);
+//    hintL = [[UILabel alloc] initWithFrame:CGRectMake(10, y , 80, 40)];
+//    hintL.font = [UIFont fontWithName:kFontName size:14];
+//    hintL.textColor = kColorGray;
+//    hintL.text = lang(@"请输入作品编号");
+//    
+//    UITextField *artTf = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(hintL.frame), y, _w-10 - CGRectGetMaxX(hintL.frame), 40)];
+//    artTf.font = [UIFont fontWithName:kFontBoldName size:14];
+//    artTf.textColor = kColorGreen;
+//    
+//    _tf = artTf;
+//    
+//    
+//    self.selectedArt = _appManager.arts[0];
+//    
+//
+//    artTf.delegate = self;
+//
+//    _tf = artTf;
+//    
+//    UIPickerView *pickerView = [[UIPickerView alloc] init];
+//    pickerView.delegate = self;
+//    pickerView.dataSource = self;
+//    _tf.inputView = pickerView;
+//    
+//    UIToolbar *myToolbar = [[UIToolbar alloc] initWithFrame:
+//                            CGRectMake(0,0, _w, 44)]; //should code with variables to support view resizing
+//    UIBarButtonItem *doneButton =
+//    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+//                                                  target:self action:@selector(inputAccessoryViewDidFinish)];
+//    
+//    
+//    //using default text field delegate method here, here you could call
+//    //myTextField.resignFirstResponder to dismiss the views
+//    
+//    UIBarButtonItem *fBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//    [myToolbar setItems:[NSArray arrayWithObjects: fBB,doneButton,nil] animated:NO];
+//    _tf.inputAccessoryView = myToolbar;
+//    
+//    navBtn = [UIButton buttonWithFrame:CGRectMake(50, CGRectGetMaxY(artTf.frame) + 10, _w - 100, 40) title:lang(@"展示") bgImageName:nil target:self action:@selector(navButtonClicked:)];
+//    navBtn.backgroundColor = kColorGreen;
+//    
+//    [scrollView addSubview:titleL];
+//    [scrollView addSubview:mapV];
+//    [scrollView addSubview:hintL];
+//    [scrollView addSubview:artTf];
+//    [scrollView addSubview:navBtn];
+//    
+//    [self.view addSubview:scrollView];
+//    
+//    _scrollView = scrollView;
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
+    //
+    _tableKeys = @[@"1.开启",@"2.找到标识",@"3.完成, enjoy :)"];
     
-    UIImageView *mapV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, _w-20, 177)];
-    mapV.image = [UIImage imageNamed:@"4picker2.png"];
+    _tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 300) style:UITableViewStyleGrouped];
+    _tv.backgroundColor = [UIColor clearColor];
+    _tv.scrollEnabled = NO;
+    _tv.dataSource = self;
+    _tv.delegate = self;
     
+    [self.view addSubview:_tv];
     
-    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(mapV.frame)+ 10, _w - 20, 50)];
-    titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕也可手动选择作品查看。");
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
+    _label.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
+    _label.textColor = [UIColor blackColor];
+    _label.font = [UIFont fontWithName:kFontName size:10];
+    _label.numberOfLines = 0;
+    _label.alpha = 0;
+    [self.view addSubview:_label];
     
-//    titleL.text =@"打开蓝牙，作品相关\n信息会自动推送到手机\n屏幕也可手动选择作品查看。";
-    titleL.font = [UIFont fontWithName:kFontName size:14];
-    titleL.textColor = kColorLightGreen;
-    titleL.numberOfLines = 0;
-    
-    CGFloat y = CGRectGetMaxY(titleL.frame);
-    hintL = [[UILabel alloc] initWithFrame:CGRectMake(10, y , 80, 40)];
-    hintL.font = [UIFont fontWithName:kFontName size:14];
-    hintL.textColor = kColorGray;
-    hintL.text = lang(@"请输入作品编号");
-    
-    UITextField *artTf = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(hintL.frame), y, _w-10 - CGRectGetMaxX(hintL.frame), 40)];
-    artTf.font = [UIFont fontWithName:kFontBoldName size:14];
-    artTf.textColor = kColorGreen;
-    
-    _tf = artTf;
-    
-    
-    self.selectedArt = _appManager.arts[0];
-    
+    if(isToolVersion()){
+        _label.alpha = 1;
+    }
 
-    artTf.delegate = self;
-
-    _tf = artTf;
-    
-    UIPickerView *pickerView = [[UIPickerView alloc] init];
-    pickerView.delegate = self;
-    pickerView.dataSource = self;
-    _tf.inputView = pickerView;
-    
-    UIToolbar *myToolbar = [[UIToolbar alloc] initWithFrame:
-                            CGRectMake(0,0, _w, 44)]; //should code with variables to support view resizing
-    UIBarButtonItem *doneButton =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                  target:self action:@selector(inputAccessoryViewDidFinish)];
-    
-    
-    //using default text field delegate method here, here you could call
-    //myTextField.resignFirstResponder to dismiss the views
-    
-    UIBarButtonItem *fBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [myToolbar setItems:[NSArray arrayWithObjects: fBB,doneButton,nil] animated:NO];
-    _tf.inputAccessoryView = myToolbar;
-    
-    navBtn = [UIButton buttonWithFrame:CGRectMake(50, CGRectGetMaxY(artTf.frame) + 10, _w - 100, 40) title:lang(@"展示") bgImageName:nil target:self action:@selector(navButtonClicked:)];
-    navBtn.backgroundColor = kColorGreen;
-    
-    [scrollView addSubview:titleL];
-    [scrollView addSubview:mapV];
-    [scrollView addSubview:hintL];
-    [scrollView addSubview:artTf];
-    [scrollView addSubview:navBtn];
-    
-    [self.view addSubview:scrollView];
-    
-    _scrollView = scrollView;
-    
-    
-//    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-//    _label.backgroundColor = [UIColor redColor];
-//    [scrollView addSubview:_label];
-    
-//    UIButton *b = [UIButton buttonWithFrame:CGRectMake(10, _h - 30, 50, 30) title:@"Min" bgImageName:nil target:self action:<#(SEL)#>]
 
 }
 
 - (void)viewWillAppear:(BOOL)animated{
 
-    L();
+//    L();
     [super viewWillAppear:animated];
     
     [[BeaconManager sharedInstance] startRanging];
@@ -153,22 +170,24 @@
 
 - (void)viewDidAppear:(BOOL)animated{
 
-    L();
+//    L();
     [super viewDidAppear:animated];
     
-    [self openCamera];
+//    [self openCamera];
+    Art *art = [[AppManager sharedInstance] arts][0];
+    [self showArt:art] ;
     
-    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenExhiBeaconNotificationKey object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
 
-    L();
+//    L();
     [super viewDidDisappear:animated];
     
     [[BeaconManager sharedInstance] stopRanging];
+  
     [self closeArt];
+    
     [closeBtn removeFromSuperview];
 }
 
@@ -181,11 +200,21 @@
         //需要判别是否是art的beacon还是展厅的beacon
         
         TTQBeacon *beacon = note.object;
+        
+        
         Art *art = [_appManager artWithTTQBeacon:beacon];
         
+        if (!art) {
+//            [UIAlertView showAlert:@"open beacon empty" msg:[NSString stringWithInt:beacon.minorValue]];
+            return ;
+        }
+        
         //如果没有打开的展品，打开
-        if (art && !self.showedArt) {
+        if (!self.showedArt) {
             [self showArt:art];
+        }
+        else{
+            NSLog(@"showedArt is already opened # %@",self.showedArt);
         }
 //        _label.text = [NSString stringWithFormat:@"Open Beacon # %d",beacon.minorValue];
         
@@ -199,33 +228,23 @@
         Art *art = [_appManager artWithTTQBeacon:beacon];
         
         // 如果离开当前打开的展品，关闭
-//        if (art && [art.name isEqualToString:self.showedArt.name]) {
-//            [self closeArt];
-//        }
 
         if (art) {
             [self closeArt];
         }
     }];
-    
-//    [[NSNotificationCenter defaultCenter] addObserverForName:kOpenExhiBeaconNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note){
-////        NSLog(@"open Exhi Beacon # %@",note.object);
-//        //需要判别是否是art的beacon还是展厅的beacon
-//    
-//        
-//        [self showExhibition:_appManager.exhibition];
-//        
-//        
-//    }];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserverForName:kCloseExhiBeaconNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note){
-////        NSLog(@"close Exhi Beacon # %@",note.object);
-//        
-//    
-//        [self closeExhibition];
-//        
-//    }];
-//
+
+    [[NSNotificationCenter defaultCenter] addObserverForName:kListBeaconsNotificationKey object:nil queue:nil usingBlock:^(NSNotification *note) {
+       
+        NSArray *beacons = note.object;
+        NSMutableString *str = [NSMutableString stringWithString:@"Beacon List\n"];
+        for (CLBeacon *beacon in beacons) {
+            [str appendFormat:@"minor # %d, distance: %f\n",[beacon.minor intValue],[beacon accuracy]];
+        }
+        
+        _label.text = str;
+        
+    }];
     
 }
 
@@ -234,34 +253,66 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UIPicker
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
 
-    return _appManager.arts.count;
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+
+    return 3;
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
 
-- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
 
-    Art *art = _appManager.arts[row];
-  
-//    return [NSString stringWithFormat:@"%@ %@",art.id,art.name];
-
-    NSString *name = isZH?art.name:art.name_en;
-    return [NSString stringWithFormat:@"%@", name];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-
-    L();
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
-    self.selectedArt = _appManager.arts[row];
     
-    [self showArt:self.selectedArt];
+    
+    static NSString *CellIdentifier1 = @"Cell1";
+    
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier1];
+    
+    cell.textLabel.text = _tableKeys[indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
+    
+    
+    return cell;
+    
 }
+
+//
+//#pragma mark - UIPicker
+//- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+//
+//    return _appManager.arts.count;
+//}
+//
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+//    return 1;
+//}
+//
+//- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+//
+//    Art *art = _appManager.arts[row];
+//  
+////    return [NSString stringWithFormat:@"%@ %@",art.id,art.name];
+//
+//    NSString *name = isZH?art.name:art.name_en;
+//    return [NSString stringWithFormat:@"%@", name];
+//}
+//
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+//
+//    L();
+//    
+//    self.selectedArt = _appManager.arts[row];
+//    
+//    [self showArt:self.selectedArt];
+//}
 
 #pragma mark - IBAction
 
@@ -271,19 +322,22 @@
     
 }
 
-- (IBAction)toggleCameraClicked:(id)sender{
-    L();
-    if (self.isCameraOn) {
-        [self closeCamera];
-    }
-    else{
-        [self openCamera];
-    }
-}
+//- (IBAction)toggleCameraClicked:(id)sender{
+//    L();
+//    if (self.isCameraOn) {
+//        [self closeCamera];
+//    }
+//    else{
+//        [self openCamera];
+//    }
+//}
+
 - (IBAction)closeBtnClicked:(id)sender{
     
     [closeBtn removeFromSuperview];
+    
     [self closeArt];
+    
 //    [self closeExhibition];
 }
 
@@ -302,18 +356,40 @@
 
 - (void)showArt:(Art*)art{
 
-    if (!_artView) {
-        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
 
-    }
+    NavigationArtViewController *artVC = [NavigationArtViewController new];
     
-    _artView.art = art;
- 
+    _artVC = artVC;
+    artVC.view.alpha = 1;
+    artVC.art = art;
+    
     self.showedArt = art;
-    [self.view addSubview:_artView];
-      [self.view addSubview:closeBtn];
     
-     [[self.view layer] addAnimation:animation forKey:@"animation"];
+    if (_label.superview) {
+        [self.view insertSubview:artVC.view belowSubview:_label];
+    }
+    else{
+        [self.view addSubview:artVC.view];
+    }
+    [self.view addSubview:closeBtn];
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
+}
+
+- (void)showArt2:(Art*)art{
+    
+        if (!_artView) {
+            _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
+    
+        }
+    
+        _artView.art = art;
+   
+    
+    self.showedArt = art;
+    
+    [self.view insertSubview:_artView belowSubview:_label];
+    [self.view addSubview:closeBtn];
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
 
 - (void)closeArt{
@@ -324,63 +400,36 @@
      [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
+
+
+//- (void)openCamera{
 //
-//- (void)showExhibition:(Exhibition*)exhi{
-//    if (!_exhibitionView) {
-//        _exhibitionView = [[ExhibitionNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
-//        
+//    if (!_camVC) {
+//        _camVC = [[AVCamViewController alloc] initWithNibName:@"AVCamViewController" bundle:nil];
 //    }
 //    
-//    _exhibitionView.exhibition = exhi;
 //    
-////    self.showedArt = art;
-//    [self.view addSubview:_exhibitionView];
-//    [self.view addSubview:closeBtn];
+//    [_camVC startSesseion];
 //    
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    [_scrollView insertSubview:_camVC.view atIndex:0];
+//    
+//    self.isCameraOn = YES;
+//    
 //}
-//
-//- (void)closeExhibition{
+//- (void)closeCamera{
+//    
+// 
+//    [_camVC.view removeFromSuperview];
+//    [_camVC stopSesseion];
+//    self.isCameraOn = NO;
 //    
 //    
-//    [_exhibitionView removeFromSuperview];
+////    hintL.hidden = NO;
+////    _tf.hidden = NO;
+////    navBtn.hidden = NO;
 //    
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
-//
+////    [_cameraBB setImage:[UIImage imageNamed:@"camera_unactive.png"]];
 //}
-
-- (void)openCamera{
-
-    if (!_camVC) {
-        _camVC = [[AVCamViewController alloc] initWithNibName:@"AVCamViewController" bundle:nil];
-    }
-    
-//    hintL.hidden = YES;
-//    _tf.hidden = YES;
-//    navBtn.hidden = YES;
-    
-    [_camVC startSesseion];
-    
-    [_scrollView insertSubview:_camVC.view atIndex:0];
-    
-    self.isCameraOn = YES;
-    
-//    [_cameraBB setImage:[UIImage imageNamed:@"camera_active.png"]];
-}
-- (void)closeCamera{
-    
- 
-    [_camVC.view removeFromSuperview];
-    [_camVC stopSesseion];
-    self.isCameraOn = NO;
-    
-    
-//    hintL.hidden = NO;
-//    _tf.hidden = NO;
-//    navBtn.hidden = NO;
-    
-//    [_cameraBB setImage:[UIImage imageNamed:@"camera_unactive.png"]];
-}
 
 
 #pragma mark - Test
