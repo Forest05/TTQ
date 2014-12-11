@@ -83,6 +83,7 @@
                                                               NSForegroundColorAttributeName : [UIColor whiteColor],
                                                             NSFontAttributeName:[UIFont fontWithName:kFontBoldName size:13]
                                                               } forState:UIControlStateHighlighted];
+  
     // Title文件颜色
     [[UISegmentedControl appearance] setTintColor:kColorLightYellow];
     
