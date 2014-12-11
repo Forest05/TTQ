@@ -44,6 +44,7 @@
     [_zhBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_zhBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
+    
     _enBtn = [UIButton buttonWithFrame:CGRectMake(x, CGRectGetMaxY(_zhBtn.frame)+10, width, 40) title:@"English" bgImageName:nil target:self action:@selector(buttonClicked:)];
     _enBtn.tag = 1;
     _enBtn.backgroundColor = [UIColor whiteColor];

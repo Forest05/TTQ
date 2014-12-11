@@ -19,7 +19,7 @@
 
     AVCamViewController *_camVC;
     ArtNavView *_artView;
-//    ExhibitionNavView *_exhibitionView;
+
     NavigationArtViewController *_artVC;
     
     UIScrollView *_scrollView;

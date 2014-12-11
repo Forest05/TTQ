@@ -356,21 +356,23 @@
 
 - (void)showArt:(Art*)art{
 
-
-    NavigationArtViewController *artVC = [NavigationArtViewController new];
+    if (!_artVC) {
+        _artVC = [NavigationArtViewController new];
+        
+        _artVC.view.alpha = 1;
+    }
     
-    _artVC = artVC;
-    artVC.view.alpha = 1;
-    artVC.art = art;
+    _artVC.art = art;
     
     self.showedArt = art;
     
     if (_label.superview) {
-        [self.view insertSubview:artVC.view belowSubview:_label];
+        [self.view insertSubview:_artVC.view belowSubview:_label];
     }
     else{
-        [self.view addSubview:artVC.view];
+        [self.view addSubview:_artVC.view];
     }
+    
     [self.view addSubview:closeBtn];
     [[self.view layer] addAnimation:animation forKey:@"animation"];
 }

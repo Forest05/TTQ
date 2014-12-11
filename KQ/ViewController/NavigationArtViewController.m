@@ -77,24 +77,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc{
+    
+}
 
 
 #pragma mark - Table view data source
 
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-//    
-//    return 20;
-//}
 
-
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    
-//    return 1;
-//    
-//}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

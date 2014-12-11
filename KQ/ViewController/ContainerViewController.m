@@ -107,7 +107,6 @@
 - (void)showNavigation{ // 显示智能导览
     
 //    self.title = lang(@"智能导览");
-
     
     [self.view addSubview:_navigationVC.view];
     [_hallVC.view removeFromSuperview];

@@ -10,14 +10,20 @@
 #import "AVCamViewController.h"
 
 @interface CameraViewController : UIViewController{
-     AVCamViewController *_camVC;
-    
+  
+    AVCamViewController *_camVC;
     UIImageView *_bgV;
 }
 
 @property (nonatomic, assign) BOOL isCameraOn;
 @property (nonatomic, strong) UIImageView *bgV;
-@property (nonatomic, strong) AVCamViewController *camVC;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIButton *cameraBtn, *shareBtn;
+
+@property (nonatomic, strong) AVCamViewController *camVC;
+
+- (void)openCamera;
+- (void)closeCamera;
+- (void)shareImage:(UIImage*)image;
 
 @end
