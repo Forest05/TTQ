@@ -28,6 +28,7 @@
 //@property (nonatomic, strong) ChooseLangViewController *chooseLangVC;
 //@property (nonatomic, strong) HallEntranceViewController *hallEntranceVC;
 //@property (nonatomic, strong) UINavigationController *hallEntranceNav;
+
 @property (nonatomic, strong) UINavigationController *loginNav;
 
 

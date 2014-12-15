@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Art.h"
+#import "ArtDetailsViewController.h"
 
-@interface NavigationArtViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface NavigationArtViewController : ArtDetailsViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) Art *art;
 @property (nonatomic, strong) UIImageView *bannerV;
 @property (nonatomic, strong) UITableView *tableV;
 @property (nonatomic, strong) UITextView *textV;
+
 @end

@@ -31,9 +31,9 @@
         NSDictionary *currentStyle = [[UINavigationBar appearance] titleTextAttributes];
         self.title.textColor = currentStyle[UITextAttributeTextColor];
         self.title.font = currentStyle[UITextAttributeFont];
-        self.title.shadowColor = currentStyle[UITextAttributeTextShadowColor];
-        NSValue *shadowOffset = currentStyle[UITextAttributeTextShadowOffset];
-        self.title.shadowOffset = shadowOffset.CGSizeValue;
+//        self.title.shadowColor = currentStyle[UITextAttributeTextShadowColor];
+//        NSValue *shadowOffset = currentStyle[UITextAttributeTextShadowOffset];
+//        self.title.shadowOffset = shadowOffset.CGSizeValue;
         [self addSubview:self.title];
 
         self.arrow = [[UIImageView alloc] initWithImage:[SIMenuConfiguration arrowImage]];

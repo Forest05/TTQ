@@ -7,24 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ArtNavView.h"
-#import "AppManager.h"
 
-@interface HallViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+#import "PaneViewController.h"
+
+@interface HallViewController : PaneViewController<UITableViewDataSource,UITableViewDelegate>{
 
     
     
-    UITableView *_tableView;
 
-    ArtNavView *_artView;
-    
-    AppManager *_appManager;
     
     NSArray *_arts;
 
 }
 
 @property (nonatomic, strong) NSArray *arts;
+
+
 
 - (void)showArt:(Art*)art;
 - (void)closeArt;

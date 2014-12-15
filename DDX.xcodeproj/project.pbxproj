@@ -171,6 +171,16 @@
 		852FD08019EEB6EA006BA3CA /* like_unactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD07619EEB6EA006BA3CA /* like_unactive.png */; };
 		853837C41A3845E2005BD1F0 /* NavigationArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */; };
 		853837C51A3845E2005BD1F0 /* NavigationArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */; };
+		854D0F681A3ED63F00AD326E /* HallArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F671A3ED63F00AD326E /* HallArtViewController.m */; };
+		854D0F691A3ED64E00AD326E /* HallArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F671A3ED63F00AD326E /* HallArtViewController.m */; };
+		854D0F6C1A3ED89300AD326E /* ArtDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F6B1A3ED89300AD326E /* ArtDetailsViewController.m */; };
+		854D0F6D1A3ED89300AD326E /* ArtDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F6B1A3ED89300AD326E /* ArtDetailsViewController.m */; };
+		854D0F701A3EE21E00AD326E /* NaviMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F6F1A3EE21E00AD326E /* NaviMenuViewController.m */; };
+		854D0F711A3EE21E00AD326E /* NaviMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F6F1A3EE21E00AD326E /* NaviMenuViewController.m */; };
+		854D0F741A3F016700AD326E /* PaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F731A3F016700AD326E /* PaneViewController.m */; };
+		854D0F751A3F016700AD326E /* PaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854D0F731A3F016700AD326E /* PaneViewController.m */; };
+		854D0F771A3F0E3D00AD326E /* naviMenu_BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 854D0F761A3F0E3D00AD326E /* naviMenu_BG.jpg */; };
+		854D0F781A3F0E3D00AD326E /* naviMenu_BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 854D0F761A3F0E3D00AD326E /* naviMenu_BG.jpg */; };
 		8557FC6E1A120E3D00B50830 /* ExhibitionNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 859FFBA519F1199A0076843D /* ExhibitionNavView.m */; };
 		8557FC6F1A120E3D00B50830 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D2194E8F18000ED175 /* SDImageCache.m */; };
 		8557FC701A120E3D00B50830 /* ImageText.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A33F5519E41E590083D98B /* ImageText.m */; };
@@ -246,7 +256,6 @@
 		8557FCB61A120E3D00B50830 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D6194E8F18000ED175 /* SDWebImageDecoder.m */; };
 		8557FCB71A120E3D00B50830 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D393D0194E8F18000ED175 /* MKAnnotationView+WebCache.m */; };
 		8557FCB81A120E3D00B50830 /* UIAlertView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A58C192DE042004F8C8C /* UIAlertView+Extras.m */; };
-		8557FCB91A120E3D00B50830 /* MyHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DEB37919EFAD4B00F2F7EA /* MyHallViewController.m */; };
 		8557FCBA1A120E3D00B50830 /* KQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A53B192DE02F004F8C8C /* KQ.xcdatamodeld */; };
 		8557FCBB1A120E3D00B50830 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C519E16F5B00459004 /* NavigationViewController.m */; };
 		8557FCBC1A120E3D00B50830 /* UIColor+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E3A592192DE042004F8C8C /* UIColor+Extras.m */; };
@@ -464,7 +473,6 @@
 		85DAFA7419D503000049B4C4 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7319D503000049B4C4 /* Author.m */; };
 		85DAFA7719D5030F0049B4C4 /* TTQBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DAFA7619D5030F0049B4C4 /* TTQBeacon.m */; };
 		85DEB37719EF8E2100F2F7EA /* Base64AndImageHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DEB37619EF8E2100F2F7EA /* Base64AndImageHelp.m */; };
-		85DEB37A19EFAD4B00F2F7EA /* MyHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DEB37919EFAD4B00F2F7EA /* MyHallViewController.m */; };
 		85DEB37D19EFAF3E00F2F7EA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DEB37C19EFAF3E00F2F7EA /* MessageUI.framework */; };
 		85DEB37F19EFB06900F2F7EA /* UserCenterLoginConfig_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DEB37E19EFB06900F2F7EA /* UserCenterLoginConfig_en.plist */; };
 		85DEB38119EFB60600F2F7EA /* text2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DEB38019EFB60600F2F7EA /* text2.plist */; };
@@ -731,6 +739,15 @@
 		852FD07619EEB6EA006BA3CA /* like_unactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_unactive.png; sourceTree = "<group>"; };
 		853837C21A3845E2005BD1F0 /* NavigationArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationArtViewController.h; sourceTree = "<group>"; };
 		853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationArtViewController.m; sourceTree = "<group>"; };
+		854D0F661A3ED63F00AD326E /* HallArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallArtViewController.h; sourceTree = "<group>"; };
+		854D0F671A3ED63F00AD326E /* HallArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallArtViewController.m; sourceTree = "<group>"; };
+		854D0F6A1A3ED89300AD326E /* ArtDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtDetailsViewController.h; sourceTree = "<group>"; };
+		854D0F6B1A3ED89300AD326E /* ArtDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtDetailsViewController.m; sourceTree = "<group>"; };
+		854D0F6E1A3EE21E00AD326E /* NaviMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviMenuViewController.h; sourceTree = "<group>"; };
+		854D0F6F1A3EE21E00AD326E /* NaviMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviMenuViewController.m; sourceTree = "<group>"; };
+		854D0F721A3F016700AD326E /* PaneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaneViewController.h; sourceTree = "<group>"; };
+		854D0F731A3F016700AD326E /* PaneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaneViewController.m; sourceTree = "<group>"; };
+		854D0F761A3F0E3D00AD326E /* naviMenu_BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = naviMenu_BG.jpg; sourceTree = "<group>"; };
 		8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "甜甜圈工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8557FD4C1A120E3D00B50830 /* DDXTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DDXTool-Info.plist"; path = "/Users/Forest/Documents/TTQ/项目源代码/iOS/DDX/DDXTool-Info.plist"; sourceTree = "<absolute>"; };
 		8576CDC919ECEBB3003142BE /* ArtNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtNavView.h; sourceTree = "<group>"; };
@@ -848,8 +865,6 @@
 		85DAFA7619D5030F0049B4C4 /* TTQBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTQBeacon.m; sourceTree = "<group>"; };
 		85DEB37519EF8E2100F2F7EA /* Base64AndImageHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64AndImageHelp.h; sourceTree = "<group>"; };
 		85DEB37619EF8E2100F2F7EA /* Base64AndImageHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64AndImageHelp.m; sourceTree = "<group>"; };
-		85DEB37819EFAD4B00F2F7EA /* MyHallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHallViewController.h; sourceTree = "<group>"; };
-		85DEB37919EFAD4B00F2F7EA /* MyHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHallViewController.m; sourceTree = "<group>"; };
 		85DEB37C19EFAF3E00F2F7EA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		85DEB37E19EFB06900F2F7EA /* UserCenterLoginConfig_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserCenterLoginConfig_en.plist; sourceTree = "<group>"; };
 		85DEB38019EFB60600F2F7EA /* text2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = text2.plist; sourceTree = "<group>"; };
@@ -1053,6 +1068,7 @@
 		26E0BDBD194B9C5400FECD2A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				854D0F761A3F0E3D00AD326E /* naviMenu_BG.jpg */,
 				85C4AF851A36D7B70085BD04 /* bg.jpg */,
 				269DF39619B2BCC500011B59 /* foot.png */,
 				26DE73AE1963A37C008B2E52 /* bg_nav@2x.png */,
@@ -1473,16 +1489,22 @@
 				26E3A5D8192DE121004F8C8C /* TTQRootViewController.m */,
 				858021751A35A55A00DFC959 /* ContainerViewController.h */,
 				858021761A35A55A00DFC959 /* ContainerViewController.m */,
+				854D0F721A3F016700AD326E /* PaneViewController.h */,
+				854D0F731A3F016700AD326E /* PaneViewController.m */,
 				850479C419E16F5B00459004 /* NavigationViewController.h */,
 				850479C519E16F5B00459004 /* NavigationViewController.m */,
-				853837C21A3845E2005BD1F0 /* NavigationArtViewController.h */,
-				853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */,
 				850479C119E16F1100459004 /* HallViewController.h */,
 				850479C219E16F1100459004 /* HallViewController.m */,
-				85DEB37819EFAD4B00F2F7EA /* MyHallViewController.h */,
-				85DEB37919EFAD4B00F2F7EA /* MyHallViewController.m */,
+				854D0F6A1A3ED89300AD326E /* ArtDetailsViewController.h */,
+				854D0F6B1A3ED89300AD326E /* ArtDetailsViewController.m */,
+				853837C21A3845E2005BD1F0 /* NavigationArtViewController.h */,
+				853837C31A3845E2005BD1F0 /* NavigationArtViewController.m */,
+				854D0F661A3ED63F00AD326E /* HallArtViewController.h */,
+				854D0F671A3ED63F00AD326E /* HallArtViewController.m */,
 				858021A31A35B49C00DFC959 /* CameraViewController.h */,
 				858021A41A35B49C00DFC959 /* CameraViewController.m */,
+				854D0F6E1A3EE21E00AD326E /* NaviMenuViewController.h */,
+				854D0F6F1A3EE21E00AD326E /* NaviMenuViewController.m */,
 				26E14BAC193C81B5007A7081 /* SuperClass */,
 				26E29101193DBBF200B7E0C9 /* UserCenter */,
 				26821B4D19530EE2005549D3 /* MapViewController.h */,
@@ -1794,6 +1816,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854D0F771A3F0E3D00AD326E /* naviMenu_BG.jpg in Resources */,
 				852FD07719EEB6EA006BA3CA /* 分享icon.png in Resources */,
 				26EE1F9D1945EF76007C98AA /* UserCenterLoginConfig.plist in Resources */,
 				26E16BB6194F1CD500036039 /* couponHeaderBGPattern@2x.jpg in Resources */,
@@ -1991,6 +2014,7 @@
 				85B17C631A2377240033C9E8 /* UMSCommentInputControlleriPad.xib in Resources */,
 				8557FD3C1A120E3D00B50830 /* icon_mysettings@2x.png in Resources */,
 				85B17C6B1A2377240033C9E8 /* UMSnsAccountViewController.xib in Resources */,
+				854D0F781A3F0E3D00AD326E /* naviMenu_BG.jpg in Resources */,
 				8557FD3D1A120E3D00B50830 /* icon_user@2x.png in Resources */,
 				85B17C5B1A2377240033C9E8 /* UMSocialLocalizable.strings in Resources */,
 				8557FD3E1A120E3D00B50830 /* 收藏icon.png in Resources */,
@@ -2113,7 +2137,9 @@
 				85A33F5619E41E590083D98B /* ImageText.m in Sources */,
 				26E3A5CE192DE042004F8C8C /* UIWebView+Extras.m in Sources */,
 				8578E84319D2977E00F36838 /* KQRegisterViewController.m in Sources */,
+				854D0F6C1A3ED89300AD326E /* ArtDetailsViewController.m in Sources */,
 				850479C019E16F0600459004 /* HallEntranceViewController.m in Sources */,
+				854D0F701A3EE21E00AD326E /* NaviMenuViewController.m in Sources */,
 				26E3A5C1192DE042004F8C8C /* NSString+Extras.m in Sources */,
 				26E14B9B193C65FD007A7081 /* SearchCell.m in Sources */,
 				26E3A5B8192DE042004F8C8C /* SettingController.m in Sources */,
@@ -2132,6 +2158,7 @@
 				26E3A5CD192DE042004F8C8C /* UIView+Extras.m in Sources */,
 				8580219F1A35A9FB00DFC959 /* SINavigationMenuView.m in Sources */,
 				26E14B8B193C65FD007A7081 /* ButtonCell.m in Sources */,
+				854D0F681A3ED63F00AD326E /* HallArtViewController.m in Sources */,
 				26E3A5C2192DE042004F8C8C /* NSString+TKCategory.m in Sources */,
 				26E3A5B5192DE042004F8C8C /* ErrorManager.m in Sources */,
 				26E3A5B9192DE042004F8C8C /* TableConfiguration.m in Sources */,
@@ -2165,6 +2192,7 @@
 				8576CDCE19ECEE5B003142BE /* AuthorView.m in Sources */,
 				26E14B5C193C6508007A7081 /* UserCenterViewController.m in Sources */,
 				858021991A35A9FB00DFC959 /* SIMenuCell.m in Sources */,
+				854D0F741A3F016700AD326E /* PaneViewController.m in Sources */,
 				858021A11A35A9FB00DFC959 /* UIColor+Extension.m in Sources */,
 				85A33F5319E41CAB0083D98B /* AppManager.m in Sources */,
 				85DAFA7119D502F10049B4C4 /* Art.m in Sources */,
@@ -2190,7 +2218,6 @@
 				26D393E5194E8F18000ED175 /* SDWebImageDecoder.m in Sources */,
 				26D393E3194E8F18000ED175 /* MKAnnotationView+WebCache.m in Sources */,
 				26E3A5C4192DE042004F8C8C /* UIAlertView+Extras.m in Sources */,
-				85DEB37A19EFAD4B00F2F7EA /* MyHallViewController.m in Sources */,
 				26E3A53D192DE02F004F8C8C /* KQ.xcdatamodeld in Sources */,
 				850479C619E16F5B00459004 /* NavigationViewController.m in Sources */,
 				26E3A5C7192DE042004F8C8C /* UIColor+Extras.m in Sources */,
@@ -2237,7 +2264,9 @@
 				8557FC701A120E3D00B50830 /* ImageText.m in Sources */,
 				8557FC711A120E3D00B50830 /* UIWebView+Extras.m in Sources */,
 				8557FC721A120E3D00B50830 /* KQRegisterViewController.m in Sources */,
+				854D0F6D1A3ED89300AD326E /* ArtDetailsViewController.m in Sources */,
 				8557FC731A120E3D00B50830 /* HallEntranceViewController.m in Sources */,
+				854D0F711A3EE21E00AD326E /* NaviMenuViewController.m in Sources */,
 				8557FC741A120E3D00B50830 /* NSString+Extras.m in Sources */,
 				8557FC751A120E3D00B50830 /* SearchCell.m in Sources */,
 				8557FC761A120E3D00B50830 /* SettingController.m in Sources */,
@@ -2256,6 +2285,7 @@
 				8557FC811A120E3D00B50830 /* UIView+Extras.m in Sources */,
 				858021A01A35A9FB00DFC959 /* SINavigationMenuView.m in Sources */,
 				8557FC821A120E3D00B50830 /* ButtonCell.m in Sources */,
+				854D0F691A3ED64E00AD326E /* HallArtViewController.m in Sources */,
 				8557FC831A120E3D00B50830 /* NSString+TKCategory.m in Sources */,
 				8557FC841A120E3D00B50830 /* ErrorManager.m in Sources */,
 				8557FC851A120E3D00B50830 /* TableConfiguration.m in Sources */,
@@ -2289,6 +2319,7 @@
 				8557FC9F1A120E3D00B50830 /* AuthorView.m in Sources */,
 				8557FCA01A120E3D00B50830 /* UserCenterViewController.m in Sources */,
 				8580219A1A35A9FB00DFC959 /* SIMenuCell.m in Sources */,
+				854D0F751A3F016700AD326E /* PaneViewController.m in Sources */,
 				858021A21A35A9FB00DFC959 /* UIColor+Extension.m in Sources */,
 				8557FCA11A120E3D00B50830 /* AppManager.m in Sources */,
 				8557FCA21A120E3D00B50830 /* Art.m in Sources */,
@@ -2314,7 +2345,6 @@
 				8557FCB61A120E3D00B50830 /* SDWebImageDecoder.m in Sources */,
 				8557FCB71A120E3D00B50830 /* MKAnnotationView+WebCache.m in Sources */,
 				8557FCB81A120E3D00B50830 /* UIAlertView+Extras.m in Sources */,
-				8557FCB91A120E3D00B50830 /* MyHallViewController.m in Sources */,
 				8557FCBA1A120E3D00B50830 /* KQ.xcdatamodeld in Sources */,
 				8557FCBB1A120E3D00B50830 /* NavigationViewController.m in Sources */,
 				8557FCBC1A120E3D00B50830 /* UIColor+Extras.m in Sources */,

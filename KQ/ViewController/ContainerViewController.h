@@ -7,26 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SINavigationMenuView.h"
+
 #import "MSDynamicsDrawerViewController.h"
+#import "NaviMenuViewController.h"
 
 @class HallViewController;
 @class NavigationViewController;
 @class CameraViewController;
 
-@interface ContainerViewController : MSDynamicsDrawerViewController<SINavigationMenuDelegate>{
+
+@interface ContainerViewController : MSDynamicsDrawerViewController{
     
     NavigationViewController *_navigationVC;    // 智能导览
     HallViewController *_hallVC;                // 手动浏览
     CameraViewController *_cameraVC;
+    NaviMenuViewController *_naviMenuVC;
     
-    SINavigationMenuView *_naviMenu;            // 导航栏上的menu条
+
     
-    NSArray *_menuArray;
 }
 
-@property (nonatomic, strong) SINavigationMenuView *naviMenu;
-//@property (nonatomic, assign) 
+
 
 - (void)showNavigation; // 显示智能导览
 - (void)showHall;       // 显示手动浏览
@@ -34,4 +35,5 @@
 - (void)toggleSetting;
 - (void)openSetting;
 - (void)closeSetting;
+- (void)togglePane:(int)index;
 @end

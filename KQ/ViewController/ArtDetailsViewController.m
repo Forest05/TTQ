@@ -1,18 +1,18 @@
 //
-//  MyHallViewController.m
+//  ArtDetailsViewController.m
 //  DDX
 //
-//  Created by Forest on 14-10-16.
+//  Created by Forest on 14-12-15.
 //  Copyright (c) 2014年 Xappsoft. All rights reserved.
 //
 
-#import "MyHallViewController.h"
+#import "ArtDetailsViewController.h"
 
-@interface MyHallViewController ()
+@interface ArtDetailsViewController ()
 
 @end
 
-@implementation MyHallViewController
+@implementation ArtDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +23,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

@@ -9,7 +9,7 @@
 
 
 
-#define DefaultImg [UIImage imageNamed:@"t1.jpg"]
+#define DefaultImg [UIImage imageNamed:@"bg.jpg"]
 
 #define kLang [[NSUserDefaults standardUserDefaults] stringForKey:TTQLangKey]
 

@@ -40,6 +40,7 @@
     [_shareBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
 
+    [self.navigationController.navigationBar setTranslucent:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -57,7 +57,7 @@
     [self registerNotification];
     
     
-     _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
+//     _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
     
     
 //    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
@@ -137,13 +137,13 @@
     //
     _tableKeys = @[@"1.开启",@"2.找到标识",@"3.完成, enjoy :)"];
     
-    _tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 300) style:UITableViewStyleGrouped];
-    _tv.backgroundColor = [UIColor clearColor];
-    _tv.scrollEnabled = NO;
-    _tv.dataSource = self;
-    _tv.delegate = self;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 300) style:UITableViewStyleGrouped];
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.scrollEnabled = NO;
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
     
-    [self.view addSubview:_tv];
+    [self.view addSubview:_tableView];
     
     _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
     _label.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
@@ -173,10 +173,10 @@
 //    L();
     [super viewDidAppear:animated];
     
-//    [self openCamera];
+
     Art *art = [[AppManager sharedInstance] arts][0];
-    [self showArt:art] ;
-    
+
+      self.naviMenu.title = _menuArray[0];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -255,6 +255,7 @@
 
 
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -278,7 +279,7 @@
     cell.textLabel.text = _tableKeys[indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
     
@@ -322,15 +323,7 @@
     
 }
 
-//- (IBAction)toggleCameraClicked:(id)sender{
-//    L();
-//    if (self.isCameraOn) {
-//        [self closeCamera];
-//    }
-//    else{
-//        [self openCamera];
-//    }
-//}
+
 
 - (IBAction)closeBtnClicked:(id)sender{
     
@@ -344,9 +337,6 @@
 
 #pragma mark - Fcns
 
-- (void)back{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 - (void)inputAccessoryViewDidFinish{
     [_tf resignFirstResponder];
@@ -377,31 +367,40 @@
     [[self.view layer] addAnimation:animation forKey:@"animation"];
 }
 
-- (void)showArt2:(Art*)art{
-    
-        if (!_artView) {
-            _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
-    
-        }
-    
-        _artView.art = art;
-   
-    
-    self.showedArt = art;
-    
-    [self.view insertSubview:_artView belowSubview:_label];
-    [self.view addSubview:closeBtn];
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
-}
-
 - (void)closeArt{
     
     self.showedArt = nil;
-    [_artView removeFromSuperview];
+    [_artVC.view removeFromSuperview];
     
-     [[self.view layer] addAnimation:animation forKey:@"animation"];
+    [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
+
+//- (void)showArt2:(Art*)art{
+//    
+//        if (!_artView) {
+//            _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
+//    
+//        }
+//    
+//        _artView.art = art;
+//   
+//    
+//    self.showedArt = art;
+//    
+//    [self.view insertSubview:_artView belowSubview:_label];
+//    [self.view addSubview:closeBtn];
+//    [[self.view layer] addAnimation:animation forKey:@"animation"];
+//}
+//
+//- (void)closeArt{
+//    
+//    self.showedArt = nil;
+//    [_artView removeFromSuperview];
+//    
+//     [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    
+//}
 
 
 //- (void)openCamera{

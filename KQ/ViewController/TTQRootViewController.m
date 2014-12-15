@@ -74,6 +74,9 @@
 //    
 //    }
     
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+
+    
     UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
     bgV.image = [UIImage imageNamed:@"bg.jpg"];
     bgV.contentMode = UIViewContentModeScaleAspectFill;
@@ -81,9 +84,11 @@
    
     _containerVC = [[ContainerViewController alloc]init];
     _containerVC.view.alpha = 1;
-    _nav = [[UINavigationController alloc] initWithRootViewController:_containerVC];
+//    _nav = [[UINavigationController alloc] initWithRootViewController:_containerVC];
+//    [self.view addSubview:_nav.view];
     
-    [self.view addSubview:_nav.view];
+    [self.view addSubview:_containerVC.view];
+
     
 }
 
@@ -213,13 +218,12 @@
     
 }
 
-///// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
-//- (void)didChangeLanguage{
-//    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
-//    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
-//    
-//
-//}
+/// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
+- (void)didChangeLanguage{
+
+    //TODO: 切换语言
+
+}
 //
 //
 //- (void)didLogin{

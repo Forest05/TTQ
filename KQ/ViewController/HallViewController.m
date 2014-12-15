@@ -10,6 +10,7 @@
 
 #import "ArtListView.h"
 #import "TextManager.h"
+#import "HallArtViewController.h"
 
 @interface HallViewController (){
 
@@ -21,23 +22,15 @@
 
 @implementation HallViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     
-    self.title = lang(@"作品库");
     
-    _appManager = [AppManager sharedInstance];
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    
-    
-    self.navigationItem.leftBarButtonItem = backBB;
-    
-    animation = [CATransition animation];
+     animation = [CATransition animation];
     animation.duration = 0.5;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.type = @"rippleEffect";
@@ -64,10 +57,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)back{
-    [self closeArt];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    self.naviMenu.title = _menuArray[1];
 }
 
 
@@ -175,26 +168,23 @@
     
     [closeBtn removeFromSuperview];
     [self closeArt];
-//    [self closee]
+
 }
+
+
 
 #pragma mark - Fcns
 
 - (void)showArt:(Art*)art{
-    
-    if (!_artView) {
-        
-        CGFloat height = _h - 64 - 20;
-        
-        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, height)];
-        
+
+    if (!_artVC) {
+        _artVC = [HallArtViewController new];
+        _artVC.view.alpha = 1;
     }
     
-    _artView.art = art;
-
+    _artVC.art = art;
     
-
-    [self.view addSubview:_artView];
+    [self.view addSubview:_artVC.view];
     [self.view addSubview:closeBtn];
     
     [[self.view layer] addAnimation:animation forKey:@"animation"];
@@ -204,10 +194,39 @@
 - (void)closeArt{
     
     
-     [_artView removeFromSuperview];
+    [_artVC.view removeFromSuperview];
     [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
+
+//- (void)showArt:(Art*)art{
+//    
+//    if (!_artView) {
+//        
+//        CGFloat height = _h - 64 - 20;
+//        
+//        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, height)];
+//        
+//    }
+//    
+//    _artView.art = art;
+//
+//    
+//
+//    [self.view addSubview:_artView];
+//    [self.view addSubview:closeBtn];
+//    
+//    [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    
+//}
+//
+//- (void)closeArt{
+//    
+//    
+//     [_artView removeFromSuperview];
+//    [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    
+//}
 
 
 @end
