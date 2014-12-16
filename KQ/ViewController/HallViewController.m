@@ -15,7 +15,7 @@
 @interface HallViewController (){
 
     CATransition *animation;
-    UIButton *closeBtn;
+
 }
 
 @end
@@ -30,13 +30,13 @@
     
     
     
-     animation = [CATransition animation];
+    animation = [CATransition animation];
     animation.duration = 0.5;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.type = @"rippleEffect";
     animation.subtype = kCATransitionFromRight;
     
-    closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 50, 20 ,30, 30) title:nil bgImageName:@"icon_close.png" target:self action:@selector(closeBtnClicked:)];
+   
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     
@@ -46,8 +46,6 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:_tableView];
-    
-//    self.view.backgroundColor = kColorBG;
     
     _arts = [_appManager arts];
 }
@@ -93,7 +91,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 180;
+    return 160;
 }
 
 
@@ -162,14 +160,10 @@
     ArtListView *v = (ArtListView *)sender.view;
     Art *art = v.art;
     [self showArt:art];
-}
-
-- (IBAction)closeBtnClicked:(id)sender{
     
-    [closeBtn removeFromSuperview];
-    [self closeArt];
-
 }
+
+
 
 
 
@@ -185,7 +179,7 @@
     _artVC.art = art;
     
     [self.view addSubview:_artVC.view];
-    [self.view addSubview:closeBtn];
+    [self.view addSubview:_closeBtn];
     
     [[self.view layer] addAnimation:animation forKey:@"animation"];
     
@@ -199,34 +193,7 @@
     
 }
 
-//- (void)showArt:(Art*)art{
-//    
-//    if (!_artView) {
-//        
-//        CGFloat height = _h - 64 - 20;
-//        
-//        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, height)];
-//        
-//    }
-//    
-//    _artView.art = art;
-//
-//    
-//
-//    [self.view addSubview:_artView];
-//    [self.view addSubview:closeBtn];
-//    
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
-//    
-//}
-//
-//- (void)closeArt{
-//    
-//    
-//     [_artView removeFromSuperview];
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
-//    
-//}
+
 
 
 @end

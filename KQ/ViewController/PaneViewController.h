@@ -30,6 +30,8 @@
     SINavigationMenuView *_naviMenu;            // 导航栏上的menu条
     
      CameraViewController *_cameraVC;
+    
+    UIButton *_closeBtn;
     NSArray *_menuArray;
 }
 
@@ -39,5 +41,10 @@
 @property (nonatomic, copy) void(^togglePane)(int);
 @property (nonatomic, strong) UINavigationController *nav;
 
+- (IBAction)closeBtnClicked:(id)sender;
+
 - (void)pushCamera;
+
+- (void)showArt:(Art*)art;
+- (void)closeArt;
 @end

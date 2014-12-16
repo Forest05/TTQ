@@ -13,9 +13,6 @@
 @interface HallViewController : PaneViewController<UITableViewDataSource,UITableViewDelegate>{
 
     
-    
-
-    
     NSArray *_arts;
 
 }
@@ -24,8 +21,6 @@
 
 
 
-- (void)showArt:(Art*)art;
-- (void)closeArt;
 
 
 

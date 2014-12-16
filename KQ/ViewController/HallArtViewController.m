@@ -46,22 +46,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    UIScrollView *scrollV = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-//    
-//    float width = self.view.width;
-//    
-//    _artImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 200)];
-//
-//    _artTitleL = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_artImgV.frame), width, 50)];
-//    
-//    _artDescTV = [[UITextView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_artTitleL.frame), width, 100)];
-//    
-//    
-//    [scrollV addSubview:_artImgV];
-//    [scrollV addSubview:_artTitleL];
-//
-//    
-//    [self.view addSubview:scrollV];
+
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
@@ -71,7 +56,7 @@
     bgV.contentMode = UIViewContentModeScaleAspectFill;
 //    [self.view addSubview:bgV];
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.backgroundColor = [UIColor clearColor];
@@ -91,6 +76,7 @@
 
 
 #pragma mark - TableView
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 9;

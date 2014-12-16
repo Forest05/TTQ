@@ -24,6 +24,7 @@ extern NSString *const TTQLangEn;
 
 extern NSString *const TTQAPPBeforeOpenedKey;
 extern NSString *const TTQHallKey;
+extern NSString *const NotifiChangeLang;
 
 
 extern NSString *FONTNAME;

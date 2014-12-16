@@ -34,7 +34,7 @@
 #define kColorLightYellow  [UIColor colorWithRed:255.0/255 green:164.0/255 blue:0.0/255 alpha:1]
 #define kColorBlack  [UIColor colorWithRed:23.0/255 green:33.0/255 blue:42.0/255 alpha:1]
 #define kColorDardGray [UIColor colorWithRed:100.0/255 green:100.0/255 blue:100.0/255 alpha:1]
-#define kColorGray  [UIColor colorWithRed:146.0/255 green:146.0/255 blue:146.0/255 alpha:1]
+#define kColorGray  [UIColor colorWithRed:168.0/255 green:168.0/255 blue:168.0/255 alpha:1]
 #define kColorLightGray  [UIColor colorWithRed:213.0/255 green:213.0/255 blue:213.0/255 alpha:1]
 #define kColorWhite [UIColor colorWithWhite:.97 alpha:1]
 #define kColorBG    [UIColor colorWithRed:240.0/255 green:239.0/255 blue:229.0/255 alpha:1]

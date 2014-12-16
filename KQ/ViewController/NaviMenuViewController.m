@@ -38,9 +38,7 @@
     
     [super viewDidAppear:animated];
     
-    L();
-//    NSLog(@"NaviMenu # %@",self.view);
-//    self.view.backgroundColor = [UIColor clearColor];
+
 }
 
 #pragma mark - TableView
@@ -62,7 +60,7 @@
         height = 60;
     }
     else if (section == 1){
-        height = 90;
+        height = 120;
     }
     else if (section == 2){
         height = 30;
@@ -97,6 +95,7 @@
     float width = self.view.width-55;
     
     if (section == 0) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 30)];
         nameL.text = @"sss";
         nameL.textColor = kColorWhite;
@@ -105,24 +104,38 @@
         welcomeL.text = @"Welcome";
         welcomeL.textColor = kColorWhite;
         welcomeL.textAlignment = NSTextAlignmentCenter;
-        [cell addSubview:nameL];
-        [cell addSubview:welcomeL];
+
     }
     else if(section == 1){ //avatar
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake((width-90)/2, 0, 90, 90)];
         imgV.image = DefaultImg;
         imgV.layer.borderWidth = 2;
         imgV.layer.cornerRadius = 45;
         imgV.layer.borderColor = kColorWhite.CGColor;
         imgV.layer.masksToBounds = YES;
+        
+        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, width, 30)];
+        nameL.text = @"Lisa";
+        nameL.textColor = kColorWhite;
+        nameL.textAlignment = NSTextAlignmentCenter;
+        
         [cell addSubview:imgV];
+        [cell addSubview:nameL];
     }
     else if (section == 2){ //segment
 
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"中文",@"English"]];
-        seg.selectedSegmentIndex = 0;
+     
         seg.frame = CGRectMake((width-160)/2, 0, 160, 26);
 
+        if (isZH) {
+            seg.selectedSegmentIndex = 0;
+        }
+        else{
+            seg.selectedSegmentIndex = 1;
+        }
         [seg addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
 
         [cell addSubview:seg];
@@ -148,7 +161,7 @@
         
         
         UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
-        nameL.text = @"-1933现代艺术空间";
+        nameL.text =  @"-1933现代艺术空间";
         nameL.textColor = kColorWhite;
         nameL.textAlignment = NSTextAlignmentCenter;
         
@@ -170,8 +183,28 @@
 }
 
 #pragma mark - IBAction
-- (IBAction)segmentedControlChanged:(id)sender{
+- (IBAction)segmentedControlChanged:(UISegmentedControl*)sender{
     L();
+    int index = sender.selectedSegmentIndex; // 0 中文， 1： 英语
+    
+    NSString *langStr = TTQLangZh;
+    
+    if (index == 0) {
+        langStr = TTQLangZh;
+    }
+    else{
+        langStr = TTQLangEn;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:langStr forKey:TTQLangKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [_tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotifiChangeLang object:nil];
+    
+    
+//    [[TTQRootViewController sharedInstance] didChangeLanguage];
 }
 
 @end

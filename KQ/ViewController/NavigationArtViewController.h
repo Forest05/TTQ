@@ -15,5 +15,6 @@
 @property (nonatomic, strong) UIImageView *bannerV;
 @property (nonatomic, strong) UITableView *tableV;
 @property (nonatomic, strong) UITextView *textV;
+@property (nonatomic, strong) UILabel *titleL;
 
 @end

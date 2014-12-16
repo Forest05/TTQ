@@ -13,4 +13,6 @@
     UITableView *_tableView;
 }
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end

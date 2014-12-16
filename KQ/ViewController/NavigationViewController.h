@@ -10,19 +10,15 @@
 
 #import "PaneViewController.h"
 
-
-
 @interface NavigationViewController : PaneViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>{
 
 
-//    AR *_artVC;
     
     UIScrollView *_scrollView;
     UITextField *_tf;
     UIBarButtonItem *_cameraBB;
     
     UILabel *_label;
-
 
     NSArray *_tableKeys;
  
@@ -35,10 +31,6 @@
 @property (nonatomic, strong) Art *selectedArt;
 @property (nonatomic, strong) Art *showedArt;
 
-
-
-- (void)showArt:(Art*)art;
-- (void)closeArt;
 
 
 

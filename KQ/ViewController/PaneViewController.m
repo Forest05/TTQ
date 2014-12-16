@@ -64,6 +64,8 @@
     self.navigationItem.rightBarButtonItem = cameraBB;
     
     _menuArray = @[lang(@"智能导航"), lang(@"手工导航")];
+    
+    _closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 30, 0 ,30, 30) title:nil bgImageName:@"icon_close2.png" target:self action:@selector(closeBtnClicked:)];
 }
 
 
@@ -109,6 +111,13 @@
 - (IBAction)back:(id)sender{
     L();
     self.back();
+}
+
+- (IBAction)closeBtnClicked:(id)sender{
+    
+    [_closeBtn removeFromSuperview];
+    
+    [self closeArt];
 }
 
 - (void)pushCamera{

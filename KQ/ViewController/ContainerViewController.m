@@ -49,18 +49,13 @@
     };
     
     _naviMenuVC = [NaviMenuViewController new];
-    
-//    UIBarButtonItem *settingBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(settingPressed:)];
-//    self.navigationItem.leftBarButtonItem = settingBB;
-//    
-//    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
-//    self.navigationItem.rightBarButtonItem = cameraBB;
 
 
     self.shouldAlignStatusBarToPaneView = NO;
 
 
-    [self showNavigation];
+//    [self showNavigation];
+    [self showHall];
     [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
 }
 
@@ -69,9 +64,6 @@
     [super viewDidAppear:animated];
     
   
-  
-//    [self setPaneViewController:_hallVC.nav];
-//    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
 //
 
 }
@@ -114,6 +106,7 @@
     
     
     [self setPaneViewController:_hallVC.nav];
+
 }
 
 
@@ -136,9 +129,11 @@
         
     }];
 }
+
 - (void)closeSetting{
     [self setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];
 }
+
 @end

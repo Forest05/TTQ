@@ -19,8 +19,8 @@
     UILabel *hintL;
 }
 
-- (void)adjustShowDistance;
-- (void)adjustCloseDistance;
+//- (void)adjustShowDistance;
+//- (void)adjustCloseDistance;
 
 @end
 
@@ -41,101 +41,23 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+ 
 
     self.title = lang(@"智能导览");
     
     _appManager = [AppManager sharedInstance];
     
     animation = [CATransition animation];
-    animation.duration = 0.5;
+    animation.duration = 0.3;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.type = @"rippleEffect";
     animation.subtype = kCATransitionFromRight;
 
-    closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 50, 20 ,30, 30) title:nil bgImageName:@"icon_close.png" target:self action:@selector(closeBtnClicked:)];
+ 
     
     [self registerNotification];
     
     
-//     _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
-    
-    
-//    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-//    self.navigationItem.leftBarButtonItem = backBB;
-//    
-//    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camera_active.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleCameraClicked:)];
-//    self.navigationItem.rightBarButtonItem = cameraBB;
-//    _cameraBB = cameraBB;
-    
-//    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-//    
-//    
-//    UIImageView *mapV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, _w-20, 177)];
-//    mapV.image = [UIImage imageNamed:@"4picker2.png"];
-//    
-//    
-//    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(mapV.frame)+ 10, _w - 20, 50)];
-//    titleL.text = lang(@"打开蓝牙，作品相关信息会自动推送到手机屏幕也可手动选择作品查看。");
-//    
-//    titleL.font = [UIFont fontWithName:kFontName size:14];
-//    titleL.textColor = kColorLightGreen;
-//    titleL.numberOfLines = 0;
-//    
-//    CGFloat y = CGRectGetMaxY(titleL.frame);
-//    hintL = [[UILabel alloc] initWithFrame:CGRectMake(10, y , 80, 40)];
-//    hintL.font = [UIFont fontWithName:kFontName size:14];
-//    hintL.textColor = kColorGray;
-//    hintL.text = lang(@"请输入作品编号");
-//    
-//    UITextField *artTf = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(hintL.frame), y, _w-10 - CGRectGetMaxX(hintL.frame), 40)];
-//    artTf.font = [UIFont fontWithName:kFontBoldName size:14];
-//    artTf.textColor = kColorGreen;
-//    
-//    _tf = artTf;
-//    
-//    
-//    self.selectedArt = _appManager.arts[0];
-//    
-//
-//    artTf.delegate = self;
-//
-//    _tf = artTf;
-//    
-//    UIPickerView *pickerView = [[UIPickerView alloc] init];
-//    pickerView.delegate = self;
-//    pickerView.dataSource = self;
-//    _tf.inputView = pickerView;
-//    
-//    UIToolbar *myToolbar = [[UIToolbar alloc] initWithFrame:
-//                            CGRectMake(0,0, _w, 44)]; //should code with variables to support view resizing
-//    UIBarButtonItem *doneButton =
-//    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-//                                                  target:self action:@selector(inputAccessoryViewDidFinish)];
-//    
-//    
-//    //using default text field delegate method here, here you could call
-//    //myTextField.resignFirstResponder to dismiss the views
-//    
-//    UIBarButtonItem *fBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-//    [myToolbar setItems:[NSArray arrayWithObjects: fBB,doneButton,nil] animated:NO];
-//    _tf.inputAccessoryView = myToolbar;
-//    
-//    navBtn = [UIButton buttonWithFrame:CGRectMake(50, CGRectGetMaxY(artTf.frame) + 10, _w - 100, 40) title:lang(@"展示") bgImageName:nil target:self action:@selector(navButtonClicked:)];
-//    navBtn.backgroundColor = kColorGreen;
-//    
-//    [scrollView addSubview:titleL];
-//    [scrollView addSubview:mapV];
-//    [scrollView addSubview:hintL];
-//    [scrollView addSubview:artTf];
-//    [scrollView addSubview:navBtn];
-//    
-//    [self.view addSubview:scrollView];
-//    
-//    _scrollView = scrollView;
-    
-    
-    //
     _tableKeys = @[@"1.开启",@"2.找到标识",@"3.完成, enjoy :)"];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 300) style:UITableViewStyleGrouped];
@@ -143,6 +65,7 @@
     _tableView.scrollEnabled = NO;
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:_tableView];
     
@@ -174,8 +97,6 @@
 //    L();
     [super viewDidAppear:animated];
     
-
-    Art *art = [[AppManager sharedInstance] arts][0];
 
       self.naviMenu.title = _menuArray[0];
 }
@@ -278,24 +199,30 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier1];
     
     cell.textLabel.text = _tableKeys[indexPath.row];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    
+    cell.textLabel.textColor = kColorGray;
+    
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-//    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, cell.height-1, self.view.width, 1)];
-//    v.backgroundColor = kColorWhite;
-//    [cell addSubview:v];
     
     if (row == 0) {
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
         imgV.image = [UIImage imageNamed:@"bluetooth.png"];
         cell.accessoryView = imgV;
+        
+        UIImageView *lineV = [[UIImageView alloc] initWithFrame:CGRectMake(0, cell.height -1, cell.width, 1)];
+        lineV.image = [UIImage imageNamed:@"line.png"];
+        [cell addSubview:lineV];
     }
     else if(row == 1){
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
         imgV.image = [UIImage imageNamed:@"logo.png"];
         cell.accessoryView = imgV;
         
+        UIImageView *lineV = [[UIImageView alloc] initWithFrame:CGRectMake(0, cell.height -1, cell.width, 1)];
+        lineV.image = [UIImage imageNamed:@"line.png"];
+        [cell addSubview:lineV];
     }
     else{
         
@@ -305,62 +232,20 @@
     
 }
 
-//
-//#pragma mark - UIPicker
-//- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-//
-//    return _appManager.arts.count;
-//}
-//
-//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-//    return 1;
-//}
-//
-//- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-//
-//    Art *art = _appManager.arts[row];
-//  
-////    return [NSString stringWithFormat:@"%@ %@",art.id,art.name];
-//
-//    NSString *name = isZH?art.name:art.name_en;
-//    return [NSString stringWithFormat:@"%@", name];
-//}
-//
-//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-//
-//    L();
-//    
-//    self.selectedArt = _appManager.arts[row];
-//    
-//    [self showArt:self.selectedArt];
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    L();
+       Art *art = [[AppManager sharedInstance] arts][0];
+    [self showArt:art];
+}
 
 #pragma mark - IBAction
 
-- (IBAction)navButtonClicked:(id)sender{
-    
-    [self showArt:self.selectedArt];
-    
-}
 
 
-
-- (IBAction)closeBtnClicked:(id)sender{
-    
-    [closeBtn removeFromSuperview];
-    
-    [self closeArt];
-    
-//    [self closeExhibition];
-}
 
 
 #pragma mark - Fcns
-
-
-- (void)inputAccessoryViewDidFinish{
-    [_tf resignFirstResponder];
-}
 
 
 
@@ -395,37 +280,6 @@
     [[self.view layer] addAnimation:animation forKey:@"animation"];
     
 }
-
-//- (void)showArt2:(Art*)art{
-//    
-//        if (!_artView) {
-//            _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, 400)];
-//    
-//        }
-//    
-//        _artView.art = art;
-//   
-//    
-//    self.showedArt = art;
-//    
-//    [self.view insertSubview:_artView belowSubview:_label];
-//    [self.view addSubview:closeBtn];
-//    [[self.view layer] addAnimation:animation forKey:@"animation"];
-//}
-//
-//- (void)closeArt{
-//    
-//    self.showedArt = nil;
-//    [_artView removeFromSuperview];
-//    
-//     [[self.view layer] addAnimation:animation forKey:@"animation"];
-//    
-//}
-
-
-
-
-#pragma mark - Test
 
 
 

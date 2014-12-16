@@ -48,7 +48,8 @@
         header.backgroundColor = [UIColor color:[SIMenuConfiguration itemsColor] withAlpha:[SIMenuConfiguration menuAlpha]];
         header.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.table addSubview:header];
-
+        
+      
     }
     return self;
 }
@@ -153,6 +154,9 @@
     cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     cell.textLabel.text = [self.items objectAtIndex:indexPath.row];
+    
+//    cell.backgroundColor = [UIColor whiteColor];
+   
     
     return cell;
 }

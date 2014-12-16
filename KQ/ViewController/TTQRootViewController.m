@@ -82,10 +82,10 @@
     bgV.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:bgV];
    
+    
+    //container本身没有navi，是paneVC自带的
     _containerVC = [[ContainerViewController alloc]init];
     _containerVC.view.alpha = 1;
-//    _nav = [[UINavigationController alloc] initWithRootViewController:_containerVC];
-//    [self.view addSubview:_nav.view];
     
     [self.view addSubview:_containerVC.view];
 
@@ -164,6 +164,12 @@
 //    [[AppManager sharedInstance] configHallDict:dict];
 }
 
+- (void)registerNotification{
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NotifiChangeLang object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self didChangeLanguage];
+    }];
+}
 #pragma mark - Fcns
 
 //
@@ -221,19 +227,18 @@
 /// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
 - (void)didChangeLanguage{
 
-    //TODO: 切换语言
-
-}
-//
-//
-//- (void)didLogin{
-////    self.selectedIndex = 3;
+    
+//    [_containerVC.view removeFromSuperview];
 //    
-//}
-//- (void)didLogout{
-//
-////    self.selectedIndex = 0;
-//}
+//    //TODO: 切换语言
+//    _containerVC = [[ContainerViewController alloc]init];
+//    _containerVC.view.alpha = 1;
+//    
+//    [self.view addSubview:_containerVC.view];
+
+    
+}
+
 
 - (void)deleteFirstTimeLoadedInformation{
 
