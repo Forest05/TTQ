@@ -40,7 +40,8 @@
     // Do any additional setup after loading the view.
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.title = lang(@"智能导览");
     
@@ -272,7 +273,7 @@
     
     
     static NSString *CellIdentifier1 = @"Cell1";
-    
+    int row = indexPath.row;
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier1];
     
@@ -280,6 +281,25 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+//    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, cell.height-1, self.view.width, 1)];
+//    v.backgroundColor = kColorWhite;
+//    [cell addSubview:v];
+    
+    if (row == 0) {
+        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
+        imgV.image = [UIImage imageNamed:@"bluetooth.png"];
+        cell.accessoryView = imgV;
+    }
+    else if(row == 1){
+        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
+        imgV.image = [UIImage imageNamed:@"logo.png"];
+        cell.accessoryView = imgV;
+        
+    }
+    else{
+        
+    }
     
     return cell;
     
@@ -403,45 +423,10 @@
 //}
 
 
-//- (void)openCamera{
-//
-//    if (!_camVC) {
-//        _camVC = [[AVCamViewController alloc] initWithNibName:@"AVCamViewController" bundle:nil];
-//    }
-//    
-//    
-//    [_camVC startSesseion];
-//    
-//    [_scrollView insertSubview:_camVC.view atIndex:0];
-//    
-//    self.isCameraOn = YES;
-//    
-//}
-//- (void)closeCamera{
-//    
-// 
-//    [_camVC.view removeFromSuperview];
-//    [_camVC stopSesseion];
-//    self.isCameraOn = NO;
-//    
-//    
-////    hintL.hidden = NO;
-////    _tf.hidden = NO;
-////    navBtn.hidden = NO;
-//    
-////    [_cameraBB setImage:[UIImage imageNamed:@"camera_unactive.png"]];
-//}
 
 
 #pragma mark - Test
 
-- (void)adjustShowDistance{
-    
-//    UIButton *b = [UIButton alloc]
-    
-}
-- (void)adjustCloseDistance{
-    
-}
+
 
 @end

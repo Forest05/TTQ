@@ -27,8 +27,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
 
-    
-    
     _navigationVC = [[NavigationViewController alloc] init];
   
     
@@ -52,15 +50,18 @@
     
     _naviMenuVC = [NaviMenuViewController new];
     
-    UIBarButtonItem *settingBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(settingPressed:)];
-    self.navigationItem.leftBarButtonItem = settingBB;
-    
-    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
-    self.navigationItem.rightBarButtonItem = cameraBB;
+//    UIBarButtonItem *settingBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(settingPressed:)];
+//    self.navigationItem.leftBarButtonItem = settingBB;
+//    
+//    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
+//    self.navigationItem.rightBarButtonItem = cameraBB;
 
 
     self.shouldAlignStatusBarToPaneView = NO;
-    
+
+
+    [self showNavigation];
+    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -69,8 +70,8 @@
     
   
   
-    [self setPaneViewController:_hallVC.nav];
-    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
+//    [self setPaneViewController:_hallVC.nav];
+//    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
 //
 
 }
@@ -83,11 +84,7 @@
 
 
 #pragma mark - IBAction
-- (IBAction)cameraPressed:(id)sender{
-    
-    [self pushCamera];
-    
-}
+
 
 - (IBAction)settingPressed:(id)sender{
     
@@ -109,8 +106,6 @@
     
 //    self.title = lang(@"智能导览");
     
-
-    
     [self setPaneViewController:_navigationVC.nav];
     
 }
@@ -122,15 +117,6 @@
 }
 
 
-- (void)pushCamera{
-    
-    if (!_cameraVC) {
-        _cameraVC = [CameraViewController new];
-    }
-    
-    [self.navigationController pushViewController:_cameraVC animated:YES];
-    
-}
 
 - (void)toggleSetting{
     

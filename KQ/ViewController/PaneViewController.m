@@ -9,6 +9,7 @@
 #import "PaneViewController.h"
 #import "NavigationViewController.h"
 #import "HallViewController.h"
+#import "CameraViewController.h"
 
 @interface PaneViewController ()
 
@@ -55,10 +56,12 @@
     bgV.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:bgV];
     
-    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_menu2.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
     
     self.navigationItem.leftBarButtonItem = backBB;
 
+    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
+    self.navigationItem.rightBarButtonItem = cameraBB;
     
     _menuArray = @[lang(@"智能导航"), lang(@"手工导航")];
 }
@@ -102,9 +105,20 @@
     
 }
 
-#pragma mark - Fcns
+#pragma mark - IBAction
 - (IBAction)back:(id)sender{
     L();
     self.back();
 }
+
+- (void)pushCamera{
+    
+    if (!_cameraVC) {
+        _cameraVC = [CameraViewController new];
+    }
+    
+    [self.navigationController pushViewController:_cameraVC animated:YES];
+    
+}
+
 @end

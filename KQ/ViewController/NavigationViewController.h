@@ -22,7 +22,7 @@
     UIBarButtonItem *_cameraBB;
     
     UILabel *_label;
-//    UITableView *_tv;
+
 
     NSArray *_tableKeys;
  

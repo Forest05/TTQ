@@ -61,6 +61,7 @@
 //    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; //title文字颜色
 
     
+    //  NavigationBar 半透明
     UIImage *gradientImage44 = [UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.4]]; //replace "nil" with your method to programmatically create a UIImage object with transparent colors for portrait orientation
     
     UIImage *gradientImage32 = [UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.4]]; //replace "nil" with your method to programmatically create a UIImage object with transparent colors for landscape orientation
@@ -73,7 +74,8 @@
     // Title文字
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
                                                            NSFontAttributeName:[UIFont fontWithName:kFontBoldName size:16]}];
-    
+
+    // Segment
     
     [[UISegmentedControl appearance] setTitleTextAttributes:@{
                                                               NSForegroundColorAttributeName : kColorDardGray,
@@ -85,7 +87,7 @@
                                                               } forState:UIControlStateHighlighted];
   
     // Title文件颜色
-    [[UISegmentedControl appearance] setTintColor:kColorLightYellow];
+    [[UISegmentedControl appearance] setTintColor:kColorWhite];
     
 
     

@@ -14,6 +14,8 @@
 #import "SINavigationMenuView.h"
 #import "TextManager.h"
 
+@class CameraViewController;
+
 @interface PaneViewController : UIViewController<SINavigationMenuDelegate>{
 
     
@@ -27,6 +29,7 @@
     
     SINavigationMenuView *_naviMenu;            // 导航栏上的menu条
     
+     CameraViewController *_cameraVC;
     NSArray *_menuArray;
 }
 
@@ -36,4 +39,5 @@
 @property (nonatomic, copy) void(^togglePane)(int);
 @property (nonatomic, strong) UINavigationController *nav;
 
+- (void)pushCamera;
 @end
