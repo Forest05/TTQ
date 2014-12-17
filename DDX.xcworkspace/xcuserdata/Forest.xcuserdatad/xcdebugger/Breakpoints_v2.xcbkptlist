@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-configHallDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-configHallDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-configHallDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/ViewController/NavigationViewController.m"
-            timestampString = "440474432.450637"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-registerNotification"
             landmarkType = "5">
          </BreakpointContent>
@@ -392,11 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,11 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-requstHallWithVersion:"
             landmarkType = "5">
             <Locations>
@@ -470,11 +470,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-requstHallWithVersion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -486,11 +486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-requstHallWithVersion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -502,11 +502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435169720.84164"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -534,11 +534,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-requstHallWithVersion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -550,11 +550,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/ViewController/NavigationViewController.m"
-            timestampString = "440474432.450637"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-registerNotification"
             landmarkType = "5">
          </BreakpointContent>
@@ -566,11 +566,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/ViewController/NavigationViewController.m"
-            timestampString = "440474432.450637"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-registerNotification"
             landmarkType = "5">
          </BreakpointContent>
@@ -582,11 +582,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-configHallDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -598,11 +598,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-configHallDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -662,11 +662,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-configHallDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -678,11 +678,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/Managers/AppManager.m"
-            timestampString = "435292481.213389"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -790,11 +790,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KQ/ViewController/ContainerViewController.m"
-            timestampString = "440394248.052356"
+            timestampString = "440496021.682796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "-showHall"
             landmarkType = "5">
          </BreakpointContent>

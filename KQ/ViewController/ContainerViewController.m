@@ -63,8 +63,6 @@
     
     [super viewDidAppear:animated];
     
-  
-//
 
 }
 
@@ -121,7 +119,6 @@
         [self openSetting];
     }
     
-  
     
 }
 - (void)openSetting{

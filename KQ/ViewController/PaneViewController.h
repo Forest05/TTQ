@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AppManager.h"
-#import "AppManager.h"
+
 #import "ArtDetailsViewController.h"
 #import "SINavigationMenuView.h"
 #import "TextManager.h"
@@ -48,4 +48,7 @@
 
 - (void)showArt:(Art*)art;
 - (void)closeArt;
+
+- (void)likeArt:(Art*)art;
+- (void)shareArt:(Art*)art;
 @end

@@ -19,4 +19,6 @@
 @property (nonatomic, strong) UITextView *textV;
 @property (nonatomic, strong) UILabel *titleL;
 
+
+
 @end

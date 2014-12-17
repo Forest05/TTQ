@@ -10,6 +10,8 @@
 #import "NavigationViewController.h"
 #import "HallViewController.h"
 #import "CameraViewController.h"
+#import "LibraryManager.h"
+#import "TTQRootViewController.h"
 
 @interface PaneViewController ()
 
@@ -63,8 +65,8 @@
     
     self.navigationItem.leftBarButtonItem = backBB;
 
-    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
-    self.navigationItem.rightBarButtonItem = cameraBB;
+//    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
+//    self.navigationItem.rightBarButtonItem = cameraBB;
     
     _menuArray = @[lang(@"智能导航"), lang(@"手工导航")];
     
@@ -152,5 +154,14 @@
     
 }
 
+
+- (void)likeArt:(Art*)art{
+    L();
+}
+- (void)shareArt:(Art*)art{
+    L();
+    [_appManager shareArt:art];
+
+}
 
 @end

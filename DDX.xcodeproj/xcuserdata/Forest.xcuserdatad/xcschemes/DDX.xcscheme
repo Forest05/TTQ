@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26E3A520192DE02F004F8C8C"
-               BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;.app"
+               BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;v1.1.app"
                BlueprintName = "DDX"
                ReferencedContainer = "container:DDX.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26E3A520192DE02F004F8C8C"
-            BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;.app"
+            BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;v1.1.app"
             BlueprintName = "DDX"
             ReferencedContainer = "container:DDX.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26E3A520192DE02F004F8C8C"
-            BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;.app"
+            BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;v1.1.app"
             BlueprintName = "DDX"
             ReferencedContainer = "container:DDX.xcodeproj">
          </BuildableReference>
@@ -87,7 +87,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26E3A520192DE02F004F8C8C"
-            BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;.app"
+            BuildableName = "&#x751f;&#x6d3b;&#x751c;&#x751c;&#x5708;v1.1.app"
             BlueprintName = "DDX"
             ReferencedContainer = "container:DDX.xcodeproj">
          </BuildableReference>

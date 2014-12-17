@@ -16,6 +16,7 @@
     UILabel *_artTitleL;
     UITextView *_artDescTV;
     UITableView *_tableView;
+    
     Art *_art;
     
     AppManager *_manager;

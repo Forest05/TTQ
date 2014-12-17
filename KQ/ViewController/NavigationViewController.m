@@ -34,13 +34,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
  
+    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
+    self.navigationItem.rightBarButtonItem = cameraBB;
 
     self.title = lang(@"智能导览");
-    
-    _appManager = [AppManager sharedInstance];
     
  
     
