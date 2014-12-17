@@ -30,7 +30,8 @@
     SINavigationMenuView *_naviMenu;            // 导航栏上的menu条
     
      CameraViewController *_cameraVC;
-    
+  
+    CATransition *_animation;
     UIButton *_closeBtn;
     NSArray *_menuArray;
 }

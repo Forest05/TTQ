@@ -38,8 +38,9 @@
         _artImgV.layer.masksToBounds= YES;
         
         _artL = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_artImgV.frame), width, 50)];
-        //        _artL.textColor = [UIColor colorWithRed:130.0/255 green:130.0/255 blue:130.0/255 alpha:1];
+
         _artL.textColor = [UIColor whiteColor];
+//        _artL.textColor = [UIColor redColor];
         _artL.font = [UIFont fontWithName:kFontName size:10];
         _artL.textAlignment = NSTextAlignmentCenter;
         _artL.numberOfLines = 0;

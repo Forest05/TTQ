@@ -14,7 +14,7 @@
 
 @interface HallViewController (){
 
-    CATransition *animation;
+   
 
 }
 
@@ -28,15 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
-    animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = @"rippleEffect";
-    animation.subtype = kCATransitionFromRight;
-    
-   
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     
@@ -110,7 +101,6 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        
         cell.backgroundColor = [UIColor clearColor];
         
         ArtListView *listV1 = [[ArtListView alloc] initWithFrame:CGRectMake(10, 0, 145, 145)];
@@ -134,7 +124,6 @@
      ArtListView *v2 = (ArtListView*)[cell.contentView viewWithTag:2];
     if (2 * row + 1 <[self.arts count]) {
        
-        
         v2.art = self.arts[2*row + 1 ];
         v2.hidden = NO;
     }
@@ -181,17 +170,10 @@
     [self.view addSubview:_artVC.view];
     [self.view addSubview:_closeBtn];
     
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
+    [[self.view layer] addAnimation:_animation forKey:@"animation"];
     
 }
 
-- (void)closeArt{
-    
-    
-    [_artVC.view removeFromSuperview];
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
-    
-}
 
 
 

@@ -13,14 +13,9 @@
 #import "NavigationArtViewController.h"
 
 @interface NavigationViewController (){
-    CATransition *animation;
-    UIButton *closeBtn;
-    UIButton *navBtn;
-    UILabel *hintL;
+
 }
 
-//- (void)adjustShowDistance;
-//- (void)adjustCloseDistance;
 
 @end
 
@@ -47,12 +42,6 @@
     
     _appManager = [AppManager sharedInstance];
     
-    animation = [CATransition animation];
-    animation.duration = 0.3;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = @"rippleEffect";
-    animation.subtype = kCATransitionFromRight;
-
  
     
     [self registerNotification];
@@ -110,7 +99,7 @@
   
     [self closeArt];
     
-    [closeBtn removeFromSuperview];
+    [_closeBtn removeFromSuperview];
 }
 
 
@@ -268,16 +257,16 @@
         [self.view addSubview:_artVC.view];
     }
     
-    [self.view addSubview:closeBtn];
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
+    [self.view addSubview:_closeBtn];
+    [[self.view layer] addAnimation:_animation forKey:@"animation"];
 }
 
 - (void)closeArt{
+ 
+    [super closeArt];
     
     self.showedArt = nil;
-    [_artVC.view removeFromSuperview];
-    
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
+ 
     
 }
 

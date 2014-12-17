@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgV.image = [UIImage imageNamed:@"bg.jpg"];
+    bgV.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:bgV];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning {

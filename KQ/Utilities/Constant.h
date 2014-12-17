@@ -10,7 +10,8 @@
 #pragma mark - file
 
 
-#define kFontName @"STHeitiSC-Light"
+//#define kFontName @"STHeitiSC-Light"
+#define kFontName @"Arial"
 #define kFontBoldName @"STHeitiSC-Medium"
 
 
@@ -37,6 +38,7 @@
 #define kColorGray  [UIColor colorWithRed:168.0/255 green:168.0/255 blue:168.0/255 alpha:1]
 #define kColorLightGray  [UIColor colorWithRed:213.0/255 green:213.0/255 blue:213.0/255 alpha:1]
 #define kColorWhite [UIColor colorWithWhite:.97 alpha:1]
+#define kColorTextWhite  [UIColor colorWithRed:200.0/255 green:200.0/255 blue:200.0/255 alpha:1]
 #define kColorBG    [UIColor colorWithRed:240.0/255 green:239.0/255 blue:229.0/255 alpha:1]
 #define kColorRed    [UIColor colorWithRed:239.0/255 green:102.0/255 blue:47.0/255 alpha:1]
 #define kColorBlue    [UIColor colorWithRed:10.0/255 green:10.0/255 blue:247.0/255 alpha:1]

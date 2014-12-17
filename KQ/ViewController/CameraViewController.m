@@ -29,14 +29,15 @@
     _bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
     _bgV.contentMode = UIViewContentModeScaleAspectFill;
     
-    _cameraBtn = [UIButton buttonWithFrame:CGRectMake(0, 100, 120, 40) title:lang(@"重拍") bgImageName:nil target:self action:@selector(buttonClicked:)];
-    _cameraBtn.backgroundColor = [UIColor colorWithRed:220.0/255 green:220.0/255 blue:220.0/255 alpha:1];
+    UIColor *color = [UIColor colorWithWhite:0 alpha:.4];
+    _cameraBtn = [UIButton buttonWithFrame:CGRectMake(0, 160, 150, 50) title:lang(@"重拍") bgImageName:nil target:self action:@selector(buttonClicked:)];
+    _cameraBtn.backgroundColor = color;
     [_cameraBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_cameraBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
-    _shareBtn = [UIButton buttonWithFrame:CGRectMake(0, 160, 120, 40) title:lang(@"分享") bgImageName:nil target:self action:@selector(buttonClicked:)];
-    _shareBtn.backgroundColor = [UIColor colorWithRed:220.0/255 green:220.0/255 blue:220.0/255 alpha:1];
-    [_shareBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _shareBtn = [UIButton buttonWithFrame:CGRectMake(0, 240, 150, 50) title:lang(@"分享") bgImageName:nil target:self action:@selector(buttonClicked:)];
+    _shareBtn.backgroundColor = color;
+    [_shareBtn setTitleColor:kColorYellow forState:UIControlStateNormal];
     [_shareBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
 
@@ -91,8 +92,13 @@
 #pragma mark - IBAction
 - (IBAction)handleTap:(id)sender{
     L();
-  
+  #if TARGET_IPHONE_SIMULATOR
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"takePhoto" object:DefaultImg];
+#else
+    //    [NSThread sleepForTimeInterval:3];
     [_camVC captureStillImage:nil];
+#endif
+
 
 }
 

@@ -10,10 +10,12 @@
 
 #import "ArtDetailsViewController.h"
 
-@interface NavigationArtViewController : ArtDetailsViewController<UITableViewDataSource,UITableViewDelegate>
+@interface NavigationArtViewController : ArtDetailsViewController{
+
+}
 
 @property (nonatomic, strong) UIImageView *bannerV;
-@property (nonatomic, strong) UITableView *tableV;
+
 @property (nonatomic, strong) UITextView *textV;
 @property (nonatomic, strong) UILabel *titleL;
 

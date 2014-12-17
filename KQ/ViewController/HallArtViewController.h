@@ -10,9 +10,11 @@
 
 #import "ArtDetailsViewController.h"
 
-@interface HallArtViewController : ArtDetailsViewController<UITableViewDataSource,UITableViewDelegate>{
+@interface HallArtViewController : ArtDetailsViewController{
 
-    UITableView *_tableView;
+    UIFont *_descFont;
+    NSArray *_1933keys;
+    CGSize _constraint;
     
 }
 

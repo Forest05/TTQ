@@ -28,13 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    bgV.image = [UIImage imageNamed:@"bg.jpg"];
-    bgV.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:bgV];
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+  
 
     
     _bannerV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 240)];
@@ -42,12 +36,12 @@
     
     float width = 80;
     float y = CGRectGetMaxY(_bannerV.frame);
-    _tableV = [[UITableView alloc] initWithFrame:CGRectMake(0, y, 80, self.view.height - y) style:UITableViewStylePlain];
-    _tableV.delegate = self;
-    _tableV.dataSource = self;
-    _tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableV.scrollEnabled = NO;
-    _tableV.backgroundColor = [UIColor clearColor];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, y, 80, self.view.height - y) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.scrollEnabled = NO;
+    _tableView.backgroundColor = [UIColor clearColor];
     
     
     _titleL = [[UILabel alloc] initWithFrame:CGRectMake(width, y, self.view.width - width, 30)];
@@ -59,7 +53,7 @@
     _textV.textColor = kColorGray;
     
     [self.view addSubview:_bannerV];
-    [self.view addSubview:_tableV];
+    [self.view addSubview:_tableView];
     [self.view addSubview:_textV];
     [self.view addSubview:_titleL];
     

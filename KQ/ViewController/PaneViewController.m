@@ -55,6 +55,9 @@
     bgV.image = [UIImage imageNamed:@"bg.jpg"];
     bgV.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:bgV];
+    UIView *maskV = [[UIView alloc] initWithFrame:self.view.bounds];
+    maskV.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    [self.view addSubview:maskV];
     
     UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_menu2.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
     
@@ -66,6 +69,13 @@
     _menuArray = @[lang(@"智能导航"), lang(@"手工导航")];
     
     _closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 30, 0 ,30, 30) title:nil bgImageName:@"icon_close2.png" target:self action:@selector(closeBtnClicked:)];
+    
+    _animation = [CATransition animation];
+    _animation.duration = 0.3;
+    _animation.timingFunction = UIViewAnimationCurveEaseInOut;
+    _animation.type = @"rippleEffect";
+    _animation.subtype = kCATransitionFromRight;
+
 }
 
 
@@ -129,5 +139,18 @@
     [self.navigationController pushViewController:_cameraVC animated:YES];
     
 }
+
+- (void)showArt:(Art*)art{
+    
+}
+
+- (void)closeArt{
+    
+    
+    [_artVC.view removeFromSuperview];
+    [[self.view layer] addAnimation:_animation forKey:@"animation"];
+    
+}
+
 
 @end
