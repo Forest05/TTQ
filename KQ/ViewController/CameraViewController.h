@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AVCamViewController.h"
 
-@interface CameraViewController : UIViewController{
+@interface CameraViewController : UIViewController<UIAlertViewDelegate>{
   
     AVCamViewController *_camVC;
     UIImageView *_bgV;
+    
 }
 
 @property (nonatomic, assign) BOOL isCameraOn;

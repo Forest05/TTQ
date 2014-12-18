@@ -10,11 +10,12 @@
 
 #import "AppManager.h"
 
-#import "ArtDetailsViewController.h"
+
 #import "SINavigationMenuView.h"
 #import "TextManager.h"
 
 @class CameraViewController;
+@class ArtDetailsViewController;
 
 @interface PaneViewController : UIViewController<SINavigationMenuDelegate>{
 

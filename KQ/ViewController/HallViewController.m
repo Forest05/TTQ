@@ -163,6 +163,7 @@
     if (!_artVC) {
         _artVC = [HallArtViewController new];
         _artVC.view.alpha = 1;
+        _artVC.parent = self;
     }
     
     _artVC.art = art;

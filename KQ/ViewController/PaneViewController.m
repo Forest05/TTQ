@@ -12,6 +12,7 @@
 #import "CameraViewController.h"
 #import "LibraryManager.h"
 #import "TTQRootViewController.h"
+#import "ArtDetailsViewController.h"
 
 @interface PaneViewController ()
 

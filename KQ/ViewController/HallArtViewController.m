@@ -7,7 +7,7 @@
 //
 
 #import "HallArtViewController.h"
-
+#import "MapViewController.h"
 #import "UIImageView+WebCache.h"
 
 @interface HallArtViewController ()
@@ -47,7 +47,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
     _descFont = [UIFont fontWithName:kFontName size:12];
+
+    
+//    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 20) style:UITableViewStylePlain];
 
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -72,6 +77,8 @@
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
+//    
+//    NSLog(@"view # %@,table # %@",self.view,_tableView);
 }
 
 
@@ -79,7 +86,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 9;
+    return 10;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -89,6 +96,7 @@
     }
     return row;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     int section = indexPath.section;
@@ -102,7 +110,7 @@
         NSString *text = _art.desc;
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
-        height = textRect.size.height;
+        height = textRect.size.height + 20;
     }
     else if(section == 4){
         height = 30;
@@ -116,7 +124,7 @@
         NSString *text = it.text;
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
-        height = textRect.size.height;
+        height = textRect.size.height +20;
     }
     return height;
 }
@@ -161,7 +169,7 @@
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, textRect.size.height)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, textRect.size.height)];
         label.font = _descFont;
         label.text = _art.desc;
         label.numberOfLines = 0;
@@ -187,7 +195,7 @@
         cell.textLabel.font = _descFont;
         cell.textLabel.textColor = kColorTextWhite;
     }
-    else if(section == 5){ //
+    else if(section == 5){ // 1933 图片
     
         ImageText *it = self.hall.imageTexts[3];
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 200)];
@@ -203,7 +211,7 @@
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, textRect.size.height)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, textRect.size.height)];
         label.font = _descFont;
         label.text = it.text;
         label.numberOfLines = 0;
@@ -223,11 +231,39 @@
         [v addSubview:label];
         [cell addSubview:v];
     }
-    else if(section == 8){
-        cell.textLabel.text = @"111";
-    }
-
+   
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 4) {
+        if (indexPath.row == 0) { // goto map
+            [self toMap];
+        }
+        else if(indexPath.row == 1){ // dial phone
+            
+            [self dial];
+
+        }
+    }
+}
+
+- (void)toMap{
+    MapViewController *vc = [[MapViewController alloc] init];
+    vc.view.alpha = 1;
+//    vc.shop = _shop;
+    
+    [self.parent.navigationController pushViewController:vc animated:YES];
+    
+}
+
+- (void)dial{
+    NSString *telUrl = [NSString stringWithFormat:@"telprompt:%@",@"32582558"];
+    
+    NSURL *url = [[NSURL alloc] initWithString:telUrl];
+    
+    
+    [[UIApplication sharedApplication] openURL:url];
 }
 @end

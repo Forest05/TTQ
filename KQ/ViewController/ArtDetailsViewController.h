@@ -10,6 +10,7 @@
 
 #import "AppManager.h"
 #import "Art.h"
+#import "PaneViewController.h"
 
 @interface ArtDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     UIImageView *_artImgV;
@@ -20,9 +21,11 @@
     Art *_art;
     
     AppManager *_manager;
+    
+    __unsafe_unretained PaneViewController *_parent;
 }
 
-
+@property (nonatomic ,unsafe_unretained) PaneViewController *parent;
 @property (nonatomic, strong) Art *art;
 @property (nonatomic, strong) Hall *hall;
 @property (nonatomic, strong) UITableView *tableView;

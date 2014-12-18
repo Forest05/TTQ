@@ -60,6 +60,12 @@
     
     [super viewDidAppear:animated];
     
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"takePhotoAlert"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:lang(@"点击屏幕任意位置便能拍照") message:nil
+                                                       delegate:self cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+        [alert show];
+
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -87,6 +93,13 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+}
+
+#pragma mark - UIAlert
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"takePhotoAlert"];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
 }
 
 #pragma mark - IBAction

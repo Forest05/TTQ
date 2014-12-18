@@ -109,19 +109,20 @@
     else if(section == 1){ //avatar
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake((width-90)/2, 0, 90, 90)];
-        imgV.image = DefaultImg;
-        imgV.layer.borderWidth = 2;
-        imgV.layer.cornerRadius = 45;
-        imgV.layer.borderColor = kColorWhite.CGColor;
-        imgV.layer.masksToBounds = YES;
+//        imgV.image = DefaultImg;
+        imgV.image = [UIImage imageNamed:@"icon.png"];
+//        imgV.layer.borderWidth = 2;
+//        imgV.layer.cornerRadius = 45;
+//        imgV.layer.borderColor = kColorWhite.CGColor;
+//        imgV.layer.masksToBounds = YES;
         
-        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, width, 30)];
-        nameL.text = @"Lisa";
-        nameL.textColor = kColorWhite;
-        nameL.textAlignment = NSTextAlignmentCenter;
+//        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, width, 30)];
+//        nameL.text = @"Lisa";
+//        nameL.textColor = kColorWhite;
+//        nameL.textAlignment = NSTextAlignmentCenter;
         
         [cell addSubview:imgV];
-        [cell addSubview:nameL];
+//        [cell addSubview:nameL];
     }
     else if (section == 2){ //segment
 

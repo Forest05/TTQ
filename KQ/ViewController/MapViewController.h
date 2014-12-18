@@ -17,7 +17,7 @@
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
 
-//@property (nonatomic, strong) Shop *shop;
+
 
 @end
 

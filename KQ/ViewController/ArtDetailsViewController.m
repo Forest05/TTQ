@@ -22,6 +22,9 @@
     bgV.image = [UIImage imageNamed:@"bg.jpg"];
     bgV.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:bgV];
+    UIView *maskV = [[UIView alloc] initWithFrame:self.view.bounds];
+    maskV.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    [self.view addSubview:maskV];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }

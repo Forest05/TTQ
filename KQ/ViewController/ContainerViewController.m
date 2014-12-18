@@ -54,8 +54,8 @@
     self.shouldAlignStatusBarToPaneView = NO;
 
 
-    [self showNavigation];
-//    [self showHall];
+//    [self showNavigation];
+    [self showHall];
     [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
 }
 
