@@ -11,6 +11,7 @@
 #import "AppManager.h"
 #import "Art.h"
 #import "PaneViewController.h"
+#import "LibraryManager.h"
 
 @interface ArtDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     UIImageView *_artImgV;
@@ -21,7 +22,8 @@
     Art *_art;
     
     AppManager *_manager;
-    
+    LibraryManager *_libraryMng;
+    UIFont *_descFont;
     __unsafe_unretained PaneViewController *_parent;
 }
 

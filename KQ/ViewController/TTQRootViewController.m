@@ -153,6 +153,10 @@
     [[NSUserDefaults standardUserDefaults] setObject:TTQLangZh forKey:TTQLangKey];
     [[NSUserDefaults standardUserDefaults] setFloat:2.5 forKey:@"minDistance"];
     [[NSUserDefaults standardUserDefaults] setFloat:3.0 forKey:@"maxDistance"];
+    
+    setConfig(@"285", @"likeNum");
+    setConfig(@"162", @"shareNum");
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // 载入网络数据

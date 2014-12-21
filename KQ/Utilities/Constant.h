@@ -19,7 +19,9 @@
 
 
 #pragma mark - Key
-#define kUmengAppKey @"5469be08fd98c53e5b0015b1" // 在share的时候要用到
+
+//#define kUmengAppKey @"5469be08fd98c53e5b0015b1" // 在share的时候要用到
+#define kUmengAppKey @"543d11adfd98c50794038877" // 生活 TTQ
 
 
 #pragma mark - Notification

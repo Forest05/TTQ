@@ -19,9 +19,7 @@
 
 @interface PaneViewController : UIViewController<SINavigationMenuDelegate>{
 
-    
     UITableView *_tableView;
-    
     
     AppManager *_appManager;
     ArtDetailsViewController *_artVC;
@@ -35,6 +33,7 @@
     CATransition *_animation;
     UIButton *_closeBtn;
     NSArray *_menuArray;
+    
 }
 
 @property (nonatomic, strong) SINavigationMenuView *naviMenu;
@@ -44,6 +43,7 @@
 @property (nonatomic, strong) UINavigationController *nav;
 
 - (IBAction)closeBtnClicked:(id)sender;
+- (IBAction)sharePressed:(id)sender;
 
 - (void)pushCamera;
 

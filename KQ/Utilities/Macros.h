@@ -17,6 +17,10 @@
 
 #define lang(x)  [[TextManager sharedInstance] textWithKey:(x)]
 
+
+#define getConfig(x) [[NSUserDefaults standardUserDefaults] objectForKey:(x)]
+#define setConfig(x,y)         [[NSUserDefaults standardUserDefaults] setObject:(x) forKey:(y)];
+
 // -----------------------------------
 
 #define LString(x) NSLocalizedString(x, nil)

@@ -49,8 +49,6 @@
     
     
     
-    _descFont = [UIFont fontWithName:kFontName size:12];
-
     
 //    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 20) style:UITableViewStylePlain];
 

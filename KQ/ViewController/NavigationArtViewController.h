@@ -16,9 +16,11 @@
 
 @property (nonatomic, strong) UIImageView *bannerV;
 
-@property (nonatomic, strong) UITextView *textV;
+
+@property (nonatomic, strong) UIScrollView *scrollV;
 @property (nonatomic, strong) UILabel *titleL;
+@property (nonatomic, strong) UILabel *descL;
 
-
+- (void)shareArt:(Art*)art;
 
 @end

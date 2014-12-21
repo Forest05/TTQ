@@ -10,11 +10,12 @@
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "TTQRootViewController.h"
-#import "TTQRootViewController.h"
-#import "UIImage+Alpha.h"
 
-#define kWeixinAppId @"wxb5fa63851976db24"
-#define kWeixinAppSecret @"6a4c1967026aa2ec977d3d9eee5017e9"
+#import "UIImage+Alpha.h"
+#import "UMSocialSinaHandler.h"
+
+#define kWeixinAppId @"wxcbdb435367bde789"
+#define kWeixinAppSecret @"3ca5784e3c587f9183e9d65941a67c60"
 
 @implementation TTQAppDelegate
 
@@ -38,8 +39,8 @@
     // 友盟
     [UMSocialData setAppKey:kUmengAppKey];
     
-//    [UMSocialWechatHandler setWXAppId:kWeixinAppId url:@"http://www.51ttq.com"];
-    [UMSocialWechatHandler setWXAppId:kWeixinAppId appSecret:kWeixinAppSecret url:@"http://www.quickquan.com"];
+    [UMSocialWechatHandler setWXAppId:kWeixinAppId appSecret:kWeixinAppSecret url:@"http://www.51ttq.com"];
+     [UMSocialSinaHandler openSSOWithRedirectURL:@"http://www.51ttq.com"];
 }
 
 

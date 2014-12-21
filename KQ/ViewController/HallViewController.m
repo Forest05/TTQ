@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share2.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
+    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share2.png"] style:UIBarButtonItemStylePlain target:self action:@selector(sharePressed:)];
     self.navigationItem.rightBarButtonItem = cameraBB;
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];

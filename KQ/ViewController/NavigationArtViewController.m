@@ -21,8 +21,17 @@
     _art = art;
     
     [_bannerV setImageWithURL:[NSURL URLWithString:art.imgUrl]];
-    _textV.text = _art.desc;
     
+    _titleL.text = _art.name;
+    _descL.text = _art.desc;
+    
+    CGSize constraint = CGSizeMake(_titleL.width - 20, 10000);
+    NSString *text = _art.desc;
+    UIFont *font = _descFont;
+    CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
+    
+    _descL.frame = CGRectMake(10, 50, textRect.size.width, textRect.size.height);
+    _scrollV.contentSize = CGSizeMake(0, textRect.size.height + 230);
 }
 
 - (void)viewDidLoad {
@@ -44,18 +53,32 @@
     _tableView.backgroundColor = [UIColor clearColor];
     
     
-    _titleL = [[UILabel alloc] initWithFrame:CGRectMake(width, y, self.view.width - width, 30)];
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(width, y, self.view.width - width, self.view.height - y)];
+    _scrollV = scrollView;
     
+    _titleL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scrollView.width, 50)];
+    _titleL.textColor = [UIColor whiteColor];
+    _titleL.textAlignment = NSTextAlignmentCenter;
+    _titleL.numberOfLines = 0;
     
-    CGRect textViewRect = CGRectInset(CGRectMake(width, y, self.view.width - width, self.view.height - y), 10.0, 20.0);
-    _textV = [[UITextView alloc] initWithFrame:textViewRect];
-    _textV.backgroundColor = [UIColor clearColor];
-    _textV.textColor = kColorGray;
+    _descL = [[UILabel alloc] initWithFrame:CGRectZero];
+    _descL.numberOfLines = 0;
+    _descL.textColor = [UIColor whiteColor];
+    _descL.font = _descFont;
+    
+    [scrollView addSubview:_titleL];
+    [scrollView addSubview:_descL];
+    
+//    CGRect textViewRect = CGRectInset(CGRectMake(width, y, self.view.width - width, self.view.height - y), 10.0, 20.0);
+//    _textV = [[UITextView alloc] initWithFrame:textViewRect];
+//    _textV.backgroundColor = [UIColor clearColor];
+//    _textV.textColor = kColorGray;
     
     [self.view addSubview:_bannerV];
     [self.view addSubview:_tableView];
-    [self.view addSubview:_textV];
-    [self.view addSubview:_titleL];
+    [self.view addSubview:scrollView];
+//    [self.view addSubview:_textV];
+//    [self.view addSubview:_titleL];
     
 //    NSTextStorage *textStorage = [NSTextStorage new];
 //    
@@ -130,7 +153,8 @@
         imgV.image = [UIImage imageNamed:@"icon_like2.png"];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 40, 44)];
-        label.text = @"111";
+        label.text = getConfig(@"likeNum");
+    
         label.textColor = [UIColor whiteColor];
         
         [cell addSubview:imgV];
@@ -141,7 +165,7 @@
         imgV.image = [UIImage imageNamed:@"icon_share2.png"];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 40, 44)];
-        label.text = @"234";
+        label.text = getConfig(@"shareNum");
         label.textColor = [UIColor whiteColor];
         
         [cell addSubview:imgV];
@@ -163,10 +187,32 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    L();
+//    L();
     
+    NSString *key;
+    if (indexPath.row == 1) {
+        key = @"likeNum";
+    
+        int num = [getConfig(key) intValue];
+        num++;
+        setConfig([NSString stringWithInt:num], key);
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+        [tableView reloadData];
+    }
+    else if(indexPath.row == 2){
+        
+        [self shareArt:self.art];
+        
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+
 }
 
+#pragma mark - Fcns
+- (void)shareArt:(Art*)art{
+    
+    [_manager shareArt:art];
+    
+}
 @end

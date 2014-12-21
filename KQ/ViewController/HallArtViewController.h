@@ -12,7 +12,6 @@
 
 @interface HallArtViewController : ArtDetailsViewController{
 
-    UIFont *_descFont;
     NSArray *_1933keys;
     CGSize _constraint;
     

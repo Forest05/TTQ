@@ -27,7 +27,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxb5fa63851976db24</string>
+				<string>wxcbdb435367bde789</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>sina.3700283826</string>
 			</array>
 		</dict>
 	</array>

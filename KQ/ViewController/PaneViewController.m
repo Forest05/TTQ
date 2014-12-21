@@ -133,6 +133,11 @@
     [self closeArt];
 }
 
+- (IBAction)sharePressed:(id)sender{
+    L();
+}
+#pragma mark - Fcns
+
 - (void)pushCamera{
     
     if (!_cameraVC) {

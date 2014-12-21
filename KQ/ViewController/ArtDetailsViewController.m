@@ -27,6 +27,11 @@
     [self.view addSubview:maskV];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
+    _descFont = [UIFont fontWithName:kFontName size:12];
+    _manager = [AppManager sharedInstance];
+    _libraryMng = [LibraryManager sharedInstance];
 }
 
 - (void)didReceiveMemoryWarning {
