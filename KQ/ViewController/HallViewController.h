@@ -12,7 +12,7 @@
 
 @interface HallViewController : PaneViewController<UITableViewDataSource,UITableViewDelegate>{
 
-    
+    UIBarButtonItem *_shareBB;
     NSArray *_arts;
 
 }

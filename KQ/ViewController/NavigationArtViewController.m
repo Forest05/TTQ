@@ -22,11 +22,17 @@
     
     [_bannerV setImageWithURL:[NSURL URLWithString:art.imgUrl]];
     
-    _titleL.text = _art.name;
-    _descL.text = _art.desc;
-    
+    if (isZH) {
+        _titleL.text = _art.name;
+        _descL.text = _art.desc;
+        
+    }
+    else{
+        _titleL.text = _art.name_en;
+        _descL.text = _art.description_en;
+    }
     CGSize constraint = CGSizeMake(_titleL.width - 20, 10000);
-    NSString *text = _art.desc;
+    NSString *text = _descL.text;
     UIFont *font = _descFont;
     CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
     
@@ -69,31 +75,11 @@
     [scrollView addSubview:_titleL];
     [scrollView addSubview:_descL];
     
-//    CGRect textViewRect = CGRectInset(CGRectMake(width, y, self.view.width - width, self.view.height - y), 10.0, 20.0);
-//    _textV = [[UITextView alloc] initWithFrame:textViewRect];
-//    _textV.backgroundColor = [UIColor clearColor];
-//    _textV.textColor = kColorGray;
     
     [self.view addSubview:_bannerV];
     [self.view addSubview:_tableView];
     [self.view addSubview:scrollView];
-//    [self.view addSubview:_textV];
-//    [self.view addSubview:_titleL];
-    
-//    NSTextStorage *textStorage = [NSTextStorage new];
-//    
-//    NSLayoutManager *layoutManager = [NSLayoutManager new];
-//    [textStorage addLayoutManager: layoutManager];
-//    
-//    NSTextContainer *textContainer = [NSTextContainer new];
-//    [layoutManager addTextContainer: textContainer];
-//    
-//    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(width, y, self.view.width - width, self.view.height - y)
-//                                               textContainer:textContainer];
-//    
-//    textView.text = @"l;kasjdfl;kajsdf\
-//    sdlfkjsdlkfjslkdjflksdjflsdkfsdfsdfj; l;ksjdf;lakjsdflk;j l;sajkf;lksdjf";
-//    [self.view addSubview:textView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,10 +104,6 @@
     return 4;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 45;
-//}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -142,7 +124,7 @@
     if (row == 0) {
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 44)];
-        label.text = @"作品简介";
+        label.text = lang(@"作品简介");
         label.textColor = [UIColor whiteColor];
 
         [cell addSubview:label];
@@ -203,6 +185,15 @@
     else if(indexPath.row == 2){
         
         [self shareArt:self.art];
+        
+        key = @"shareNum";
+        
+        int num = [getConfig(key) intValue];
+        num++;
+        setConfig([NSString stringWithInt:num], key);
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [tableView reloadData];
         
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

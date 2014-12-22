@@ -13,6 +13,7 @@
 @interface HallArtViewController : ArtDetailsViewController{
 
     NSArray *_1933keys;
+    NSArray *_1933keys2;
     CGSize _constraint;
     
 }

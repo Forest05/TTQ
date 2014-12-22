@@ -55,27 +55,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    L();
-
-    
-//    self.chooseLangVC = [[ChooseLangViewController alloc] init];
-//    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
-//    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
-//    
-//
-//
-//
-//
-//    [self toChooseLang];
-    
-//    if (isIOS7) {
-//        
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//    
-//    }
-    
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-
     
     UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
     bgV.image = [UIImage imageNamed:@"bg.jpg"];
@@ -103,6 +82,7 @@
     NSLog(@"isSmallPhone # %d",  isSmallPhone);
   
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
+    NSLog(@"lang # %@",kLang);
     
     
 //    TTQBeacon *b = [[TTQBeacon alloc] init];
@@ -169,10 +149,7 @@
 }
 
 - (void)registerNotification{
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:NotifiChangeLang object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self didChangeLanguage];
-    }];
+
 }
 #pragma mark - Fcns
 
@@ -228,20 +205,6 @@
     
 }
 
-/// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
-- (void)didChangeLanguage{
-
-    
-//    [_containerVC.view removeFromSuperview];
-//    
-//    //TODO: 切换语言
-//    _containerVC = [[ContainerViewController alloc]init];
-//    _containerVC.view.alpha = 1;
-//    
-//    [self.view addSubview:_containerVC.view];
-
-    
-}
 
 
 - (void)deleteFirstTimeLoadedInformation{

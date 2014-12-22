@@ -15,4 +15,5 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+- (void)toWebsite;
 @end

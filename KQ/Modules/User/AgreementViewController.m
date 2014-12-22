@@ -29,8 +29,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-
-    
     [self.view addSubview:_webView];
     
 }

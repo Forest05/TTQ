@@ -38,14 +38,11 @@
     UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
     self.navigationItem.rightBarButtonItem = cameraBB;
 
-    self.title = lang(@"智能导览");
-    
- 
-    
+  
     [self registerNotification];
     
     
-    _tableKeys = @[@"1.开启",@"2.找到标识",@"3.完成, enjoy :)"];
+    _tableKeys = @[lang(@"开启"),lang(@"找到标识"),lang(@"完成, enjoy :)")];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 300) style:UITableViewStyleGrouped];
     _tableView.backgroundColor = [UIColor clearColor];
@@ -185,7 +182,7 @@
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier1];
     
-    cell.textLabel.text = _tableKeys[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d. %@",indexPath.row+1, _tableKeys[indexPath.row]];
     
     cell.textLabel.textColor = kColorGray;
     
@@ -221,13 +218,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    L();
-       Art *art = [[AppManager sharedInstance] arts][0];
+//    L();
+    Art *art = [[AppManager sharedInstance] arts][0];
     [self showArt:art];
 }
-
-#pragma mark - IBAction
-
 
 
 

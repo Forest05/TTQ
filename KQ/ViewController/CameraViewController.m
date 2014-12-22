@@ -24,6 +24,8 @@
     
     [self registerNotifications];
     
+    UIBarButtonItem *bb = [[UIBarButtonItem alloc] initWithCustomView:[UIButton buttonWithImageName:@"icon_back.png" target:self action:@selector(backPressed:)]];
+    
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     
     _bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -62,7 +64,7 @@
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"takePhotoAlert"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:lang(@"点击屏幕任意位置便能拍照") message:nil
-                                                       delegate:self cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+                                                       delegate:self cancelButtonTitle:lang(@"知道了") otherButtonTitles: nil];
         [alert show];
 
     }
@@ -123,6 +125,12 @@
     else if(sender == _shareBtn){
         [self shareImage:_image];
     }
+}
+
+- (IBAction)backPressed:(id)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 #pragma mark - Fcns

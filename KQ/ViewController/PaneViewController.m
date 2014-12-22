@@ -38,7 +38,6 @@
         [menu displayMenuInView:self.view.window];
         menu.items =_menuArray;
         menu.delegate = self;
-        //        self.navigationItem.titleView = menu;
         _naviMenu = menu;
         
     }
@@ -66,9 +65,6 @@
     
     self.navigationItem.leftBarButtonItem = backBB;
 
-//    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_camera.png"] style:UIBarButtonItemStylePlain target:self action:@selector(pushCamera)];
-//    self.navigationItem.rightBarButtonItem = cameraBB;
-    
     _menuArray = @[lang(@"智能导航"), lang(@"手工导航")];
     
     _closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 30, 0 ,30, 30) title:nil bgImageName:@"icon_close2.png" target:self action:@selector(closeBtnClicked:)];
@@ -92,7 +88,7 @@
 
 
 - (void)dealloc{
-    L();
+//    L();
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -107,8 +103,8 @@
     //    NSLog(@"did selected item at index %d", index);
     
     _naviMenu.title = _menuArray[index];
-
-    L();
+//    NSLog(@"naviMenuButton # %@, title # %@",_naviMenu.menuButton,_naviMenu.menuButton.title);
+//    L();
     
     if (index == 1 && [self isKindOfClass:[NavigationViewController class]]) {
         self.togglePane(1);
@@ -123,7 +119,11 @@
 #pragma mark - IBAction
 - (IBAction)back:(id)sender{
     L();
-    self.back();
+    
+    if (_naviMenu.menuButton.isActive) { //
+        return;
+    }
+   self.back();
 }
 
 - (IBAction)closeBtnClicked:(id)sender{

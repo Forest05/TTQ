@@ -26,12 +26,47 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-
-    _navigationVC = [[NavigationViewController alloc] init];
+    _naviMenuVC = [NaviMenuViewController new];
+    
+    [self load];
+    
+    
+    
+    self.shouldAlignStatusBarToPaneView = NO;
+    
+    // 当语言切换就自动reload
+    [[NSNotificationCenter defaultCenter] addObserverForName:NotifiChangeLang object:nil queue:nil usingBlock:^(NSNotification *note) {
+       
+        [self load];
   
+    }];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+- (void)load{
+    
+    UIViewController *oldNaviVC = _navigationVC;
+    UIViewController *oldHallVC = _hallVC;
+    
+    _navigationVC = [[NavigationViewController alloc] init];
+    
     
     _hallVC = [[HallViewController alloc] init];
-  
+    
     
     __weak ContainerViewController *vc = self;
     _hallVC.back = ^{
@@ -48,30 +83,17 @@
         [vc togglePane:index];
     };
     
-    _naviMenuVC = [NaviMenuViewController new];
-
-
-    self.shouldAlignStatusBarToPaneView = NO;
-
-
+    
+    
+    
     [self showNavigation];
-//    [self showHall];
+    //    [self showHall];
     [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
     
-    [super viewDidAppear:animated];
-    
+    [oldNaviVC.view removeFromSuperview];
+    [oldHallVC.view removeFromSuperview];
 
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 #pragma mark - IBAction
 
@@ -100,8 +122,6 @@
     
 }
 - (void)showHall{      // 显示手动浏览
-    
-    
     
     [self setPaneViewController:_hallVC.nav];
 

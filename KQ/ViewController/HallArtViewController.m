@@ -20,25 +20,6 @@
 
     _art = art;
     
-    
-    if (isZH) {
-        _artTitleL.text = _art.name;
-        _artDescTV.text = art.desc;
-//        _authorV.author = art.author;
-
-
-        
-    }
-    else{
-        
-        _artTitleL.text = _art.name_en;
-        _artDescTV.text = art.description_en;
-        
-//        _authorV.author = art.author;
-//        _authorDescTV.text = art.author.description_en;
-        
-    }
-
 
     [_tableView reloadData];
 }
@@ -48,10 +29,6 @@
     // Do any additional setup after loading the view.
     
     
-    
-    
-//    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 20) style:UITableViewStylePlain];
-
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -60,7 +37,9 @@
     
     [self.view addSubview:_tableView];
     
-    _1933keys = @[@"地址：上海溧阳路611号1933老场房1-311单元",@"电话：32582558",@"展期：2014.10.18 - 12.28",@"开放时间：周二至周日 10：30 - 18：30"];
+    _1933keys = @[lang(@"地址：上海溧阳路611号1933老场房1-311单元"),lang(@"电话：32582558"),lang(@"展期：2014.10.18 - 12.28"),lang(@"开放时间：周二至周日 10：30 - 18：30")];
+    _1933keys2 = @[lang(@"地址：上海溧阳路611号1933老场坊"),lang(@"电话：32582558")];
+    
     _manager = [AppManager sharedInstance];
     
     self.hall = _manager.hall;
@@ -75,8 +54,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
-//    
-//    NSLog(@"view # %@,table # %@",self.view,_tableView);
+//
 }
 
 
@@ -84,7 +62,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 10;
+    return 13;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -92,6 +70,10 @@
     if (section == 4) { // 1933画廊信息
         row = 4;
     }
+    else if(section == 8){
+        row = 2;
+    }
+    
     return row;
 }
 
@@ -105,7 +87,7 @@
     else if(section == 2){ //desc
    
         CGSize constraint = _constraint;
-        NSString *text = _art.desc;
+        NSString *text = isZH?_art.desc:_art.description_en;
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
         height = textRect.size.height + 20;
@@ -117,13 +99,19 @@
         height = 200;
     }
     else if (section == 6){
-         ImageText *it = self.hall.imageTexts[3];
+        ImageText *it = self.hall.imageTexts[3];
         CGSize constraint = _constraint;
-        NSString *text = it.text;
+    
+        NSString *text = isZH?it.text:it.text_en;
+        
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
         height = textRect.size.height +20;
     }
+    else if (section == 9){
+        height = 200;
+    }
+    
     return height;
 }
 
@@ -156,20 +144,21 @@
     
     }
     else if(section == 1){ // title & author
-        cell.textLabel.text = _art.name;
+        cell.textLabel.text = isZH?_art.name:_art.name_en;
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.textColor = [UIColor whiteColor];
 
     }
     else if(section == 2){  // desc
         CGSize constraint = CGSizeMake(300, 10000);
-        NSString *text = _art.desc;
+        NSString *text = isZH?_art.desc:_art.description_en;
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
 
+
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, textRect.size.height)];
         label.font = _descFont;
-        label.text = _art.desc;
+        label.text =text;
         label.numberOfLines = 0;
         label.textColor = kColorTextWhite;
 
@@ -181,7 +170,7 @@
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 50)];
         label.font = _descFont;
-        label.text = @"更多精彩作品展于： 1933当代艺术中心，《石头、木头和天堂症候群》";
+        label.text = lang(@"更多精彩作品展于： 1933当代艺术中心，《石头、木头和天堂症候群》");
         label.numberOfLines = 0;
         label.textColor = kColorWhite;
         [v addSubview:label];
@@ -192,6 +181,14 @@
         cell.textLabel.text = _1933keys[row];
         cell.textLabel.font = _descFont;
         cell.textLabel.textColor = kColorTextWhite;
+        if (row == 0) {
+            UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_location2.png"]];
+            cell.accessoryView = imgV;
+        }
+        else if(row == 1){
+            UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_telephone.png"]];
+            cell.accessoryView = imgV;
+        }
     }
     else if(section == 5){ // 1933 图片
     
@@ -205,13 +202,13 @@
     else if(section == 6){  // 1933 desc
         ImageText *it = self.hall.imageTexts[3];
         CGSize constraint = CGSizeMake(300, 10000);
-        NSString *text = it.text;
+        NSString *text = isZH?it.text:it.text_en;
         UIFont *font = _descFont;
         CGRect textRect = [text boundingRectWithSize:constraint options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:font} context:nil];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, textRect.size.height)];
         label.font = _descFont;
-        label.text = it.text;
+        label.text = text;
         label.numberOfLines = 0;
         label.textColor = kColorTextWhite;
         
@@ -223,11 +220,33 @@
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 50)];
         label.font = _descFont;
-        label.text = @"还有更多精彩等着你： 1933老场坊，顶尖时尚创意生活的终极目的地";
+        label.text = lang(@"还有更多精彩等着你： 1933老场坊，顶尖时尚创意生活的终极目的地");
         label.numberOfLines = 0;
         label.textColor = kColorWhite;
         [v addSubview:label];
         [cell addSubview:v];
+    }
+    else if(section == 8){ // 1933 地址，电话
+    
+        cell.textLabel.text = _1933keys2[row];
+        cell.textLabel.font = _descFont;
+        cell.textLabel.textColor = kColorTextWhite;
+        if (row == 0) {
+            UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_location2.png"]];
+            cell.accessoryView = imgV;
+        }
+        else if(row == 1){
+            UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_telephone.png"]];
+            cell.accessoryView = imgV;
+        }
+
+    }
+    else if(section == 9){ // 1933 图片
+        ImageText *it = self.hall.imageTexts[1];
+        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, 200)];
+        [imgV  setImageWithURL:[NSURL URLWithString:it.imageUrl] placeholderImage:nil];
+        
+        [cell addSubview:imgV];
     }
    
     return cell;
@@ -235,7 +254,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 4) {
+    if (indexPath.section == 4 || indexPath.section == 8) {
         if (indexPath.row == 0) { // goto map
             [self toMap];
         }

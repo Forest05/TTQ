@@ -9,12 +9,12 @@
 		<key>en</key>
 		<string>Done</string>
 	</dict>
-	<key>智能导览</key>
+	<key>智能导航</key>
 	<dict>
 		<key>zh</key>
-		<string>智能导览</string>
+		<string>智能导航</string>
 		<key>en</key>
-		<string>Tour</string>
+		<string>Smart Tour</string>
 	</dict>
 	<key>作品简介</key>
 	<dict>
@@ -34,6 +34,13 @@
 	<dict>
 		<key>zh</key>
 		<string>作品库</string>
+		<key>en</key>
+		<string>Art Exhibits</string>
+	</dict>
+	<key>手工导航</key>
+	<dict>
+		<key>zh</key>
+		<string>手工导航</string>
 		<key>en</key>
 		<string>Art Exhibits</string>
 	</dict>
@@ -203,7 +210,114 @@
 		<key>zh</key>
 		<string>点击屏幕任意位置便能拍照</string>
 		<key>en</key>
-		<string></string>
+		<string>Touch screen to make photos</string>
 	</dict>
+	<key>1933老场坊</key>
+	<dict>
+		<key>zh</key>
+		<string>1933老场坊</string>
+		<key>en</key>
+		<string>1933 Old Millfun</string>
+	</dict>
+	<key>开启</key>
+	<dict>
+		<key>zh</key>
+		<string>开启</string>
+		<key>en</key>
+		<string>Turn on Bluetooth</string>
+	</dict>
+	<key>找到标识</key>
+	<dict>
+		<key>zh</key>
+		<string>找到标识</string>
+		<key>en</key>
+		<string>Find the Logo</string>
+	</dict>
+	<key>知道了</key>
+	<dict>
+		<key>zh</key>
+		<string>知道了</string>
+		<key>en</key>
+		<string>Got it</string>
+	</dict>
+	<key>完成, enjoy :)</key>
+	<dict>
+		<key>zh</key>
+		<string>完成, enjoy :)</string>
+		<key>en</key>
+		<string>Finish, enjoy :)</string>
+	</dict>
+	<key>还有更多精彩等着你： 1933老场坊，顶尖时尚创意生活的终极目的地</key>
+	<dict>
+		<key>zh</key>
+		<string>还有更多精彩等着你： 1933老场坊，顶尖时尚创意生活的终极目的地</string>
+		<key>en</key>
+		<string>More fun at 1933 Old Millfun</string>
+	</dict>
+	<key>更多精彩作品展于： 1933当代艺术中心，《石头、木头和天堂症候群》</key>
+	<dict>
+		<key>zh</key>
+		<string>更多精彩作品展于： 1933当代艺术中心，《石头、木头和天堂症候群》</string>
+		<key>en</key>
+		<string>More Fun at 1933 Contemporary, &quot; Stone, Wood and Paradise Syndrome&quot;</string>
+	</dict>
+	<key>地址：上海溧阳路611号1933老场房1-311单元</key>
+	<dict>
+		<key>zh</key>
+		<string>地址：上海溧阳路611号1933老场坊1-311单元</string>
+		<key>en</key>
+		<string>Address:  Unit 1-311, 1933 Shanghai, 611 Liyang Road</string>
+	</dict>
+    <key>地址：上海溧阳路611号1933老场坊</key>
+    <dict>
+        <key>zh</key>
+        <string>地址：上海溧阳路611号1933老场坊</string>
+        <key>en</key>
+        <string>Address: 1933 Shanghai, 611 Liyang Road</string>
+    </dict>
+	<key>电话：32582558</key>
+	<dict>
+		<key>zh</key>
+		<string>电话：32582558</string>
+		<key>en</key>
+		<string>Tel: 32582558</string>
+	</dict>
+	<key>展期：2014.10.18 - 12.28</key>
+	<dict>
+		<key>zh</key>
+		<string>展期：2014.10.18 - 12.28</string>
+		<key>en</key>
+		<string>Exhibition: 2014.10.18 - 12.28</string>
+	</dict>
+	<key>开放时间：周二至周日 10：30 - 18：30</key>
+	<dict>
+		<key>zh</key>
+		<string>开放时间：周二至周日 10：30 - 18：30</string>
+		<key>en</key>
+		<string>Open on Tuesday to Sunday 10:30 – 18:30</string>
+	</dict>
+    <key>重拍</key>
+    <dict>
+        <key>zh</key>
+        <string>重拍</string>
+        <key>en</key>
+        <string>Retake</string>
+    </dict>
+    <key>分享</key>
+    <dict>
+        <key>zh</key>
+        <string>分享</string>
+        <key>en</key>
+        <string>Share</string>
+    </dict>
+    <key>拍摄照片</key>
+    <dict>
+        <key>zh</key>
+        <string>拍摄照片</string>
+        <key>en</key>
+        <string>Take Photos</string>
+    </dict>
+   
+
 </dict>
 </plist>

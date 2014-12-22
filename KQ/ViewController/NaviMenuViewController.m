@@ -7,6 +7,7 @@
 //
 
 #import "NaviMenuViewController.h"
+#import "TextManager.h"
 
 @interface NaviMenuViewController ()
 
@@ -53,6 +54,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
     int section = indexPath.section;
     CGFloat height = 50;
    
@@ -66,6 +68,7 @@
         height = 30;
     }
     return height;
+    
 }
 
 - (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -95,34 +98,29 @@
     float width = self.view.width-55;
     
     if (section == 0) {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 30)];
-        nameL.text = @"sss";
-        nameL.textColor = kColorWhite;
-        nameL.textAlignment = NSTextAlignmentCenter;
-        UILabel *welcomeL = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, width, 30)];
-        welcomeL.text = @"Welcome";
-        welcomeL.textColor = kColorWhite;
-        welcomeL.textAlignment = NSTextAlignmentCenter;
+        
+        
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 30)];
+//        nameL.text = @"sss";
+//        nameL.textColor = kColorWhite;
+//        nameL.textAlignment = NSTextAlignmentCenter;
+//        UILabel *welcomeL = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, width, 30)];
+//        welcomeL.text = @"Welcome";
+//        welcomeL.textColor = kColorWhite;
+//        welcomeL.textAlignment = NSTextAlignmentCenter;
 
+        
     }
     else if(section == 1){ //avatar
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake((width-90)/2, 0, 90, 90)];
-//        imgV.image = DefaultImg;
-        imgV.image = [UIImage imageNamed:@"icon.png"];
-//        imgV.layer.borderWidth = 2;
-//        imgV.layer.cornerRadius = 45;
-//        imgV.layer.borderColor = kColorWhite.CGColor;
-//        imgV.layer.masksToBounds = YES;
         
-//        UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, width, 30)];
-//        nameL.text = @"Lisa";
-//        nameL.textColor = kColorWhite;
-//        nameL.textAlignment = NSTextAlignmentCenter;
+        imgV.image = [UIImage imageNamed:@"icon.png"];
+
         
         [cell addSubview:imgV];
-//        [cell addSubview:nameL];
+
     }
     else if (section == 2){ //segment
 
@@ -140,7 +138,6 @@
         [seg addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
 
         [cell addSubview:seg];
-//        cell.accessoryView = seg;
 
     }
     else if (section == 3){ //1933老场房
@@ -149,7 +146,7 @@
         imgV.image = [UIImage imageNamed:@"1933logo.png"];
         
         UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
-        nameL.text = @"1933老场房";
+        nameL.text = lang(@"1933老场坊");
         nameL.textColor = kColorWhite;
         nameL.textAlignment = NSTextAlignmentCenter;
        
@@ -162,7 +159,7 @@
         
         
         UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
-        nameL.text =  @"-1933现代艺术空间";
+        nameL.text =  [NSString stringWithFormat:@"-%@",lang(@"1933当代艺术空间")];
         nameL.textColor = kColorWhite;
         nameL.textAlignment = NSTextAlignmentCenter;
         
@@ -181,6 +178,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     L();
+    if (indexPath.section == 1) {
+        [self toWebsite];
+    }
 }
 
 #pragma mark - IBAction
@@ -205,7 +205,15 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:NotifiChangeLang object:nil];
     
     
-//    [[TTQRootViewController sharedInstance] didChangeLanguage];
+}
+
+- (void)toWebsite{
+    NSString *urlStr = @"http://www.51ttq.com";
+    NSURL *url = [NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF16StringEncoding]];
+    
+    //    NSURL * url = [NSURL URLWithString:appstoreUrlString];
+    
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

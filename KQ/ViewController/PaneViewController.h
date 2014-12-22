@@ -34,6 +34,8 @@
     UIButton *_closeBtn;
     NSArray *_menuArray;
     
+    Art *_art;
+    
 }
 
 @property (nonatomic, strong) SINavigationMenuView *naviMenu;
@@ -41,6 +43,7 @@
 @property (nonatomic, copy) void(^back)(void);
 @property (nonatomic, copy) void(^togglePane)(int);
 @property (nonatomic, strong) UINavigationController *nav;
+@property (nonatomic, strong) Art *art;
 
 - (IBAction)closeBtnClicked:(id)sender;
 - (IBAction)sharePressed:(id)sender;
