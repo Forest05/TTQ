@@ -257,6 +257,7 @@
  
     [super closeArt];
     
+    [_closeBtn removeFromSuperview];
     self.showedArt = nil;
  
     
