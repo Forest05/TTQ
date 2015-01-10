@@ -18,22 +18,7 @@
 
 @implementation ContainerViewController
 
-- (SINavigationMenuView*)naviMenu{
-    
-    if (!_naviMenu) {
-         CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-        SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:_menuArray[0]];
-//        [menu displayMenuInView:self.navigationController.view];
-         [menu displayMenuInView:self.view.window];
-        menu.items =_menuArray;
-        menu.delegate = self;
-//        self.navigationItem.titleView = menu;
-        _naviMenu = menu;
 
-    }
-    
-    return _naviMenu;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,32 +26,28 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    _navigationVC = [[NavigationViewController alloc] init];
+    _naviMenuVC = [NaviMenuViewController new];
     
-    _hallVC = [[HallViewController alloc] init];
+    [self load];
     
-    _menuArray = @[lang(@"智能导航"), lang(@"手工导航")];
     
+    
+    self.shouldAlignStatusBarToPaneView = NO;
+    
+    // 当语言切换就自动reload
+    [[NSNotificationCenter defaultCenter] addObserverForName:NotifiChangeLang object:nil queue:nil usingBlock:^(NSNotification *note) {
+       
+        [self load];
   
-    UIBarButtonItem *settingBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(settingPressed:)];
-    self.navigationItem.leftBarButtonItem = settingBB;
-    
-    UIBarButtonItem *cameraBB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
-    self.navigationItem.rightBarButtonItem = cameraBB;
+    }];
 
-
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
     
-    self.navigationItem.titleView = self.naviMenu;  // 不能在viewDidLoad中初始化是因为， 那个时候self.navigationController.view 是nil， 但是否可以设成window
-    
-    
-    [self setPaneViewController:_navigationVC];
-    [self setDrawerViewController:[CameraViewController new] forDirection:MSDynamicsDrawerDirectionLeft];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,29 +55,48 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - NavigationMenuView
 
-- (void)didSelectItemAtIndex:(NSUInteger)index
-{
+
+- (void)load{
     
-//    NSLog(@"did selected item at index %d", index);
-    _naviMenu.title = _menuArray[index];
+    UIViewController *oldNaviVC = _navigationVC;
+    UIViewController *oldHallVC = _hallVC;
     
-    if (index == 0) {
-        [self showNavigation];
-    }
-    else{
-        [self showHall];
-    }
+    _navigationVC = [[NavigationViewController alloc] init];
     
+    
+    _hallVC = [[HallViewController alloc] init];
+    
+    
+    __weak ContainerViewController *vc = self;
+    _hallVC.back = ^{
+        [vc toggleSetting];
+    };
+    _hallVC.togglePane = ^(int index){
+        [vc togglePane:index];
+    };
+    
+    _navigationVC.back = ^{
+        [vc toggleSetting];
+    };
+    _navigationVC.togglePane = ^(int index){
+        [vc togglePane:index];
+    };
+    
+    
+    
+    
+    [self showNavigation];
+    //    [self showHall];
+    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
+    
+    [oldNaviVC.view removeFromSuperview];
+    [oldHallVC.view removeFromSuperview];
+
 }
 
 #pragma mark - IBAction
-- (IBAction)cameraPressed:(id)sender{
-    
-    [self pushCamera];
-    
-}
+
 
 - (IBAction)settingPressed:(id)sender{
     
@@ -104,32 +104,30 @@
 }
 
 #pragma mark - Fcns
+
+- (void)togglePane:(int)index{
+    if (index == 0) {
+        [self showNavigation];
+    }
+    else if(index == 1){
+        [self showHall];
+    }
+}
+
 - (void)showNavigation{ // 显示智能导览
     
 //    self.title = lang(@"智能导览");
-
     
-    [self.view addSubview:_navigationVC.view];
-    [_hallVC.view removeFromSuperview];
+    [self setPaneViewController:_navigationVC.nav];
     
 }
 - (void)showHall{      // 显示手动浏览
     
-    
-    [self.view addSubview:_hallVC.view];
-    [_navigationVC.view removeFromSuperview];
+    [self setPaneViewController:_hallVC.nav];
+
 }
 
 
-- (void)pushCamera{
-    
-    if (!_cameraVC) {
-        _cameraVC = [CameraViewController new];
-    }
-    
-    [self.navigationController pushViewController:_cameraVC animated:YES];
-    
-}
 
 - (void)toggleSetting{
     
@@ -141,7 +139,6 @@
         [self openSetting];
     }
     
-  
     
 }
 - (void)openSetting{
@@ -149,9 +146,11 @@
         
     }];
 }
+
 - (void)closeSetting{
     [self setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];
 }
+
 @end

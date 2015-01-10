@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Art.h"
+#import "ArtDetailsViewController.h"
 
-@interface NavigationArtViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface NavigationArtViewController : ArtDetailsViewController{
 
-@property (nonatomic, strong) Art *art;
+}
+
 @property (nonatomic, strong) UIImageView *bannerV;
-@property (nonatomic, strong) UITableView *tableV;
-@property (nonatomic, strong) UITextView *textV;
+
+
+@property (nonatomic, strong) UIScrollView *scrollV;
+@property (nonatomic, strong) UILabel *titleL;
+@property (nonatomic, strong) UILabel *descL;
+
+- (void)shareArt:(Art*)art;
+
 @end

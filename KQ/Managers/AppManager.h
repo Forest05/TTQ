@@ -25,4 +25,6 @@
 - (NSArray*)selectedArts:(NSArray*)artIds;
 
 - (Art*)artWithTTQBeacon:(TTQBeacon*)beacon;
+
+- (void)shareArt:(Art*)art;
 @end

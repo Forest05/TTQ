@@ -8,30 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class NavigationArtViewController;
+#import "PaneViewController.h"
 
-#import "AVCamViewController.h"
-#import "AppManager.h"
-#import "ArtNavView.h"
-#import "ExhibitionNavView.h"
+@interface NavigationViewController : PaneViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>{
 
-@interface NavigationViewController : UIViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>{
 
-    AVCamViewController *_camVC;
-    ArtNavView *_artView;
-//    ExhibitionNavView *_exhibitionView;
-    NavigationArtViewController *_artVC;
     
     UIScrollView *_scrollView;
     UITextField *_tf;
     UIBarButtonItem *_cameraBB;
     
     UILabel *_label;
-    UITableView *_tv;
 
     NSArray *_tableKeys;
-    
-    AppManager *_appManager;
+ 
     
     
 }
@@ -41,13 +31,6 @@
 @property (nonatomic, strong) Art *selectedArt;
 @property (nonatomic, strong) Art *showedArt;
 
-
-//- (void)openCamera;
-//- (void)closeCamera;
-
-
-- (void)showArt:(Art*)art;
-- (void)closeArt;
 
 
 

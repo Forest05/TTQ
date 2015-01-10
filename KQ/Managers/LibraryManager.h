@@ -17,7 +17,9 @@
 
 @property (nonatomic, strong) NSMutableDictionary *hudCache;
 
+
 + (LibraryManager*)sharedInstance;
+
 
 - (void)shareWithText:(NSString*)text image:(UIImage*)image delegate:(id)delegate;
 
@@ -33,7 +35,6 @@
  *
  *	@param 	key
  */
-
 - (void)startProgress:(NSString*)key;
 
 - (void)dismissProgress:(NSString*)key;

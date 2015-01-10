@@ -26,6 +26,7 @@ NSString *const TTQLangEn = @"en";
 
 NSString *const TTQAPPBeforeOpenedKey = @"APPBeforeOpened";
 NSString *const TTQHallKey = @"hall";
+NSString *const NotifiChangeLang = @"ChangeLang";
 
 NSString *FONTNAME;
 

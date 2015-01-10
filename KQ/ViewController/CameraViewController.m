@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import "LibraryManager.h"
 #import "TextManager.h"
 
 @interface CameraViewController ()
@@ -21,14 +22,28 @@
     
     self.title = lang(@"拍摄照片");
     
-    _bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    _bgV.contentMode = UIViewContentModeScaleAspectFill;
+    [self registerNotifications];
+    
+    UIBarButtonItem *bb = [[UIBarButtonItem alloc] initWithCustomView:[UIButton buttonWithImageName:@"icon_back.png" target:self action:@selector(backPressed:)]];
     
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
     
+    _bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    _bgV.contentMode = UIViewContentModeScaleAspectFill;
     
+    UIColor *color = [UIColor colorWithWhite:0 alpha:.4];
+    _cameraBtn = [UIButton buttonWithFrame:CGRectMake(0, 160, 150, 50) title:lang(@"重拍") bgImageName:nil target:self action:@selector(buttonClicked:)];
+    _cameraBtn.backgroundColor = color;
+    [_cameraBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_cameraBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
+    _shareBtn = [UIButton buttonWithFrame:CGRectMake(0, 240, 150, 50) title:lang(@"分享") bgImageName:nil target:self action:@selector(buttonClicked:)];
+    _shareBtn.backgroundColor = color;
+    [_shareBtn setTitleColor:kColorYellow forState:UIControlStateNormal];
+    [_shareBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
+
+    [self.navigationController.navigationBar setTranslucent:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,12 +56,18 @@
     [super viewWillAppear:animated];
     
     [self openCamera];
+    
 }
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
     
-//    [self openCamera];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"takePhotoAlert"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:lang(@"点击屏幕任意位置便能拍照") message:nil
+                                                       delegate:self cancelButtonTitle:lang(@"知道了") otherButtonTitles: nil];
+        [alert show];
+
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -54,6 +75,7 @@
     [super viewDidDisappear:animated];
     
     [_camVC stopSesseion];
+  
 }
 
 - (void)registerNotifications{
@@ -63,8 +85,8 @@
         
         vc.image = note.object;
         
-//        vc.bgV.image = img;
-//        [vc.camVC.view removeFromSuperview];
+        [vc closeCamera];
+
     }];
 }
 - (void)dealloc{
@@ -75,12 +97,41 @@
     
 }
 
+#pragma mark - UIAlert
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"takePhotoAlert"];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
+}
+
 #pragma mark - IBAction
 - (IBAction)handleTap:(id)sender{
     L();
+  #if TARGET_IPHONE_SIMULATOR
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"takePhoto" object:DefaultImg];
+#else
+    //    [NSThread sleepForTimeInterval:3];
     [_camVC captureStillImage:nil];
+#endif
+
+
 }
 
+- (IBAction)buttonClicked:(id)sender{
+ 
+    if (sender == _cameraBtn) {
+        [self openCamera];
+    }
+    else if(sender == _shareBtn){
+        [self shareImage:_image];
+    }
+}
+
+- (IBAction)backPressed:(id)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 #pragma mark - Fcns
 
@@ -96,6 +147,26 @@
     
     
     self.isCameraOn = YES;
+
+    [_shareBtn removeFromSuperview];
+    [_cameraBtn removeFromSuperview];
 }
+
+// 显示2个按钮
+- (void)closeCamera{
+    
+    [_camVC stopSesseion];
+    
+    [self.view addSubview:_shareBtn];
+    [self.view addSubview:_cameraBtn];
+}
+
+- (void)shareImage:(UIImage*)image{
+    
+    LibraryManager *mng = [LibraryManager sharedInstance];
+    
+    [mng shareWithText:@"分享" image:image delegate:self];
+}
+
 
 @end

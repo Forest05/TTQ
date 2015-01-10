@@ -11,7 +11,7 @@
 #import "UserSettingsViewController.h"
 #import "UIImageView+WebCache.h"
 #import "TextManager.h"
-#import "MyHallViewController.h"
+
 
 
 #pragma mark - UserCenterViewController
