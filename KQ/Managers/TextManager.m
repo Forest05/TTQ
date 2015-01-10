@@ -36,20 +36,13 @@
 
     NSDictionary *valueDict = _dict[key];
     
-  
-    
     if (ISEMPTY(valueDict)) {
         return key;
     }
     
     NSString* value = valueDict[kLang];
     
-//    NSRange range = [value rangeOfString:@"//"];  //找到特定字符的range
-//    if (range.location != NSNotFound) {
-//            value = [value stringByReplacingCharactersInRange:range withString:@"/"]; //然后删除！
-//    }
-//    
-//      NSLog(@"key # %@ => # %@, %@",key,valueDict,value);
+
     
     return value;
 }

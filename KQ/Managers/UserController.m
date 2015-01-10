@@ -37,7 +37,7 @@
     _avatar = avatar;
     
 //    [_networkClient queryUpdateAvatar:self.uid image:avatar block:]
-    L();
+//    L();
 }
 
 #pragma mark - Init
@@ -118,7 +118,7 @@
 
 - (void)loadUser{
     
-    L();
+//    L();
     
     self.uid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
 
@@ -178,17 +178,12 @@
 
 - (void)loginWithEmail:(NSString*)email pw:(NSString*)pw block:(BooleanResultBlock)block{
     
-//    NSLog(@"pw # %@",pw);
-    
-    
     [[NetworkClient sharedInstance] loginWithUsername:email password:pw block:^(NSDictionary *dict, NSError *error) {
         
         if (!ISEMPTY(dict)) {
             
-            NSLog(@"login user # %@",dict);
+//            NSLog(@"login user # %@",dict);
             
-//            [self didLoginWithUid:dict[@"objectId"] token:dict[@"sessionToken"]];
-          
             self.uid = dict[@"id"];
             [[NSUserDefaults standardUserDefaults]setObject:self.uid forKey:@"uid"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -209,7 +204,7 @@
     self.sessionToken = token;
     
     [[NSUserDefaults standardUserDefaults]setObject:self.uid forKey:@"uid"];
-//    [[NSUserDefaults standardUserDefaults]setObject:self.sessionToken forKey:@"token"];
+
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self loadUser];

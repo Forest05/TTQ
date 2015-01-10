@@ -10,42 +10,28 @@
 
 #import "ArtListView.h"
 #import "TextManager.h"
+#import "HallArtViewController.h"
 
 @interface HallViewController (){
 
-    CATransition *animation;
-    UIButton *closeBtn;
+   
+
 }
 
 @end
 
 @implementation HallViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _shareBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share2.png"] style:UIBarButtonItemStylePlain target:self action:@selector(sharePressed:)];
+//    self.navigationItem.rightBarButtonItem = cameraBB;
     
-    self.title = lang(@"作品库");
-    
-    _appManager = [AppManager sharedInstance];
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    UIBarButtonItem *backBB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    
-    
-    self.navigationItem.leftBarButtonItem = backBB;
-    
-    animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = @"rippleEffect";
-    animation.subtype = kCATransitionFromRight;
-    
-    closeBtn = [UIButton buttonWithFrame:CGRectMake(_w - 50, 20 ,30, 30) title:nil bgImageName:@"icon_close.png" target:self action:@selector(closeBtnClicked:)];
-    
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -53,8 +39,6 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:_tableView];
-    
-    self.view.backgroundColor = kColorBG;
     
     _arts = [_appManager arts];
 }
@@ -64,10 +48,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)back{
-    [self closeArt];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    self.naviMenu.title = _menuArray[1];
 }
 
 
@@ -75,30 +59,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
-    return 50;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 50;
+    return 20;
 }
 
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
-    view.backgroundColor = [UIColor whiteColor];
-    
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, view.width- 20, 50)];
-    l.text = lang(@"部分展示，现场观看体验更佳");
-//    l.text = @"Part of the exhibits.\ncome and experience more...";
-    l.textAlignment = NSTextAlignmentCenter;
-    l.textColor = kColorGreen;
-    l.font = [UIFont fontWithName:kFontName size:14];
-    l.numberOfLines = 0;
-    [view addSubview:l];
-    
-    return view;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -115,7 +84,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 180;
+    return 160;
 }
 
 
@@ -133,7 +102,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier1];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         
         cell.backgroundColor = [UIColor clearColor];
         
@@ -158,7 +126,6 @@
      ArtListView *v2 = (ArtListView*)[cell.contentView viewWithTag:2];
     if (2 * row + 1 <[self.arts count]) {
        
-        
         v2.art = self.arts[2*row + 1 ];
         v2.hidden = NO;
     }
@@ -184,45 +151,40 @@
     ArtListView *v = (ArtListView *)sender.view;
     Art *art = v.art;
     [self showArt:art];
+    
 }
 
-- (IBAction)closeBtnClicked:(id)sender{
-    
-    [closeBtn removeFromSuperview];
-    [self closeArt];
-//    [self closee]
-}
+
 
 #pragma mark - Fcns
 
 - (void)showArt:(Art*)art{
-    
-    if (!_artView) {
-        
-        CGFloat height = _h - 64 - 20;
-        
-        _artView = [[ArtNavView alloc] initWithFrame:CGRectMake(10, 10, _w - 20, height)];
-        
+
+    if (!_artVC) {
+        _artVC = [HallArtViewController new];
+        _artVC.view.alpha = 1;
+        _artVC.parent = self;
     }
     
-    _artView.art = art;
-
+    _artVC.art = art;
+    _art = art;
     
-
-    [self.view addSubview:_artView];
-    [self.view addSubview:closeBtn];
+    [self.view addSubview:_artVC.view];
+    [self.view addSubview:_closeBtn];
     
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
+    [[self.view layer] addAnimation:_animation forKey:@"animation"];
+    
+    self.navigationItem.rightBarButtonItem = _shareBB;
     
 }
 
 - (void)closeArt{
-    
-    
-     [_artView removeFromSuperview];
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
-    
+    [super closeArt];
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
+- (void)sharePressed:(id)sender{
+    [self shareArt:_art];
+}
 
 @end

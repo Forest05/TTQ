@@ -22,7 +22,6 @@
 
 }
 
-//@property (nonatomic, copy) void(^closeBlock)(void);
 
 @property (nonatomic, strong) Art *art;
 

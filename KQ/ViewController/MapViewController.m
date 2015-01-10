@@ -14,7 +14,6 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 
-
 - (id)initWithLocation:(CLLocationCoordinate2D)coord;
 
 @end
@@ -22,10 +21,19 @@
 
 @implementation ShopAnnotation
 
+- (NSString*)title{
+    return @"1933老场坊";
+}
+
+- (NSString*)subtitle{
+    return @"上海市虹口区溧阳路611号";
+}
+
 - (id)initWithLocation:(CLLocationCoordinate2D)coord{
 
     if (self = [super init]) {
         _coordinate = coord;
+    
     }
     
     return self;
@@ -57,10 +65,16 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
+    _shopAnnotation = [[ShopAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(31.260334,121.49851)];
+   
     
     self.navigationController.navigationBar.translucent = NO;
     _mapView.delegate = self;
+    
+    _mapView = [[MKMapView alloc]initWithFrame:self.view.bounds];
+    _mapView.delegate = self;
+    
+    [self.view addSubview:_mapView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

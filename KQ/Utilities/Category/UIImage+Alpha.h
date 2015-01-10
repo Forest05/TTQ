@@ -10,4 +10,6 @@
 - (UIImage *)transparentBorderImage:(NSUInteger)borderSize;
 
 - (CGImageRef)newBorderMask:(NSUInteger)borderSize size:(CGSize)size;
+
++ (UIImage *)imageWithColor:(UIColor *)color;
 @end

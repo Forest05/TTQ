@@ -8,6 +8,9 @@
 
 #import "AppManager.h"
 #import "NetworkClient.h"
+#import "LibraryManager.h"
+#import "TextManager.h"
+#import "TTQRootViewController.h"
 
 @implementation AppManager
 
@@ -172,12 +175,7 @@
         [hall.imageTexts addObject:it];
     }
     
-//    Exhibition *exhibition = [[Exhibition alloc] init];
-//    exhibition.id = hall.exhibitionId;
-//    exhibition.major = @"1";
 
-//    NSLog(@"dict # %@",dict);
-//    NSLog(@"exhibition # %@",dict[@"exhibition"]);
     
     Exhibition *exhibition = [[Exhibition alloc] initWithDict:dict[@"exhibition"]];
     hall.defaultExhibition = exhibition;
@@ -228,5 +226,15 @@
     Art *art = beaconArts[beaconMinor];
     
     return art;
+}
+
+- (void)shareArt:(Art*)art{
+    LibraryManager *mng = [LibraryManager sharedInstance];
+    NSString *serialNumber = art.serialNumber;
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"art_%@.jpg",serialNumber]];
+    NSString *text = isZH?art.name:art.name_en;
+    
+    
+    [mng shareWithText:[NSString stringWithFormat:@"%@ %@",text,lang(@"喜欢这次的展出《石头、木头和天堂症候群》@1933当代艺术空间")] image:image delegate:[TTQRootViewController sharedInstance]];
 }
 @end

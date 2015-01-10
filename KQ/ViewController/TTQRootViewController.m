@@ -12,10 +12,11 @@
 #import "NetworkClient.h"
 #import "KQLoginViewController.h"
 #import "UserCenterViewController.h"
-
+#import "ContainerViewController.h"
 #import "BeaconManager.h"
-#import "ChooseLangViewController.h"
-#import "HallEntranceViewController.h"
+#import "NavigationViewController.h"
+#import "HallViewController.h"
+
 #import "ImageText.h"
 #import "AppManager.h"
 #import "KQLoginViewController.h"
@@ -54,22 +55,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    L();
+    
+    UIImageView *bgV = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    bgV.image = [UIImage imageNamed:@"bg.jpg"];
+    bgV.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:bgV];
+   
+    
+    //container本身没有navi，是paneVC自带的
+    _containerVC = [[ContainerViewController alloc]init];
+    _containerVC.view.alpha = 1;
+    
+    [self.view addSubview:_containerVC.view];
 
     
-    self.chooseLangVC = [[ChooseLangViewController alloc] init];
-    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
-    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
-    
-
-
-
-
-    [self toChooseLang];
-    
-    
-//        [UIScreen mainScreen].bounds.size.height
-
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -83,6 +82,7 @@
     NSLog(@"isSmallPhone # %d",  isSmallPhone);
   
     NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
+    NSLog(@"lang # %@",kLang);
     
     
 //    TTQBeacon *b = [[TTQBeacon alloc] init];
@@ -133,6 +133,10 @@
     [[NSUserDefaults standardUserDefaults] setObject:TTQLangZh forKey:TTQLangKey];
     [[NSUserDefaults standardUserDefaults] setFloat:2.5 forKey:@"minDistance"];
     [[NSUserDefaults standardUserDefaults] setFloat:3.0 forKey:@"maxDistance"];
+    
+    setConfig(@"285", @"likeNum");
+    setConfig(@"162", @"shareNum");
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // 载入网络数据
@@ -144,43 +148,49 @@
 //    [[AppManager sharedInstance] configHallDict:dict];
 }
 
+- (void)registerNotification{
+
+}
 #pragma mark - Fcns
 
-
-
-- (void)toChooseLang{
+//
+//
+//- (void)toChooseLang{
+////    [self.view addSubview:self.chooseLangVC.view];
+//    
+//    CATransition *animation = [CATransition animation];
+//    animation.duration = 0.5;
+//    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+//    animation.type = kCATransitionFade;
+//    animation.subtype = kCATransitionFromRight;
+//    
 //    [self.view addSubview:self.chooseLangVC.view];
-    
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = kCATransitionFade;
-    animation.subtype = kCATransitionFromRight;
-    
-    [self.view addSubview:self.chooseLangVC.view];
-    
-
-    [[self.view layer] addAnimation:animation forKey:@"animation"];
-
-}
-
-
-- (void)toHallEntrance{
-    
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = kCATransitionFade;
-    animation.subtype = kCATransitionFromRight;
-
-    [self.view addSubview:self.hallEntranceNav.view];
-   [[self.view layer] addAnimation:animation forKey:@"animation"];
-    
-}
+//    
+//
+//    [[self.view layer] addAnimation:animation forKey:@"animation"];
+//
+//}
+//
+//
+//- (void)toHallEntrance{
+//    
+//    CATransition *animation = [CATransition animation];
+//    animation.duration = 0.5;
+//    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+//    animation.type = kCATransitionFade;
+//    animation.subtype = kCATransitionFromRight;
+//
+//    [self.view addSubview:self.hallEntranceNav.view];
+//   [[self.view layer] addAnimation:animation forKey:@"animation"];
+//    
+//}
 
 //- (void)toHall{
 //    
 //}
+
+
+
 
 - (void)toLogin{
     L();
@@ -195,23 +205,7 @@
     
 }
 
-/// 因为只有在chooseLange这里能改语言，所以reset hallEntrance就可以了。 如果有setting的话，就不能这么简单了
-- (void)didChangeLanguage{
-    self.hallEntranceVC = [[HallEntranceViewController alloc] init];
-    self.hallEntranceNav = [[UINavigationController alloc] initWithRootViewController:self.hallEntranceVC];
-    
 
-}
-
-
-- (void)didLogin{
-//    self.selectedIndex = 3;
-    
-}
-- (void)didLogout{
-
-//    self.selectedIndex = 0;
-}
 
 - (void)deleteFirstTimeLoadedInformation{
 

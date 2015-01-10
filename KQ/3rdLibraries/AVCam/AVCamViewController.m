@@ -166,7 +166,7 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
 - (IBAction)captureStillImage:(id)sender
 {
     // Capture a still image
-    [[self stillButton] setEnabled:NO];
+   
     [[self captureManager] captureStillImage];
     
 

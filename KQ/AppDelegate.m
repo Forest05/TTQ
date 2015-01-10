@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 
 #define kFirstVersionKey @"firstVersionKey"
 #define kLastVersionKey @"lastVersionKey"

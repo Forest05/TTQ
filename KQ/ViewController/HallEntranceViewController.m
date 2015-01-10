@@ -57,6 +57,7 @@
     _introduceScrollView.delegate = self;
     
     
+    
     for (int i = 0; i<self.hall.imageTexts.count; i++) {
       
         ImageText *it = self.hall.imageTexts[i];
@@ -128,6 +129,7 @@
     [_scrollView addSubview:hintL];
     
     [_scrollView setBackgroundColor:[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1]];
+
 //    [_scrollView setContentSize:CGSizeMake(0, 500)];
     
     [self.view addSubview:_scrollView];
@@ -136,21 +138,6 @@
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
-    
-   
-//    [[NetworkClient sharedInstance] queryUpdateAvatar:@"1" image:[UIImage imageNamed:@"ibeacon_museum.jpg"] block:^(NSString *str, NSError *error) {
-//        NSLog(@"obj # %@",object);
-        
-//        NSData *data =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
-//        
-//        UIImage *img = [[UIImage alloc] initWithData:data];
-//
-//        NSLog(@"img # %@",img);
-//        
-//        UIImageView *imgV = [[UIImageView alloc] initWithImage:img];
-//        [self.view addSubview:imgV];
-//        imgV.backgroundColor = [UIColor redColor];
-//    }];
     
 }
 
@@ -188,7 +175,7 @@
     }
     else{
 
-        [[TTQRootViewController sharedInstance] toLogin];
+//        [[TTQRootViewController sharedInstance] toLogin];
         
     }
 
@@ -198,7 +185,7 @@
 - (void)back{
 //    [self.navigationController.view removeFromSuperview];
     
-    [[TTQRootViewController sharedInstance] toChooseLang];
+//    [[TTQRootViewController sharedInstance] toChooseLang];
     
 }
 - (void)toUser{
