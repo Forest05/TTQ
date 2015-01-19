@@ -158,6 +158,7 @@
 		850479C319E16F1100459004 /* HallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C219E16F1100459004 /* HallViewController.m */; };
 		850479C619E16F5B00459004 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479C519E16F5B00459004 /* NavigationViewController.m */; };
 		850479D019E17DC400459004 /* DKLiveBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850479CF19E17DC400459004 /* DKLiveBlurView.m */; };
+		851DC52F1A6BD1A400417B91 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85C4AF851A36D7B70085BD04 /* bg.jpg */; };
 		852FD07719EEB6EA006BA3CA /* 分享icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06D19EEB6EA006BA3CA /* 分享icon.png */; };
 		852FD07819EEB6EA006BA3CA /* 进入场馆icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06E19EEB6EA006BA3CA /* 进入场馆icon.png */; };
 		852FD07919EEB6EA006BA3CA /* 评论icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852FD06F19EEB6EA006BA3CA /* 评论icon.png */; };
@@ -393,6 +394,8 @@
 		8578E84519D2977E00F36838 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83C19D2977E00F36838 /* RegisterViewController.m */; };
 		8578E84619D2977E00F36838 /* SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E83E19D2977E00F36838 /* SignViewController.m */; };
 		8578E84919D29A4E00F36838 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8578E84819D29A4E00F36838 /* BeaconManager.m */; };
+		857A67D11A6BCE3500E4B612 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A67CE1A6BCE3500E4B612 /* libMobClickLibrary.a */; };
+		857A67D21A6BCE3500E4B612 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 857A67CE1A6BCE3500E4B612 /* libMobClickLibrary.a */; };
 		857E592919F020F4005B1B3B /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 857E592719F020F4005B1B3B /* 3.txt */; };
 		857E592A19F020F4005B1B3B /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 857E592819F020F4005B1B3B /* TemplateIcon2x.png */; };
 		858021771A35A55A00DFC959 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 858021761A35A55A00DFC959 /* ContainerViewController.m */; };
@@ -651,7 +654,7 @@
 		26E36B8C195132ED0008707A /* LoadMoreTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTableFooterView.m; sourceTree = "<group>"; };
 		26E36BD21951AC6B0008707A /* userCenter_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userCenter_bg.png; sourceTree = "<group>"; };
 		26E36BD41951BA470008707A /* UserCouponsConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserCouponsConfig.plist; sourceTree = "<group>"; };
-		26E3A521192DE02F004F8C8C /* 生活甜甜圈v1.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "生活甜甜圈v1.1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26E3A521192DE02F004F8C8C /* TTQ v1.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTQ v1.1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E3A524192DE02F004F8C8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26E3A526192DE02F004F8C8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26E3A528192DE02F004F8C8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -775,7 +778,7 @@
 		854D0F761A3F0E3D00AD326E /* naviMenu_BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = naviMenu_BG.jpg; sourceTree = "<group>"; };
 		8553F1D91A48246400DE24F4 /* icon_location2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_location2@2x.png"; sourceTree = "<group>"; };
 		8553F1DA1A48246400DE24F4 /* icon_telephone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_telephone@2x.png"; sourceTree = "<group>"; };
-		8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "甜甜圈工具.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8557FD4B1A120E3D00B50830 /* TTQ Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTQ Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8557FD4C1A120E3D00B50830 /* DDXTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DDXTool-Info.plist"; path = "/Users/Forest/Documents/TTQ/项目源代码/iOS/DDX/DDXTool-Info.plist"; sourceTree = "<absolute>"; };
 		8576CDC919ECEBB3003142BE /* ArtNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtNavView.h; sourceTree = "<group>"; };
 		8576CDCA19ECEBB3003142BE /* ArtNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtNavView.m; sourceTree = "<group>"; };
@@ -801,6 +804,9 @@
 		8578E83E19D2977E00F36838 /* SignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignViewController.m; sourceTree = "<group>"; };
 		8578E84719D29A4E00F36838 /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconManager.h; sourceTree = "<group>"; };
 		8578E84819D29A4E00F36838 /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconManager.m; sourceTree = "<group>"; };
+		857A67CE1A6BCE3500E4B612 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		857A67CF1A6BCE3500E4B612 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		857A67D01A6BCE3500E4B612 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		857E592719F020F4005B1B3B /* 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.txt; sourceTree = "<group>"; };
 		857E592819F020F4005B1B3B /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		858021751A35A55A00DFC959 /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
@@ -922,6 +928,7 @@
 				26E14BBF193CB3AF007A7081 /* libz.dylib in Frameworks */,
 				85B17C741A2377250033C9E8 /* TencentOpenAPI.framework in Frameworks */,
 				26E14BBD193CB3A8007A7081 /* libstdc++.dylib in Frameworks */,
+				857A67D11A6BCE3500E4B612 /* libMobClickLibrary.a in Frameworks */,
 				26E14BBB193CB39E007A7081 /* CoreTelephony.framework in Frameworks */,
 				26E3A527192DE02F004F8C8C /* CoreGraphics.framework in Frameworks */,
 				26E14BB9193CB37D007A7081 /* libsqlite3.dylib in Frameworks */,
@@ -964,6 +971,7 @@
 				8557FCD61A120E3D00B50830 /* libz.dylib in Frameworks */,
 				85B17C751A2377250033C9E8 /* TencentOpenAPI.framework in Frameworks */,
 				8557FCD71A120E3D00B50830 /* libstdc++.dylib in Frameworks */,
+				857A67D21A6BCE3500E4B612 /* libMobClickLibrary.a in Frameworks */,
 				8557FCD81A120E3D00B50830 /* CoreTelephony.framework in Frameworks */,
 				8557FCD91A120E3D00B50830 /* CoreGraphics.framework in Frameworks */,
 				8557FCDA1A120E3D00B50830 /* libsqlite3.dylib in Frameworks */,
@@ -1181,9 +1189,9 @@
 		26E3A522192DE02F004F8C8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26E3A521192DE02F004F8C8C /* 生活甜甜圈v1.1.app */,
+				26E3A521192DE02F004F8C8C /* TTQ v1.1.app */,
 				26E3A54A192DE02F004F8C8C /* DDXTests.xctest */,
-				8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */,
+				8557FD4B1A120E3D00B50830 /* TTQ Tool.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1263,6 +1271,7 @@
 		26E3A562192DE042004F8C8C /* 3rdLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				857A67CD1A6BCE3500E4B612 /* UMAnalytics_Sdk_3.1.9 */,
 				858021791A35A9FB00DFC959 /* NavigationMenuView */,
 				85B17C301A2377240033C9E8 /* UMSocial_Sdk_4.2 */,
 				85B17C4B1A2377240033C9E8 /* UMSocial_Sdk_Extra_Frameworks */,
@@ -1532,6 +1541,8 @@
 		26E3A5B2192DE042004F8C8C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				26E14BAC193C81B5007A7081 /* SuperClass */,
+				26E29101193DBBF200B7E0C9 /* UserCenter */,
 				858021741A35A4FD00DFC959 /* archive */,
 				26E3A5D7192DE121004F8C8C /* TTQRootViewController.h */,
 				26E3A5D8192DE121004F8C8C /* TTQRootViewController.m */,
@@ -1553,8 +1564,6 @@
 				858021A41A35B49C00DFC959 /* CameraViewController.m */,
 				854D0F6E1A3EE21E00AD326E /* NaviMenuViewController.h */,
 				854D0F6F1A3EE21E00AD326E /* NaviMenuViewController.m */,
-				26E14BAC193C81B5007A7081 /* SuperClass */,
-				26E29101193DBBF200B7E0C9 /* UserCenter */,
 				26821B4D19530EE2005549D3 /* MapViewController.h */,
 				26821B4E19530EE2005549D3 /* MapViewController.m */,
 			);
@@ -1603,6 +1612,16 @@
 				850479CF19E17DC400459004 /* DKLiveBlurView.m */,
 			);
 			path = BlueView;
+			sourceTree = "<group>";
+		};
+		857A67CD1A6BCE3500E4B612 /* UMAnalytics_Sdk_3.1.9 */ = {
+			isa = PBXGroup;
+			children = (
+				857A67CE1A6BCE3500E4B612 /* libMobClickLibrary.a */,
+				857A67CF1A6BCE3500E4B612 /* MobClick.h */,
+				857A67D01A6BCE3500E4B612 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.1.9;
 			sourceTree = "<group>";
 		};
 		858021741A35A4FD00DFC959 /* archive */ = {
@@ -1782,7 +1801,7 @@
 			);
 			name = DDX;
 			productName = KQ;
-			productReference = 26E3A521192DE02F004F8C8C /* 生活甜甜圈v1.1.app */;
+			productReference = 26E3A521192DE02F004F8C8C /* TTQ v1.1.app */;
 			productType = "com.apple.product-type.application";
 		};
 		26E3A549192DE02F004F8C8C /* DDXTests */ = {
@@ -1821,7 +1840,7 @@
 			);
 			name = DDXTool;
 			productName = KQ;
-			productReference = 8557FD4B1A120E3D00B50830 /* 甜甜圈工具.app */;
+			productReference = 8557FD4B1A120E3D00B50830 /* TTQ Tool.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2071,6 +2090,7 @@
 				85A37D6F1A3FAF0C00A0B6EE /* arrow@2x.png in Resources */,
 				8557FD2F1A120E3D00B50830 /* icon_location@2x.png in Resources */,
 				8557FD311A120E3D00B50830 /* art_13.jpg in Resources */,
+				851DC52F1A6BD1A400417B91 /* bg.jpg in Resources */,
 				8557FD321A120E3D00B50830 /* icon_back@2x.png in Resources */,
 				8530F7AE1A3F3BF20037F3A6 /* icon_menu2@2x.png in Resources */,
 				8557FD331A120E3D00B50830 /* art_11.jpg in Resources */,
@@ -2506,6 +2526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F1611095126B3260EF08665 /* Pods.adhoc.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2524,6 +2545,7 @@
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Sina",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMAnalytics_Sdk_3.1.9",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2658,6 +2680,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0B69AF1BD3A8A94F73193A79 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2676,6 +2699,7 @@
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Sina",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMAnalytics_Sdk_3.1.9",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2701,7 +2725,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "生活甜甜圈v1.1";
+				PRODUCT_NAME = "TTQ v1.1";
 				PROVISIONING_PROFILE = "4EB69DDD-1BBD-49D7-86FF-45FE69872990";
 				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -2713,6 +2737,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D53512939713538DF1F52E9 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2731,6 +2756,7 @@
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Sina",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMAnalytics_Sdk_3.1.9",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2756,7 +2782,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "生活甜甜圈v1.1";
+				PRODUCT_NAME = "生活甜甜圈";
 				PROVISIONING_PROFILE = "609FEA0D-E70D-4F2D-8E8B-0ADE353B1A05";
 				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -2834,6 +2860,7 @@
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_4.2",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMAnalytics_Sdk_3.1.9",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2859,7 +2886,7 @@
 					"-framework",
 					SystemConfiguration,
 				);
-				PRODUCT_NAME = "甜甜圈工具";
+				PRODUCT_NAME = "TTQ Tool";
 				PROVISIONING_PROFILE = "4EB69DDD-1BBD-49D7-86FF-45FE69872990";
 				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -2895,6 +2922,7 @@
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_4.2",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMAnalytics_Sdk_3.1.9",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2956,6 +2984,7 @@
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_4.2",
 					"$(PROJECT_DIR)/KQ/3rdLibraries/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/KQ/3rdLibraries/UMAnalytics_Sdk_3.1.9",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",

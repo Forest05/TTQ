@@ -25,43 +25,6 @@
 
 #define api_updateAvatar         [RESTHOST stringByAppendingFormat:@"/updateAvatar"]
 
-// deprecated...
-//获取最新的优惠券
-#define api_newestCoupons       [RESTHOST stringByAppendingFormat:@"/newestCoupons"]
-
-//搜索优惠券
-#define api_searchCoupons        [RESTHOST stringByAppendingFormat:@"/searchCoupons"]
-
-//获取优惠券
-#define api_coupon              [RESTHOST stringByAppendingFormat:@"/coupon"]
-
-//获取区域
-#define api_district             [RESTHOST stringByAppendingFormat:@"/district"]
-//获取一级区域
-#define api_headDistricts        [RESTHOST stringByAppendingFormat:@"/headDistricts"]
-
-//获取快券类型
-#define api_couponType           [RESTHOST stringByAppendingFormat:@"/couponType"]
-//获取一级类型
-#define api_headCouponTypes       [RESTHOST stringByAppendingFormat:@"/headCouponTypes"]
-
-
-//用户绑定的银行卡
-#define api_my_card             [RESTHOST stringByAppendingFormat:@"/mycard"]
-
-//用户下载的快券
-#define api_my_downloadedCoupon [RESTHOST stringByAppendingFormat:@"/myDownloadedCoupon"]
-
-//用户收藏的快券
-#define api_my_favoritedCoupon  [RESTHOST stringByAppendingFormat:@"/myFavoritedCoupon"]
-///因为delete的参数不能用delete传，只有用get，所以要分开api
-#define api_my_favoritedCoupon_delete(uid,sessionToken,couponId)  [RESTHOST stringByAppendingFormat:@"/myFavoritedCoupon/uid/%@/sessionToken/%@/couponId/%@",uid,sessionToken,couponId]
-
-//用户收藏的商户(总店)
-#define api_my_favoritedShop    [RESTHOST stringByAppendingFormat:@"/myFavoritedShop"]
-
-#define api_my_favoritedShop_delete(uid,sessionToken,shopId)  [RESTHOST stringByAppendingFormat:@"/myFavoritedShop/uid/%@/sessionToken/%@/shopId/%@",uid,sessionToken,shopId]
-
 @interface NetworkClient (){
     
 }
@@ -139,136 +102,6 @@
 
     
     [self getWithUrl:api_updatedTime parameters:nil block:block];
-    
-}
-
-
-- (void)queryCoupon:(NSString*)couponId block:(IdResultBlock)block{
-
-//
-
-    [self getWithUrl:api_coupon parameters:@{@"id":couponId} block:block];
-}
-
-
-- (void)queryNewestCouponsSkip:(int)skip block:(IdResultBlock)block{
-
-    
-    [self getWithUrl:api_newestCoupons parameters:@{@"skip":[NSString stringWithInt:skip]} block:block];
-}
-
-
-/// deprecated
-- (void)queryCouponsWithShop:(NSString*)shopId block:(IdResultBlock)block{
-    
-    NSString *url = [RESTHOST stringByAppendingFormat:@"/coupon"];
-    
-//     NSDictionary *params = @{@"where":[AVOSEngine avosPointerWithField:@"shop" className:@"Shop" objectId:shopId]} ;
-    
-    [self getWithUrl:url parameters:nil block:block];
-}
-
-
-
-
-- (void)queryHeadDistrictsWithBlock:(IdResultBlock)block{
-    
-   
-    [self getWithUrl:api_headDistricts parameters:nil block:block];
-
-}
-
-- (void)queryHeadCouponTypesWithBlock:(IdResultBlock)block{
-
-    [self getWithUrl:api_headCouponTypes parameters:nil block:block];
-}
-
-
-
-///deprecated
-- (void)queryShopBranches:(NSString*)parentId block:(IdResultBlock)block{
-
-
-    NSString *url = [RESTHOST stringByAppendingFormat:@"/shopbranches/parentId/%@",parentId];
-    
-
-       [self getWithUrl:url parameters:nil block:block];
-}
-
-
-- (void)searchCoupons:(NSDictionary*)params block:(IdResultBlock)block{
-
-    [self getWithUrl:api_searchCoupons parameters:params block:block];
-}
-
-#pragma mark - My
-
-- (void)queryCards:(NSString*)uid block:(IdResultBlock)block{
-    
-    [self getWithUrl:api_my_card parameters:@{@"uid":uid} block:block];
-    
-}
-
-- (void)user:(NSString*)uid addCard:(NSString*)cardNumber block:(IdResultBlock)block{
-
-    NSDictionary *params = @{@"uid":uid,@"cardNumber":cardNumber};
-    [self postWithUrl:api_my_card parameters:params block:block];
-}
-
-- (void)queryDownloadedCoupon:(NSString*)uid block:(IdResultBlock)block{
- 
-//    NSDictionary *params = @{@"where":[AVOSEngine avosPointerWithField:@"people" className:@"_User" objectId:uid],
-//                             @"include":@"coupon"};
-
-    NSDictionary *params = @{@"uid":uid};
-    
-    [self getWithUrl:api_my_downloadedCoupon parameters:params block:block];
-}
-
-
-- (void)user:(NSString*)uid downloadCoupon:(NSString*)couponId block:(IdResultBlock)block{
-    
-    
-    [self postWithUrl:api_my_downloadedCoupon parameters:@{@"uid":uid,@"couponId":couponId} block:block];
-}
-
-- (void)queryFavoritedCoupon:(NSString*)uid block:(IdResultBlock)block{
-  
-    [self getWithUrl:api_my_favoritedCoupon parameters:@{@"uid":uid} block:block];
-}
-
-- (void)user:(NSString*)uid sessionToken:(NSString*)sessionToken favoriteCoupon:(NSString*)couponId block:(IdResultBlock)block{
-    
-//    NSString *sessionToken = [[UserController sharedInstance] sessionToken];
-    
-    [self postWithUrl:api_my_favoritedCoupon parameters:@{@"uid":uid,@"couponId":couponId,@"sessionToken":sessionToken} block:block];
-    
-    
-}
-- (void)user:(NSString*)uid sessionToken:(NSString*)sessionToken unfavoriteCoupon:(NSString*)couponId block:(IdResultBlock)block{
-
-
-    [self deleteWithUrl:api_my_favoritedCoupon_delete(uid,sessionToken, couponId) parameters:nil block:block];
-    
-}
-
-
-- (void)queryFavoritedShop:(NSString*)uid block:(IdResultBlock)block{
-  
-    [self getWithUrl:api_my_favoritedShop parameters:@{@"uid":uid} block:block];
-    
-}
-
-
-- (void)user:(NSString*)uid sessionToken:(NSString*)sessionToken favoriteShop:(NSString*)shopId block:(IdResultBlock)block{
-    
-    [self postWithUrl:api_my_favoritedShop parameters:@{@"uid":uid,@"shopId":shopId,@"sessionToken":sessionToken} block:block];
-    
-}
-- (void)user:(NSString*)uid sessionToken:(NSString*)sessionToken unfavoriteShop:(NSString*)shopId block:(IdResultBlock)block{
-
-    
-    [self deleteWithUrl:api_my_favoritedShop_delete(uid,sessionToken, shopId) parameters:nil block:block];
     
 }
 
@@ -434,18 +267,6 @@
 }
 
 
-- (void)testUserAddCard{
-    [self user:@"539560f2e4b08cd56b62cb98" addCard:@"111222333" block:^(id object, NSError *error) {
-        NSLog(@"obj # %@",object);
-    }];
-}
-
-- (void)testQueryCards{
-    [self queryCards:@"539560f2e4b08cd56b62cb98" block:^(id object, NSError *error) {
-        NSLog(@"obj # %@",object);
-    }];
-}
-
 
 - (void)testUserRest{
  
@@ -469,14 +290,6 @@
 }
 
 
-- (void)testSearchCoupon{
-
-    NSDictionary *params = @{@"districtId":@"53956995e4b08cd56b62ec77"};
-    
-    [self getWithUrl:api_searchCoupons parameters:params block:^(id object, NSError *error) {
-        NSLog(@"search obj # %@",object);
-    }];
-}
 
 - (void)test{
     L();

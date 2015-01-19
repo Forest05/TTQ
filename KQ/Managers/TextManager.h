@@ -14,7 +14,6 @@
     
 }
 
-//@property 
 + (id)sharedInstance;
 
 - (NSString*)textWithKey:(NSString*)key;

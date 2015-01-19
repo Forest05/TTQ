@@ -59,11 +59,13 @@
 
 - (void)load{
     
-    UIViewController *oldNaviVC = _navigationVC;
-    UIViewController *oldHallVC = _hallVC;
+    // 切换语言的时候重新 init Pane 和 Drawer
+
+    [_navigationVC.view removeFromSuperview];
+    [_hallVC.view removeFromSuperview];
+    
     
     _navigationVC = [[NavigationViewController alloc] init];
-    
     
     _hallVC = [[HallViewController alloc] init];
     
@@ -85,13 +87,11 @@
     
     
     
-    
-    [self showNavigation];
+    [self showNavigation]; // 设置 Pane
     //    [self showHall];
-    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft];
     
-    [oldNaviVC.view removeFromSuperview];
-    [oldHallVC.view removeFromSuperview];
+    [self setDrawerViewController:_naviMenuVC forDirection:MSDynamicsDrawerDirectionLeft]; // 设置 Drawer
+    
 
 }
 
@@ -116,7 +116,6 @@
 
 - (void)showNavigation{ // 显示智能导览
     
-//    self.title = lang(@"智能导览");
     
     [self setPaneViewController:_navigationVC.nav];
     

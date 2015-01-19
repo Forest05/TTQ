@@ -55,7 +55,6 @@
         NSDictionary *dict = loadArchived(@"hall");
 //        NSLog(@"dict # %@",dict);
         
-//        NSDictionary *dict;
         if (!ISEMPTY(dict)) {
             NSLog(@"if memory has json dict, config hall");
             
@@ -103,6 +102,7 @@
     L();
     
     [[NetworkClient sharedInstance] queryFirstTimeOpenedWithBlock:^(NSDictionary *dict, NSError *error) {
+//        NSLog(@"hall # %@",dict);
         
         
         //第一次载入app用
@@ -128,16 +128,6 @@
         
         
         
-        // 把dict存到resource中去
-        
-        
-//        NSData *jsonData = [NSJSONSerialization
-//                            dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
-//
-//        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-//
-//        NSLog(@"json # %@",str);
-        
         
         
     }];
@@ -153,17 +143,17 @@
     
 //    NSLog(@"params # %@",params);
     
-    float minDistance = [params[@"minDistance"] floatValue];
-    float maxDistance = [params[@"maxDistance"] floatValue];
-//    NSLog(@"min # %f, max # %f",minDistance,maxDistance);
-    
-    if (minDistance * maxDistance >0) {
-        
-        [[NSUserDefaults standardUserDefaults] setFloat:minDistance forKey:@"minDistance"];
-        [[NSUserDefaults standardUserDefaults] setFloat:maxDistance forKey:@"maxDistance"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-    }
+//    float minDistance = [params[@"minDistance"] floatValue];
+//    float maxDistance = [params[@"maxDistance"] floatValue];
+////    NSLog(@"min # %f, max # %f",minDistance,maxDistance);
+//    
+//    if (minDistance * maxDistance >0) {
+//        
+//        [[NSUserDefaults standardUserDefaults] setFloat:minDistance forKey:@"minDistance"];
+//        [[NSUserDefaults standardUserDefaults] setFloat:maxDistance forKey:@"maxDistance"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//        
+//    }
     
     Hall *hall = [[Hall alloc] initWithDict:dict[@"hall"]];
     

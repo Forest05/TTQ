@@ -13,6 +13,7 @@
 
 #import "UIImage+Alpha.h"
 #import "UMSocialSinaHandler.h"
+#import "MobClick.h"
 
 #define kWeixinAppId @"wxcbdb435367bde789"
 #define kWeixinAppSecret @"3ca5784e3c587f9183e9d65941a67c60"
@@ -26,7 +27,11 @@
     
     [self initUmeng];
     
-    
+    NSLog(@"is tool version %d",isToolVersion());
+    NSLog(@"isSmallPhone # %d",  isSmallPhone);    
+    NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
+    NSLog(@"lang # %@",kLang);
+
 //	self.window.rootViewController = [TTQRootViewController sharedInstance];
     
     
@@ -40,7 +45,12 @@
     [UMSocialData setAppKey:kUmengAppKey];
     
     [UMSocialWechatHandler setWXAppId:kWeixinAppId appSecret:kWeixinAppSecret url:@"http://www.51ttq.com"];
-     [UMSocialSinaHandler openSSOWithRedirectURL:@"http://www.51ttq.com"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://www.51ttq.com"];
+    
+    // 分析
+    [MobClick startWithAppkey:kUmengAppKey reportPolicy:BATCH   channelId:@""];
+    // 在线参数
+    [MobClick updateOnlineConfig];
 }
 
 

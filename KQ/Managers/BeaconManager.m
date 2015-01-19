@@ -8,9 +8,9 @@
 
 #import "BeaconManager.h"
 #import "AppManager.h"
+#import "MobClick.h"
 
-#define MinDistance 1
-#define MaxDistance 1.5
+#define kBeanconNum 1
 
 @interface BeaconManager()
 
@@ -39,10 +39,8 @@
 - (id)init{
     
     if (self = [super init]) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
         
-        
+        [self initLocationManager];
         
         AppManager *appManager = [AppManager sharedInstance];
 
@@ -51,8 +49,15 @@
 //        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-C000-000000000029"];
         self.beaconRegion = [[CLBeaconRegion alloc]initWithProximityUUID:uuid major:[appManager.hall.defaultExhibition.major intValue] identifier:uuid.UUIDString];
         
-        _minDistance = [[NSUserDefaults standardUserDefaults] floatForKey:@"minDistance"];
-        _maxDistance = [[NSUserDefaults standardUserDefaults] floatForKey:@"maxDistance"];
+        
+        _minDistance = [[MobClick getConfigParams:@"minDistance"] floatValue];
+        _maxDistance = [[MobClick getConfigParams:@"maxDistance"] floatValue];
+        
+        if (_minDistance < 0.1) { // 如果友盟在线参数没有启动，默认值
+            _minDistance = 0.5;
+            _maxDistance = 1.5;
+        }
+        
         
          NSLog(@"min # %f, max # %f",_minDistance,_maxDistance);
         
@@ -62,16 +67,25 @@
     return self;
 }
 
+- (void)initLocationManager{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    if (isIOS8) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+}
+
 #pragma mark - locationDelegate
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
     
+    
     NSLog(@"did range beacons # %@",beacons);
     
-    if (!ISEMPTY(beacons)) {
+    if (!ISEMPTY(beacons) && isToolVersion()) { // 如果是工具版， 发送 beacon 信息以供调试
         [[NSNotificationCenter defaultCenter] postNotificationName:kListBeaconsNotificationKey object:beacons];
     }
     
-    //判断接近那个beacon，
     
     
     if (self.activatedBeacon) {
@@ -82,9 +96,10 @@
         
         //如果beacon不存在列表中（出错了，或一下子beacon关掉了）或是beacon的距离大于最大距离，都把激活的beacon关掉
         if (!aBeacon || aBeacon.accuracy > _maxDistance || aBeacon.accuracy == -1.0) {
+
             [self closeBeacon:self.activatedBeacon];
             self.activatedBeacon = nil;
-//            [UIAlertView showAlert:@"beacon manager unset activeBeacon" msg:nil];
+
         }
     }
     else{
@@ -102,7 +117,7 @@
            
             self.activatedBeacon = [[TTQBeacon alloc] initWithCLBeacon:closestBeacon];
             NSLog(@"activeBeacon # %@",closestBeacon);
-//            [UIAlertView showAlert:@"beacon manager set activeBeacon" msg:[NSString stringWithInt:self.activatedBeacon.minorValue]];
+            
             [self openBeacon:self.activatedBeacon];
         }
 

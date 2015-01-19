@@ -20,7 +20,7 @@
 }
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong)  CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) TTQBeacon *activatedBeacon;
 
 + (id)sharedInstance;

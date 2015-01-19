@@ -21,6 +21,7 @@
 #import "AppManager.h"
 #import "KQLoginViewController.h"
 #import "TextManager.h"
+#import "MobClick.h"
 
 @interface TTQRootViewController (){
     
@@ -79,10 +80,6 @@
     [self test];
     
     
-    NSLog(@"isSmallPhone # %d",  isSmallPhone);
-  
-    NSLog(@"app # %@,_w # %f, _h # %f",APPNAME,_w,_h);
-    NSLog(@"lang # %@",kLang);
     
     
 //    TTQBeacon *b = [[TTQBeacon alloc] init];
@@ -138,6 +135,7 @@
     setConfig(@"162", @"shareNum");
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
     
     // 载入网络数据
     
@@ -224,13 +222,9 @@
     [[BeaconManager sharedInstance] test];
     [TextManager sharedInstance];
     
-    NSLog(@"is tool version %d",isToolVersion());
+  
     
-    
-//    NSLog(@"lang # %@",TTQLangEn);
-//    [self testNav:@"HallViewController"];
-    
-
+  
 }
 
 @end

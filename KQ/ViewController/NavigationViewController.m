@@ -53,17 +53,19 @@
     
     [self.view addSubview:_tableView];
     
-    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
-    _label.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
-    _label.textColor = [UIColor blackColor];
-    _label.font = [UIFont fontWithName:kFontName size:10];
-    _label.numberOfLines = 0;
-    _label.alpha = 0;
-    [self.view addSubview:_label];
     
     if(isToolVersion()){
-        _label.alpha = 1;
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
+        _label.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
+        _label.textColor = [UIColor blackColor];
+        _label.font = [UIFont fontWithName:kFontName size:10];
+        _label.numberOfLines = 0;
+    
+        [self.view addSubview:_label];
+        
+    
     }
+
 
 
 }
@@ -242,12 +244,13 @@
     
     self.showedArt = art;
     
-    if (_label.superview) {
-        [self.view insertSubview:_artVC.view belowSubview:_label];
-    }
-    else{
-        [self.view addSubview:_artVC.view];
-    }
+//    if (_label.superview) {
+//        [self.view insertSubview:_artVC.view belowSubview:_label];
+//    }
+//    else{
+//        [self.view addSubview:_artVC.view];
+//    }
+    [self.view addSubview:_artVC.view];
     
     [self.view addSubview:_closeBtn];
     [[self.view layer] addAnimation:_animation forKey:@"animation"];
